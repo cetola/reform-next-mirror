@@ -20126,10 +20126,6 @@
 		(uuid "07bc617b-b031-4bd4-8ba8-b24d92ba84f3")
 	)
 	(no_connect
-		(at 88.9 125.73)
-		(uuid "08f57a6e-5db0-47dd-8de3-41f167a591f8")
-	)
-	(no_connect
 		(at 88.9 265.43)
 		(uuid "10265c59-5a66-4f3c-bc9f-4e6382ea92d0")
 	)
@@ -20140,10 +20136,6 @@
 	(no_connect
 		(at 1045.21 152.4)
 		(uuid "11047a32-aad1-4866-8501-3c7cc7d080f8")
-	)
-	(no_connect
-		(at 88.9 118.11)
-		(uuid "117512cc-3255-4138-bc58-5a883cf0f9fc")
 	)
 	(no_connect
 		(at 132.08 245.11)
@@ -20254,6 +20246,10 @@
 		(uuid "50e86d54-7f6b-4bdc-9d7f-c57cd684382b")
 	)
 	(no_connect
+		(at 972.82 139.7)
+		(uuid "51544914-357b-4d02-af94-01e8d55b36c6")
+	)
+	(no_connect
 		(at 132.08 293.37)
 		(uuid "51d5a93d-17d2-447c-b5f0-5f4aa336386c")
 	)
@@ -20268,10 +20264,6 @@
 	(no_connect
 		(at 1045.21 157.48)
 		(uuid "5e51d4e2-804b-4d02-a770-b896ffe626ed")
-	)
-	(no_connect
-		(at 88.9 151.13)
-		(uuid "61fb8e8a-aefa-4fbc-b461-3269f60530ff")
 	)
 	(no_connect
 		(at 88.9 234.95)
@@ -20300,14 +20292,6 @@
 	(no_connect
 		(at 1045.21 175.26)
 		(uuid "7b71f8df-26cf-4ded-bef1-91ee50a43705")
-	)
-	(no_connect
-		(at 88.9 133.35)
-		(uuid "7c97d578-b8cf-4055-84b1-023d883eaf82")
-	)
-	(no_connect
-		(at 88.9 140.97)
-		(uuid "7e1099fd-a39e-481a-b92c-38e63c8a0ac2")
 	)
 	(no_connect
 		(at 132.08 105.41)
@@ -20370,20 +20354,12 @@
 		(uuid "a4199a5c-813b-45f7-8635-9689a0b24674")
 	)
 	(no_connect
-		(at 88.9 120.65)
-		(uuid "a5bac1d9-e684-4da9-9111-514fa698f16e")
-	)
-	(no_connect
 		(at 1045.21 180.34)
 		(uuid "a67af718-814f-4fc0-a54c-d9b19d8f9d1f")
 	)
 	(no_connect
 		(at 132.08 247.65)
 		(uuid "a69dddd4-7f78-43df-9c82-18b4b7475820")
-	)
-	(no_connect
-		(at 88.9 148.59)
-		(uuid "a75a74ef-608a-41b2-ada5-852792fbcbde")
 	)
 	(no_connect
 		(at 1045.21 160.02)
@@ -20412,14 +20388,6 @@
 	(no_connect
 		(at 88.9 242.57)
 		(uuid "b83871c7-0604-4164-991d-f6718144c2b2")
-	)
-	(no_connect
-		(at 88.9 135.89)
-		(uuid "bc6e04d5-0c10-4450-ab69-6af33a1632ab")
-	)
-	(no_connect
-		(at 88.9 128.27)
-		(uuid "be776f15-7c5b-4b84-a370-a88fc04e4eac")
 	)
 	(no_connect
 		(at 1045.21 185.42)
@@ -20466,16 +20434,16 @@
 		(uuid "d48b931c-cb7e-4c44-b3b4-eefa7ac97598")
 	)
 	(no_connect
-		(at 88.9 143.51)
-		(uuid "d531f0f6-37a5-4efe-9eda-95305905bbb1")
-	)
-	(no_connect
 		(at 88.9 250.19)
 		(uuid "d59b5850-51f7-483a-9440-c4297ac0fe78")
 	)
 	(no_connect
 		(at 718.82 279.4)
 		(uuid "d607f0b3-5db8-4427-af5d-b4ff7cd54047")
+	)
+	(no_connect
+		(at 972.82 137.16)
+		(uuid "d615be12-8cb3-499e-a946-5f3324281336")
 	)
 	(no_connect
 		(at 88.9 255.27)
@@ -21574,6 +21542,16 @@
 			(type default)
 		)
 		(uuid "19dff981-ba93-4325-8296-d73d0ad030d7")
+	)
+	(wire
+		(pts
+			(xy 943.61 175.26) (xy 952.5 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a22b271-2225-4b09-97d8-cbd7c8e9362b")
 	)
 	(wire
 		(pts
@@ -29287,6 +29265,16 @@
 	)
 	(wire
 		(pts
+			(xy 935.99 177.8) (xy 943.61 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d65b40e8-a594-4580-8f53-979d4a30f346")
+	)
+	(wire
+		(pts
 			(xy 1052.83 314.96) (xy 1052.83 316.23)
 		)
 		(stroke
@@ -29794,6 +29782,16 @@
 			(type default)
 		)
 		(uuid "e5b43a31-960b-4220-90ea-620f9de0f835")
+	)
+	(wire
+		(pts
+			(xy 948.69 177.8) (xy 952.5 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e5c0c874-09b0-4cfb-b144-f676304e6b92")
 	)
 	(wire
 		(pts
@@ -30477,6 +30475,16 @@
 	)
 	(wire
 		(pts
+			(xy 935.99 175.26) (xy 938.53 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc17490b-df0f-4fe9-a7ea-94c377055328")
+	)
+	(wire
+		(pts
 			(xy 808.99 398.78) (xy 806.45 398.78)
 		)
 		(stroke
@@ -30667,17 +30675,6 @@
 			(justify left bottom)
 		)
 		(uuid "0a43b515-777c-4e54-9de5-f17870a50607")
-	)
-	(text "TODO: PCIe lanes missing"
-		(exclude_from_sim no)
-		(at 38.608 138.938 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0baa6463-e776-4812-8919-fe797957b37a")
 	)
 	(text "current plan:\n- can only use modules that support eDP directly, no mipi-dsi on motherboard"
 		(exclude_from_sim no)
@@ -31295,6 +31292,17 @@
 		)
 		(uuid "a8087d1d-41d0-48bf-adfd-b8734904b7fb")
 	)
+	(text "TODO: not needed?"
+		(exclude_from_sim no)
+		(at 956.31 133.35 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a84e366e-c2a9-4793-a9fe-15512617b64e")
+	)
 	(text "System power (from motherboard)"
 		(exclude_from_sim no)
 		(at 101.6 579.755 0)
@@ -31446,9 +31454,9 @@
 		)
 		(uuid "dbff96ec-8050-409a-8ca0-67a919a95c9b")
 	)
-	(text "TODO: clock synth!"
+	(text "TODO: clock synth! but for now\nwe just recycle PCIe 1's clock"
 		(exclude_from_sim no)
-		(at 939.8 184.912 0)
+		(at 927.1 183.642 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -32298,7 +32306,7 @@
 	)
 	(global_label "PCIE2_TX4_P"
 		(shape input)
-		(at 36.83 133.35 180)
+		(at 88.9 140.97 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -32308,7 +32316,7 @@
 		)
 		(uuid "0c942b3f-1c14-4d17-af7f-3a721054e1da")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.7497 133.35 0)
+			(at 73.8197 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -32492,7 +32500,7 @@
 	)
 	(global_label "PCIE2_RX3_N"
 		(shape input)
-		(at 36.83 138.43 180)
+		(at 88.9 120.65 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -32502,7 +32510,7 @@
 		)
 		(uuid "113066c4-3a90-477e-b1e4-ae5b6cc50d38")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.3868 138.43 0)
+			(at 73.4568 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33186,7 +33194,7 @@
 	)
 	(global_label "PCIE2_TX3_N"
 		(shape input)
-		(at 36.83 146.05 180)
+		(at 88.9 128.27 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -33196,7 +33204,7 @@
 		)
 		(uuid "2c0ff58c-0c91-43c0-93c7-84939b1a2383")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.6892 146.05 0)
+			(at 73.7592 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33877,6 +33885,50 @@
 			)
 		)
 	)
+	(global_label "PCIE2_CLK_P"
+		(shape output)
+		(at 952.5 177.8 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "41dabf4f-3b7a-42c6-8c9b-a42cfa1f035a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 967.7618 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PCIE2_CLK2_P"
+		(shape input)
+		(at 88.9 151.13 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "427a6446-689b-4c29-8c7f-410f1d29e17b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 72.4287 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "RP_SDA1"
 		(shape bidirectional)
 		(at 768.35 231.14 0)
@@ -34114,6 +34166,28 @@
 			)
 		)
 	)
+	(global_label "PCIE1_CLK_P"
+		(shape input)
+		(at 935.99 177.8 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5276070f-b0e3-4fce-83c8-8c22a646c5f2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 920.7282 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "DAC_SCL"
 		(shape input)
 		(at 33.02 203.2 180)
@@ -34179,7 +34253,7 @@
 	)
 	(global_label "PCIE2_TX3_P"
 		(shape input)
-		(at 36.83 148.59 180)
+		(at 88.9 125.73 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -34189,7 +34263,7 @@
 		)
 		(uuid "55e00757-1907-4529-a5d6-0abb1dd76edb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.7497 148.59 0)
+			(at 73.8197 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34659,7 +34733,7 @@
 	)
 	(global_label "PCIE2_RX3_P"
 		(shape input)
-		(at 36.83 140.97 180)
+		(at 88.9 118.11 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -34669,7 +34743,7 @@
 		)
 		(uuid "6c68fb74-8985-4a70-aaec-17603fbb6668")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.4473 140.97 0)
+			(at 73.5173 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34876,7 +34950,7 @@
 	)
 	(global_label "PCIE2_RX4_P"
 		(shape input)
-		(at 36.83 125.73 180)
+		(at 88.9 133.35 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -34886,7 +34960,7 @@
 		)
 		(uuid "77ea4ebd-3bab-474d-951c-20c27f1a8241")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.4473 125.73 0)
+			(at 73.5173 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35344,6 +35418,28 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PCIE2_CLK2_N"
+		(shape input)
+		(at 88.9 148.59 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "83d8eb3f-0d3a-4786-be33-14d5c1bc458d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 72.3682 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -35826,7 +35922,7 @@
 	)
 	(global_label "PCIE2_RX4_N"
 		(shape input)
-		(at 36.83 123.19 180)
+		(at 88.9 135.89 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -35836,7 +35932,29 @@
 		)
 		(uuid "9bcfc824-bead-4058-99ef-435d9c035cbb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.3868 123.19 0)
+			(at 73.4568 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PCIE1_CLK_N"
+		(shape input)
+		(at 935.99 175.26 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9c0b603f-5204-4755-aba2-c4e86ba07c46")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 920.6677 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37261,6 +37379,28 @@
 			)
 		)
 	)
+	(global_label "PCIE2_CLK2_P"
+		(shape input)
+		(at 972.82 139.7 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e209780a-cb02-4b16-bc27-3dcddb7c461d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 956.3487 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "SD_DET"
 		(shape input)
 		(at 59.69 472.44 0)
@@ -37413,6 +37553,28 @@
 			)
 		)
 	)
+	(global_label "PCIE2_CLK_N"
+		(shape output)
+		(at 952.5 175.26 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "eccb370f-8885-44d9-b5a8-02a0055aec11")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 967.8223 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "VPD"
 		(shape bidirectional)
 		(at 116.84 585.47 0)
@@ -37497,6 +37659,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PCIE2_CLK2_N"
+		(shape input)
+		(at 972.82 137.16 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f0322e79-7c04-458d-bacb-ede33ae66f47")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 956.2882 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -37741,7 +37925,7 @@
 	)
 	(global_label "PCIE2_TX4_N"
 		(shape input)
-		(at 36.83 130.81 180)
+		(at 88.9 143.51 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -37751,7 +37935,7 @@
 		)
 		(uuid "f8d61d02-da7c-4078-9fe5-889ef0f1ae03")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 21.6892 130.81 0)
+			(at 73.7592 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -53780,6 +53964,103 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 946.15 177.8 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9ef762f9-9032-46cb-a868-e5e8d38538d6")
+		(property "Reference" "R67"
+			(at 947.42 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "0"
+			(at 945.007 173.7614 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 946.15 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 946.15 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 946.15 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 946.15 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C844710"
+			(at 946.15 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
+			(at 946.15 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5bb02f5d-280b-4d47-8602-a2c2b8fd5009")
+		)
+		(pin "2"
+			(uuid "6aa12b20-482a-4e42-ad54-edbaaaf734c1")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "R67")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 647.7 181.61 0)
 		(mirror y)
@@ -62409,6 +62690,103 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 941.07 175.26 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f24d2634-8e2d-4d98-b860-77d9dd1cb2a7")
+		(property "Reference" "R66"
+			(at 942.34 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "0"
+			(at 939.927 173.7614 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 941.07 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 941.07 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 941.07 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 941.07 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C844710"
+			(at 941.07 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
+			(at 941.07 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e00724e1-f4dd-4f76-a96b-cebb3b4e92c6")
+		)
+		(pin "2"
+			(uuid "d32ccd95-e5df-4a68-9103-8b0dae89b73d")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "R66")
 					(unit 1)
 				)
 			)
