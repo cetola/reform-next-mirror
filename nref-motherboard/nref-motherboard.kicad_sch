@@ -20542,6 +20542,10 @@
 		(uuid "53b2c3a8-a749-43bd-a31d-53a021fe5315")
 	)
 	(no_connect
+		(at 166.37 113.03)
+		(uuid "55b26ea2-7432-40d6-b86b-75d86678d060")
+	)
+	(no_connect
 		(at 111.76 171.45)
 		(uuid "5bfcefd5-8bc3-44a2-bd4c-43ea7f66beef")
 	)
@@ -20576,6 +20580,10 @@
 	(no_connect
 		(at 1068.07 185.42)
 		(uuid "7b71f8df-26cf-4ded-bef1-91ee50a43705")
+	)
+	(no_connect
+		(at 758.19 266.7)
+		(uuid "7f7adbc9-50a7-43d1-91ac-3284bc58281c")
 	)
 	(no_connect
 		(at 154.94 115.57)
@@ -20666,6 +20674,10 @@
 		(uuid "b00c6b43-21cb-4e96-9807-e4710c9b0016")
 	)
 	(no_connect
+		(at 758.19 269.24)
+		(uuid "b0382cfa-6cf5-460d-89e0-b72d9aa62d3b")
+	)
+	(no_connect
 		(at 111.76 255.27)
 		(uuid "b486da64-dc17-4c48-89c0-a0aac7ee355e")
 	)
@@ -20686,6 +20698,10 @@
 		(uuid "bf574667-3693-444f-9fd3-2ad8f5dee7d2")
 	)
 	(no_connect
+		(at 741.68 294.64)
+		(uuid "c082a9d0-63b7-4a4a-b3fe-a6f0a137b6c5")
+	)
+	(no_connect
 		(at 111.76 209.55)
 		(uuid "c5beb596-5053-469d-b54f-98270f9425a9")
 	)
@@ -20700,6 +20716,10 @@
 	(no_connect
 		(at 111.76 115.57)
 		(uuid "ce432d00-39ea-4882-baad-8649c9b21f83")
+	)
+	(no_connect
+		(at 166.37 110.49)
+		(uuid "cfc17d0b-14e6-4cd4-9c09-a2f0385902bf")
 	)
 	(no_connect
 		(at 111.76 250.19)
@@ -20890,16 +20910,6 @@
 			(type default)
 		)
 		(uuid "0271a40d-9026-4800-9348-9587378bc779")
-	)
-	(wire
-		(pts
-			(xy 741.68 294.64) (xy 760.73 294.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "02757cd9-efaa-4984-a2c1-f103058c9dc5")
 	)
 	(wire
 		(pts
@@ -26453,6 +26463,16 @@
 	)
 	(wire
 		(pts
+			(xy 82.55 469.9) (xy 100.33 469.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8aa330ae-90df-422b-86bc-b09b012eee3b")
+	)
+	(wire
+		(pts
 			(xy 480.06 113.03) (xy 487.68 113.03)
 		)
 		(stroke
@@ -28663,7 +28683,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 477.52) (xy 100.33 485.14)
+			(xy 100.33 469.9) (xy 100.33 485.14)
 		)
 		(stroke
 			(width 0)
@@ -30113,16 +30133,6 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 477.52) (xy 100.33 477.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dbf444ac-edc1-4d7c-951a-75620cbc8bce")
-	)
-	(wire
-		(pts
 			(xy 111.76 229.87) (xy 85.09 229.87)
 		)
 		(stroke
@@ -31494,9 +31504,9 @@
 		)
 		(uuid "414fb121-9a6a-4364-a33d-9f9e997dbadb")
 	)
-	(text "UART to SOC"
+	(text "UART 2 (unused)"
 		(exclude_from_sim no)
-		(at 774.7 269.24 0)
+		(at 759.46 269.24 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31686,6 +31696,17 @@
 			(justify left bottom)
 		)
 		(uuid "6c8f6207-2fc2-4653-8d96-1fa789b22e64")
+	)
+	(text "TODO: unaccounted for!"
+		(exclude_from_sim no)
+		(at 849.63 281.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6cf13a80-9353-408d-a6dd-294cd121d396")
 	)
 	(text "MAX 24V"
 		(exclude_from_sim no)
@@ -32022,6 +32043,16 @@
 			)
 		)
 		(uuid "b892f94c-e405-41b1-8fdb-6e9e0575f59e")
+	)
+	(text "connected to LPC on other Reforms"
+		(exclude_from_sim no)
+		(at 185.42 111.76 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "bb576e54-3a83-4a11-8839-535dd434282d")
 	)
 	(text "Control DIP Switch Array"
 		(exclude_from_sim no)
@@ -33202,7 +33233,7 @@
 	)
 	(global_label "SD_D1"
 		(shape bidirectional)
-		(at 82.55 467.36 0)
+		(at 82.55 480.06 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -33212,7 +33243,7 @@
 		)
 		(uuid "12171125-f72d-4115-8e67-fcb22a90a1a7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 90.8009 467.2806 0)
+			(at 90.8009 480.1394 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33593,6 +33624,28 @@
 			)
 		)
 	)
+	(global_label "USB_SRC_EN"
+		(shape output)
+		(at 853.44 285.75 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "23a65977-d570-4d04-9b8d-e26ed75866d8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 867.7385 285.6706 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "HDMI_TX1P"
 		(shape input)
 		(at 111.76 298.45 180)
@@ -33743,28 +33796,6 @@
 			)
 		)
 	)
-	(global_label "RP_UART2_RX"
-		(shape output)
-		(at 166.37 110.49 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "2a4e8705-2a7f-4abc-894a-757d4de369ae")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 181.5152 110.4106 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "PCIE2_CLK_N"
 		(shape input)
 		(at 154.94 156.21 0)
@@ -33896,7 +33927,7 @@
 	)
 	(global_label "SD_CMD"
 		(shape output)
-		(at 82.55 474.98 0)
+		(at 82.55 472.44 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -33906,7 +33937,7 @@
 		)
 		(uuid "2ce230ca-c1b5-4eab-a203-310ddc8e4487")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 92.3128 474.9006 0)
+			(at 92.3128 472.5194 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34784,7 +34815,7 @@
 	)
 	(global_label "SD_CLK"
 		(shape output)
-		(at 82.55 480.06 0)
+		(at 82.55 467.36 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -34794,7 +34825,7 @@
 		)
 		(uuid "49876e7b-2da0-4afc-a8a9-a04f35719f6c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 91.8894 479.9806 0)
+			(at 91.8894 467.4394 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35587,6 +35618,28 @@
 			)
 		)
 	)
+	(global_label "RP_FUSB_INT"
+		(shape input)
+		(at 853.44 288.29 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6d49079f-8c55-46b6-a551-7d9e66b5e107")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 868.0409 288.2106 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "IMX_UART1_RX"
 		(shape input)
 		(at 157.48 232.41 0)
@@ -35976,7 +36029,7 @@
 	)
 	(global_label "SD_D0"
 		(shape bidirectional)
-		(at 82.55 464.82 0)
+		(at 82.55 482.6 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -35986,7 +36039,7 @@
 		)
 		(uuid "7fd2432e-ccc1-438c-9e02-287ae0436005")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 90.8009 464.7406 0)
+			(at 90.8009 482.6794 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36301,7 +36354,7 @@
 	)
 	(global_label "SD_D3"
 		(shape bidirectional)
-		(at 82.55 472.44 0)
+		(at 82.55 474.98 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -36311,7 +36364,7 @@
 		)
 		(uuid "85d2fd89-1b1f-44cd-aa5d-3ccd4730bfb4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 90.8009 472.3606 0)
+			(at 90.8009 475.0594 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36691,7 +36744,7 @@
 	)
 	(global_label "SD_D2"
 		(shape bidirectional)
-		(at 82.55 469.9 0)
+		(at 82.55 477.52 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -36701,7 +36754,7 @@
 		)
 		(uuid "9913b29f-eed3-47a5-a23e-67f64d1abd00")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 90.8009 469.8206 0)
+			(at 90.8009 477.5994 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36968,28 +37021,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "1V1_ENABLE"
-		(shape output)
-		(at 760.73 294.64 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "a4914a9a-f876-4d65-b778-fd26f1052890")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 774.5447 294.5606 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 				(hide yes)
 			)
 		)
@@ -37496,28 +37527,6 @@
 			)
 		)
 	)
-	(global_label "RP_UART2_RX"
-		(shape input)
-		(at 758.19 269.24 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "b850601e-8437-4514-bf81-518e8ef5db0e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 773.3352 269.1606 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "RP_SCL0"
 		(shape output)
 		(at 163.83 647.7 0)
@@ -37618,28 +37627,6 @@
 		(uuid "bb894a72-380f-4468-aaf2-3851f2a941fa")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 1032.51 -170.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "RP_UART2_TX"
-		(shape input)
-		(at 166.37 113.03 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "bcc46273-d596-4ddc-90ff-dc635e5c9d3c")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 181.2128 112.9506 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -38281,7 +38268,7 @@
 	)
 	(global_label "SD_DET"
 		(shape input)
-		(at 82.55 482.6 0)
+		(at 82.55 464.82 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -38291,7 +38278,7 @@
 		)
 		(uuid "e211c47c-ed91-4af9-9a65-a2e2b61a6546")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 91.708 482.6794 0)
+			(at 91.708 464.7406 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -38688,28 +38675,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "RP_UART2_TX"
-		(shape output)
-		(at 758.19 266.7 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "f42dc0d0-e85c-4f59-a024-7542482d1c04")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 773.0328 266.6206 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 				(hide yes)
 			)
 		)
@@ -41596,7 +41561,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_SM10B-SRSS-TB_1x10-1MP_P1.00mm_Horizontal"
+		(property "Footprint" "Connector_FFC-FPC:Hirose_FH12-10S-0.5SH_1x10-1MP_P0.50mm_Horizontal"
 			(at 119.38 472.44 0)
 			(effects
 				(font
@@ -57933,7 +57898,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_SM10B-SRSS-TB_1x10-1MP_P1.00mm_Horizontal"
+		(property "Footprint" "Connector_FFC-FPC:Hirose_FH12-10S-0.5SH_1x10-1MP_P0.50mm_Horizontal"
 			(at 77.47 472.44 0)
 			(effects
 				(font
