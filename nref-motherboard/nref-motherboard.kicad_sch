@@ -31699,7 +31699,7 @@
 	)
 	(text "TODO: unaccounted for!"
 		(exclude_from_sim no)
-		(at 849.63 281.94 0)
+		(at 849.63 275.59 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31805,6 +31805,17 @@
 			(justify left bottom)
 		)
 		(uuid "7fed4551-af81-4052-b340-e29eadf5028d")
+	)
+	(text "could we do this as I2C GPIO on power input board?"
+		(exclude_from_sim no)
+		(at 849.63 280.67 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8149f177-b48a-4ae2-b67b-d5adf9f35c77")
 	)
 	(text "TODO: more cap?"
 		(exclude_from_sim no)
@@ -65332,7 +65343,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0402_1005Metric"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
 			(at 528.32 537.21 90)
 			(effects
 				(font
