@@ -30013,6 +30013,16 @@
 	)
 	(wire
 		(pts
+			(xy 525.78 165.1) (xy 525.78 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8acfd5a-5adc-4254-a035-3b4a53fb206b")
+	)
+	(wire
+		(pts
 			(xy 110.49 120.65) (xy 111.76 120.65)
 		)
 		(stroke
@@ -31772,6 +31782,16 @@
 			)
 		)
 		(uuid "78f28370-057b-4fa8-837a-a9c4a2402598")
+	)
+	(text "TODO: connect to rp2040?"
+		(exclude_from_sim no)
+		(at 50.8 189.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "79184721-f16e-43a5-994e-23822bd7af57")
 	)
 	(text "PERn1"
 		(exclude_from_sim no)
@@ -40241,6 +40261,71 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "C50")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 525.78 165.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0c953473-d6cd-48e2-94ab-cee8c1de6b62")
+		(property "Reference" "#PWR077"
+			(at 525.78 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 525.78 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 525.78 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 525.78 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 525.78 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a2f7015c-0513-4467-a249-4c0a0e725459")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "#PWR077")
 					(unit 1)
 				)
 			)
