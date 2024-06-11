@@ -480,7 +480,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "reflex-gerbers-d1",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "nref-motherboard.step",

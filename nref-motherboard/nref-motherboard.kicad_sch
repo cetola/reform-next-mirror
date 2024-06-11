@@ -4901,6 +4901,108 @@
 				)
 			)
 		)
+		(symbol "Connector:TestPoint"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.762) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector_Generic:Conn_01x20"
 			(pin_names
 				(offset 1.016) hide)
@@ -11306,6 +11408,88 @@
 								(size 1.27 1.27)
 							)
 						)
+					)
+				)
+			)
+		)
+		(symbol "Mechanical:MountingHole"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole without connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 			)
@@ -21390,10 +21574,6 @@
 		(uuid "a876239a-ad17-426d-a6bc-1589e3bc577a")
 	)
 	(no_connect
-		(at 864.87 469.9)
-		(uuid "ad455f17-6a4c-4075-bb67-1b0276917821")
-	)
-	(no_connect
 		(at 154.94 245.11)
 		(uuid "add5fecf-4093-4ee6-b838-3c875ca3fe67")
 	)
@@ -21420,10 +21600,6 @@
 	(no_connect
 		(at 111.76 255.27)
 		(uuid "b486da64-dc17-4c48-89c0-a0aac7ee355e")
-	)
-	(no_connect
-		(at 864.87 467.36)
-		(uuid "b679ea60-c336-48ea-b2b2-f961876f6485")
 	)
 	(no_connect
 		(at 154.94 306.07)
@@ -22544,6 +22720,16 @@
 			(type default)
 		)
 		(uuid "16132938-0c58-47fd-9d57-0c041f80becf")
+	)
+	(wire
+		(pts
+			(xy 904.24 486.41) (xy 904.24 487.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1615eee2-155f-46fc-93bf-e6b5c7232068")
 	)
 	(wire
 		(pts
@@ -24907,6 +25093,16 @@
 	)
 	(wire
 		(pts
+			(xy 251.46 407.67) (xy 251.46 408.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ba735f2-e404-44c1-af79-c1657f42415f")
+	)
+	(wire
+		(pts
 			(xy 414.02 86.36) (xy 414.02 93.98)
 		)
 		(stroke
@@ -25684,6 +25880,16 @@
 			(type default)
 		)
 		(uuid "5fd09968-84c3-406e-b144-f65703609ad7")
+	)
+	(wire
+		(pts
+			(xy 904.24 476.25) (xy 897.89 476.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "605e1320-1094-40b3-8657-0e79c0d9cbb3")
 	)
 	(wire
 		(pts
@@ -27407,6 +27613,16 @@
 	)
 	(wire
 		(pts
+			(xy 897.89 486.41) (xy 904.24 486.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85f2990c-081c-4a33-8798-946cad182798")
+	)
+	(wire
+		(pts
 			(xy 213.36 656.59) (xy 213.36 652.78)
 		)
 		(stroke
@@ -28614,6 +28830,16 @@
 			(type default)
 		)
 		(uuid "a051daf2-a3a2-4170-a1d1-df261c57db3c")
+	)
+	(wire
+		(pts
+			(xy 245.11 407.67) (xy 251.46 407.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a05b9e75-23c8-4c9b-af6e-c39bf86632f3")
 	)
 	(wire
 		(pts
@@ -29857,6 +30083,16 @@
 	)
 	(wire
 		(pts
+			(xy 251.46 397.51) (xy 245.11 397.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bab56e13-0a95-4a3c-af46-e3d604440f82")
+	)
+	(wire
+		(pts
 			(xy 530.86 220.98) (xy 525.78 220.98)
 		)
 		(stroke
@@ -30854,6 +31090,16 @@
 			(type default)
 		)
 		(uuid "ced2fed7-b8f2-4d59-b3a5-965a935f1cab")
+	)
+	(wire
+		(pts
+			(xy 904.24 477.52) (xy 904.24 476.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cef8ed8e-4377-48d8-9196-d11f6d86e0bb")
 	)
 	(wire
 		(pts
@@ -32247,6 +32493,16 @@
 	)
 	(wire
 		(pts
+			(xy 251.46 398.78) (xy 251.46 397.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f463ad3c-9a85-41df-89ee-5c37cda37789")
+	)
+	(wire
+		(pts
 			(xy 448.31 185.42) (xy 448.31 182.88)
 		)
 		(stroke
@@ -32976,9 +33232,9 @@
 		)
 		(uuid "5e275204-8186-4e75-b2d8-9b4d46947cec")
 	)
-	(text "TODO: extra usb"
+	(text "extra internal usb"
 		(exclude_from_sim no)
-		(at 875.284 469.138 0)
+		(at 901.954 470.408 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -33365,6 +33621,16 @@
 			(justify left bottom)
 		)
 		(uuid "a8087d1d-41d0-48bf-adfd-b8734904b7fb")
+	)
+	(text "TODO: AUX for DP?"
+		(exclude_from_sim no)
+		(at 249.174 391.668 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a96b0600-026e-4da6-ae32-78f175864bdb")
 	)
 	(text "System power (from motherboard)"
 		(exclude_from_sim no)
@@ -35607,21 +35873,22 @@
 	)
 	(global_label "HDMI_AUXN"
 		(shape input)
-		(at 229.87 383.54 0)
+		(at 245.11 407.67 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "357e63bc-9bac-42ee-bb37-e1fefc102818")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 403.86 -191.77 0)
+			(at 231.5414 407.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -36857,6 +37124,50 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "USB2D_DP"
+		(shape bidirectional)
+		(at 897.89 476.25 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6620c2f4-7fa5-4c35-b96a-698b057e13c9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 883.9964 476.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "USB2D_DN"
+		(shape bidirectional)
+		(at 864.87 467.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "67cb59a8-5b9d-446f-909a-0b356d424a81")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 878.8241 467.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -38487,6 +38798,28 @@
 			)
 		)
 	)
+	(global_label "USB2D_DP"
+		(shape bidirectional)
+		(at 864.87 469.9 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "aad97843-1a9a-4d0b-a455-93ed28f4721c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 878.7636 469.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "STANDBY_3V3"
 		(shape input)
 		(at 1070.61 397.51 0)
@@ -39264,6 +39597,28 @@
 		(uuid "d285adf7-db00-412a-b0df-254a2a725ffe")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 668.7843 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "USB2D_DN"
+		(shape bidirectional)
+		(at 897.89 486.41 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d30910a3-a5a7-477a-aaf9-91102b41ef9b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 883.9359 486.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -40233,21 +40588,22 @@
 	)
 	(global_label "HDMI_AUXP"
 		(shape input)
-		(at 229.87 381 0)
+		(at 245.11 397.51 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "fe19ecf0-26e3-4b51-9797-e35e9d00bb71")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 403.86 -191.77 0)
+			(at 231.6019 397.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -40930,6 +41286,73 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "R41")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 904.24 487.68 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "067c2953-c9a1-4ae3-bfb6-5a208ac4f9c4")
+		(property "Reference" "TP2"
+			(at 906.78 489.7119 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 906.78 492.2519 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 899.16 487.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 899.16 487.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 904.24 487.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4151771b-20aa-4435-bee9-4b78f4c050c7")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "TP2")
 					(unit 1)
 				)
 			)
@@ -46612,6 +47035,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 699.77 575.31 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3de24046-70d4-4a01-8886-e9706af5e6b3")
+		(property "Reference" "H7"
+			(at 702.31 574.0399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BADGE"
+			(at 702.31 576.5799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "footprints:nref-motherboard-badge"
+			(at 699.77 575.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 699.77 575.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 699.77 575.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "H7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 229.87 647.7 90)
 		(unit 1)
@@ -47028,6 +47515,73 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "C67")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 251.46 408.94 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "41096091-a46a-418c-83ea-84952c6a76b4")
+		(property "Reference" "TP4"
+			(at 254 410.9719 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 254 413.5119 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 246.38 408.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 246.38 408.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 251.46 408.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0e710034-9012-401c-b317-95932c36b554")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -49430,6 +49984,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 904.24 477.52 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5f5675af-ac6f-422d-ae02-cc2ccb7bcddd")
+		(property "Reference" "TP1"
+			(at 906.78 479.5519 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 906.78 482.0919 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 899.16 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 899.16 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 904.24 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8f63b936-96f1-46b4-8c9a-138c19345e7f")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 781.05 125.73 0)
 		(unit 1)
@@ -50708,6 +51329,70 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "R28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 699.77 568.96 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "678589bf-6908-48cd-812b-3893e2f1c85f")
+		(property "Reference" "H6"
+			(at 702.31 567.6899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LOGO"
+			(at 702.31 570.2299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "footprints:nref-reflex-logo"
+			(at 699.77 568.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 699.77 568.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 699.77 568.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "H6")
 					(unit 1)
 				)
 			)
@@ -52630,6 +53315,73 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "Y3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 251.46 398.78 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "72618669-d708-45e5-8c5b-9d21a2419c92")
+		(property "Reference" "TP3"
+			(at 254 400.8119 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 254 403.3519 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+			(at 246.38 398.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 246.38 398.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 251.46 398.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3a2525b2-c656-44d7-97af-4da00ee7f77d")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "TP3")
 					(unit 1)
 				)
 			)
