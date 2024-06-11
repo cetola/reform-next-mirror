@@ -1,0 +1,154 @@
+
+(kicad_symbol_lib (version 20211014) (generator kicad_symbol_editor)
+  (symbol "692121230100" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (property "Reference" "P" (id 0) (at 0.0 13.9969 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Value" "692121230100" (id 1) (at 0.0 -15.2485 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Footprint" "692121230100:WURTH_692121230100" (id 2) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MF" "Wurth Electronics" (id 4) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Description" "\nUSB-A (USB TYPE-A) USB 3.2 Gen 1 (USB 3.1 Gen 1, Superspeed (USB 3.0)) Receptacle Connector 9 Position Board Edge, Cutout; Through Hole, Right Angle\n" (id 5) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Package" "None" (id 6) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Price" "None" (id 7) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Check_prices" "https://www.snapeda.com/parts/692121230100/Wurth+Electronics+Inc./view-part/?ref=eda" (id 8) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "SnapEDA_Link" "https://www.snapeda.com/parts/692121230100/Wurth+Electronics+Inc./view-part/?ref=snap" (id 9) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MP" "692121230100" (id 10) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Availability" "In Stock" (id 11) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MANUFACTURER" "Wurth Elektronik" (id 12) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (symbol "692121230100_0_0"
+      (polyline
+        (pts (xy 0.0 12.7) (xy -2.54 10.16)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy -2.54 -10.16) (xy 0.0 -12.7)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 0.0 10.16) (xy 2.54 10.16)) (stroke (width 0.762))
+      )
+      (polyline
+        (pts (xy 0.0 7.62) (xy 2.54 7.62)) (stroke (width 0.762))
+      )
+      (polyline
+        (pts (xy 0.0 5.08) (xy 2.54 5.08)) (stroke (width 0.762))
+      )
+      (polyline
+        (pts (xy 0.0 2.54) (xy 2.54 2.54)) (stroke (width 0.762))
+      )
+      (polyline
+        (pts (xy 0.0 0.0) (xy 2.54 0.0)) (stroke (width 0.762))
+      )
+      (polyline
+        (pts (xy 0.0 -2.54) (xy 2.54 -2.54)) (stroke (width 0.762))
+      )
+      (polyline
+        (pts (xy 0.0 -5.08) (xy 2.54 -5.08)) (stroke (width 0.762))
+      )
+      (polyline
+        (pts (xy 0.0 -7.62) (xy 2.54 -7.62)) (stroke (width 0.762))
+      )
+      (polyline
+        (pts (xy 0.0 -10.16) (xy 2.54 -10.16)) (stroke (width 0.762))
+      )
+      (polyline
+        (pts (xy -1.27 10.16) (xy -1.27 -10.16)) (stroke (width 0.762))
+      )
+      (rectangle (start -1.96272727273 -12.7) (end 5.65727272727 12.7)
+        (stroke (width 0.254)) (fill (type background))
+      )
+      (pin passive line (at -5.08 10.16 0) (length 5.08)
+        (name "1"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -5.08 7.62 0) (length 5.08)
+        (name "2"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -5.08 5.08 0) (length 5.08)
+        (name "3"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -5.08 2.54 0) (length 5.08)
+        (name "4"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "4"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -5.08 0.0 0) (length 5.08)
+        (name "5"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "5"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -5.08 -2.54 0) (length 5.08)
+        (name "6"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "6"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -5.08 -5.08 0) (length 5.08)
+        (name "7"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "7"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -5.08 -7.62 0) (length 5.08)
+        (name "8"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "8"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -5.08 -10.16 0) (length 5.08)
+        (name "9"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "9"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+  )
+)
