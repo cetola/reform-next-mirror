@@ -119,6 +119,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -131,6 +132,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -143,6 +145,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -228,6 +231,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -240,6 +244,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -252,6 +257,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -301,7 +307,7 @@
 	(footprint "footprints:HD0919MSMTTR"
 		(layer "F.Cu")
 		(uuid "31f62b02-fc76-4610-bff1-15767aaba1ac")
-		(at 112.7 90.6)
+		(at 111.35 90.6)
 		(descr "HD09-19-MSMT-TR-3")
 		(tags "Connector")
 		(property "Reference" "J4"
@@ -337,6 +343,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -349,6 +356,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -361,6 +369,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -769,7 +778,7 @@
 	(footprint "footprints:WURTH_692121230100"
 		(layer "F.Cu")
 		(uuid "4e369fa4-d5c7-42a2-92fc-ecd912a8d155")
-		(at 141 94 180)
+		(at 155.5 94 180)
 		(property "Reference" "J3"
 			(at -0.02855 -1.63745 0)
 			(unlocked yes)
@@ -802,6 +811,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -814,6 +824,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -826,6 +837,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -965,7 +977,7 @@
 	(footprint "footprints:MOLEX_105450-0101"
 		(layer "F.Cu")
 		(uuid "6f7a17e5-1f50-4cdd-8aa4-0c0341bd2b0e")
-		(at 159.9 83.8 180)
+		(at 135.68 83.8 180)
 		(property "Reference" "J2"
 			(at -0.000875 -5.327165 0)
 			(unlocked yes)
@@ -998,6 +1010,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1010,6 +1023,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1022,6 +1036,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1456,7 +1471,7 @@
 			)
 			(polygon
 				(pts
-					(xy 163.40241 85.68) (xy 156.4 85.68) (xy 156.4 80.0274) (xy 163.40241 80.0274)
+					(xy 139.18241 85.68) (xy 132.18 85.68) (xy 132.18 80.0274) (xy 139.18241 80.0274)
 				)
 			)
 		)
@@ -1475,7 +1490,7 @@
 	(footprint "footprints:MOLEX_105450-0101"
 		(layer "F.Cu")
 		(uuid "ba06053f-45c3-416f-8891-7baa8fef86c3")
-		(at 176.9 83.8 180)
+		(at 175 83.8 180)
 		(property "Reference" "J1"
 			(at -0.000875 -5.327165 0)
 			(unlocked yes)
@@ -1508,6 +1523,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1520,6 +1536,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1532,6 +1549,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1966,7 +1984,7 @@
 			)
 			(polygon
 				(pts
-					(xy 180.40241 85.68) (xy 173.4 85.68) (xy 173.4 80.0274) (xy 180.40241 80.0274)
+					(xy 178.50241 85.68) (xy 171.5 85.68) (xy 171.5 80.0274) (xy 178.50241 80.0274)
 				)
 			)
 		)
@@ -1983,7 +2001,7 @@
 		)
 	)
 	(gr_rect
-		(start 100 80)
+		(start 100.5 80)
 		(end 188 104.9)
 		(stroke
 			(width 0.05)

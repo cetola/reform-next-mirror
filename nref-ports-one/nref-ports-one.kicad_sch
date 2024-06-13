@@ -15680,16 +15680,6 @@
 		)
 		(uuid "20928371-fc85-4982-a384-6654b08a62a0")
 	)
-	(text "TODO: wrong pinout"
-		(exclude_from_sim no)
-		(at 198.12 393.7 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "2732ac14-5d95-4933-a95b-c5bed7ef213a")
-	)
 	(text "USB-C port 1 with PD charging"
 		(exclude_from_sim no)
 		(at 58.42 43.18 0)
@@ -15723,6 +15713,16 @@
 		)
 		(uuid "4d4d8cbf-e1b4-4200-b6a9-00ca27a49b9c")
 	)
+	(text "Ring 1"
+		(exclude_from_sim no)
+		(at 160.02 398.78 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5388b263-be1c-4b0b-ac9a-465ffa002789")
+	)
 	(text "Audio"
 		(exclude_from_sim no)
 		(at 105.41 331.47 0)
@@ -15733,6 +15733,16 @@
 			(justify left bottom)
 		)
 		(uuid "5b783754-5a19-4f9d-a452-a9eb04049e36")
+	)
+	(text "Sleeve"
+		(exclude_from_sim no)
+		(at 160.02 393.7 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "63a12988-f4e0-4e3f-8b9e-c96160b65f0f")
 	)
 	(text "SD VCC"
 		(exclude_from_sim no)
@@ -15766,9 +15776,9 @@
 		)
 		(uuid "8acdd40b-7b6d-4f8d-8eee-99b6f1363315")
 	)
-	(text "Headset jack"
+	(text "Headset jack CTIA"
 		(exclude_from_sim no)
-		(at 187.96 389.89 0)
+		(at 167.64 389.89 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15776,6 +15786,16 @@
 			(justify left bottom)
 		)
 		(uuid "916977ce-2a4b-4c1a-9257-139a36fc3ed0")
+	)
+	(text "Tip"
+		(exclude_from_sim no)
+		(at 160.02 396.24 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "91fd83df-e1da-46b9-b4d2-0bfe6860b6bb")
 	)
 	(text "Power Interface\n(not flipped)"
 		(exclude_from_sim no)
@@ -15787,6 +15807,16 @@
 			(justify left bottom)
 		)
 		(uuid "99425656-27f6-4862-99de-863edad800b4")
+	)
+	(text "Ring 2"
+		(exclude_from_sim no)
+		(at 160.02 402.59 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9a5d8784-48bd-404e-85f2-d32955d2417c")
 	)
 	(text "I2S Audio\n(flipped)"
 		(exclude_from_sim no)
