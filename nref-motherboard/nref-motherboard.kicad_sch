@@ -21430,6 +21430,10 @@
 		(uuid "49d007ba-ceeb-4963-be47-f93ed1236aa2")
 	)
 	(no_connect
+		(at 370.84 231.14)
+		(uuid "4a35d6b4-42d4-4b8d-b600-7a359bb356e2")
+	)
+	(no_connect
 		(at 864.87 449.58)
 		(uuid "4b7d5c5f-22f7-48b2-8d0f-6d9c034e5efe")
 	)
@@ -21486,12 +21490,20 @@
 		(uuid "74493855-63be-44b5-b1c4-444a2ddc2d77")
 	)
 	(no_connect
+		(at 370.84 226.06)
+		(uuid "7817d60f-ea16-4ed8-8454-e795a20f362a")
+	)
+	(no_connect
 		(at 154.94 240.03)
 		(uuid "7a6cd29e-705f-450e-b8e7-b15469a17af5")
 	)
 	(no_connect
 		(at 1068.07 185.42)
 		(uuid "7b71f8df-26cf-4ded-bef1-91ee50a43705")
+	)
+	(no_connect
+		(at 345.44 226.06)
+		(uuid "7d52b9a3-1ade-4125-a165-342f890a3c47")
 	)
 	(no_connect
 		(at 853.44 285.75)
@@ -21578,12 +21590,20 @@
 		(uuid "add5fecf-4093-4ee6-b838-3c875ca3fe67")
 	)
 	(no_connect
+		(at 370.84 228.6)
+		(uuid "ade4cac1-71c5-4ca6-8744-43a5d141f202")
+	)
+	(no_connect
 		(at 154.94 85.09)
 		(uuid "aec4a815-8faa-4545-aca3-4e98b6ffad40")
 	)
 	(no_connect
 		(at 154.94 224.79)
 		(uuid "aece89de-7c90-4439-acf7-62a5b9e8c1ba")
+	)
+	(no_connect
+		(at 345.44 228.6)
+		(uuid "afab6b58-be3d-4184-92a7-e246e6d53c6f")
 	)
 	(no_connect
 		(at 741.68 307.34)
@@ -21600,6 +21620,10 @@
 	(no_connect
 		(at 111.76 255.27)
 		(uuid "b486da64-dc17-4c48-89c0-a0aac7ee355e")
+	)
+	(no_connect
+		(at 345.44 231.14)
+		(uuid "b61a5ade-e169-4a84-8b8b-236675745b63")
 	)
 	(no_connect
 		(at 154.94 306.07)
@@ -32985,6 +33009,16 @@
 		)
 		(uuid "0c31da0d-dd5b-47e1-b0a0-a44faa47da1e")
 	)
+	(text "TODO: electrolytic\n"
+		(exclude_from_sim no)
+		(at 586.74 397.51 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0f1e7514-1623-482f-a43f-408ef3a133c2")
+	)
 	(text "Rff"
 		(exclude_from_sim no)
 		(at 574.802 225.044 0)
@@ -33275,6 +33309,16 @@
 		)
 		(uuid "6182c1ae-1a50-4104-8a27-bc088a40a69e")
 	)
+	(text "TODO: electrolytic\n"
+		(exclude_from_sim no)
+		(at 389.89 382.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "64206c20-620e-47dd-a8c5-060c35c41e58")
+	)
 	(text "Power Interface"
 		(exclude_from_sim no)
 		(at 130.81 572.77 0)
@@ -33501,6 +33545,16 @@
 			(justify left bottom)
 		)
 		(uuid "8f2c6250-7354-4b0f-9be0-1962a07475b5")
+	)
+	(text "TODO: 10A with LM61495-Q1"
+		(exclude_from_sim no)
+		(at 510.54 191.77 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "922541d3-90c5-43ee-b279-a06e514f9f13")
 	)
 	(text "PETp1"
 		(exclude_from_sim no)
@@ -33826,6 +33880,16 @@
 			(justify left bottom)
 		)
 		(uuid "e57961e4-8e2f-43bb-8293-868a23bd59b8")
+	)
+	(text "TODO: actually 29.4k,\n29.8k doesn't really exist"
+		(exclude_from_sim no)
+		(at 533.4 485.14 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e61b4112-5f79-42b6-8d52-e3cf2a3111b4")
 	)
 	(text "NRH3012T220MN"
 		(exclude_from_sim no)
@@ -40770,7 +40834,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Device" "D"
+		(property "Manufacturer" "Taiwan Semi"
 			(at 407.67 297.18 0)
 			(effects
 				(font
@@ -40779,7 +40843,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Pins" "1=K 2=A"
+		(property "Manufacturer_No" "TS4148 RCG"
 			(at 407.67 297.18 0)
 			(effects
 				(font
@@ -40858,6 +40922,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Samsung"
+			(at 344.17 494.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05A104KA5NNNC"
+			(at 344.17 494.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "85fb2501-6fb2-4a21-99e4-21d13b0e1c29")
 		)
@@ -40925,7 +41007,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Device" "D"
+		(property "Manufacturer" "Diodes"
 			(at 364.49 434.34 0)
 			(effects
 				(font
@@ -40934,7 +41016,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Pins" "1=K 2=A"
+		(property "Manufacturer_No" "SBR1A20T5-7"
 			(at 364.49 434.34 0)
 			(effects
 				(font
@@ -41298,7 +41380,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "067c2953-c9a1-4ae3-bfb6-5a208ac4f9c4")
 		(property "Reference" "TP2"
@@ -41346,6 +41428,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "DNP"
+			(at 904.24 487.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
+			(at 904.24 487.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4151771b-20aa-4435-bee9-4b78f4c050c7")
 		)
@@ -41375,7 +41475,7 @@
 				)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "0.1uF"
 			(at 358.1336 402.59 90)
 			(effects
 				(font
@@ -41402,6 +41502,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 358.14 396.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 358.14 396.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 358.14 396.24 0)
 			(effects
 				(font
@@ -41507,7 +41625,7 @@
 				)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "0.1uF"
 			(at 519.4236 402.59 90)
 			(effects
 				(font
@@ -41542,6 +41660,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Samsung"
+			(at 519.43 396.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
+			(at 519.43 396.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ef700014-89f1-47aa-9d51-956760f6bda5")
 		)
@@ -41565,7 +41701,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "084833e8-d12e-4635-a068-7b1bef6680b4")
 		(property "Reference" "H3"
@@ -41605,6 +41741,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 647.7 575.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 647.7 575.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 647.7 575.31 0)
 			(effects
 				(font
@@ -41811,7 +41965,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "HR(Joint Tech Elec)"
+		(property "Manufacturer" "JST"
 			(at 127 598.17 0)
 			(effects
 				(font
@@ -41829,7 +41983,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "A2001WR-S-09PD01"
+		(property "Manufacturer_No" "SM09B-SRSS-TB"
 			(at 127 598.17 0)
 			(effects
 				(font
@@ -41924,6 +42078,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 514.35 411.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 514.35 411.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05Y474KP5VPJC"
 			(at 514.35 411.48 0)
 			(effects
 				(font
@@ -42336,16 +42508,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402KRX7R7BB104"
-			(at 820.42 394.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 820.42 394.97 0)
 			(effects
 				(font
@@ -42355,6 +42518,15 @@
 			)
 		)
 		(property "LCSC" "C60474"
+			(at 820.42 394.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 820.42 394.97 0)
 			(effects
 				(font
@@ -42806,7 +42978,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Samsung"
+		(property "Manufacturer" "Murata"
 			(at 915.67 121.92 0)
 			(effects
 				(font
@@ -42815,7 +42987,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL05B104KO5NNNC"
+		(property "Manufacturer_No" "GRM155C61E475ME15D"
 			(at 915.67 121.92 0)
 			(effects
 				(font
@@ -42966,7 +43138,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 161.29 222.25 0)
 			(effects
 				(font
@@ -42975,7 +43147,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 161.29 222.25 0)
 			(effects
 				(font
@@ -43067,6 +43239,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Vishay"
+			(at 220.98 645.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
+			(at 220.98 645.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d8f3c294-0867-425e-8459-5c3783822459")
 		)
@@ -43136,15 +43326,6 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402FRNPO9BN180"
-			(at 753.11 444.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Yageo"
 			(at 753.11 444.5 0)
 			(effects
@@ -43155,6 +43336,15 @@
 			)
 		)
 		(property "LCSC" "C541431"
+			(at 753.11 444.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CC0402JRNPO9BN180"
 			(at 753.11 444.5 0)
 			(effects
 				(font
@@ -43222,6 +43412,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 77.47 426.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Hirose"
+			(at 77.47 426.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "FH12-12S-0.5SH(55)"
 			(at 77.47 426.72 0)
 			(effects
 				(font
@@ -43526,6 +43734,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Hirose"
+			(at 119.38 472.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "FH12-10S-0.5SH(55)"
+			(at 119.38 472.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "7"
 			(uuid "de26dbdb-f547-4ad4-97ff-946bedcfcd1b")
 		)
@@ -43618,7 +43844,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Device" "D"
+		(property "Manufacturer" "Taiwan Semi"
 			(at 407.67 284.48 0)
 			(effects
 				(font
@@ -43627,7 +43853,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Pins" "1=K 2=A"
+		(property "Manufacturer_No" "TS4148 RCG"
 			(at 407.67 284.48 0)
 			(effects
 				(font
@@ -43724,7 +43950,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402FR-07100KL"
 			(at 548.64 224.79 0)
 			(effects
 				(font
@@ -44594,16 +44820,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402KRX7R7BB104"
-			(at 861.06 394.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 861.06 394.97 0)
 			(effects
 				(font
@@ -44613,6 +44830,15 @@
 			)
 		)
 		(property "LCSC" "C60474"
+			(at 861.06 394.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 861.06 394.97 0)
 			(effects
 				(font
@@ -44690,15 +44916,6 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402FRNPO9BN180"
-			(at 923.29 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Yageo"
 			(at 923.29 153.67 0)
 			(effects
@@ -44709,6 +44926,15 @@
 			)
 		)
 		(property "LCSC" "C541431"
+			(at 923.29 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CC0402JRNPO9BN180"
 			(at 923.29 153.67 0)
 			(effects
 				(font
@@ -44855,7 +45081,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "XKB"
+		(property "Manufacturer" "C&K"
 			(at 792.48 130.81 0)
 			(effects
 				(font
@@ -44864,7 +45090,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "TS-1185EC-C-D-B"
+		(property "Manufacturer_No" "KMR2"
 			(at 792.48 130.81 0)
 			(effects
 				(font
@@ -44981,7 +45207,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "25b272a0-b4f5-461c-baa5-fff7ffde33bc")
 		(property "Reference" "R53"
@@ -45021,6 +45247,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 328.93 506.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 328.93 506.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 328.93 506.73 0)
 			(effects
 				(font
@@ -45271,6 +45515,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 328.93 494.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-071ML"
+			(at 328.93 494.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b3cf492d-07ef-44d1-b8ca-e43f32913877")
 		)
@@ -45358,7 +45620,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM188R60J476ME15D"
+		(property "Manufacturer_No" "GRM187R61A226ME15D"
 			(at 535.94 158.75 0)
 			(effects
 				(font
@@ -45429,6 +45691,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 328.93 514.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo "
+			(at 328.93 514.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0727K4L"
 			(at 328.93 514.35 0)
 			(effects
 				(font
@@ -45799,7 +46079,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "2f460d09-c6f7-46c2-b5c4-6f46b83e9787")
 		(property "Reference" "H4"
@@ -45839,6 +46119,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 652.78 582.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 652.78 582.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 652.78 582.93 0)
 			(effects
 				(font
@@ -46194,6 +46492,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Vishay"
+			(at 463.55 510.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
+			(at 463.55 510.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "01f8af83-6db0-4c04-890b-b90ab2d48203")
 		)
@@ -46256,6 +46572,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 530.86 468.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo "
+			(at 530.86 468.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-07249KL"
 			(at 530.86 468.63 0)
 			(effects
 				(font
@@ -46939,7 +47273,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
+		(property "Manufacturer_No" "CL05A104KA5NNNC"
 			(at 448.31 246.38 0)
 			(effects
 				(font
@@ -47041,7 +47375,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "3de24046-70d4-4a01-8886-e9706af5e6b3")
 		(property "Reference" "H7"
@@ -47081,6 +47415,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
+			(at 699.77 575.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 699.77 575.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 699.77 575.31 0)
 			(effects
 				(font
@@ -47142,6 +47494,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 229.87 647.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 229.87 647.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 229.87 647.7 0)
 			(effects
 				(font
@@ -47335,7 +47705,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
+		(property "Manufacturer_No" "CL10A474KB8NNNC"
 			(at 487.68 144.78 0)
 			(effects
 				(font
@@ -47496,7 +47866,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM188R60J476ME15D"
+		(property "Manufacturer_No" "GRM187R61A226ME15D"
 			(at 515.62 224.79 0)
 			(effects
 				(font
@@ -47527,7 +47897,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "41096091-a46a-418c-83ea-84952c6a76b4")
 		(property "Reference" "TP4"
@@ -47567,6 +47937,24 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 251.46 408.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 251.46 408.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 251.46 408.94 0)
 			(effects
 				(font
@@ -47800,7 +48188,7 @@
 				)
 			)
 		)
-		(property "Value" "5.24k"
+		(property "Value" "5.23k"
 			(at 519.43 490.22 90)
 			(effects
 				(font
@@ -47827,6 +48215,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 514.35 490.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 514.35 490.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "AC0402FR-075K23L"
 			(at 514.35 490.22 0)
 			(effects
 				(font
@@ -48122,7 +48528,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402FR-07100KL"
 			(at 548.64 158.75 0)
 			(effects
 				(font
@@ -48595,7 +49001,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
+		(property "Manufacturer_No" "CL10A474KB8NNNC"
 			(at 436.88 144.78 0)
 			(effects
 				(font
@@ -48800,7 +49206,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-07100KL"
+		(property "Manufacturer_No" "RC0402FR-071KL"
 			(at 394.97 223.52 0)
 			(effects
 				(font
@@ -48885,7 +49291,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "SM04B-SRSS-TB(LF)(SN)"
+		(property "Manufacturer_No" "SM04B-SRSS-TB"
 			(at 1043.94 321.31 0)
 			(effects
 				(font
@@ -49270,7 +49676,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM188R60J476ME15D"
+		(property "Manufacturer_No" "GRM187R61A226ME15D"
 			(at 525.78 158.75 0)
 			(effects
 				(font
@@ -49339,6 +49745,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 514.35 386.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Ohmite"
+			(at 514.35 386.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "LVT12R0050FER"
 			(at 514.35 386.08 0)
 			(effects
 				(font
@@ -49553,6 +49977,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Taiyo Yuden"
+			(at 388.62 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "TMK325ABJ476MM-P"
+			(at 388.62 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8e1a4b02-512a-4247-9110-2f45018a86b7")
 		)
@@ -49638,7 +50080,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 494.03 227.33 0)
 			(effects
 				(font
@@ -49746,7 +50188,7 @@
 				)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "0.1uF"
 			(at 368.2936 402.59 90)
 			(effects
 				(font
@@ -49773,6 +50215,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 368.3 396.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 368.3 396.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 368.3 396.24 0)
 			(effects
 				(font
@@ -49858,7 +50318,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "SM02B-SRSS-TB(LF)(SN)"
+		(property "Manufacturer_No" "SM02B-SRSS-TB"
 			(at 294.64 184.15 0)
 			(effects
 				(font
@@ -49941,7 +50401,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay"
+		(property "Manufacturer" "Bourns"
 			(at 506.73 220.98 0)
 			(effects
 				(font
@@ -49950,7 +50410,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C511026"
+		(property "LCSC" ""
 			(at 506.73 220.98 0)
 			(effects
 				(font
@@ -49959,7 +50419,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "IHLP4040DZER150M11"
+		(property "Manufacturer_No" "SRP6030CA-2R2M"
 			(at 506.73 220.98 0)
 			(effects
 				(font
@@ -49990,7 +50450,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "5f5675af-ac6f-422d-ae02-cc2ccb7bcddd")
 		(property "Reference" "TP1"
@@ -50030,6 +50490,24 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 904.24 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 904.24 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 904.24 477.52 0)
 			(effects
 				(font
@@ -50343,7 +50821,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Seiko Epson"
+		(property "Manufacturer" "Kyocera AVX"
 			(at 640.08 276.86 0)
 			(effects
 				(font
@@ -50352,7 +50830,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "Q22FA23V0041800"
+		(property "Manufacturer_No" "CX3225GB12000P0HPQCC"
 			(at 640.08 276.86 0)
 			(effects
 				(font
@@ -50470,7 +50948,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
+		(property "Manufacturer_No" "CL10A474KB8NNNC"
 			(at 487.68 210.82 0)
 			(effects
 				(font
@@ -50669,7 +51147,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM188R60J476ME15D"
+		(property "Manufacturer_No" "GRM187R61A226ME15D"
 			(at 535.94 224.79 0)
 			(effects
 				(font
@@ -50747,16 +51225,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402KRX7R7BB104"
-			(at 758.19 466.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 758.19 466.09 0)
 			(effects
 				(font
@@ -50766,6 +51235,15 @@
 			)
 		)
 		(property "LCSC" "C60474"
+			(at 758.19 466.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 758.19 466.09 0)
 			(effects
 				(font
@@ -50862,7 +51340,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "65f18eab-ad9e-4ad7-8e61-a57d7d167355")
 		(property "Reference" "H2"
@@ -50902,6 +51380,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 642.62 568.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 642.62 568.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 642.62 568.96 0)
 			(effects
 				(font
@@ -51044,6 +51540,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 401.32 406.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "NVMFD6H840NLWFT1G"
+			(at 401.32 406.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "onsemi"
 			(at 401.32 406.4 0)
 			(effects
 				(font
@@ -51205,6 +51719,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "JST"
+			(at 191.77 454.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "SM06B-SRSS-TB"
+			(at 191.77 454.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "19274790-d868-42d4-ad00-d232f234cf3a")
 		)
@@ -51341,7 +51873,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "678589bf-6908-48cd-812b-3893e2f1c85f")
 		(property "Reference" "H6"
@@ -51381,6 +51913,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
+			(at 699.77 568.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 699.77 568.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 699.77 568.96 0)
 			(effects
 				(font
@@ -51759,16 +52309,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay / Dale"
-			(at 788.67 474.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CRCW040250K0FKED"
+		(property "Manufacturer" "Yageo"
 			(at 788.67 474.98 0)
 			(effects
 				(font
@@ -51778,6 +52319,15 @@
 			)
 		)
 		(property "LCSC" ""
+			(at 788.67 474.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0747KL"
 			(at 788.67 474.98 0)
 			(effects
 				(font
@@ -52241,6 +52791,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_No" "NVMFD6H840NLWFT1G"
+			(at 401.32 422.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "onsemi"
+			(at 401.32 422.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "397cc18f-03b8-4adc-847d-bfccc67fa5e4")
 		)
@@ -52520,7 +53088,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM188R60J476ME15D"
+		(property "Manufacturer_No" "GRM187R61A226ME15D"
 			(at 530.86 224.79 0)
 			(effects
 				(font
@@ -52935,6 +53503,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_No" "USB2514B/M2"
+			(at 836.93 452.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Microchip"
+			(at 836.93 452.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "dab74d51-627e-41d9-a836-c0c00867ba13")
 		)
@@ -53063,7 +53649,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "713e68c2-588d-4f5c-abd5-0000dc7e9d77")
 		(property "Reference" "H5"
@@ -53103,6 +53689,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 657.86 589.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 657.86 589.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 657.86 589.28 0)
 			(effects
 				(font
@@ -53177,16 +53781,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay / Dale"
-			(at 782.32 472.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CRCW040250K0FKED"
+		(property "Manufacturer" "Yageo"
 			(at 782.32 472.44 0)
 			(effects
 				(font
@@ -53196,6 +53791,15 @@
 			)
 		)
 		(property "LCSC" ""
+			(at 782.32 472.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0747KL"
 			(at 782.32 472.44 0)
 			(effects
 				(font
@@ -53272,16 +53876,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
-			(at 918.21 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Abracon"
 			(at 918.21 148.59 0)
 			(effects
 				(font
@@ -53291,6 +53886,15 @@
 			)
 		)
 		(property "LCSC" ""
+			(at 918.21 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "ABM8G-25.000MHZ-18-D2Y-T"
 			(at 918.21 148.59 0)
 			(effects
 				(font
@@ -53327,7 +53931,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "72618669-d708-45e5-8c5b-9d21a2419c92")
 		(property "Reference" "TP3"
@@ -53367,6 +53971,24 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 251.46 398.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 251.46 398.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 251.46 398.78 0)
 			(effects
 				(font
@@ -53692,7 +54314,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
+		(property "Manufacturer" "Yageo"
 			(at 749.3 226.06 0)
 			(effects
 				(font
@@ -53701,7 +54323,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "0402WGF274JTCE"
+		(property "Manufacturer_No" "RC0402FR-0727R4L"
 			(at 749.3 226.06 0)
 			(effects
 				(font
@@ -53888,6 +54510,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Murata"
+			(at 368.3 523.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "GRM155C61E475ME15D"
+			(at 368.3 523.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6e03c0ae-6cf2-4759-8154-efa68eb5cb38")
 		)
@@ -53948,6 +54588,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 425.45 414.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Bourns"
+			(at 425.45 414.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "SRP6060FA-100M"
 			(at 425.45 414.02 0)
 			(effects
 				(font
@@ -54018,6 +54676,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 354.33 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 354.33 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0710RL"
 			(at 354.33 391.16 0)
 			(effects
 				(font
@@ -54184,7 +54860,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM188R60J476ME15D"
+		(property "Manufacturer_No" "GRM187R61A226ME15D"
 			(at 530.86 158.75 0)
 			(effects
 				(font
@@ -54262,16 +54938,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay / Dale"
-			(at 801.37 429.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CRCW04020000Z0EDC"
+		(property "Manufacturer" "Vishay"
 			(at 801.37 429.26 0)
 			(effects
 				(font
@@ -54281,6 +54948,15 @@
 			)
 		)
 		(property "LCSC" "C844710"
+			(at 801.37 429.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 801.37 429.26 0)
 			(effects
 				(font
@@ -54522,6 +55198,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 530.86 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0729K4L"
+			(at 530.86 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "14f2f8c6-b07f-4138-b3f2-f78f94b7c909")
 		)
@@ -54687,6 +55381,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "JST"
+			(at 77.47 511.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "SM06B-SRSS-TB"
+			(at 77.47 511.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ddb04288-7904-4501-a6d9-9ba7174e69fb")
 		)
@@ -54786,7 +55498,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM188R60J476ME15D"
+		(property "Manufacturer_No" "GRM187R61A226ME15D"
 			(at 515.62 158.75 0)
 			(effects
 				(font
@@ -55165,6 +55877,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Murata"
+			(at 389.89 523.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "GRM155C61E475ME15D"
+			(at 389.89 523.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "25c7109e-66e2-4725-9b8e-b1c4181b4453")
 		)
@@ -55234,16 +55964,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay / Dale"
-			(at 796.29 477.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CRCW040250K0FKED"
+		(property "Manufacturer" "Yageo"
 			(at 796.29 477.52 0)
 			(effects
 				(font
@@ -55253,6 +55974,15 @@
 			)
 		)
 		(property "LCSC" ""
+			(at 796.29 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0747KL"
 			(at 796.29 477.52 0)
 			(effects
 				(font
@@ -55323,6 +56053,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 548.64 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 548.64 477.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0720KL"
 			(at 548.64 477.52 0)
 			(effects
 				(font
@@ -55467,15 +56215,6 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402FRNPO9BN180"
-			(at 739.14 444.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Yageo"
 			(at 739.14 444.5 0)
 			(effects
@@ -55486,6 +56225,15 @@
 			)
 		)
 		(property "LCSC" "C541431"
+			(at 739.14 444.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CC0402JRNPO9BN180"
 			(at 739.14 444.5 0)
 			(effects
 				(font
@@ -55654,7 +56402,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-073K16L"
+		(property "Manufacturer_No" "RC0402FR-0724K9L"
 			(at 548.64 175.26 0)
 			(effects
 				(font
@@ -55701,7 +56449,7 @@
 				)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "0.1uF"
 			(at 393.6936 420.37 90)
 			(effects
 				(font
@@ -55728,6 +56476,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 393.7 414.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 393.7 414.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 393.7 414.02 0)
 			(effects
 				(font
@@ -55805,15 +56571,6 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402FRNPO9BN180"
-			(at 909.32 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Yageo"
 			(at 909.32 153.67 0)
 			(effects
@@ -55824,6 +56581,15 @@
 			)
 		)
 		(property "LCSC" "C541431"
+			(at 909.32 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CC0402JRNPO9BN180"
 			(at 909.32 153.67 0)
 			(effects
 				(font
@@ -56310,7 +57076,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay"
+		(property "Manufacturer" "Pulse"
 			(at 506.73 154.94 0)
 			(effects
 				(font
@@ -56319,7 +57085,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C511026"
+		(property "LCSC" ""
 			(at 506.73 154.94 0)
 			(effects
 				(font
@@ -56328,7 +57094,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "IHLP4040DZER150M11"
+		(property "Manufacturer_No" "PM2205.332NLT"
 			(at 506.73 154.94 0)
 			(effects
 				(font
@@ -56664,7 +57430,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-073K16L"
+		(property "Manufacturer_No" "RC0402FR-0743K2L"
 			(at 548.64 241.3 0)
 			(effects
 				(font
@@ -57404,6 +58170,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 485.14 502.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0710KL"
+			(at 485.14 502.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "150b3bfa-e1e9-4d7b-ab6d-afd8c45ab224")
 		)
@@ -57489,7 +58273,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "SM04B-SRSS-TB(LF)(SN)"
+		(property "Manufacturer_No" "SM04B-SRSS-TB"
 			(at 1051.56 400.05 0)
 			(effects
 				(font
@@ -57563,6 +58347,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 77.47 377.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Hirose"
+			(at 77.47 377.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "FH12-12S-0.5SH(55)"
 			(at 77.47 377.19 0)
 			(effects
 				(font
@@ -57984,7 +58786,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-071ML"
+		(property "LCSC" ""
 			(at 754.38 401.32 0)
 			(effects
 				(font
@@ -57993,7 +58795,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "Manufacturer_No" "RC0402FR-071ML"
 			(at 754.38 401.32 0)
 			(effects
 				(font
@@ -58143,6 +58945,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_No" "NVMFD6H840NLWFT1G"
+			(at 449.58 406.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "onsemi"
+			(at 449.58 406.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "397cc18f-03b8-4adc-847d-bfccc67fa5e5")
 		)
@@ -58221,6 +59041,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x07, script generated"
+			(at 111.76 645.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "JST"
+			(at 111.76 645.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "SM07B-SRSS-TB"
 			(at 111.76 645.16 0)
 			(effects
 				(font
@@ -58396,7 +59234,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 494.03 161.29 0)
 			(effects
 				(font
@@ -58470,6 +59308,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 156.21 647.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 156.21 647.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 156.21 647.7 0)
 			(effects
 				(font
@@ -58817,6 +59673,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 523.24 499.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0710KL"
+			(at 523.24 499.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1778abf8-3cc1-4dcf-9f23-12711c3d85a3")
 		)
@@ -58877,6 +59751,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 467.36 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments "
+			(at 467.36 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "LM62460QRPHRQ1"
 			(at 467.36 160.02 0)
 			(effects
 				(font
@@ -58995,6 +59887,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Ohmite"
+			(at 363.22 386.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "LVT12R0050FER"
+			(at 363.22 386.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "fdead9ee-5664-441a-a5c1-468d0f472bc5")
 		)
@@ -59055,6 +59965,24 @@
 			)
 		)
 		(property "Description" "8x DIP Switch, Single Pole Single Throw (SPST) switch, small symbol"
+			(at 426.72 631.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "CTS"
+			(at 426.72 631.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "218-8LPSTJ"
 			(at 426.72 631.19 0)
 			(effects
 				(font
@@ -59204,7 +60132,7 @@
 				)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "0.1uF"
 			(at 468.6236 420.37 90)
 			(effects
 				(font
@@ -59231,6 +60159,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 468.63 414.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 468.63 414.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 468.63 414.02 0)
 			(effects
 				(font
@@ -59663,123 +60609,21 @@
 				(hide yes)
 			)
 		)
-		(property "MF" "Texas Instruments"
+		(property "Manufacturer" "Texas Instruments"
 			(at 425.45 488.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" "1.00mm"
+		(property "Manufacturer_No" "BQ25756RRVR"
 			(at 425.45 488.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Package" "VFQFN-36 Texas Instruments"
-			(at 425.45 488.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Price" "None"
-			(at 425.45 488.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" "https://www.snapeda.com/parts/BQ25756RRVR/Texas+Instruments/view-part/?ref=eda"
-			(at 427.99 535.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" "Manufacturer Recommendations"
-			(at 425.45 488.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "PARTREV" "August 2023"
-			(at 425.45 488.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/BQ25756RRVR/Texas+Instruments/view-part/?ref=snap"
-			(at 426.72 532.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MP" "BQ25756RRVR"
-			(at 425.45 488.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Purchase-URL" "https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=14913022&manufacturer=Texas Instruments&part_name=BQ25756RRVR&search_term=None"
-			(at 424.18 539.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Availability" "In Stock"
-			(at 425.45 488.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" "Texas Instruments"
-			(at 425.45 488.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
@@ -60228,16 +61072,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402KRX7R7BB104"
-			(at 850.9 394.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 850.9 394.97 0)
 			(effects
 				(font
@@ -60247,6 +61082,15 @@
 			)
 		)
 		(property "LCSC" "C60474"
+			(at 850.9 394.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 850.9 394.97 0)
 			(effects
 				(font
@@ -60325,16 +61169,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402KRX7R7BB104"
-			(at 810.26 394.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 810.26 394.97 0)
 			(effects
 				(font
@@ -60344,6 +61179,15 @@
 			)
 		)
 		(property "LCSC" "C60474"
+			(at 810.26 394.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 810.26 394.97 0)
 			(effects
 				(font
@@ -60414,6 +61258,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 494.03 393.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Taiyo Yuden"
+			(at 494.03 393.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "TMK325ABJ476MM-P"
 			(at 494.03 393.7 0)
 			(effects
 				(font
@@ -60746,7 +61608,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM188R60J476ME15D"
+		(property "Manufacturer_No" "GRM187R61A226ME15D"
 			(at 520.7 224.79 0)
 			(effects
 				(font
@@ -61063,7 +61925,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "Q13FC1350000200"
+		(property "Manufacturer_No" "RT3215-32.768-12.5-TR"
 			(at 1017.27 494.03 90)
 			(effects
 				(font
@@ -61072,7 +61934,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Seiko Epson"
+		(property "Manufacturer" "Raltron"
 			(at 1017.27 494.03 90)
 			(effects
 				(font
@@ -61150,6 +62012,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x10, script generated"
+			(at 77.47 472.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Hirose"
+			(at 77.47 472.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "FH12-10S-0.5SH(55)"
 			(at 77.47 472.44 0)
 			(effects
 				(font
@@ -61419,16 +62299,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402KRX7R7BB104"
-			(at 800.1 394.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 800.1 394.97 0)
 			(effects
 				(font
@@ -61438,6 +62309,15 @@
 			)
 		)
 		(property "LCSC" "C60474"
+			(at 800.1 394.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 800.1 394.97 0)
 			(effects
 				(font
@@ -61810,7 +62690,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-07100KL"
+		(property "Manufacturer_No" "RC0402FR-071KL"
 			(at 375.92 220.98 0)
 			(effects
 				(font
@@ -61907,7 +62787,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402FR-074K99L"
 			(at 562.61 224.79 0)
 			(effects
 				(font
@@ -61975,6 +62855,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 803.91 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 803.91 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0710KL"
 			(at 803.91 280.67 0)
 			(effects
 				(font
@@ -62068,7 +62966,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "SM04B-SRSS-TB(LF)(SN)"
+		(property "Manufacturer_No" "SM04B-SRSS-TB"
 			(at 1010.92 321.31 0)
 			(effects
 				(font
@@ -62226,16 +63124,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402KRX7R7BB104"
-			(at 789.94 394.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 789.94 394.97 0)
 			(effects
 				(font
@@ -62245,6 +63134,15 @@
 			)
 		)
 		(property "LCSC" "C60474"
+			(at 789.94 394.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 789.94 394.97 0)
 			(effects
 				(font
@@ -62340,7 +63238,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM188R60J476ME15D"
+		(property "Manufacturer_No" "GRM187R61A226ME15D"
 			(at 525.78 224.79 0)
 			(effects
 				(font
@@ -62416,6 +63314,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Yageo "
+			(at 551.18 382.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0603JR-070RL"
+			(at 551.18 382.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "79899ffa-cda5-4d86-b2d5-bbcb8255a444")
 		)
@@ -62476,6 +63392,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 147.32 645.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 147.32 645.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 147.32 645.16 0)
 			(effects
 				(font
@@ -62643,7 +63577,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
+		(property "Manufacturer_No" "CL10A474KB8NNNC"
 			(at 436.88 210.82 0)
 			(effects
 				(font
@@ -62721,16 +63655,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay / Dale"
-			(at 803.91 480.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CRCW040250K0FKED"
+		(property "Manufacturer" "Yageo"
 			(at 803.91 480.06 0)
 			(effects
 				(font
@@ -62740,6 +63665,15 @@
 			)
 		)
 		(property "LCSC" ""
+			(at 803.91 480.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0747KL"
 			(at 803.91 480.06 0)
 			(effects
 				(font
@@ -62826,7 +63760,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Wurth"
+		(property "Manufacturer" "Würth"
 			(at 1106.17 146.05 0)
 			(effects
 				(font
@@ -63024,6 +63958,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "JST"
+			(at 182.88 645.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "SM07B-SRSS-TB"
+			(at 182.88 645.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "6"
 			(uuid "cc4cee47-8e68-4da2-b956-74a5190007dc")
 		)
@@ -63108,16 +64060,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CC0402KRX7R7BB104"
-			(at 767.08 468.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 767.08 468.63 0)
 			(effects
 				(font
@@ -63127,6 +64070,15 @@
 			)
 		)
 		(property "LCSC" "C60474"
+			(at 767.08 468.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 767.08 468.63 0)
 			(effects
 				(font
@@ -63319,7 +64271,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM188R60J476ME15D"
+		(property "Manufacturer_No" "GRM187R61A226ME15D"
 			(at 520.7 158.75 0)
 			(effects
 				(font
@@ -63397,7 +64349,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Device" "D"
+		(property "Manufacturer" "Diodes"
 			(at 474.98 426.72 0)
 			(effects
 				(font
@@ -63406,7 +64358,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Pins" "1=K 2=A"
+		(property "Manufacturer_No" "SBR1A20T5-7"
 			(at 474.98 426.72 0)
 			(effects
 				(font
@@ -63564,7 +64516,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-071ML"
+		(property "LCSC" ""
 			(at 764.54 447.04 0)
 			(effects
 				(font
@@ -63573,7 +64525,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "Manufacturer_No" "RC0402FR-071ML"
 			(at 764.54 447.04 0)
 			(effects
 				(font
@@ -63998,7 +64950,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 487.68 107.95 0)
 			(effects
 				(font
@@ -64007,7 +64959,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 487.68 107.95 0)
 			(effects
 				(font
@@ -64110,7 +65062,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
+		(property "Manufacturer_No" "CL05A104KA5NNNC"
 			(at 448.31 180.34 0)
 			(effects
 				(font
@@ -64181,6 +65133,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 505.46 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 505.46 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0710RL"
 			(at 505.46 391.16 0)
 			(effects
 				(font
@@ -64623,7 +65593,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402FR-074K99L"
 			(at 562.61 158.75 0)
 			(effects
 				(font
@@ -64691,6 +65661,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 477.52 505.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 477.52 505.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0710KL"
 			(at 477.52 505.46 0)
 			(effects
 				(font
@@ -64916,16 +65904,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "TSX-3225 24.0000MF10Z-C3 "
-			(at 748.03 439.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Epson Timing"
+		(property "Manufacturer" "Abracon"
 			(at 748.03 439.42 0)
 			(effects
 				(font
@@ -64935,6 +65914,15 @@
 			)
 		)
 		(property "LCSC" "C70571"
+			(at 748.03 439.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "ABM8G-24.000MHZ-18-D2Y-T"
 			(at 748.03 439.42 0)
 			(effects
 				(font
@@ -65079,6 +66067,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 542.29 382.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo "
+			(at 542.29 382.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0603JR-070RL"
 			(at 542.29 382.27 0)
 			(effects
 				(font
@@ -65232,6 +66238,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_No" "NVMFD6H840NLWFT1G"
+			(at 449.58 422.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "onsemi"
+			(at 449.58 422.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "71fb8b7d-0ce1-4ae4-9e6d-0aa2de62c37d")
 		)
@@ -65326,7 +66350,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
+		(property "Manufacturer" "Yageo"
 			(at 749.3 228.6 0)
 			(effects
 				(font
@@ -65335,7 +66359,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "0402WGF274JTCE"
+		(property "Manufacturer_No" "RC0402FR-0727R4L"
 			(at 749.3 228.6 0)
 			(effects
 				(font
@@ -65800,7 +66824,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-1312KL"
+		(property "LCSC" ""
 			(at 797.56 449.58 0)
 			(effects
 				(font
@@ -65809,7 +66833,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "Manufacturer_No" "RC0402FR-0712KL"
 			(at 797.56 449.58 0)
 			(effects
 				(font
@@ -65976,6 +67000,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 454.66 519.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo "
+			(at 454.66 519.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-07133KL"
 			(at 454.66 519.43 0)
 			(effects
 				(font
@@ -66325,6 +67367,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Vishay"
+			(at 469.9 513.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
+			(at 469.9 513.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3fa4df7d-f47c-45fc-8317-c286e2334e48")
 		)
@@ -66395,6 +67455,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Everlight"
+			(at 553.72 537.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "19-217/R6C-AL1M2VY/3T"
+			(at 553.72 537.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "544539fe-0b44-47ff-840f-4afab5ae8161")
 		)
@@ -66454,6 +67532,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 381 518.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 381 518.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0710RL"
 			(at 381 518.16 0)
 			(effects
 				(font
@@ -66532,6 +67628,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Taiyo Yuden"
+			(at 568.96 393.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "TMK325ABJ476MM-P"
+			(at 568.96 393.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "68bf209e-3466-4724-8e0b-2e9a40c84efc")
 		)
@@ -66594,6 +67708,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 523.24 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 523.24 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0710RL"
 			(at 523.24 391.16 0)
 			(effects
 				(font
@@ -67062,7 +68194,7 @@
 				)
 			)
 		)
-		(property "Value" "30.31k"
+		(property "Value" "30.1k"
 			(at 519.43 499.11 90)
 			(effects
 				(font
@@ -67089,6 +68221,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 514.35 499.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 514.35 499.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0730K1L"
 			(at 514.35 499.11 0)
 			(effects
 				(font
@@ -67176,7 +68326,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 341.63 251.46 0)
 			(effects
 				(font
@@ -67185,7 +68335,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 341.63 251.46 0)
 			(effects
 				(font
@@ -67504,6 +68654,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Everlight"
+			(at 541.02 537.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "19-217/R6C-AL1M2VY/3T"
+			(at 541.02 537.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1f02c0bb-38cf-4ffc-ada8-80d5edc5c03f")
 		)
@@ -67751,7 +68919,7 @@
 				)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "0.1uF"
 			(at 509.2636 402.59 90)
 			(effects
 				(font
@@ -67778,6 +68946,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 509.27 396.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 509.27 396.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 509.27 396.24 0)
 			(effects
 				(font
@@ -67991,6 +69177,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments "
+			(at 467.36 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "LM62460QRPHRQ1"
+			(at 467.36 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "56bb75c1-ff36-4365-bef0-7572e9b42ac4")
 		)
@@ -68171,6 +69375,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Hirose"
+			(at 128.27 381 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "FH12-14S-0.5SH(55)"
+			(at 128.27 381 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8769a244-4773-4eb4-aaa5-b8b8c906edbf")
 		)
@@ -68269,6 +69491,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 372.11 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 372.11 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "RC0402FR-0710RL"
 			(at 372.11 391.16 0)
 			(effects
 				(font
@@ -68410,6 +69650,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 339.09 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Taiyo Yuden"
+			(at 339.09 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "TMK325ABJ476MM-P"
 			(at 339.09 392.43 0)
 			(effects
 				(font
@@ -68684,6 +69942,24 @@
 			)
 		)
 		(property "Description" "Light emitting diode, small symbol"
+			(at 528.32 537.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Everlight"
+			(at 528.32 537.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "19-217/R6C-AL1M2VY/3T"
 			(at 528.32 537.21 0)
 			(effects
 				(font
@@ -69286,6 +70562,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 957.58 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "SI52111-B5-GT"
+			(at 957.58 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Skyworks"
 			(at 957.58 144.78 0)
 			(effects
 				(font
