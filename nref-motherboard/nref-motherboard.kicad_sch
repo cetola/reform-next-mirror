@@ -11923,6 +11923,102 @@
 				)
 			)
 		)
+		(symbol "PWR_FLAG_1"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#FLG"
+				(at 0 1.905 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "PWR_FLAG"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Special symbol for telling ERC where power comes from"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "flag power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "PWR_FLAG_1_0_0"
+				(pin power_out line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "PWR_FLAG_1_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+		)
 		(symbol "Si52111-B5:Si52111-B5"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -20860,6 +20956,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c7932e7a-7f6f-41fb-944f-3f41509b25a1")
+	)
+	(junction
+		(at 403.86 386.08)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c8699604-da1f-452b-b48b-25bf8751f270")
 	)
 	(junction
 		(at 328.93 502.92)
@@ -33150,6 +33252,16 @@
 		)
 		(uuid "4055e338-bb56-40e5-94d4-3beb2b6bd422")
 	)
+	(text "TODO: these 1uFs have the wrong part numbers"
+		(exclude_from_sim no)
+		(at 345.44 485.14 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "41117ef6-5c99-46a4-afa7-a2e583aa0982")
+	)
 	(text "Rfbt"
 		(exclude_from_sim no)
 		(at 558.292 159.258 0)
@@ -33438,6 +33550,16 @@
 			)
 		)
 		(uuid "78f28370-057b-4fa8-837a-a9c4a2402598")
+	)
+	(text "TODO: look into decoupling VCC and BATteries"
+		(exclude_from_sim no)
+		(at 547.37 359.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "790a0ed7-b5d7-49e8-bf84-d3b2e9fd2ce4")
 	)
 	(text "TODO: connect to rp2040?"
 		(exclude_from_sim no)
@@ -33913,6 +34035,16 @@
 		)
 		(uuid "e8d7013b-3002-448c-a003-2bab5dccc665")
 	)
+	(text "TODO: quatsch @ CE"
+		(exclude_from_sim no)
+		(at 482.6 497.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "eb5d450b-06a3-4d3e-9596-41a53eeb3b99")
+	)
 	(text "MAX 36V"
 		(exclude_from_sim no)
 		(at 463.042 197.104 0)
@@ -33945,6 +34077,16 @@
 			(justify left bottom)
 		)
 		(uuid "eea3f327-876e-4edd-985e-df8d6a46a05a")
+	)
+	(text "TODO: expensive"
+		(exclude_from_sim no)
+		(at 467.36 83.82 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "f0323ae3-0212-477f-8204-f7b86b07c9b1")
 	)
 	(text "G"
 		(exclude_from_sim no)
@@ -41113,7 +41255,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
+		(property "Manufacturer_No" "GRM1555C1H100FA01D"
 			(at 562.61 165.1 0)
 			(effects
 				(font
@@ -45090,7 +45232,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "KMR2"
+		(property "Manufacturer_No" "KMR223GLFG"
 			(at 792.48 130.81 0)
 			(effects
 				(font
@@ -57333,7 +57475,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
+		(property "Manufacturer_No" "GRM1555C1H100FA01D"
 			(at 562.61 231.14 0)
 			(effects
 				(font
@@ -61206,6 +61348,73 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "C15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "PWR_FLAG_1")
+		(lib_id "power:PWR_FLAG")
+		(at 403.86 386.08 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b2d671f6-3d48-4469-a9fe-da85b518adc9")
+		(property "Reference" "#FLG01"
+			(at 403.86 384.175 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 403.86 381 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 403.86 386.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 403.86 386.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 403.86 386.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5a44f6e6-6d0c-4eb6-987a-a47ccd3a2fd6")
+		)
+		(instances
+			(project ""
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "#FLG01")
 					(unit 1)
 				)
 			)
