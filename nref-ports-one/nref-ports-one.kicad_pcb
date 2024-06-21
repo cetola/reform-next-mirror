@@ -14453,6 +14453,17 @@
 				(xyz 0 0 0)
 			)
 		)
+		(model "${KIPRJMOD}/3d-models/HX5084NLT.stp"
+			(offset
+				(xyz 0 0 2)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 90)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0402_1005Metric"
 		(layer "F.Cu")
@@ -25720,7 +25731,7 @@
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C30"
-			(at 0.7 -1 -90)
+			(at -0.65 -1 -90)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "6f72e3db-b8ad-486d-a972-ff28c863baa3")
@@ -27849,7 +27860,7 @@
 			)
 		)
 		(property "Value" "0"
-			(at 0 1.17 360)
+			(at 0 1.17 0)
 			(layer "F.Fab")
 			(uuid "5d3805de-e9a8-4387-add5-41bef2dac536")
 			(effects
@@ -28043,7 +28054,7 @@
 			(uuid "3d895534-f9b8-40ce-9158-360bd5a57090")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "e90c7133-2ed1-49d2-a868-d25251369194")
 			(effects
@@ -28343,7 +28354,7 @@
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C29"
-			(at 0 -1.16 -90)
+			(at 1.53 0.2 -90)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "9464d7d1-c1f4-4d1c-b56f-c4be27367ce4")

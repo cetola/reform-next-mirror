@@ -18844,6 +18844,16 @@
 		)
 		(uuid "6ceb7299-88c5-42a1-ac64-c6e695efd3ea")
 	)
+	(text "TODO: these need larger footprints"
+		(exclude_from_sim no)
+		(at 73.66 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6ef9a80c-348b-4f1b-9ec1-af2d70c07e36")
+	)
 	(text "SD VCC"
 		(exclude_from_sim no)
 		(at 237.49 300.99 0)
@@ -22146,7 +22156,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Bourns"
 			(at 132.08 236.22 0)
 			(effects
 				(font
@@ -22155,7 +22165,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-JW-204GLF"
 			(at 132.08 236.22 0)
 			(effects
 				(font
@@ -22782,7 +22792,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "HR(Joint Tech Elec)"
+		(property "Manufacturer" "JST"
 			(at 349.25 454.66 0)
 			(effects
 				(font
@@ -22800,7 +22810,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "A2001WR-S-09PD01"
+		(property "Manufacturer_No" "SM09B-SRSS-TB"
 			(at 349.25 454.66 0)
 			(effects
 				(font
@@ -22898,6 +22908,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Hirose"
+			(at 350.52 379.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "FH12-10S-0.5SH"
+			(at 350.52 379.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "7"
 			(uuid "53dd043d-4b5c-4f70-9f19-dc404e803aff")
 		)
@@ -22982,6 +23010,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 347.98 255.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Hirose"
+			(at 347.98 255.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "FH12-12S-0.5SH"
 			(at 347.98 255.27 0)
 			(effects
 				(font
@@ -23456,7 +23502,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "1507561c-04b9-4e85-9387-7ab93c6e2785")
 		(property "Reference" "H2"
@@ -23578,7 +23624,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Bourns"
 			(at 115.57 233.68 0)
 			(effects
 				(font
@@ -23587,7 +23633,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-JW-204GLF"
 			(at 115.57 233.68 0)
 			(effects
 				(font
@@ -24017,16 +24063,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
-			(at 138.43 525.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_N" ""
+		(property "Manufacturer" "TDK"
 			(at 138.43 525.78 0)
 			(effects
 				(font
@@ -24044,7 +24081,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM31CR61A476ME15L"
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
 			(at 138.43 525.78 0)
 			(effects
 				(font
@@ -24130,7 +24167,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Bourns"
 			(at 43.18 243.84 0)
 			(effects
 				(font
@@ -24139,7 +24176,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-JW-204GLF"
 			(at 43.18 243.84 0)
 			(effects
 				(font
@@ -24488,7 +24525,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Bourns"
 			(at 138.43 238.76 0)
 			(effects
 				(font
@@ -24497,7 +24534,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-JW-204GLF"
 			(at 138.43 238.76 0)
 			(effects
 				(font
@@ -24841,7 +24878,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "3149f15a-d778-4499-9ddc-fdc72b271b56")
 		(property "Reference" "H1"
@@ -26090,6 +26127,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "TDK"
+			(at 162.56 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
+			(at 162.56 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "98af6a70-7054-41da-bff2-2fd5ca90129e")
 		)
@@ -26640,6 +26695,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 205.74 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "TLV75518PDBV"
+			(at 205.74 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "a0424de5-3c08-4054-84db-8a2d3caab54f")
 		)
@@ -26824,7 +26897,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "CUI"
 			(at 182.88 466.09 0)
 			(effects
 				(font
@@ -26833,7 +26906,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" ""
+		(property "Manufacturer_No" "SJ-43614-SMT"
 			(at 182.88 466.09 0)
 			(effects
 				(font
@@ -27276,7 +27349,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Yageo"
 			(at 26.67 236.22 0)
 			(effects
 				(font
@@ -27285,7 +27358,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "RC0402FR-7D10KL"
 			(at 26.67 236.22 0)
 			(effects
 				(font
@@ -27620,7 +27693,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Samsung"
+		(property "Manufacturer" "Yageo"
 			(at 191.77 248.92 0)
 			(effects
 				(font
@@ -27629,7 +27702,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL05B104KO5NNNC"
+		(property "Manufacturer_No" "CC0402KRX5R6BB105"
 			(at 191.77 248.92 0)
 			(effects
 				(font
@@ -28648,7 +28721,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "68ea6871-4e0a-403e-bec5-363e78ec6e4b")
 		(property "Reference" "FB2"
 			(at 83.82 454.66 90)
@@ -29277,6 +29350,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "TDK"
+			(at 74.93 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
+			(at 74.93 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6c88dc38-2342-4a54-bace-82b6a31278a8")
 		)
@@ -29573,153 +29664,21 @@
 				(hide yes)
 			)
 		)
-		(property "MF" "Texas Instruments"
+		(property "Manufacturer" "Texas Instruments"
 			(at 83.82 251.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
-		(property "DESCRIPTION" "Super Speed Type-C DRP Port Controller USB 3.1 3.3V/5V T/R 30-Pin WQFN EP"
+		(property "Manufacturer_No" "HD3SS3220IRNHT"
 			(at 83.82 251.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE" "WQFN-30 Texas Instruments"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "PRICE" "3.26 USD"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Package" "WQFN-30 Texas Instruments"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" "https://www.snapeda.com/parts/HD3SS3220IRNHT/Texas+Instruments/view-part/?ref=eda"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "PART_REV" "C"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" "IPC-7351B"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/HD3SS3220IRNHT/Texas+Instruments/view-part/?ref=snap"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MP" "HD3SS3220IRNHT"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Purchase-URL" "https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=589158&manufacturer=Texas Instruments&part_name=HD3SS3220IRNHT&search_term=hd3ss3220"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Price" "None"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Availability" "In Stock"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "AVAILABILITY" "Good"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "\n10-Gbps USB 3.1 Type-C 2:1 mux with DRP Controller\n"
-			(at 83.82 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
@@ -29886,7 +29845,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402FR-7D10KL"
 			(at 135.89 166.37 0)
 			(effects
 				(font
@@ -30001,7 +29960,7 @@
 				)
 			)
 		)
-		(property "Value" "900k"
+		(property "Value" "909k"
 			(at 35.56 241.3 90)
 			(effects
 				(font
@@ -30045,7 +30004,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Bourns "
 			(at 35.56 246.38 0)
 			(effects
 				(font
@@ -30054,7 +30013,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-FX-9093GLF"
 			(at 35.56 246.38 0)
 			(effects
 				(font
@@ -30342,6 +30301,24 @@
 			)
 		)
 		(property "Description" "IO expander 16 GPIO, I2C 400kHz, Interrupt, 1.65 - 5.5V, HWQFN-24"
+			(at 260.35 201.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "NXP"
+			(at 260.35 201.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "PCAL6416AHF,128"
 			(at 260.35 201.93 0)
 			(effects
 				(font
@@ -30808,6 +30785,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Hirose"
+			(at 355.6 508 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "FH12-10S-0.5SH"
+			(at 355.6 508 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "7"
 			(uuid "5b8c783d-3d1c-4fd9-ba34-bf7b3fce42c7")
 		)
@@ -30894,6 +30889,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 64.77 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 64.77 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
 			(at 64.77 52.07 0)
 			(effects
 				(font
@@ -31084,7 +31097,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "8885a234-5940-4082-9d98-0a198195e2a7")
 		(property "Reference" "C22"
 			(at 151.3332 551.0784 90)
@@ -31724,7 +31737,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "9543365d-ce5f-4dcd-8b92-3be6dca1b6c8")
 		(property "Reference" "H3"
@@ -32396,7 +32409,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-07100KL"
+		(property "Manufacturer_No" "RC0402FR-7D10KL"
 			(at 212.09 185.42 0)
 			(effects
 				(font
@@ -33512,7 +33525,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402FR-7D10KL"
 			(at 163.83 307.34 0)
 			(effects
 				(font
@@ -33740,7 +33753,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Heling"
+		(property "Manufacturer" "Pulse"
 			(at 341.63 72.39 0)
 			(effects
 				(font
@@ -33749,7 +33762,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "MT24-S1T1"
+		(property "Manufacturer_No" "HX5084NLT"
 			(at 341.63 72.39 0)
 			(effects
 				(font
@@ -34829,7 +34842,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Samsung"
+		(property "Manufacturer" "Yageo"
 			(at 220.98 248.92 0)
 			(effects
 				(font
@@ -34838,7 +34851,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL05B104KO5NNNC"
+		(property "Manufacturer_No" "CC0402KRX5R6BB105"
 			(at 220.98 248.92 0)
 			(effects
 				(font
@@ -34998,7 +35011,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Bourns"
 			(at 144.78 241.3 0)
 			(effects
 				(font
@@ -35007,7 +35020,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-JW-204GLF"
 			(at 144.78 241.3 0)
 			(effects
 				(font
@@ -35162,7 +35175,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "MDD"
+		(property "Manufacturer" "Panjit"
 			(at 167.64 153.67 0)
 			(effects
 				(font
@@ -35171,7 +35184,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "SS54"
+		(property "Manufacturer_No" "SB54AFC-AU_R1_000A1"
 			(at 167.64 153.67 0)
 			(effects
 				(font
@@ -36410,6 +36423,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Hirose"
+			(at 346.71 322.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "FH12-14S-0.5SH"
+			(at 346.71 322.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3e025333-6aec-4e99-8729-1cc85f484c5c")
 		)
@@ -36753,7 +36784,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" ""
+		(property "Manufacturer_No" "0402YA102JAT2A"
 			(at 322.58 114.3 0)
 			(effects
 				(font
@@ -36937,7 +36968,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "TDK"
 			(at 133.35 523.24 0)
 			(effects
 				(font
@@ -36946,7 +36977,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM31CR61A476ME15L"
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
 			(at 133.35 523.24 0)
 			(effects
 				(font
