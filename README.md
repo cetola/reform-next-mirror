@@ -67,7 +67,7 @@ MNT Reform Next supports a [variety of Processor Modules](https://mntre.com/modu
 
 ![MNT Reform Next CAD Overview Ports and Motherboard](images/reform-next-cad-overview-ports.png)
 
-![MNT Reform Next CAD 3D View of Ports Board Two](images/reform-next-ports-two-with-kb.jpg)
+![MNT Reform Next CAD 3D View of Ports Board Two](images/reform-next-ports-two-with-kb.png)
 
 3 in total: Left, Right and Back sides:
 
