@@ -1601,6 +1601,203 @@
 				)
 			)
 		)
+		(symbol "Connector_Generic:Conn_01x04"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x04"
+				(at 0 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x04_1_1"
+				(rectangle
+					(start -1.27 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 3.81)
+					(end 1.27 -6.35)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector_Generic:Conn_01x20"
 			(pin_names
 				(offset 1.016) hide)
@@ -5632,6 +5829,88 @@
 								(size 1.27 1.27)
 							)
 						)
+					)
+				)
+			)
+		)
+		(symbol "Mechanical:MountingHole"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole without connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 			)
@@ -11504,6 +11783,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 293.37) (xy 162.56 293.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53fada40-c9f7-483d-85eb-3e992a8e8740")
+	)
+	(wire
+		(pts
 			(xy 379.73 177.8) (xy 379.73 179.07)
 		)
 		(stroke
@@ -11681,6 +11970,16 @@
 			(type default)
 		)
 		(uuid "58f531eb-e8ad-437f-8cb3-4ef5bdaa1725")
+	)
+	(wire
+		(pts
+			(xy 168.91 300.99) (xy 168.91 293.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a04f2ac-e53b-4d57-b36f-46887256e63b")
 	)
 	(wire
 		(pts
@@ -14064,6 +14363,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 285.75) (xy 162.56 285.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bcecc696-3739-452f-8d39-16b98054ae90")
+	)
+	(wire
+		(pts
 			(xy 30.48 377.19) (xy 30.48 374.65)
 		)
 		(stroke
@@ -15584,6 +15893,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 278.13) (xy 168.91 285.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fcc03a19-7f07-4a00-8c23-adc4bb7b4052")
+	)
+	(wire
+		(pts
 			(xy 500.38 140.97) (xy 500.38 144.78)
 		)
 		(stroke
@@ -15786,17 +16105,6 @@
 			(justify left bottom)
 		)
 		(uuid "8acc310e-7bc0-4c83-ab69-1734c91d1934")
-	)
-	(text "TODO: unused, break out for camera"
-		(exclude_from_sim no)
-		(at 542.29 236.855 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "946ec1e5-090c-47bd-99b3-fa928da97f25")
 	)
 	(text "1A"
 		(exclude_from_sim no)
@@ -17089,6 +17397,28 @@
 			)
 		)
 	)
+	(global_label "USBH_4_DN"
+		(shape input)
+		(at 162.56 288.29 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "66dad598-219b-44ba-9452-290a97f4c4ab")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 175.7699 288.2106 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "USBH_2_DN"
 		(shape input)
 		(at 528.32 187.96 0)
@@ -17430,6 +17760,28 @@
 		(uuid "89b69a68-ccbf-4dbe-a61b-e03ccfa26e07")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 114.1404 326.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "USBH_4_DP"
+		(shape input)
+		(at 162.56 290.83 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "89e1399a-3e41-4eb5-b7c7-82a79e07f3e2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 175.7094 290.7506 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18829,7 +19181,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 513.08 313.69 0)
 			(effects
 				(font
@@ -18838,25 +19190,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CC0603JPX7R9BB104"
-			(at 513.08 313.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 513.08 313.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 513.08 313.69 0)
 			(effects
 				(font
@@ -18933,7 +19267,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Bourns"
 			(at 123.19 215.9 0)
 			(effects
 				(font
@@ -18942,16 +19276,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 123.19 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-JW-204GLF"
 			(at 123.19 215.9 0)
 			(effects
 				(font
@@ -19030,15 +19355,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C60490"
-			(at 420.37 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Yageo"
 			(at 420.37 160.02 0)
 			(effects
@@ -19048,7 +19364,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402FR-7D10KL"
 			(at 420.37 160.02 0)
 			(effects
 				(font
@@ -19200,15 +19516,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
-			(at 396.24 209.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer_No" "RC0402FR-071ML"
 			(at 396.24 209.55 0)
 			(effects
@@ -19286,15 +19593,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 167.64 344.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Samsung"
 			(at 167.64 344.17 0)
 			(effects
@@ -19335,7 +19633,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "0a12848a-a03f-4327-96ce-fa26bb5317b1")
 		(property "Reference" "H1"
@@ -19375,6 +19673,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 290.83 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 290.83 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 290.83 36.83 0)
 			(effects
 				(font
@@ -19447,7 +19763,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Bourns"
 			(at 146.05 220.98 0)
 			(effects
 				(font
@@ -19456,16 +19772,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 146.05 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-JW-204GLF"
 			(at 146.05 220.98 0)
 			(effects
 				(font
@@ -19543,7 +19850,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 209.55 29.21 0)
 			(effects
 				(font
@@ -19552,25 +19859,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CC0603JPX7R9BB104"
-			(at 209.55 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 209.55 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 209.55 29.21 0)
 			(effects
 				(font
@@ -19646,7 +19935,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Yageo"
 			(at 243.84 231.14 0)
 			(effects
 				(font
@@ -19655,16 +19944,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 243.84 231.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "RC0402FR-07100KL"
 			(at 243.84 231.14 0)
 			(effects
 				(font
@@ -19733,15 +20013,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 364.49 344.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C1525"
 			(at 364.49 344.17 0)
 			(effects
 				(font
@@ -19838,15 +20109,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C60490"
-			(at 307.34 251.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Yageo"
 			(at 307.34 251.46 0)
 			(effects
@@ -19856,7 +20118,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402FR-7D10KL"
 			(at 307.34 251.46 0)
 			(effects
 				(font
@@ -19887,7 +20149,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "17d83aa7-f511-4080-853f-647d642b879e")
 		(property "Reference" "H2"
@@ -19927,6 +20189,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 290.83 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 290.83 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 290.83 53.34 0)
 			(effects
 				(font
@@ -20208,16 +20488,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL05A106MP5NUNC"
-			(at 519.43 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C315248"
+		(property "Manufacturer_No" "CL10A106MO8NQNC"
 			(at 519.43 100.33 0)
 			(effects
 				(font
@@ -20492,7 +20763,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Bourns"
 			(at 139.7 218.44 0)
 			(effects
 				(font
@@ -20501,16 +20772,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 139.7 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-JW-204GLF"
 			(at 139.7 218.44 0)
 			(effects
 				(font
@@ -20579,15 +20841,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 356.87 341.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C1525"
 			(at 356.87 341.63 0)
 			(effects
 				(font
@@ -20814,6 +21067,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "TDK"
+			(at 321.31 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
+			(at 321.31 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "085b8a91-7a9b-43e4-bfbb-959c87b61942")
 		)
@@ -20902,15 +21173,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 455.93 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "e1a27677-71b8-4456-8ee8-f0c9108fb058")
 		)
@@ -20971,15 +21233,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 160.02 356.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C1525"
 			(at 160.02 356.87 0)
 			(effects
 				(font
@@ -21073,7 +21326,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 189.23 97.79 0)
 			(effects
 				(font
@@ -21082,25 +21335,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CC0603JPX7R9BB104"
-			(at 189.23 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 189.23 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 189.23 97.79 0)
 			(effects
 				(font
@@ -21172,15 +21407,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 477.52 350.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2841426"
 			(at 477.52 350.52 0)
 			(effects
 				(font
@@ -21367,6 +21593,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "TDK"
+			(at 76.2 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
+			(at 76.2 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "259a5743-e2e7-4ac9-b0cd-68262ebf5f64")
 		)
@@ -21434,24 +21678,6 @@
 				(hide yes)
 			)
 		)
-		(property "Checked" "y"
-			(at 180.34 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
-			(at 180.34 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Yageo"
 			(at 180.34 97.79 0)
 			(effects
@@ -21461,7 +21687,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-0710KL"
+		(property "Manufacturer_No" "RC0402FR-7D10KL"
 			(at 180.34 97.79 0)
 			(effects
 				(font
@@ -21558,15 +21784,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 487.68 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "da3ccfd6-1e4f-4e84-b1a3-0526d0071729")
 		)
@@ -21627,15 +21844,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 356.87 356.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C1525"
 			(at 356.87 356.87 0)
 			(effects
 				(font
@@ -21861,15 +22069,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2072452"
-			(at 271.78 231.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Texas Instruments"
 			(at 271.78 231.14 0)
 			(effects
@@ -21956,15 +22155,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 38.1 334.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C134092"
 			(at 38.1 334.01 0)
 			(effects
 				(font
@@ -22076,6 +22266,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 168.91 278.13 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "34a7b290-2d2e-4e7a-800f-5e24997c37a1")
+		(property "Reference" "#PWR058"
+			(at 168.91 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 168.529 273.7358 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 168.91 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 168.91 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 168.91 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f812499c-3fb7-47c1-9228-d5cf7455c8be")
+		)
+		(instances
+			(project "nref-ports-two"
+				(path "/a2d28008-51f2-46b8-aa0f-1fd4a62fdad3"
+					(reference "#PWR058")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 152.4 223.52 90)
 		(unit 1)
@@ -22127,7 +22383,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Bourns"
 			(at 152.4 223.52 0)
 			(effects
 				(font
@@ -22136,16 +22392,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 152.4 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-JW-204GLF"
 			(at 152.4 223.52 0)
 			(effects
 				(font
@@ -22223,7 +22470,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 519.43 316.23 0)
 			(effects
 				(font
@@ -22232,25 +22479,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CC0603JPX7R9BB104"
-			(at 519.43 316.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 519.43 316.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 519.43 316.23 0)
 			(effects
 				(font
@@ -22326,7 +22555,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay Dale"
+		(property "Manufacturer" "Panasonic"
 			(at 254 138.43 0)
 			(effects
 				(font
@@ -22335,25 +22564,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CRCW060347K0FKEAC"
-			(at 254 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
-			(at 254 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
+		(property "Manufacturer_No" "ERA-2AEB473X"
 			(at 254 138.43 0)
 			(effects
 				(font
@@ -22432,16 +22643,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay"
-			(at 49.53 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C844710"
+		(property "Manufacturer" "Vishay Dale"
 			(at 49.53 43.18 0)
 			(effects
 				(font
@@ -22604,24 +22806,6 @@
 			)
 		)
 		(property "Manufacturer_No" "TPD12S521"
-			(at 143.51 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 143.51 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
 			(at 143.51 123.19 0)
 			(effects
 				(font
@@ -22818,15 +23002,6 @@
 			)
 		)
 		(property "Manufacturer_No" "CL05B104KO5NNNC"
-			(at 478.79 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C1525"
 			(at 478.79 58.42 0)
 			(effects
 				(font
@@ -23101,6 +23276,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Panasonic"
+			(at 307.34 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "ERA-2AED223X"
+			(at 307.34 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "90f56165-434a-4de6-aa1f-6390e2c0d1a0")
 		)
@@ -23162,15 +23355,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 283.21 196.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C426863"
 			(at 283.21 196.85 0)
 			(effects
 				(font
@@ -23275,25 +23459,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-0710KL"
-			(at 213.36 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 213.36 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
+		(property "Manufacturer_No" "RC0402FR-7D10KL"
 			(at 213.36 134.62 0)
 			(effects
 				(font
@@ -23371,153 +23537,21 @@
 				(hide yes)
 			)
 		)
-		(property "MF" "Texas Instruments"
+		(property "Manufacturer_No" "HD3SS3220IRNHT"
 			(at 91.44 233.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
-		(property "DESCRIPTION" "Super Speed Type-C DRP Port Controller USB 3.1 3.3V/5V T/R 30-Pin WQFN EP"
+		(property "Manufacturer" "Texas Instruments"
 			(at 91.44 233.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE" "WQFN-30 Texas Instruments"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "PRICE" "3.26 USD"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Package" "WQFN-30 Texas Instruments"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" "https://www.snapeda.com/parts/HD3SS3220IRNHT/Texas+Instruments/view-part/?ref=eda"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "PART_REV" "C"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "STANDARD" "IPC-7351B"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/HD3SS3220IRNHT/Texas+Instruments/view-part/?ref=snap"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MP" "HD3SS3220IRNHT"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Purchase-URL" "https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=589158&manufacturer=Texas Instruments&part_name=HD3SS3220IRNHT&search_term=hd3ss3220"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Price" "None"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Availability" "In Stock"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "AVAILABILITY" "Good"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "\n10-Gbps USB 3.1 Type-C 2:1 mux with DRP Controller\n"
-			(at 91.44 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
@@ -23807,7 +23841,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Vishay Dale"
 			(at 63.5 233.68 0)
 			(effects
 				(font
@@ -23816,16 +23850,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 63.5 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 63.5 233.68 0)
 			(effects
 				(font
@@ -23902,7 +23927,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Bourns"
 			(at 50.8 226.06 0)
 			(effects
 				(font
@@ -23911,16 +23936,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 50.8 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-JW-204GLF"
 			(at 50.8 226.06 0)
 			(effects
 				(font
@@ -24259,15 +24275,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 160.02 341.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Samsung"
 			(at 160.02 341.63 0)
 			(effects
@@ -24569,15 +24576,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C105871"
-			(at 419.1 204.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "59e92d71-543a-4cda-9ac8-783d868708cb")
 		)
@@ -24716,15 +24714,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C60490"
-			(at 307.34 199.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Yageo"
 			(at 307.34 199.39 0)
 			(effects
@@ -24734,7 +24723,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402FR-7D10KL"
 			(at 307.34 199.39 0)
 			(effects
 				(font
@@ -24811,15 +24800,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C337905"
-			(at 294.64 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Murata"
 			(at 294.64 176.53 0)
 			(effects
@@ -24829,7 +24809,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "LQH32PN3R3NN0L"
+		(property "Manufacturer_No" "DFE32CAH3R3MR0L"
 			(at 294.64 176.53 0)
 			(effects
 				(font
@@ -25047,16 +25027,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL05A106MP5NUNC"
-			(at 494.03 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C315248"
+		(property "Manufacturer_No" "CL10A106MO8NQNC"
 			(at 494.03 58.42 0)
 			(effects
 				(font
@@ -25198,7 +25169,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Vishay Dale"
 			(at 64.77 223.52 0)
 			(effects
 				(font
@@ -25207,16 +25178,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 64.77 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 64.77 223.52 0)
 			(effects
 				(font
@@ -25423,15 +25385,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 364.49 359.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Samsung"
 			(at 364.49 359.41 0)
 			(effects
@@ -25512,15 +25465,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 226.06 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C86295"
 			(at 226.06 180.34 0)
 			(effects
 				(font
@@ -25766,15 +25710,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 502.92 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "ce482162-169e-4cea-b0e8-062d46b97ea1")
 		)
@@ -25836,15 +25771,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 283.21 248.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C426863"
 			(at 283.21 248.92 0)
 			(effects
 				(font
@@ -26004,7 +25930,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C26989"
+		(property "Manufacturer" "Bourns"
 			(at 415.29 153.67 0)
 			(effects
 				(font
@@ -26013,16 +25939,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
-			(at 415.29 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "0402WGF9092TCE"
+		(property "Manufacturer_No" "CR0402-FX-9092GLF"
 			(at 415.29 153.67 0)
 			(effects
 				(font
@@ -26119,15 +26036,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 478.79 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "f564b1d1-7d72-443f-a2f1-c9bd22b3fac2")
 		)
@@ -26195,7 +26103,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Yageo"
 			(at 241.3 179.07 0)
 			(effects
 				(font
@@ -26204,16 +26112,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 241.3 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "RC0402FR-07100KL"
 			(at 241.3 179.07 0)
 			(effects
 				(font
@@ -26310,15 +26209,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 471.17 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "4574aad2-baa9-46d2-9730-c6103f8f0205")
 		)
@@ -26381,15 +26271,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 396.24 219.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C92487"
 			(at 396.24 219.71 0)
 			(effects
 				(font
@@ -26486,6 +26367,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "TDK"
+			(at 170.18 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
+			(at 170.18 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c819b9fd-b421-4ccc-a485-4ca86a195c80")
 		)
@@ -26549,15 +26448,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 109.22 379.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2841426"
 			(at 109.22 379.73 0)
 			(effects
 				(font
@@ -26693,15 +26583,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C91744"
-			(at 379.73 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "301abb79-0442-4132-abeb-37d24bdaccc9")
 		)
@@ -26770,15 +26651,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 226.06 232.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C86295"
 			(at 226.06 232.41 0)
 			(effects
 				(font
@@ -27073,15 +26945,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2841426"
-			(at 88.9 391.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Texas Instruments"
 			(at 88.9 391.16 0)
 			(effects
@@ -27212,15 +27075,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 510.54 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "da555661-c3bc-4351-a5ef-5a34ab637e5b")
 		)
@@ -27289,15 +27143,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C144787"
-			(at 381 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Yageo"
 			(at 381 154.94 0)
 			(effects
@@ -27307,7 +27152,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "AC0402FR-071ML"
+		(property "Manufacturer_No" "RC0402FR-071ML"
 			(at 381 154.94 0)
 			(effects
 				(font
@@ -27404,15 +27249,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 486.41 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "14c773a3-ca5a-4215-b96d-8d5a49ec69f8")
 		)
@@ -27475,6 +27311,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 104.14 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 104.14 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "ERA-2AED223X"
 			(at 104.14 297.18 0)
 			(effects
 				(font
@@ -27571,15 +27425,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 463.55 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "cafa60e8-bf54-4a20-9c5e-be4efa6b1d61")
 		)
@@ -27642,6 +27487,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 66.04 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 66.04 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
 			(at 66.04 298.45 0)
 			(effects
 				(font
@@ -27775,15 +27638,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 234.95 334.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C134092"
 			(at 234.95 334.01 0)
 			(effects
 				(font
@@ -28291,15 +28145,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 167.64 359.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Samsung"
 			(at 167.64 359.41 0)
 			(effects
@@ -28388,6 +28233,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Panasonic"
+			(at 295.91 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "ERA-2AED223X"
+			(at 295.91 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "01e096ce-1cd3-4f29-b858-5310c7360b5a")
 		)
@@ -28451,15 +28314,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 285.75 391.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2841426"
 			(at 285.75 391.16 0)
 			(effects
 				(font
@@ -28588,25 +28442,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-074K7L"
-			(at 199.39 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 199.39 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
+		(property "Manufacturer_No" "RC0402FR-074K7L"
 			(at 199.39 111.76 0)
 			(effects
 				(font
@@ -28762,13 +28598,105 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_01x04")
+		(at 157.48 290.83 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a8ad48f1-cd7b-49a9-a43a-7fab14be7e36")
+		(property "Reference" "J7"
+			(at 157.48 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x04"
+			(at 157.48 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
+			(at 157.48 290.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 157.48 290.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 157.48 290.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "JST"
+			(at 157.48 290.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "SH_SM04B-SRSS-TB"
+			(at 157.48 290.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "a712ee5e-9836-464b-8fca-7ab0bd651b00")
+		)
+		(pin "4"
+			(uuid "62bd321e-054e-4bcd-aa62-417a6588ec00")
+		)
+		(pin "2"
+			(uuid "9e3ecc36-f425-4a17-a6cd-fabed663577d")
+		)
+		(pin "1"
+			(uuid "b6af3770-6001-4f69-86ac-38e226896cd3")
+		)
+		(instances
+			(project ""
+				(path "/a2d28008-51f2-46b8-aa0f-1fd4a62fdad3"
+					(reference "J7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 148.59 233.68 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "a93e58b3-6a27-4a05-b27f-4e8962ea66c7")
 		(property "Reference" "TP2"
@@ -28808,6 +28736,24 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 148.59 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 148.59 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 148.59 233.68 0)
 			(effects
 				(font
@@ -28881,7 +28827,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C321660"
+		(property "Manufacturer" "Bourns"
 			(at 439.42 195.58 0)
 			(effects
 				(font
@@ -28890,16 +28836,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "FH"
-			(at 439.42 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "RC-02W9531FT"
+		(property "Manufacturer_No" "CR0402-FX-9531GLF"
 			(at 439.42 195.58 0)
 			(effects
 				(font
@@ -28975,7 +28912,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Vishay Dale"
 			(at 57.15 236.22 0)
 			(effects
 				(font
@@ -28984,16 +28921,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 57.15 236.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 57.15 236.22 0)
 			(effects
 				(font
@@ -29071,15 +28999,6 @@
 			)
 		)
 		(property "Manufacturer" "Hirose"
-			(at 29.21 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" ""
 			(at 29.21 66.04 0)
 			(effects
 				(font
@@ -29304,15 +29223,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C107040"
-			(at 387.35 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "75b5a180-b495-4b3c-8ff8-c1ff84c481c8")
 		)
@@ -29375,6 +29285,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 505.46 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "TDK"
+			(at 505.46 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
 			(at 505.46 297.18 0)
 			(effects
 				(font
@@ -29537,15 +29465,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C107040"
-			(at 372.11 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "5bca2c58-19a5-4dde-af82-a77a21fa1658")
 		)
@@ -29631,15 +29550,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C105871"
-			(at 447.04 234.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "e36051e0-7e89-4422-bc4d-cc2d525da752")
 		)
@@ -29717,24 +29627,6 @@
 			)
 		)
 		(property "Manufacturer_No" "692121230100"
-			(at 430.53 303.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 430.53 303.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
 			(at 430.53 303.53 0)
 			(effects
 				(font
@@ -29837,7 +29729,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C95598"
+		(property "Manufacturer" "Yageo"
 			(at 307.34 182.88 0)
 			(effects
 				(font
@@ -29846,16 +29738,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
-			(at 307.34 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "0402WGF8251TCE"
+		(property "Manufacturer_No" "NT0402BRD078K25L"
 			(at 307.34 182.88 0)
 			(effects
 				(font
@@ -29934,6 +29817,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "TDK"
+			(at 518.16 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
+			(at 518.16 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "77ae7f2b-5d0f-4ece-9a2a-cc8a5db43da8")
 		)
@@ -30001,7 +29902,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 177.8 95.25 0)
 			(effects
 				(font
@@ -30010,25 +29911,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CC0603JPX7R9BB104"
-			(at 177.8 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 177.8 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 177.8 95.25 0)
 			(effects
 				(font
@@ -30190,15 +30073,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C88980"
-			(at 449.58 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "fe6b4544-5560-466b-b9a1-4d0042d61874")
 		)
@@ -30267,7 +30141,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Vishay Dale"
 			(at 185.42 208.28 0)
 			(effects
 				(font
@@ -30276,16 +30150,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 185.42 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 185.42 208.28 0)
 			(effects
 				(font
@@ -30372,25 +30237,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-074K7L"
-			(at 191.77 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 191.77 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
+		(property "Manufacturer_No" "RC0402FR-074K7L"
 			(at 191.77 111.76 0)
 			(effects
 				(font
@@ -30462,15 +30309,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 306.07 379.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2841426"
 			(at 306.07 379.73 0)
 			(effects
 				(font
@@ -30583,15 +30421,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 458.47 339.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2841426"
 			(at 458.47 339.09 0)
 			(effects
 				(font
@@ -30920,7 +30749,7 @@
 				)
 			)
 		)
-		(property "Value" "900k"
+		(property "Value" "909k"
 			(at 43.18 223.52 90)
 			(effects
 				(font
@@ -30955,7 +30784,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Bourns"
 			(at 43.18 228.6 0)
 			(effects
 				(font
@@ -30964,16 +30793,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 43.18 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CR0402-FX-9093GLF"
 			(at 43.18 228.6 0)
 			(effects
 				(font
@@ -31049,7 +30869,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Samsung"
 			(at 173.99 107.95 0)
 			(effects
 				(font
@@ -31058,25 +30878,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CC0603JPX7R9BB104"
-			(at 173.99 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 173.99 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 173.99 107.95 0)
 			(effects
 				(font
@@ -31354,6 +31156,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "TDK"
+			(at 321.31 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
+			(at 321.31 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e68670c2-4eb3-4794-a3a3-77bb603d5a48")
 		)
@@ -31442,15 +31262,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 463.55 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "ede389e5-82f1-43b7-9d48-a70851c582c7")
 		)
@@ -31518,7 +31329,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay Dale"
+		(property "Manufacturer" "Panasonic"
 			(at 254 129.54 0)
 			(effects
 				(font
@@ -31527,25 +31338,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CRCW060347K0FKEAC"
-			(at 254 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
-			(at 254 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
+		(property "Manufacturer_No" "ERA-2AEB473X"
 			(at 254 129.54 0)
 			(effects
 				(font
@@ -31621,7 +31414,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay Dale"
+		(property "Manufacturer" "Panasonic"
 			(at 254 119.38 0)
 			(effects
 				(font
@@ -31630,25 +31423,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CRCW060347K0FKEAC"
-			(at 254 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
-			(at 254 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
+		(property "Manufacturer_No" "ERA-2AEB473X"
 			(at 254 119.38 0)
 			(effects
 				(font
@@ -31792,6 +31567,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "TDK"
+			(at 262.89 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
+			(at 262.89 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d762f9cf-c294-438f-acee-09d1f08da1b9")
 		)
@@ -31879,15 +31672,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 172.72 191.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "8b3c4777-0b6c-437a-9200-5a2bf1e66b17")
 		)
@@ -31956,7 +31740,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Vishay Dale"
 			(at 138.43 208.28 0)
 			(effects
 				(font
@@ -31965,16 +31749,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 138.43 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 138.43 208.28 0)
 			(effects
 				(font
@@ -32005,7 +31780,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "dbde7151-dceb-43e6-b2d0-b6d6c68def39")
 		(property "Reference" "TP1"
@@ -32045,6 +31820,24 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 133.35 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 133.35 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 133.35 233.68 0)
 			(effects
 				(font
@@ -32138,15 +31931,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 471.17 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "9018cfb4-70f0-4535-9a8f-5af479f49bbc")
 		)
@@ -32209,15 +31993,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 69.85 379.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2841426"
 			(at 69.85 379.73 0)
 			(effects
 				(font
@@ -32335,7 +32110,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay Dale"
+		(property "Manufacturer" "Yageo"
 			(at 254 109.22 0)
 			(effects
 				(font
@@ -32344,25 +32119,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CRCW0603100KJNEAC"
-			(at 254 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
-			(at 254 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
+		(property "Manufacturer_No" "RC0402FR-07100KL"
 			(at 254 109.22 0)
 			(effects
 				(font
@@ -32438,7 +32195,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Vishay Dale"
 			(at 64.77 220.98 0)
 			(effects
 				(font
@@ -32447,16 +32204,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 64.77 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 64.77 220.98 0)
 			(effects
 				(font
@@ -32475,6 +32223,88 @@
 			(project "nref-ports-two"
 				(path "/a2d28008-51f2-46b8-aa0f-1fd4a62fdad3"
 					(reference "R16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 290.83 69.85 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp yes)
+		(fields_autoplaced yes)
+		(uuid "e04fac17-b40b-456d-87f7-f47a8335fd59")
+		(property "Reference" "H3"
+			(at 293.37 68.5799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BADGE"
+			(at 293.37 71.1199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "footprints:nref-ports-two-badge"
+			(at 290.83 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 290.83 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 290.83 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 290.83 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
+			(at 290.83 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/a2d28008-51f2-46b8-aa0f-1fd4a62fdad3"
+					(reference "H3")
 					(unit 1)
 				)
 			)
@@ -32664,15 +32494,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C337905"
-			(at 294.64 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "Murata"
 			(at 294.64 228.6 0)
 			(effects
@@ -32682,7 +32503,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "LQH32PN3R3NN0L"
+		(property "Manufacturer_No" "DFE32CAH3R3MR0L"
 			(at 294.64 228.6 0)
 			(effects
 				(font
@@ -32820,15 +32641,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 266.7 379.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2841426"
 			(at 266.7 379.73 0)
 			(effects
 				(font
@@ -33030,15 +32842,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C105871"
-			(at 455.93 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "d8f5216c-8dc8-4361-a1a8-59622ab06c02")
 		)
@@ -33127,15 +32930,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
-			(at 495.3 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "aec6628e-e598-4465-9b1e-f90e2a6f85c3")
 		)
@@ -33203,15 +32997,6 @@
 				(hide yes)
 			)
 		)
-		(property "Distributor" "Mouser"
-			(at 180.34 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "AVX"
 			(at 180.34 81.28 0)
 			(effects
@@ -33222,15 +33007,6 @@
 			)
 		)
 		(property "Manufacturer_No" "SD0603S040S0R2"
-			(at 180.34 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
 			(at 180.34 81.28 0)
 			(effects
 				(font
@@ -33300,15 +33076,6 @@
 			)
 		)
 		(property "Description" ""
-			(at 271.78 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2072452"
 			(at 271.78 179.07 0)
 			(effects
 				(font
@@ -33414,6 +33181,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "TDK"
+			(at 273.05 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "C3216X5R1E476M160AC"
+			(at 273.05 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "510f4af7-e128-4dbf-a601-187b97cd9b83")
 		)
@@ -33424,6 +33209,71 @@
 			(project "nref-ports-two"
 				(path "/a2d28008-51f2-46b8-aa0f-1fd4a62fdad3"
 					(reference "C26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 168.91 300.99 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f00dba7f-dedb-4bfd-afb1-5be48b2f025b")
+		(property "Reference" "#PWR06"
+			(at 168.91 307.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 168.91 306.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 168.91 300.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 168.91 300.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 168.91 300.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6aa5bf0a-ef72-4b0d-9456-528ae9634a70")
+		)
+		(instances
+			(project "nref-ports-two"
+				(path "/a2d28008-51f2-46b8-aa0f-1fd4a62fdad3"
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)
@@ -33483,7 +33333,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Bourns"
+		(property "Manufacturer" "Vishay Dale"
 			(at 191.77 134.62 0)
 			(effects
 				(font
@@ -33492,25 +33342,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CR0603-FX-2702ELF"
-			(at 191.77 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" "y"
-			(at 191.77 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "Mouser"
+		(property "Manufacturer_No" "CRCW040227K0FKEDHP"
 			(at 191.77 134.62 0)
 			(effects
 				(font
@@ -33586,7 +33418,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "Manufacturer" "Yageo"
 			(at 34.29 218.44 0)
 			(effects
 				(font
@@ -33595,16 +33427,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 34.29 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
+		(property "Manufacturer_No" "RC0402FR-7D10KL"
 			(at 34.29 218.44 0)
 			(effects
 				(font
@@ -33682,7 +33505,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "CUI"
 			(at 226.06 59.69 0)
 			(effects
 				(font
@@ -33691,25 +33514,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "HD0919MSMTTR"
-			(at 226.06 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Checked" ""
-			(at 226.06 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" ""
+		(property "Manufacturer_No" "HD09-19-MSMT-TR"
 			(at 226.06 59.69 0)
 			(effects
 				(font
@@ -33842,7 +33647,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C95598"
+		(property "Manufacturer" "Vishay Dale"
 			(at 307.34 234.95 0)
 			(effects
 				(font
@@ -33851,16 +33656,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
-			(at 307.34 234.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "0402WGF8251TCE"
+		(property "Manufacturer_No" "TNPW040245K3FHED"
 			(at 307.34 234.95 0)
 			(effects
 				(font
@@ -34087,15 +33883,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C88980"
-			(at 443.23 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "6d993968-f4f8-4e5f-82b1-718609ca97fd")
 		)
@@ -34158,6 +33945,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 124.46 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Panasonic"
+			(at 124.46 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "ERA-2AED223X"
 			(at 124.46 297.18 0)
 			(effects
 				(font
