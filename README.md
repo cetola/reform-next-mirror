@@ -90,13 +90,13 @@ MNT Reform Next supports a [variety of Processor Modules](https://mntre.com/modu
 
 Port Board One is mounted on the left side of the case and is responsible for USB-C Power Delivery. When customizing this board, this functionality must be retained for powering the laptop. Copy the KiCAD source files as a starting point. There is a mechanical/spatial coupling with the keyboard that rests above the ports. Please take a look at the following drawing to see where the keyboard PCB is cut away. This defines the space that is available for ports. Any parts and connectors should not be taller than x mm above a 1.6mm PCB, because keycaps could collide with the components when being pressing down.
 
-![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-one-techdraw.png)
+![MNT Reform Next Port Board One Technical Drawing, Side View](images/reform-next-ports-one-techdraw.png)
 
-![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-one-iso.png)
+![MNT Reform Next Port Board One Technical Drawing, Iso View](images/reform-next-ports-one-iso.png)
 
 The electrical interfaces normally available to the left side are:
 
-![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-one-electrical.png)
+![MNT Reform Next Port Board One Electrical Interface](images/reform-next-ports-one-electrical.png)
 
 ### Port Board Two Dimensions / Specs
 
@@ -104,13 +104,13 @@ The electrical interfaces normally available to the left side are:
 
 Port Board Two is mounted on the right side of the case and mainly provides USB connectivity (3 ports), plus HDMI. Copy the KiCAD source files as a starting point. A similar mechanical/spatial coupling with the keyboard as with the Port Board One constrains the port placement, see the following drawing.
 
-![MNT Reform Next Port Board Two Technical Drawing, Top View](images/reform-next-ports-two-techdraw.png)
+![MNT Reform Next Port Board Two Technical Drawing, Side View](images/reform-next-ports-two-techdraw.png)
 
-![MNT Reform Next Port Board Two Technical Drawing, Top View](images/reform-next-ports-two-iso.png)
+![MNT Reform Next Port Board Two Technical Drawing, Iso View](images/reform-next-ports-two-iso.png)
 
 The electrical interfaces normally available to the right side are:
 
-![MNT Reform Next Port Board Two Technical Drawing, Top View](images/reform-next-ports-two-electrical.png)
+![MNT Reform Next Port Board Two Electrical Interface](images/reform-next-ports-two-electrical.png)
 
 ### Port Board Three Dimensions / Specs
 
@@ -122,9 +122,13 @@ The default WiFi/BT implementation is based around the Ezurio Sterling-LWB5+ WiF
 
 By default, this board doesn't expose any connectors to the outside. Instead, WiFi/BT antennas are mounted on it, and the port cover is made from an RF transmissive material to allow for good reception. But you can customize this board while making use of the available space under/behind the keyboard to add external ports, like external antenna connectors, or back-facing USB.
 
-![MNT Reform Next Port Board Three Technical Drawing, Top View](images/reform-next-ports-three-techdraw.png)
+![MNT Reform Next Port Board Three Technical Drawing, Side View](images/reform-next-ports-three-techdraw.png)
 
-![MNT Reform Next Port Board Three Technical Drawing, Top View](images/reform-next-ports-three-iso.png)
+![MNT Reform Next Port Board Three Technical Drawing, Iso View](images/reform-next-ports-three-iso.png)
+
+The electrical interfaces normally available to the back side are:
+
+![MNT Reform Next Port Board Three Electrical Interface](images/reform-next-ports-three-electrical.png)
 
 ### Area Below the Keyboard
 
