@@ -65,7 +65,7 @@ MNT Reform Next supports a [variety of Processor Modules](https://mntre.com/modu
 
 ## Port Boards
 
-![MNT Reform Next CAD Overview Ports and Motherboard](images/reform-next-cad-overview-ports.png)
+![MNT Reform Next CAD Overview Ports and Motherboard](images/reform-next-ports-overview.png)
 
 ![MNT Reform Next CAD 3D View of Ports Board Two](images/reform-next-ports-two-with-kb.png)
 
@@ -73,8 +73,8 @@ MNT Reform Next supports a [variety of Processor Modules](https://mntre.com/modu
 
 - Standard Port Board One:
   - USB-C with USB3+2 signalling and USB Power Delivery
-  - 1 GBit Ethernet (currently iX Industrial, low-profile RJ45 being explored)
-  - MicroSD slot
+  - 1 GBit Ethernet (ix Industrial. Device will be shipped with a short ix to RJ45 jack dongle.)
+  - MicroSD slot (bootable)
   - TLV320AIC3100 Soundchip with internal speaker driver/connector
   - Headset TRRS jack (stereo headphone driver and mono microphone support)
 - Standard Port Board Two:
@@ -82,13 +82,45 @@ MNT Reform Next supports a [variety of Processor Modules](https://mntre.com/modu
   - 2x USB-C with USB3+2 signalling
   - 1x USB-A with USB3+2 signalling for legacy USB devices
 - Standard Port Board Three:
-  - WIP
+  - WiFi/BT chipset and antennas
 
-Status:
+### Port Board One Dimensions / Specs
 
-- Version D-1 of Port Board One designed and ordered, to be brought up 2024-06-24.
-- Port Board Two schematics completed, to be routed. TODO: USB connector for optional internal camera.
-- The back-facing Port Board Three is in schematics development. It will feature the internal display connector/bridge and mounting space for internal or external antennas.
+![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-one-technical.png)
+
+Port Board One is mounted on the left side of the case and is responsible for USB-C Power Delivery. When customizing this board, this functionality must be retained for powering the laptop. Copy the KiCAD source files as a starting point. There is a mechanical/spatial coupling with the keyboard that rests above the ports. Please take a look at the following drawing to see where the keyboard PCB is cut away. This defines the space that is available for ports. Any parts and connectors should not be taller than x mm above a 1.6mm PCB, because keycaps could collide with the components when being pressing down.
+
+![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-one-techdraw.png)
+
+![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-one-iso.png)
+
+The electrical interfaces normally available to the left side are:
+
+![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-one-electrical.png)
+
+### Port Board Two Dimensions / Specs
+
+![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-two-technical.png)
+
+Port Board Two is mounted on the right side of the case and mainly provides USB connectivity (3 ports), plus HDMI. Copy the KiCAD source files as a starting point. A similar mechanical/spatial coupling with the keyboard as with the Port Board One constrains the port placement, see the following drawing.
+
+![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-two-techdraw.png)
+
+![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-two-iso.png)
+
+The electrical interfaces normally available to the right side are:
+
+![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-two-electrical.png)
+
+### Port Board Three Dimensions / Specs
+
+Port Board Three hosts a WiFi/BT chipset by default. It receives USB2, SDIO and UART (with flow control) signals as well as 5V and 3V3 power from Processor Modules that support this (like the RCORE RK3588 module).
+
+### Area Below the Keyboard
+
+You have up to four millimeters of vertical space below the keyboard for extending port boards with low-profile components. 1mm or 0.8mm thick PCBs are recommended. You can also create boards that splice/transform/forward available FFC signals, such as USB (with hubs), I2C (with extenders), Ethernet (switch), etc. as long as they fit under the keyboard. There is some more space available between the through-hole pin rows of the keyboard. It is recommended to load your design as a STEP model into the provided FreeCAD laptop assembly file to check for any mechanical interference.
+
+## Display Adapter
 
 ## Battery Packs
 
@@ -102,7 +134,7 @@ The case bottom integrates grooves to hold 8x 18650 batteries split into two par
 
 ## Mechanical Keyboard
 
-WIP. The keyboard is an evolution/redesign of MNT Reform Keyboard V3 and integrates Pocket Reform features like RGB backlight and upgraded controller (RP2040). Keyswitches are Kailh Choc and keycaps are customized MBK Glows by FKcaps.
+The keyboard is an evolution/redesign of MNT Reform Keyboard V3 and integrates Pocket Reform features like RGB backlight and upgraded controller (RP2040). Keyswitches are Kailh Choc and keycaps are customized MBK Glows by FKcaps.
 
 ## Trackpad
 
