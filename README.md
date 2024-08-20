@@ -154,7 +154,7 @@ The battery packs can be charged via USB-C power delivery from a off-the-shelf c
 
 ## Case
 
-The case has passed several revisions but is still evolving. Most features are placed, except for speaker and optional camera.
+The case has passed several revisions and is almost complete, mostly missing the final trackpad mount and some polishing after real-world testing.
 
 The case bottom integrates grooves to hold 8x 18650 batteries split into two parallel packs.
 
