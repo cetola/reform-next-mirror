@@ -84,6 +84,8 @@ MNT Reform Next supports a [variety of Processor Modules](https://mntre.com/modu
 
 ### Port Board One Dimensions / Specs
 
+![MNT Reform Next Port Board Two Photo](images/reform-next-ports-one-photo.jpg)
+
 ![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-one-technical.png)
 
 Port Board One is mounted on the left side of the case and is responsible for USB-C Power Delivery. When customizing this board, this functionality must be retained for powering the laptop. Copy the KiCAD source files as a starting point. There is a mechanical/spatial coupling with the keyboard that rests above the ports. Please take a look at the following drawing to see where the keyboard PCB is cut away. This defines the space that is available for ports. Any parts and connectors should not be taller than x mm above a 1.6mm PCB, because keycaps could collide with the components when being pressing down.
@@ -98,7 +100,9 @@ The electrical interfaces normally available to the left side are:
 
 ### Port Board Two Dimensions / Specs
 
-![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-two-technical.png)
+![MNT Reform Next Port Board Two Photo](images/reform-next-ports-two-photo.jpg)
+
+![MNT Reform Next Port Board Two Technical Drawing, Top View](images/reform-next-ports-two-technical.png)
 
 Port Board Two is mounted on the right side of the case and mainly provides USB connectivity (3 ports), plus HDMI. Copy the KiCAD source files as a starting point. A similar mechanical/spatial coupling with the keyboard as with the Port Board One constrains the port placement, see the following drawing.
 
@@ -132,9 +136,21 @@ The electrical interfaces normally available to the back side are:
 
 You have up to four millimeters of vertical space below the keyboard for extending port boards with low-profile components. 1mm or 0.8mm thick PCBs are recommended. You can also create boards that splice/transform/forward available FFC signals, such as USB (with hubs), I2C (with extenders), Ethernet (switch), etc. as long as they fit under the keyboard. There is some more space available between the through-hole pin rows of the keyboard. It is recommended to load your design as a STEP model into the provided FreeCAD laptop assembly file to check for any mechanical interference.
 
-## Battery Packs
+## Battery System
 
-WIP. The redundant battery packs have their own monitoring and balancing circuit and abstract everything digitally over I2C.
+In Reform Next, the battery packs have 4 user replacable 18650 cells in series each. The packs are connected to the motherboard in parallel, so they are fully redundant. They have their own monitoring and balancing circuits and abstract all measurements like cell voltages, current, and alert states digitally over I2C. The main buck/boost charger resides on the motherboard. The coordination of the packs, the charger, and the USB-C power delivery living on Port Board one are implemented centrally in free software running on the RP2040 microcontroller on the motherboard. The default chemistry of the cells is LiFePO4. The chemistry can be switched to LiIon using DIP switches on the motherboard--this optional user choice trades longer runtime for less safety and environmental friendliness.
+
+![MNT Reform Next Battery Pack Closeup](images/reform-next-with-cables-and-browser.jpg)
+
+At the current state of development, the laptop successfully runs a Linux Wayland desktop from a single or two inserted battery packs. The small OLED display on top of the keyboard can show individual cell voltages and system voltage as well as dis/charging current.
+
+![MNT Reform Next Running on Batteries, Photo](images/reform-next-running-on-batteries.jpg)
+
+![MNT Reform Next OLED Closeup](images/reform-next-oled-batteries.jpg)
+
+The battery packs can be charged via USB-C power delivery from a off-the-shelf charger using the USB-C port on the left of the device.
+
+![MNT Reform Next Battery Pack Closeup](images/reform-next-batterypack-photo.jpg)
 
 ## Case
 
