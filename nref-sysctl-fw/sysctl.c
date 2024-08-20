@@ -16,22 +16,24 @@
 #include "hardware/spi.h"
 #include "hardware/irq.h"
 #include "hardware/rtc.h"
+#include "hardware/watchdog.h"
+#include "hardware/structs/watchdog.h"
+#include "hardware/structs/vreg_and_chip_reset.h"
 #include "fusb302b.h"
 #include "pd.h"
 
 #define FW_STRING1 "NREF1SYS"
 #define FW_STRING2 "R1"
-#define FW_STRING3 "20240627"
+#define FW_STRING3 "20240813"
 #define FW_REV FW_STRING1 FW_STRING2 FW_STRING3
+
+#define ACM_ENABLED 1
 
 #define PIN_SDA 0
 #define PIN_SCL 1
 
-#define PIN_DISP_RESET 2
-#define PIN_FLIGHTMODE 3
 #define PIN_KBD_UART_TX 4
 #define PIN_KBD_UART_RX 5
-#define PIN_WOWWAN 6
 #define PIN_DISP_EN 7
 #define PIN_SOM_MOSI 8
 #define PIN_SOM_SS0 9
@@ -43,25 +45,22 @@
 #define PIN_LED_B 15
 #define PIN_LED_R 16
 #define PIN_LED_G 17
-#define PIN_MODEM_POWER 18
 #define PIN_SOM_WAKE 19
-#define PIN_MODEM_RESET 20
-#define PIN_1V1_ENABLE 23
+#define PIN_CHRG_CE 20
 #define PIN_3V3_ENABLE 24
 #define PIN_5V_ENABLE 25
-#define PIN_PHONE_DPR 27
 #define PIN_USB_SRC_ENABLE 28
 #define PIN_PWREN_LATCH 29
 
 // FUSB302B USB-PD controller
 #define FUSB_ADDR 0x22
-// MAX17320 protector/balancer
-// https://datasheets.maximintegrated.com/en/ds/MAX17320.pdf
-#define MAX_ADDR1 0x36
-#define MAX_ADDR2 0x0b
-// MP2650 charger
-// https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Datasheet/lang/en/sku/MP2650GV/document_id/9664/
-#define MPS_ADDR  0x5c
+
+// PCAL6416AHF GPIO extender
+#define PCAL_ADDR 0x20
+
+// BQ25756RRVR charger
+
+#define BQ25756_ADDR 0x6b
 
 #define I2C_TIMEOUT (1000*500)
 
@@ -70,6 +69,30 @@
 #define DATA_BITS 8
 #define STOP_BITS 1
 #define PARITY    UART_PARITY_NONE
+
+#define BOOT_MAGIC_2 0xAA55F0F0
+#define BOOT_MAGIC_3 0x0F0F55AA
+#define BOOT_MAGIC_OFF (io_rw_32)(-1)
+
+// The Pico boot rom uses watchdog scratch registers 0, 1, 4, 5, 6, and 7.
+// That leaves 2 and 3 for our "system is on" magic.
+// A _real_ power-on reset clears these registers, so if our magic is left over
+// then we have either been updated while the system is on, or have run into an
+// event with probability 2**-64.
+bool syscon_warm_boot() {
+    return (watchdog_hw->scratch[2] == BOOT_MAGIC_2 &&
+            watchdog_hw->scratch[3] == BOOT_MAGIC_3);
+}
+
+void set_boot_magic() {
+    watchdog_hw->scratch[2] = BOOT_MAGIC_2;
+    watchdog_hw->scratch[3] = BOOT_MAGIC_3;
+}
+
+void clear_boot_magic() {
+    watchdog_hw->scratch[2] = BOOT_MAGIC_OFF;
+    watchdog_hw->scratch[3] = BOOT_MAGIC_OFF;
+}
 
 // battery information
 // TODO: turn into a struct
@@ -254,8 +277,71 @@ int print_src_fixed_pdo(int number, uint32_t pdo) {
   return voltage;
 }
 
+uint8_t bq25756_read_byte(uint8_t addr)
+{
+  uint8_t buf;
+  i2c_write_blocking(i2c0, BQ25756_ADDR, &addr, 1, true);
+  i2c_read_blocking(i2c0, BQ25756_ADDR, &buf, 1, false);
+  return buf;
+}
+
+void bq25756_write_byte(uint8_t addr, uint8_t byte)
+{
+  uint8_t buf[2] = {addr, byte};
+  i2c_write_blocking(i2c0, BQ25756_ADDR, buf, 2, false);
+}
+
+
 int charger_configure() {
   // TODO
+  // see https://www.ti.com/lit/an/sluaat5/sluaat5.pdf
+
+  uint8_t charger_control = bq25756_read_byte(0x17);
+  uint8_t charger_status_1 = bq25756_read_byte(0x21);
+  uint8_t charger_status_2 = bq25756_read_byte(0x22);
+  uint8_t charger_status_3 = bq25756_read_byte(0x23);
+  uint8_t fault_status = bq25756_read_byte(0x24);
+  uint8_t charger_flag_1 = bq25756_read_byte(0x25);
+  uint8_t charger_flag_2 = bq25756_read_byte(0x26);
+  uint8_t pin_control = bq25756_read_byte(0x18);
+
+  // set recharge voltage: 0x17 = 0
+  //bq25756_write_byte(0x17, 0);
+
+  // set battery low voltage: 0x14 = 1
+  //bq25756_write_byte(0x14, 1);
+
+  // FIXME: disable JEITA, TS pin on lifepo4
+  bq25756_write_byte(0x1c, 0);
+
+  // FIXME: resistors! disable ICHG, ILIM
+  bq25756_write_byte(0x18, 0);
+
+  // TODO charge current limit
+
+  printf("\n---------------------------\n[bq25] charger_control: %02x\n", charger_control);
+  printf("[bq25] charger_status_1: %02x\n", charger_status_1);
+  printf("[bq25] charger_status_2: %02x\n", charger_status_2);
+  printf("[bq25] charger_status_3: %02x\n", charger_status_3);
+  printf("[bq25] fault_status: %02x\n", fault_status);
+  printf("[bq25] charger_flag_1: %02x\n", charger_flag_1);
+  printf("[bq25] charger_flag_2: %02x\n", charger_flag_2);
+  printf("[bq25] pin_control: %02x\n", pin_control);
+
+  /*
+    [bq25] charger_control: c9
+    [bq25] charger_status_1: 08
+    [bq25] charger_status_2: b0
+    [bq25] charger_status_3: 00
+    [bq25] fault_status: 00
+    [bq25] charger_flag_1: 48
+    [bq25] charger_flag_2: 90
+    [bq25] pin_control: c0
+   */
+
+  //bq25756_write_byte(0x14, 1);
+
+  return 0;
 }
 
 float charger_dump() {
@@ -268,6 +354,114 @@ float charger_dump() {
   return 0;
 }
 
+#define BQ76922_ADDR 0x08
+
+uint8_t bq76922_read_byte(uint8_t addr)
+{
+  uint8_t buf;
+  i2c_write_blocking(i2c0, BQ76922_ADDR, &addr, 1, true);
+  i2c_read_blocking(i2c0, BQ76922_ADDR, &buf, 1, false);
+  return buf;
+}
+
+void bq76922_write_byte(uint8_t addr, uint8_t byte)
+{
+  uint8_t buf[2] = {addr, byte};
+  i2c_write_blocking(i2c0, BQ76922_ADDR, buf, 2, false);
+}
+
+int monitor_configure() {
+  // TODO batt pack 2
+
+  // get some data from BQ76922
+
+  // subcommand: lo to 0x3e, hi to 0x3f
+  // read 0x3e, 0x3f. if == 0xff, busy
+  //                  if == written subcommand, done
+  // read 0x61 response length
+  // read 0x40... response length (max. up to 0x60)
+  // later: check checksum (at 0x60). checksum includes 0x3e, 0x3f
+  // don't read checksum and length at the same time (auto-increment stuff)
+
+  // later, we can write defaults to OTP memory
+
+  uint16_t cell1_mv_lo = bq76922_read_byte(0x14);
+  uint16_t cell1_mv_hi = bq76922_read_byte(0x15);
+  uint16_t cell2_mv_lo = bq76922_read_byte(0x16);
+  uint16_t cell2_mv_hi = bq76922_read_byte(0x17);
+  uint16_t cell3_mv_lo = bq76922_read_byte(0x18);
+  uint16_t cell3_mv_hi = bq76922_read_byte(0x19);
+  uint16_t cell4_mv_lo = bq76922_read_byte(0x1a);
+  uint16_t cell4_mv_hi = bq76922_read_byte(0x1b);
+  uint16_t cell5_mv_lo = bq76922_read_byte(0x1c);
+  uint16_t cell5_mv_hi = bq76922_read_byte(0x1d);
+
+  uint16_t stack_userv_lo = bq76922_read_byte(0x34);
+  uint16_t stack_userv_hi = bq76922_read_byte(0x35);
+
+  float cell1_mv = cell1_mv_lo|(cell1_mv_hi<<8);
+  float cell2_mv = cell2_mv_lo|(cell2_mv_hi<<8);
+  float cell3_mv = cell3_mv_lo|(cell3_mv_hi<<8);
+  float cell4_mv = cell4_mv_lo|(cell4_mv_hi<<8);
+  float cell5_mv = cell5_mv_lo|(cell5_mv_hi<<8);
+  float stack_mv = stack_userv_lo|(stack_userv_hi<<8);
+
+  report_cells_v[0] = cell1_mv;
+  report_cells_v[1] = cell2_mv;
+  //report_cells_v[2] = cell3_mv;
+  report_cells_v[2] = cell4_mv;
+  report_cells_v[3] = cell5_mv;
+
+  report_volts = stack_mv/100.0; // /100.0 is a guess
+
+  // 0x0097: FET_CONTROL
+
+  uint8_t control_status = bq76922_read_byte(0x00);
+  uint8_t safety_alert_a = bq76922_read_byte(0x02);
+  uint8_t safety_status_a = bq76922_read_byte(0x03);
+  uint8_t safety_alert_b = bq76922_read_byte(0x04);
+  uint8_t safety_status_b = bq76922_read_byte(0x05);
+  uint8_t safety_alert_c = bq76922_read_byte(0x06);
+  uint8_t safety_status_c = bq76922_read_byte(0x07);
+  uint8_t battery_status = bq76922_read_byte(0x12);
+  uint16_t temp_int_lo = bq76922_read_byte(0x68);
+  uint16_t temp_int_hi = bq76922_read_byte(0x69);
+  uint16_t temp_ext_lo = bq76922_read_byte(0x70);
+  uint16_t temp_ext_hi = bq76922_read_byte(0x71);
+  float temp_int_k = temp_int_lo|(temp_int_hi<<8);
+  float temp_ext_k = temp_ext_lo|(temp_ext_hi<<8);
+
+  printf("\n---------------------------\n[bq76] c1 mV: %f\n", cell1_mv);
+  printf("[bq76] c2 mV: %f\n", cell2_mv);
+  printf("[bq76] c3 mV: %f\n", cell3_mv);
+  printf("[bq76] c4 mV: %f\n", cell4_mv);
+  printf("[bq76] c5 mV: %f\n", cell5_mv);
+  printf("[bq76] st V: %f\n", report_volts);
+  printf("[bq76] control_status: %02x\n", control_status);
+  printf("[bq76] battery_status: %02x\n", battery_status);
+  printf("[bq76] safety_alert_a: %02x\n", safety_alert_a);
+  printf("[bq76] safety_alert_b: %02x\n", safety_alert_b);
+  printf("[bq76] safety_alert_c: %02x\n", safety_alert_c);
+  printf("[bq76] safety_status_a: %02x\n", safety_status_a);
+  printf("[bq76] safety_status_b: %02x\n", safety_status_b);
+  printf("[bq76] safety_status_c: %02x\n", safety_status_c);
+
+  printf("[bq76] temp_int: %f C\n", temp_int_k-273.15);
+  printf("[bq76] temp_ext: %f C\n", temp_ext_k-273.15);
+
+  return 1;
+}
+
+void mon_all_fets_off() {
+  bq76922_write_byte(0x3e, 0x95);
+  bq76922_write_byte(0x3f, 0x00);
+}
+
+void mon_all_fets_on() {
+  bq76922_write_byte(0x3e, 0x96);
+  bq76922_write_byte(0x3f, 0x00);
+}
+
 void init_spi_client();
 
 void turn_som_power_on() {
@@ -278,32 +472,13 @@ void turn_som_power_on() {
 
   gpio_put(PIN_LED_B, 1);
 
+  set_boot_magic();
+
   printf("# [action] turn_som_power_on\n");
-  gpio_put(PIN_1V1_ENABLE, 1);
+  gpio_put(PIN_5V_ENABLE, 1);
   sleep_ms(10);
   gpio_put(PIN_3V3_ENABLE, 1);
   sleep_ms(10);
-
-  /*gpio_put(PIN_SOM_MOSI, 1);
-  gpio_put(PIN_SOM_SS0, 1);
-  gpio_put(PIN_SOM_SCK, 1);
-  gpio_put(PIN_SOM_MISO, 1);*/
-
-  gpio_put(PIN_5V_ENABLE, 1);
-
-  // MODEM
-  gpio_put(PIN_FLIGHTMODE, 1); // active low
-  gpio_put(PIN_MODEM_RESET, 0); // active low (?)
-  gpio_put(PIN_MODEM_POWER, 1); // active high
-  gpio_put(PIN_PHONE_DPR, 1); // active high
-
-  sleep_ms(10);
-  gpio_put(PIN_DISP_EN, 1);
-  sleep_ms(10);
-  gpio_put(PIN_DISP_RESET, 1);
-
-  // MODEM
-  gpio_put(PIN_MODEM_RESET, 1); // active low
 
   // done with latching
   gpio_put(PIN_PWREN_LATCH, 0);
@@ -317,29 +492,15 @@ void turn_som_power_off() {
   // latch
   gpio_put(PIN_PWREN_LATCH, 1);
 
-  // FIXME spi test
-  /*gpio_put(PIN_SOM_MOSI, 0);
-  gpio_put(PIN_SOM_SS0, 0);
-  gpio_put(PIN_SOM_SCK, 0);
-  gpio_put(PIN_SOM_MISO, 0);*/
-
   gpio_put(PIN_LED_B, 0);
 
-  printf("# [action] turn_som_power_off\n");
-  gpio_put(PIN_DISP_RESET, 0);
-  gpio_put(PIN_DISP_EN, 0);
+  clear_boot_magic();
 
-  // MODEM
-  gpio_put(PIN_FLIGHTMODE, 0); // active low
-  gpio_put(PIN_MODEM_RESET, 0); // active low
-  gpio_put(PIN_MODEM_POWER, 0); // active high
-  gpio_put(PIN_PHONE_DPR, 0); // active high
+  printf("# [action] turn_som_power_off\n");
 
   gpio_put(PIN_5V_ENABLE, 0);
   sleep_ms(10);
   gpio_put(PIN_3V3_ENABLE, 0);
-  sleep_ms(10);
-  gpio_put(PIN_1V1_ENABLE, 0);
 
   // done with latching
   gpio_put(PIN_PWREN_LATCH, 0);
@@ -728,6 +889,10 @@ int main() {
   stdio_init_all();
   init_spi_client();
 
+  printf("# [reset] cause: %#.8x\n", vreg_and_chip_reset_hw->chip_reset);
+  printf("# [reset] magic: %#.8x%.8x\n",
+         watchdog_hw->scratch[2], watchdog_hw->scratch[3]);
+
   // UART to keyboard
   uart_init(UART_ID, BAUD_RATE);
   uart_set_format(UART_ID, DATA_BITS, STOP_BITS, PARITY);
@@ -757,13 +922,10 @@ int main() {
   gpio_set_dir(PIN_LED_G, 1);
   gpio_set_dir(PIN_LED_B, 1);
 
-  gpio_init(PIN_1V1_ENABLE);
   gpio_init(PIN_3V3_ENABLE);
   gpio_init(PIN_5V_ENABLE);
-  gpio_set_dir(PIN_1V1_ENABLE, 1);
   gpio_set_dir(PIN_3V3_ENABLE, 1);
   gpio_set_dir(PIN_5V_ENABLE, 1);
-  gpio_put(PIN_1V1_ENABLE, 0);
   gpio_put(PIN_3V3_ENABLE, 0);
   gpio_put(PIN_5V_ENABLE, 0);
 
@@ -771,37 +933,27 @@ int main() {
   gpio_set_dir(PIN_PWREN_LATCH, 1);
   gpio_put(PIN_PWREN_LATCH, 0);
 
-  gpio_init(PIN_DISP_RESET);
-  gpio_init(PIN_DISP_EN);
-  gpio_set_dir(PIN_DISP_EN, 1);
-  gpio_set_dir(PIN_DISP_RESET, 1);
-  gpio_put(PIN_DISP_EN, 0);
-  gpio_put(PIN_DISP_RESET, 0);
-
-  gpio_init(PIN_FLIGHTMODE);
-  gpio_init(PIN_MODEM_POWER);
-  gpio_init(PIN_MODEM_RESET);
-  gpio_init(PIN_PHONE_DPR);
-  gpio_set_dir(PIN_FLIGHTMODE, 1);
-  gpio_set_dir(PIN_MODEM_POWER, 1);
-  gpio_set_dir(PIN_MODEM_RESET, 1);
-  gpio_set_dir(PIN_PHONE_DPR, 1);
-  gpio_put(PIN_FLIGHTMODE, 0); // active low
-  gpio_put(PIN_MODEM_POWER, 0); // active high
-  gpio_put(PIN_MODEM_RESET, 0); // active low (?)
-  gpio_put(PIN_PHONE_DPR, 0); // active high // causes 0.146W power use when high in off state!
+  gpio_init(PIN_CHRG_CE);
+  gpio_put(PIN_CHRG_CE, 0);
 
   gpio_put(PIN_LED_R, 0);
   gpio_put(PIN_LED_G, 0);
   gpio_put(PIN_LED_B, 0);
 
+  // FIXME this is now on gpio extender
   gpio_init(PIN_USB_SRC_ENABLE);
   gpio_set_dir(PIN_USB_SRC_ENABLE, 1);
   gpio_put(PIN_USB_SRC_ENABLE, 0);
 
-  // latch the PWR and display pins
-  gpio_put(PIN_PWREN_LATCH, 1);
-  gpio_put(PIN_PWREN_LATCH, 0);
+  // if this is a warm boot, then we need to avoid latching the PWR and display
+  // pins.
+  if (syscon_warm_boot()) {
+      printf("# [reset] watchdog scratch had valid on magic, not latching power.\n");
+      som_is_powered = true;
+  } else {
+      gpio_put(PIN_PWREN_LATCH, 1);
+      gpio_put(PIN_PWREN_LATCH, 0);
+  }
 
   unsigned int t = 0;
   unsigned int t_report = 0;
@@ -817,11 +969,7 @@ int main() {
   int power_objects = 0;
   int max_voltage = 0;
 
-  /*while (1) {
-    sleep_ms(1000);
-    i2c_scan();
-    }*/
-  sleep_ms(5000);
+  sleep_ms(1000);
 
 #ifdef FACTORY_MODE
   // in factory mode, turn on power immediately to be able to flash
@@ -852,6 +1000,15 @@ int main() {
       }
       else if (usb_c == 'p') {
         print_pack_info = !print_pack_info;
+      }
+      else if (usb_c == 'i') {
+        i2c_scan();
+      }
+      else if (usb_c == 'q') {
+        mon_all_fets_off();
+      }
+      else if (usb_c == 'w') {
+        mon_all_fets_on();
       }
     }
 #endif
@@ -926,7 +1083,7 @@ int main() {
         t = 0;
         state = 1;
       } else {
-        if (t > 1000) {
+        if (t > 100) {
           printf("# [pd] state 0: fusb timeout.\n");
           t = 0;
         }
@@ -935,7 +1092,7 @@ int main() {
     } else if (state == 1) {
       //printf("[next-sysctl] state 1\n");
 
-      if (t>3000) {
+      if (t>300) {
         printf("# [pd] state 1, timeout.\n");
         float input_voltage = charger_dump();
         //max_dump();
@@ -1022,13 +1179,14 @@ int main() {
       gpio_put(PIN_LED_R, 1);
       gpio_put(PIN_USB_SRC_ENABLE, 0);
 
-      charger_configure();
+      // FIXME
+      //charger_configure();
 
       // charging
       sleep_ms(1);
 
       // running
-      if (t>2000) {
+      if (t>200) {
         printf("# [pd] state 3.\n");
 
         float input_voltage = charger_dump();
@@ -1043,8 +1201,15 @@ int main() {
       }
     }
 
+    sleep_ms(10);
     t++;
     t_report++;
+
+    if (t_report > 200) {
+      monitor_configure();
+      charger_configure();
+      t_report = 0;
+    }
   }
 
   return 0;
