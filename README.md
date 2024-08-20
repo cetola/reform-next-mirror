@@ -104,23 +104,31 @@ The electrical interfaces normally available to the left side are:
 
 Port Board Two is mounted on the right side of the case and mainly provides USB connectivity (3 ports), plus HDMI. Copy the KiCAD source files as a starting point. A similar mechanical/spatial coupling with the keyboard as with the Port Board One constrains the port placement, see the following drawing.
 
-![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-two-techdraw.png)
+![MNT Reform Next Port Board Two Technical Drawing, Top View](images/reform-next-ports-two-techdraw.png)
 
-![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-two-iso.png)
+![MNT Reform Next Port Board Two Technical Drawing, Top View](images/reform-next-ports-two-iso.png)
 
 The electrical interfaces normally available to the right side are:
 
-![MNT Reform Next Port Board One Technical Drawing, Top View](images/reform-next-ports-two-electrical.png)
+![MNT Reform Next Port Board Two Technical Drawing, Top View](images/reform-next-ports-two-electrical.png)
 
 ### Port Board Three Dimensions / Specs
 
+![MNT Reform Next Port Board Three Technical Drawing, Top View](images/reform-next-ports-three-technical.png)
+
 Port Board Three hosts a WiFi/BT chipset by default. It receives USB2, SDIO and UART (with flow control) signals as well as 5V and 3V3 power from Processor Modules that support this (like the RCORE RK3588 module).
+
+The default WiFi/BT implementation is based around the Ezurio Sterling-LWB5+ WiFi 5 with Bluetooth 5.2 SMT module. The chipset is Cypress CYW4373EUBGT, which has good Linux mainline driver support.
+
+By default, this board doesn't expose any connectors to the outside. Instead, WiFi/BT antennas are mounted on it, and the port cover is made from an RF transmissive material to allow for good reception. But you can customize this board while making use of the available space under/behind the keyboard to add external ports, like external antenna connectors, or back-facing USB.
+
+![MNT Reform Next Port Board Three Technical Drawing, Top View](images/reform-next-ports-three-techdraw.png)
+
+![MNT Reform Next Port Board Three Technical Drawing, Top View](images/reform-next-ports-three-iso.png)
 
 ### Area Below the Keyboard
 
 You have up to four millimeters of vertical space below the keyboard for extending port boards with low-profile components. 1mm or 0.8mm thick PCBs are recommended. You can also create boards that splice/transform/forward available FFC signals, such as USB (with hubs), I2C (with extenders), Ethernet (switch), etc. as long as they fit under the keyboard. There is some more space available between the through-hole pin rows of the keyboard. It is recommended to load your design as a STEP model into the provided FreeCAD laptop assembly file to check for any mechanical interference.
-
-## Display Adapter
 
 ## Battery Packs
 
