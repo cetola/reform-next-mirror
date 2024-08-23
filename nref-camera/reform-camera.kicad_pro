@@ -793,7 +793,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "nref-camera-d3",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "reform-camera.step",
