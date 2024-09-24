@@ -154,9 +154,17 @@ The battery packs can be charged via USB-C power delivery from a off-the-shelf c
 
 ## Case
 
-The case has passed several revisions and is almost complete, mostly missing the final trackpad mount and some polishing after real-world testing.
+The case, designed by Ana Dantas, has passed several revisions and is now (2024-09-24) ready for ordering as aluminum CNC milled parts.
 
-The case bottom integrates grooves to hold 8x 18650 batteries split into two parallel packs.
+- The case bottom integrates grooves to hold 8x 18650 batteries split into two parallel packs.
+- The case bottom, as a large aluminum body, acts as the main heatsink for the CPU. The motherboard with CPU is mounted upside down with the CPU conducting heat to the case through a thermal pad. The motherboard is symmetrical and can also be flipped so that the CPU is on top, making it easier to work on the device for debugging.
+- The case bottom also features a metric grid of screw threads for mounting standard and user defined electronics, a feature inspired by the "Peek array" in the original Novena OSHW laptop.
+- The screen back integrates pockets for installing a camera module and mounting points for a FPC to JST-SH cable converter for the camera module.
+
+![MNT Reform Next 2024-09 Full Assembly Overview 1](images/nref-case-20240924-01.png)
+![MNT Reform Next 2024-09 Full Assembly Overview 2](images/nref-case-20240924-02.png)
+![MNT Reform Next 2024-09 Full Assembly Overview 3](images/nref-case-20240924-03.png)
+![MNT Reform Next 2024-09 Full Assembly Overview 4](images/nref-case-20240924-04.png)
 
 ## Mechanical Keyboard
 
