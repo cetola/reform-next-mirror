@@ -25229,7 +25229,7 @@
 	)
 	(wire
 		(pts
-			(xy 414.02 86.36) (xy 414.02 93.98)
+			(xy 414.02 72.39) (xy 414.02 93.98)
 		)
 		(stroke
 			(width 0)
@@ -33100,6 +33100,16 @@
 		)
 		(uuid "0a43b515-777c-4e54-9de5-f17870a50607")
 	)
+	(text "TODO: why not use 2x clock gen?"
+		(exclude_from_sim no)
+		(at 971.55 199.39 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0ae7b0f8-f3d6-49eb-887b-d528e577754c")
+	)
 	(text "current plan:\n- can only use modules that support eDP directly, no mipi-dsi on motherboard"
 		(exclude_from_sim no)
 		(at 36.83 774.7 0)
@@ -33283,9 +33293,9 @@
 		)
 		(uuid "45152bf5-740a-4c47-b01d-91c010ceb8af")
 	)
-	(text "SD Card"
+	(text "SD Card\n(flipped in D-2)!)"
 		(exclude_from_sim no)
-		(at 84.582 455.676 0)
+		(at 77.216 456.184 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -33303,6 +33313,16 @@
 			)
 		)
 		(uuid "49095ba5-faf6-4318-9999-3ef63dd43b9e")
+	)
+	(text "replaced with 0R on MB"
+		(exclude_from_sim no)
+		(at 480.314 507.492 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4989020e-1be7-49d7-825b-84a6103b32ce")
 	)
 	(text "see also: www.ti.com/lit/ug/sluuct7b/sluuct7b.pdf?ts=1717244287726"
 		(exclude_from_sim no)
@@ -33335,9 +33355,9 @@
 		)
 		(uuid "52363aa9-d7dc-496c-9953-38167d24068a")
 	)
-	(text "I2S Audio"
+	(text "I2S Audio\n(flipped in D-2!)"
 		(exclude_from_sim no)
-		(at 126.492 455.676 0)
+		(at 120.904 456.438 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -33399,6 +33419,16 @@
 		)
 		(uuid "5f5d067a-7202-44f0-9e69-e8e18ae9d801")
 	)
+	(text "TODO: diodes here inducing VPP \nso we can run without charging/batteries"
+		(exclude_from_sim no)
+		(at 410.972 81.026 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5fb2be0f-e396-4dda-8e85-b05c79242996")
+	)
 	(text "MAX 36V"
 		(exclude_from_sim no)
 		(at 463.042 131.064 0)
@@ -33409,6 +33439,17 @@
 			(justify left bottom)
 		)
 		(uuid "60540246-f29e-470b-8ac3-baa6b74ec211")
+	)
+	(text "TODO: replaced with 20k resistor\non board, 10k = 25 degrees. clears TS fault"
+		(exclude_from_sim no)
+		(at 533.654 500.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "617f556f-4a49-460d-b938-71e6e5d2883a")
 	)
 	(text "1473149-4 is incompatible! \nthe correct one is 1473149-1! (or 1717254-1)"
 		(exclude_from_sim no)
@@ -33442,6 +33483,17 @@
 		)
 		(uuid "65045aa8-a093-4c98-8a0f-62bd4ee7e268")
 	)
+	(text "currently 4.7k fitted"
+		(exclude_from_sim no)
+		(at 477.774 518.16 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "656a5204-f027-4329-8b25-1e20836b6489")
+	)
 	(text "PERp3"
 		(exclude_from_sim no)
 		(at 1015.492 135.89 0)
@@ -33452,6 +33504,16 @@
 			(justify left bottom)
 		)
 		(uuid "656c6097-daad-4575-b4ce-64e410953f5c")
+	)
+	(text "TODO: DNP on these 49.9... except if we use clock gen"
+		(exclude_from_sim no)
+		(at 971.804 203.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "66529f1b-e106-440c-97d3-d62260a45d75")
 	)
 	(text "TODO: auto-control by port farm"
 		(exclude_from_sim no)
@@ -33508,9 +33570,9 @@
 		)
 		(uuid "70c5ca88-581b-4f56-917f-549692dfcb9d")
 	)
-	(text "USB3 to port farm 2"
+	(text "USB3 to port farm 2\n(flipped in D-2!)\n"
 		(exclude_from_sim no)
-		(at 78.74 410.21 0)
+		(at 78.994 409.194 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -33519,9 +33581,9 @@
 		)
 		(uuid "728fcbf0-29a9-4d8e-982f-da08bfcc6334")
 	)
-	(text "USB3 to port farm 1"
+	(text "USB3 to port farm 1\n(flipped in D-2!)"
 		(exclude_from_sim no)
-		(at 78.74 360.68 0)
+		(at 79.248 357.632 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -33798,6 +33860,16 @@
 		)
 		(uuid "a8087d1d-41d0-48bf-adfd-b8734904b7fb")
 	)
+	(text "removed on board and\nconnected to GND"
+		(exclude_from_sim no)
+		(at 818.896 280.924 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a86166a5-3d46-41c8-bf18-1328316e9398")
+	)
 	(text "TODO: AUX for DP?"
 		(exclude_from_sim no)
 		(at 249.174 391.668 0)
@@ -33940,7 +34012,7 @@
 	)
 	(text "TODO: actual ICHG/ILIM resistor values?"
 		(exclude_from_sim no)
-		(at 454.152 542.29 0)
+		(at 451.358 515.366 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -34067,7 +34139,7 @@
 		)
 		(uuid "ecff0d6e-9953-4e56-9115-eaa60c097721")
 	)
-	(text "1GBe to port farm"
+	(text "1GBe to port farm\n(flipped in D-2!)"
 		(exclude_from_sim no)
 		(at 123.19 358.14 0)
 		(effects
@@ -43512,7 +43584,8 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x12_Pin")
-		(at 77.47 426.72 0)
+		(at 77.47 429.26 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -43520,7 +43593,7 @@
 		(dnp no)
 		(uuid "19143178-5b16-4121-a583-8779b691e265")
 		(property "Reference" "J2"
-			(at 67.945 424.18 0)
+			(at 67.945 431.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43528,7 +43601,7 @@
 			)
 		)
 		(property "Value" "Conn_01x12_Pin"
-			(at 67.945 426.72 0)
+			(at 67.945 429.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43536,7 +43609,7 @@
 			)
 		)
 		(property "Footprint" "Connector_FFC-FPC:Hirose_FH12-12S-0.5SH_1x12-1MP_P0.50mm_Horizontal"
-			(at 77.47 426.72 0)
+			(at 77.47 429.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43545,7 +43618,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 77.47 426.72 0)
+			(at 77.47 429.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43554,7 +43627,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 77.47 426.72 0)
+			(at 77.47 429.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43563,7 +43636,7 @@
 			)
 		)
 		(property "Manufacturer" "Hirose"
-			(at 77.47 426.72 0)
+			(at 77.47 429.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43572,7 +43645,7 @@
 			)
 		)
 		(property "Manufacturer_No" "FH12-12S-0.5SH(55)"
-			(at 77.47 426.72 0)
+			(at 77.47 429.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43825,16 +43898,16 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x10_Pin")
-		(at 119.38 472.44 0)
+		(at 119.38 474.98 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "1f0bb3fa-3570-4aa4-9201-5678d79aa4db")
 		(property "Reference" "J17"
-			(at 120.015 457.2 0)
+			(at 120.015 490.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43842,7 +43915,7 @@
 			)
 		)
 		(property "Value" "Conn_01x10_Pin"
-			(at 120.015 459.74 0)
+			(at 120.015 487.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43850,7 +43923,7 @@
 			)
 		)
 		(property "Footprint" "Connector_FFC-FPC:Hirose_FH12-10S-0.5SH_1x10-1MP_P0.50mm_Horizontal"
-			(at 119.38 472.44 0)
+			(at 119.38 474.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43859,7 +43932,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 119.38 472.44 0)
+			(at 119.38 474.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43868,7 +43941,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x10, script generated"
-			(at 119.38 472.44 0)
+			(at 119.38 474.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43877,7 +43950,7 @@
 			)
 		)
 		(property "Manufacturer" "Hirose"
-			(at 119.38 472.44 0)
+			(at 119.38 474.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -43886,7 +43959,7 @@
 			)
 		)
 		(property "Manufacturer_No" "FH12-10S-0.5SH(55)"
-			(at 119.38 472.44 0)
+			(at 119.38 474.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -58447,7 +58520,8 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x12_Pin")
-		(at 77.47 377.19 0)
+		(at 77.47 379.73 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -58455,7 +58529,7 @@
 		(dnp no)
 		(uuid "97447e54-b6b7-498f-9aa5-bfee653f87c4")
 		(property "Reference" "J8"
-			(at 67.945 374.65 0)
+			(at 67.945 382.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -58463,7 +58537,7 @@
 			)
 		)
 		(property "Value" "Conn_01x12_Pin"
-			(at 67.945 377.19 0)
+			(at 67.945 379.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -58471,7 +58545,7 @@
 			)
 		)
 		(property "Footprint" "Connector_FFC-FPC:Hirose_FH12-12S-0.5SH_1x12-1MP_P0.50mm_Horizontal"
-			(at 77.47 377.19 0)
+			(at 77.47 379.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -58480,7 +58554,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 77.47 377.19 0)
+			(at 77.47 379.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -58489,7 +58563,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 77.47 377.19 0)
+			(at 77.47 379.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -58498,7 +58572,7 @@
 			)
 		)
 		(property "Manufacturer" "Hirose"
-			(at 77.47 377.19 0)
+			(at 77.47 379.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -58507,7 +58581,7 @@
 			)
 		)
 		(property "Manufacturer_No" "FH12-12S-0.5SH(55)"
-			(at 77.47 377.19 0)
+			(at 77.47 379.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -62178,16 +62252,16 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x10_Pin")
-		(at 77.47 472.44 0)
+		(at 77.47 474.98 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "b68fd71d-0c50-41dc-8d3c-cacc2a2a7518")
 		(property "Reference" "J16"
-			(at 78.105 457.2 0)
+			(at 78.105 490.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -62195,7 +62269,7 @@
 			)
 		)
 		(property "Value" "Conn_01x10_Pin"
-			(at 78.105 459.74 0)
+			(at 78.105 487.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -62203,7 +62277,7 @@
 			)
 		)
 		(property "Footprint" "Connector_FFC-FPC:Hirose_FH12-10S-0.5SH_1x10-1MP_P0.50mm_Horizontal"
-			(at 77.47 472.44 0)
+			(at 77.47 474.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -62212,7 +62286,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 77.47 472.44 0)
+			(at 77.47 474.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -62221,7 +62295,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x10, script generated"
-			(at 77.47 472.44 0)
+			(at 77.47 474.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -62230,7 +62304,7 @@
 			)
 		)
 		(property "Manufacturer" "Hirose"
-			(at 77.47 472.44 0)
+			(at 77.47 474.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -62239,7 +62313,7 @@
 			)
 		)
 		(property "Manufacturer_No" "FH12-10S-0.5SH(55)"
-			(at 77.47 472.44 0)
+			(at 77.47 474.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -69534,7 +69608,8 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x14_Pin")
-		(at 128.27 381 0)
+		(at 128.27 383.54 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -69542,7 +69617,7 @@
 		(dnp no)
 		(uuid "f24d6079-353d-47f4-863b-2f7d64f5a664")
 		(property "Reference" "J9"
-			(at 118.745 377.19 0)
+			(at 118.745 387.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -69550,7 +69625,7 @@
 			)
 		)
 		(property "Value" "Conn_01x14_Pin"
-			(at 118.745 379.73 0)
+			(at 118.745 384.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -69558,7 +69633,7 @@
 			)
 		)
 		(property "Footprint" "Connector_FFC-FPC:Hirose_FH12-14S-0.5SH_1x14-1MP_P0.50mm_Horizontal"
-			(at 128.27 381 0)
+			(at 128.27 383.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -69567,7 +69642,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 128.27 381 0)
+			(at 128.27 383.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -69576,7 +69651,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 128.27 381 0)
+			(at 128.27 383.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -69585,7 +69660,7 @@
 			)
 		)
 		(property "Manufacturer" "Hirose"
-			(at 128.27 381 0)
+			(at 128.27 383.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -69594,7 +69669,7 @@
 			)
 		)
 		(property "Manufacturer_No" "FH12-14S-0.5SH(55)"
-			(at 128.27 381 0)
+			(at 128.27 383.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -70592,7 +70667,7 @@
 	)
 	(symbol
 		(lib_id "power:VCC")
-		(at 414.02 86.36 0)
+		(at 414.02 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -70601,7 +70676,7 @@
 		(fields_autoplaced yes)
 		(uuid "f8141315-6311-41b9-bb8c-1c56e9e44913")
 		(property "Reference" "#PWR0144"
-			(at 414.02 90.17 0)
+			(at 414.02 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -70610,7 +70685,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 414.02 81.28 0)
+			(at 414.02 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -70618,7 +70693,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 414.02 86.36 0)
+			(at 414.02 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -70627,7 +70702,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 414.02 86.36 0)
+			(at 414.02 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -70636,7 +70711,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 414.02 86.36 0)
+			(at 414.02 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)

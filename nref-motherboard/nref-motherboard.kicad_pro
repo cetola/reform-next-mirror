@@ -484,7 +484,7 @@
       "plot": "reflex-gerbers-d1",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "nref-motherboard.step",
+      "step": "nref-motherboard-d2.step",
       "svg": "",
       "vrml": ""
     },
