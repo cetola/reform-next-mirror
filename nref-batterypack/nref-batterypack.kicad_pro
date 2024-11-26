@@ -500,7 +500,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "nref-batteryfront-d1",
+      "plot": "nref-batteryfront-d2",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "nref-batterypack.step",
