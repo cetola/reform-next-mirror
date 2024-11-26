@@ -2619,6 +2619,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Generic"
+			(at 110.49 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "4.7k 0402"
+			(at 110.49 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "882d487b-173a-4e30-bb2f-5219d3e5ef8e")
 		)
@@ -2681,6 +2699,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 162.56 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 162.56 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 162.56 125.73 0)
 			(effects
 				(font
@@ -2812,6 +2848,24 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
+			(at 142.24 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cherry"
+			(at 142.24 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "ULP"
 			(at 142.24 83.82 0)
 			(effects
 				(font
@@ -2954,6 +3008,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Generic"
+			(at 50.8 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "4.7k 0402"
+			(at 50.8 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "28d3e53c-7d09-45d5-8968-5a11a096c37c")
 		)
@@ -3081,6 +3153,24 @@
 			)
 		)
 		(property "Description" "IO expander 16 GPIO, I2C 400kHz, Interrupt, 1.65 - 5.5V, HWQFN-24"
+			(at 82.55 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "NXP"
+			(at 82.55 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "PCAL6416AHF"
 			(at 82.55 91.44 0)
 			(effects
 				(font
@@ -3360,6 +3450,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Generic"
+			(at 118.11 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "4.7k 0402"
+			(at 118.11 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f2a58109-bc2f-4d53-856c-e1fc5693ae7d")
 		)
@@ -3487,6 +3595,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 92.71 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Generic"
+			(at 92.71 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "0.1uF 0402"
 			(at 92.71 50.8 0)
 			(effects
 				(font
@@ -3750,6 +3876,24 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
+			(at 142.24 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cherry"
+			(at 142.24 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "ULP"
 			(at 142.24 71.12 0)
 			(effects
 				(font
@@ -4112,6 +4256,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Generic"
+			(at 114.3 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "4.7k 0402"
+			(at 114.3 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "22575452-f740-4517-a1cf-b70b7442e470")
 		)
@@ -4172,6 +4334,24 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
+			(at 142.24 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cherry"
+			(at 142.24 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "ULP"
 			(at 142.24 96.52 0)
 			(effects
 				(font
@@ -4242,6 +4422,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 66.04 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Generic"
+			(at 66.04 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "0.1uF 0402"
 			(at 66.04 50.8 0)
 			(effects
 				(font
@@ -4377,6 +4575,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
+			(at 171.45 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 171.45 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 171.45 132.08 0)
 			(effects
 				(font
