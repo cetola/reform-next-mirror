@@ -348,11 +348,13 @@ int charger_configure() {
 
   // charge current limit (step = 50mA)
   bq25756_write_byte(0x03, 0); // upper byte
-  bq25756_write_byte(0x02, (1500/50)<<2); // 400mA (0x8) is the low end
+  bq25756_write_byte(0x02, (3000/50)<<2); // 400mA (0x8) is the low end
 
   // input current limit (step = 50mA). 50W = 20V @ 2.5A
-  bq25756_write_byte(0x07, 0); // upper byte
-  bq25756_write_byte(0x06, (2500/50)<<2); // 400mA (0x8) is the low end
+  //bq25756_write_byte(0x07, 0); // upper byte
+  //bq25756_write_byte(0x06, (3000/50)<<2); // 400mA (0x8) is the low end
+  bq25756_write_byte(0x07, 1<<2); // upper byte
+  bq25756_write_byte(0x06, 0); // 400mA (0x8) is the low end
 
   // FIXME: resistors! disable ICHG, ILIM
   bq25756_write_byte(0x18, 0);
@@ -469,6 +471,34 @@ void bq76922_set_reg(i2c_inst_t* i2c, uint16_t reg_addr, uint32_t reg_data, uint
   }
 }
 
+void monitor_setup(i2c_inst_t* i2c);
+
+int monitor_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int len) {
+  int tries = 0;
+  int success = 0;
+
+  bq76922_write_byte(i2c, 0x3e, subcmd);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+  
+  while (tries < 10) {
+    uint8_t tmp1 = bq76922_read_byte(i2c, 0x3e);
+    uint8_t tmp2 = bq76922_read_byte(i2c, 0x3f);
+    if (tmp1 != 0xff || tmp2 != 0xff) {
+      success = 1;
+      break;
+    }
+    sleep_ms(10);
+  }
+  if (!success) {
+    return 0;
+  }
+
+  // TODO check checksum
+  for (int i=0; i<len; i++) {
+    buf[i] = bq76922_read_byte(i2c, 0x40+i);
+  }
+  return 1;
+}
 
 int monitor_configure(i2c_inst_t* i2c) {
   int id = 0;
@@ -525,10 +555,23 @@ int monitor_configure(i2c_inst_t* i2c) {
     report_cells_v[6] = cell4_mv;
     report_cells_v[7] = cell5_mv;
   }
+  
+  if (pack_mv == 0) {
+    // pack not active
+    return 0;
+  }
+
   // TODO average pack 1 + 2
   report_volts = stack_mv/100.0; // default unit is centivolts
   report_current = cc2_ma/1000.0; // default unit is mA
 
+  uint8_t manufacturing_status = 0;
+  monitor_read_subcommand(i2c, 0x57, &manufacturing_status, 1);
+  if (!(manufacturing_status & (1<<4))) {
+    // FETs not enabled, setup the chip
+    monitor_setup(i2c);
+  }
+  
   // 0x0097: FET_CONTROL
 
   uint8_t control_status = bq76922_read_byte(i2c, 0x00);
@@ -547,14 +590,17 @@ int monitor_configure(i2c_inst_t* i2c) {
   uint16_t temp_ext_hi = bq76922_read_byte(i2c, 0x71);
   float temp_int_k = temp_int_lo|(temp_int_hi<<8);
   float temp_ext_k = temp_ext_lo|(temp_ext_hi<<8);
-
+  
   // balance above 3700mV
   // also interesting: https://e2e.ti.com/support/power-management-group/power-management/f/power-management-forum/1245177/bq76942-cell-balancing-not-activating
   //bq76922_write_byte(0x83, 16|8|0|2|1);
   //bq76922_write_i16(0x84, 3700);
 
-  uint16_t bal_active_cells = bq76922_read_byte(i2c, 0x83);
-  uint16_t bal_status1 = bq76922_read_byte(i2c, 0x85);
+  uint8_t bal_active_cells[2] = {0,0};
+  uint8_t bal_status1[2] = {0,0};
+  
+  monitor_read_subcommand(i2c, 0x83, bal_active_cells, 2);
+  monitor_read_subcommand(i2c, 0x85, bal_status1, 2);
 
   printf("\n---------------------------\n[bq76:%d] c1 mV: %f\n", id, cell1_mv);
   printf("[bq76] c2 mV: %f\n", cell2_mv);
@@ -565,8 +611,15 @@ int monitor_configure(i2c_inst_t* i2c) {
   printf("[bq76] pack V: %f\n", pack_mv/100.0);
   printf("[bq76] ld V: %f\n", ld_mv/100.0);
   printf("[bq76] cc2 A: %f\n", report_current);
-  printf("[bq76] control_status: %02x\n", control_status);
-  printf("[bq76] battery_status: %04x\n", battery_status);
+  printf("[bq76:%d] control_status: %02x\n", id, control_status);
+  printf("[bq76:%d] manufacturing_status: %02x\n", id, manufacturing_status);
+  printf("[bq76] `--     FET_EN: %d\n", !!(manufacturing_status & (1<<4)));
+  printf("[bq76] `--      PF_EN: %d\n", !!(manufacturing_status & (1<<6)));
+  printf("[bq76] `--   DSG_TEST: %d\n", !!(manufacturing_status & (1<<2)));
+  printf("[bq76] `--   CHG_TEST: %d\n", !!(manufacturing_status & (1<<1)));
+  printf("[bq76] `--  PCHG_TEST: %d\n", !!(manufacturing_status & (1<<0)));
+  printf("[bq76] `--  PDSG_TEST: %d\n", !!(manufacturing_status & (1<<5)));
+  printf("[bq76:%d] battery_status: %04x\n", id, battery_status);
   printf("[bq76] `--  SLEEP: %d\n", !!(battery_status & (1<<15)));
   printf("[bq76] `-- SD_CMD: %d\n", !!(battery_status & (1<<13)));
   printf("[bq76] `--     PF: %d\n", !!(battery_status & (1<<12)));
@@ -582,15 +635,15 @@ int monitor_configure(i2c_inst_t* i2c) {
   printf("[bq76] `-- SLEEPE: %d\n", !!(battery_status & (1<<2)));
   printf("[bq76] `-- PCHG_M: %d\n", !!(battery_status & (1<<1)));
   printf("[bq76] `-- CFGUPD: %d\n", !!(battery_status & (1<<0)));
-  printf("[bq76] fet_status: %02x\n", fet_status);
+  printf("[bq76:%d] fet_status: %02x\n", id, fet_status);
   printf("[bq76] `-- ALRT: %d\n", !!(fet_status & (1<<6)));
   printf("[bq76] `-- PDSG: %d\n", !!(fet_status & (1<<3)));
   printf("[bq76] `--  DSG: %d\n", !!(fet_status & (1<<2)));
   printf("[bq76] `-- PCHG: %d\n", !!(fet_status & (1<<1)));
   printf("[bq76] `--  CHG: %d\n", !!(fet_status & (1<<0)));
-  printf("[bq76] safety_alert_a: %02x\n", safety_alert_a);
-  printf("[bq76] safety_alert_b: %02x\n", safety_alert_b);
-  printf("[bq76] safety_alert_c: %02x\n", safety_alert_c);
+  printf("[bq76] safety_alert_a:  %02x\n", safety_alert_a);
+  printf("[bq76] safety_alert_b:  %02x\n", safety_alert_b);
+  printf("[bq76] safety_alert_c:  %02x\n", safety_alert_c);
   printf("[bq76] safety_status_a: %02x\n", safety_status_a);
   printf("[bq76] safety_status_b: %02x\n", safety_status_b);
   printf("[bq76] safety_status_c: %02x\n", safety_status_c);
@@ -599,8 +652,8 @@ int monitor_configure(i2c_inst_t* i2c) {
   printf("[bq76] temp_int: %f C\n", (temp_int_k-273.15)/100.0);
   printf("[bq76] temp_ext: %f C\n", (temp_ext_k-273.15)/100.0);
 
-  printf("[bq76] bal_active_cells: %02x\n", bal_active_cells);
-  printf("[bq76] bal_status1: %d sec\n", bal_status1);
+  printf("[bq76] bal_active_cells: %02x,%02x\n", bal_active_cells[0],bal_active_cells[1]);
+  printf("[bq76] bal_status1: %d,%d sec\n", bal_status1[0], bal_status1[1]);
 
   return 1;
 }
@@ -653,37 +706,57 @@ void monitor_setup(i2c_inst_t* i2c) {
   if (i2c == i2c1) id = 1;
 
   printf("[bq76:%d] monitor_setup begin\n", id);
-
+  
   // enter config update mode
-  uint8_t buf1[3] = {0x3e, 0x0090 & 0xff, 0x0090 >> 8};
-  i2c_write_blocking(i2c, BQ76922_ADDR, buf1, 3, false);
+  bq76922_write_byte(i2c, 0x3e, 0x90);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
 
-  // 4 cells, one missing in the middle
-  uint8_t vcell_mode = 16 | 8 | 0 | 2 | 1;
-  bq76922_set_reg(i2c, 0x9304, vcell_mode, 1);
+  uint16_t battery_status = 0;
+  int cfgupd = 0;
+  for (int i=0; i<10; i++) {
+    battery_status = bq76922_read_u16(i2c, 0x12);
+    cfgupd = !!(battery_status & (1<<0));
+    printf("[bq76] `-- CFGUPD (expect 1) (try %d): %d\n", i, cfgupd);
+    if (cfgupd) break;
+    sleep_ms(10);
+  }
 
-  // disable all FET protections :0
-  /*bq76922_set_reg(0x9265, 0, 1);
-  bq76922_set_reg(0x9266, 0, 1);
-  bq76922_set_reg(0x9267, 0, 1);
-  bq76922_set_reg(0x9269, 0, 1);
-  bq76922_set_reg(0x926a, 0, 1);
-  bq76922_set_reg(0x926b, 0, 1);*/
+  if (cfgupd) {
+    // 4 cells, one missing in the middle
+    uint8_t vcell_mode = 16 | 8 | 0 | 2 | 1;
+    bq76922_set_reg(i2c, 0x9304, vcell_mode, 1);
 
-  bq76922_set_reg(i2c, 0x9308, (1<<4)|(1<<3)|(1<<2)|(1<<0), 1);
+    // TODO: read back and check these values
 
-  // enable normal FET control in Mfg Status Init
-  //bq76922_set_reg(0x9343, (1<<4), 2);
-  //bq76922_set_reg(0x9343, (0<<4), 2);
+    // disable all FET protections :0
+    /*bq76922_set_reg(0x9265, 0, 1);
+      bq76922_set_reg(0x9266, 0, 1);
+      bq76922_set_reg(0x9267, 0, 1);
+      bq76922_set_reg(0x9269, 0, 1);
+      bq76922_set_reg(0x926a, 0, 1);
+      bq76922_set_reg(0x926b, 0, 1);*/
 
-  // enable balancing
-  bq76922_set_reg(i2c, 0x9335, 0x3, 1);
+    // FET options
+    bq76922_set_reg(i2c, 0x9308, (1<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0), 1);
 
-  // exit config update mode
-  uint8_t buf2[3] = {0x3e, 0x0092 & 0xff, 0x0092 >> 8};
-  i2c_write_blocking(i2c, BQ76922_ADDR, buf2, 3, false);
+    // enable normal FET control in Mfg Status Init
+    // FIXME doesn't seem to work
+    bq76922_set_reg(i2c, 0x9343, (1<<6)|(1<<4), 2);
 
+    // enable balancing
+    // TODO: investigate
+    bq76922_set_reg(i2c, 0x9335, (0<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0), 1);
+
+    // exit config update mode
+    bq76922_write_byte(i2c, 0x3e, 0x92);
+    bq76922_write_byte(i2c, 0x3f, 0x00);
+
+    battery_status = bq76922_read_u16(i2c, 0x12);
+    printf("[bq76] `-- CFGUPD (expect 0): %d\n", !!(battery_status & (1<<0)));
+  }
+  
   mon_sleep_off(i2c);
+  mon_toggle_fet_en(i2c);
 
   printf("[bq76:%d] monitor_setup done\n", id);
 }
@@ -1211,9 +1284,6 @@ int main() {
 #endif
 
   printf("# [next_sysctl] entering main loop.\n");
-
-  monitor_setup(i2c0);
-  monitor_setup(i2c1);
 
   while (true) {
     // handle commands from keyboard
