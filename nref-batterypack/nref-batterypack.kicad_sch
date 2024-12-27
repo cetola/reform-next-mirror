@@ -6865,6 +6865,36 @@
 		)
 		(uuid "fe9f9f4c-7317-4ab4-b5c5-253fcfed065d")
 	)
+	(text "TODO: this was the wrong part, SHL instead of SH!\nTODO: fix footprint in layout"
+		(exclude_from_sim no)
+		(at 2.794 95.758 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "768759e7-22dc-4270-9bed-a57af6127532")
+	)
+	(text "TODO: this was the wrong part, SHL instead of SH!\nTODO: fix footprint in layout"
+		(exclude_from_sim no)
+		(at 236.982 115.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b9b8d3ee-508f-4b84-946f-b2eab2d85b6c")
+	)
+	(text "TODO: was wrong footprint!"
+		(exclude_from_sim no)
+		(at 239.268 24.13 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "fd9659fa-3601-43db-acc9-e3ed07b7bc39")
+	)
 	(label "DSG"
 		(at 168.91 113.03 180)
 		(fields_autoplaced yes)
@@ -7684,7 +7714,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402JR-071KL"
+		(property "MPN" ""
 			(at 238.76 31.75 0)
 			(effects
 				(font
@@ -9376,7 +9406,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" "S1741-46R"
 			(at 36.83 106.68 0)
 			(effects
 				(font
@@ -10302,7 +10332,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SHL_SM02B-SHLS-TF_1x02-1MP_P1.00mm_Horizontal"
+		(property "Footprint" "Connector_JST:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal"
 			(at 22.86 107.95 0)
 			(effects
 				(font
@@ -11169,7 +11199,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" "S1741-46R"
 			(at 36.83 146.05 0)
 			(effects
 				(font
@@ -11447,7 +11477,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" "S1741-46R"
 			(at 36.83 63.5 0)
 			(effects
 				(font
@@ -12179,7 +12209,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SHL_SM07B-SHLS-TF_1x07-1MP_P1.00mm_Horizontal"
+		(property "Footprint" "Connector_JST:JST_SH_SM07B-SRSS-TB_1x07-1MP_P1.00mm_Horizontal"
 			(at 238.76 129.54 0)
 			(effects
 				(font
@@ -12957,7 +12987,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" "S1741-46R"
 			(at 36.83 95.25 0)
 			(effects
 				(font
@@ -13833,7 +13863,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "fe281caf-da67-445c-bc25-a66a26590630")
 		(property "Reference" "H1"
@@ -13873,6 +13903,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
+			(at 151.13 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "DNP"
+			(at 151.13 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
 			(at 151.13 38.1 0)
 			(effects
 				(font

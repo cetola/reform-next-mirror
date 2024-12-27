@@ -794,11 +794,37 @@
 				)
 			)
 		)
+		(property "MPN" "DNP"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a612265d-e465-4440-bcf6-f7285e9aab85")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6442a83e-646d-4d2a-8e0a-c3a76bb59350")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "MountingHole*")
 		(path "/fe281caf-da67-445c-bc25-a66a26590630")
 		(sheetname "Root")
 		(sheetfile "nref-batterypack.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
+		(attr exclude_from_pos_files exclude_from_bom dnp)
 		(fp_circle
 			(center 0 0)
 			(end 2.2 0)
@@ -19233,7 +19259,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" "S1741-46R"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -19483,7 +19509,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" "S1741-46R"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -19733,7 +19759,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" "S1741-46R"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -19983,7 +20009,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" "S1741-46R"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")

@@ -469,7 +469,7 @@
       "plot": "nref-cam-adapter-d1",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "nref-camera-adapter.step",
       "svg": "",
       "vrml": ""
     },

@@ -8225,6 +8225,12 @@
 		(uuid "4af3eb90-d3a7-4216-bb87-542b50459acd")
 	)
 	(junction
+		(at 228.6 353.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4d6d3c20-3adb-4f3d-a0c7-96df6da747ed")
+	)
+	(junction
 		(at 247.65 193.04)
 		(diameter 1.016)
 		(color 0 0 0 0)
@@ -8375,6 +8381,12 @@
 		(uuid "7bf97e75-f005-4dc8-8774-81cf84029485")
 	)
 	(junction
+		(at 251.46 353.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "81062893-170d-4534-82b4-d8f1df78f9ce")
+	)
+	(junction
 		(at 531.495 72.39)
 		(diameter 1.016)
 		(color 0 0 0 0)
@@ -8457,12 +8469,6 @@
 		(diameter 1.016)
 		(color 0 0 0 0)
 		(uuid "9d513925-0823-403e-8f81-b8d9cc0b30d3")
-	)
-	(junction
-		(at 251.46 353.06)
-		(diameter 1.016)
-		(color 0 0 0 0)
-		(uuid "a03dbc30-e258-4763-82be-e8fc305d1a80")
 	)
 	(junction
 		(at 53.34 158.75)
@@ -9299,6 +9305,16 @@
 			(type solid)
 		)
 		(uuid "1b2ce614-6772-435f-aa59-92bec99d2bbd")
+	)
+	(wire
+		(pts
+			(xy 228.6 359.41) (xy 228.6 361.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1b5a2adf-fdc4-454b-b03a-2a1e5173e3bc")
 	)
 	(wire
 		(pts
@@ -10162,6 +10178,16 @@
 	)
 	(wire
 		(pts
+			(xy 251.46 350.52) (xy 251.46 353.06)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "4a2cd39d-a7cf-4eac-b324-fca39d5a9a12")
+	)
+	(wire
+		(pts
 			(xy 38.1 161.29) (xy 38.1 162.56)
 		)
 		(stroke
@@ -10332,7 +10358,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 237.49) (xy 144.78 237.49)
+			(xy 116.84 237.49) (xy 137.16 237.49)
 		)
 		(stroke
 			(width 0)
@@ -11412,6 +11438,16 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 353.06) (xy 251.46 353.06)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "9e3552e0-2175-4ec0-bc87-b03792e350aa")
+	)
+	(wire
+		(pts
 			(xy 449.58 77.47) (xy 455.93 77.47)
 		)
 		(stroke
@@ -11772,16 +11808,6 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 350.52) (xy 251.46 353.06)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "afe01a70-c4dd-4a82-bbfc-2dbcd1122f2b")
-	)
-	(wire
-		(pts
 			(xy 531.495 86.36) (xy 539.115 86.36)
 		)
 		(stroke
@@ -12102,7 +12128,7 @@
 	)
 	(wire
 		(pts
-			(xy 227.965 353.06) (xy 240.03 353.06)
+			(xy 207.645 353.06) (xy 219.71 353.06)
 		)
 		(stroke
 			(width 0)
@@ -12169,6 +12195,16 @@
 			(type solid)
 		)
 		(uuid "c6aafff5-55c7-48bf-8759-b9e16c9b46ce")
+	)
+	(wire
+		(pts
+			(xy 228.6 353.06) (xy 228.6 354.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6c46e3d-d601-463d-8774-619f9ac771d7")
 	)
 	(wire
 		(pts
@@ -13012,7 +13048,7 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 353.06) (xy 251.46 353.06)
+			(xy 224.79 353.06) (xy 228.6 353.06)
 		)
 		(stroke
 			(width 0)
@@ -16891,6 +16927,16 @@
 		)
 		(uuid "0af9c023-d1d9-40c7-ad2d-b87fce995312")
 	)
+	(text "added in D-2"
+		(exclude_from_sim no)
+		(at 228.346 345.44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "1007c88c-be74-4ae0-9a7e-4a1b3156023a")
+	)
 	(text "Cam Level Shifter"
 		(exclude_from_sim no)
 		(at 394.462 282.702 0)
@@ -17138,6 +17184,16 @@
 		)
 		(uuid "92c19b7e-0e19-4f07-836b-132ed639fc58")
 	)
+	(text "For Testing\nOnly"
+		(exclude_from_sim no)
+		(at 156.972 225.806 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9740fe8e-77c9-4e70-bab6-07b68e2ee631")
+	)
 	(text "Killswitch"
 		(exclude_from_sim no)
 		(at 117.094 221.488 0)
@@ -17160,6 +17216,16 @@
 			)
 		)
 		(uuid "ae377f46-cd58-4768-827e-0fe257996287")
+	)
+	(text "RX/TX crossed vs D-1"
+		(exclude_from_sim no)
+		(at 81.534 256.54 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b774dc36-5268-4254-b73a-7361098772ef")
 	)
 	(text "2V8, 0.5A "
 		(exclude_from_sim no)
@@ -17879,7 +17945,7 @@
 		(uuid "7c523892-b597-4b76-aa78-c9d872e5821a")
 	)
 	(label "CX3_RESET"
-		(at 227.965 353.06 0)
+		(at 207.645 353.06 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -18452,7 +18518,7 @@
 	)
 	(global_label "USB_TXN"
 		(shape input)
-		(at 60.96 257.81 0)
+		(at 60.96 250.19 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -18462,7 +18528,7 @@
 		)
 		(uuid "64a978fd-8d45-4f3d-8986-4fdd50604c9c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 72.3255 257.81 0)
+			(at 72.3255 250.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18518,7 +18584,7 @@
 	)
 	(global_label "USB_RXN"
 		(shape input)
-		(at 60.96 250.19 0)
+		(at 60.96 257.81 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -18528,7 +18594,7 @@
 		)
 		(uuid "965faead-ba48-4fed-a55a-058e71f78918")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 72.6279 250.19 0)
+			(at 72.6279 257.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18540,7 +18606,7 @@
 	)
 	(global_label "USB_TXP"
 		(shape input)
-		(at 60.96 255.27 0)
+		(at 60.96 247.65 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -18550,7 +18616,7 @@
 		)
 		(uuid "b176ec28-5f5f-47a9-9fa5-cc93dbd341ff")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 72.265 255.27 0)
+			(at 72.265 247.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18606,7 +18672,7 @@
 	)
 	(global_label "USB_RXP"
 		(shape input)
-		(at 60.96 247.65 0)
+		(at 60.96 255.27 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -18616,7 +18682,7 @@
 		)
 		(uuid "ef644392-a5dd-4ae7-9423-ca787aedad0e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 72.5674 247.65 0)
+			(at 72.5674 255.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18877,6 +18943,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "MI0603L301R-10"
+			(at 424.18 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Laird"
+			(at 424.18 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "85e2692e-7c4f-4ad8-98a3-95ac7f7b0855")
 		)
@@ -18900,7 +18984,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "02ee8fb4-ab89-4ced-85d4-f5d4cc1c96e6")
 		(property "Reference" "#PWR0131"
 			(at 172.72 386.08 0)
@@ -18977,7 +19060,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 533.8192 68.8478 0)
 			(effects
 				(font
@@ -19013,7 +19096,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 531.495 67.31 0)
 			(effects
 				(font
@@ -19298,7 +19381,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CRCW08050000Z0EAHP"
+		(property "MPN" "CRCW060320K0FKEAC"
 			(at 488.95 104.14 0)
 			(effects
 				(font
@@ -19307,7 +19390,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay Dale"
+		(property "Manufacturer" "Vishay"
 			(at 488.95 104.14 0)
 			(effects
 				(font
@@ -19432,7 +19515,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 172.72 388.62 0)
+		(at 154.94 375.92 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -19441,7 +19524,7 @@
 		(fields_autoplaced yes)
 		(uuid "054b3bc5-f7af-47fe-85ec-486ad8eaad0e")
 		(property "Reference" "H4"
-			(at 175.26 387.3499 0)
+			(at 157.48 374.6499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19450,7 +19533,7 @@
 			)
 		)
 		(property "Value" "BADGE"
-			(at 175.26 389.8899 0)
+			(at 157.48 377.1899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19459,7 +19542,7 @@
 			)
 		)
 		(property "Footprint" "reform-camera:nref-camera-badge"
-			(at 172.72 388.62 0)
+			(at 154.94 375.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19468,7 +19551,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 172.72 388.62 0)
+			(at 154.94 375.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19477,7 +19560,25 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 172.72 388.62 0)
+			(at 154.94 375.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "DNP"
+			(at 154.94 375.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 154.94 375.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19607,6 +19708,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 403.86 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MI0603L301R-10"
+			(at 403.86 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Laird"
 			(at 403.86 223.52 0)
 			(effects
 				(font
@@ -19753,7 +19872,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 283.21 203.2 0)
 			(effects
 				(font
@@ -20004,7 +20123,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "ERJ-1GN0R00C"
+		(property "MPN" "CRCW04020000Z0EDC"
 			(at 27.94 161.29 0)
 			(effects
 				(font
@@ -20013,7 +20132,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 27.94 161.29 0)
 			(effects
 				(font
@@ -20056,7 +20175,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.2u"
+		(property "Value" "2.2uF"
 			(at 187.7442 202.1978 0)
 			(effects
 				(font
@@ -20210,7 +20329,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 192.7722 256.3242 0)
 			(effects
 				(font
@@ -20246,7 +20365,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 194.31 254 0)
 			(effects
 				(font
@@ -20298,7 +20417,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.2u"
+		(property "Value" "2.2uF"
 			(at 200.4442 155.2078 0)
 			(effects
 				(font
@@ -20567,6 +20686,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 228.6 361.95 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "150e16ff-7163-4be5-b14e-f4d73f77b85e")
+		(property "Reference" "#PWR030"
+			(at 228.6 368.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 228.6 366.2744 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 361.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 361.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 228.6 361.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c73ee1a5-8cf2-440f-b468-04f94b46acf5")
+		)
+		(instances
+			(project "reform-camera"
+				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
+					(reference "#PWR030")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 455.93 67.31 0)
 		(unit 1)
@@ -20651,7 +20836,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 524.2942 178.0678 0)
 			(effects
 				(font
@@ -20687,7 +20872,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 521.97 176.53 0)
 			(effects
 				(font
@@ -20857,7 +21042,16 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CRCW04021K00FKEDC"
+		(property "Manufacturer_No" ""
+			(at 392.43 311.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CRCW04021K00FKEDC"
 			(at 392.43 311.15 0)
 			(effects
 				(font
@@ -21498,7 +21692,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 533.1322 225.0059 0)
 			(effects
 				(font
@@ -21534,7 +21728,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 534.67 227.33 0)
 			(effects
 				(font
@@ -21586,7 +21780,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "1uF"
 			(at 357.9242 204.7378 0)
 			(effects
 				(font
@@ -21936,6 +22130,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "DNP"
+			(at 172.72 377.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 172.72 377.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "62dc9f3e-82a8-4257-8c1b-eb38d9e0d15d")
 		)
@@ -22134,7 +22346,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201JR-13100KL"
+		(property "MPN" "RC0402FR-07100KL"
 			(at 548.64 39.37 0)
 			(effects
 				(font
@@ -22186,7 +22398,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.01u"
+		(property "Value" "0.01uF"
 			(at 431.5842 44.7178 0)
 			(effects
 				(font
@@ -22222,7 +22434,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R71A103KA01D"
+		(property "MPN" "C0402C103K8RAC7411"
 			(at 429.26 43.18 0)
 			(effects
 				(font
@@ -22231,7 +22443,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Kemet"
 			(at 429.26 43.18 0)
 			(effects
 				(font
@@ -22367,6 +22579,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 50.8 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "DNP"
+			(at 50.8 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
 			(at 50.8 148.59 0)
 			(effects
 				(font
@@ -22736,6 +22966,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "RC0402FR-7D20KL"
+			(at 316.23 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 316.23 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ae0c10ae-7a29-40b7-a99b-5aabcb0dc4e1")
 		)
@@ -22753,16 +23001,16 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 242.57 353.06 90)
+		(at 222.25 353.06 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "37fe1136-200c-4590-942c-b93a47ce53d0")
 		(property "Reference" "R17"
-			(at 242.57 348.8902 90)
+			(at 222.25 348.8902 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22770,7 +23018,7 @@
 			)
 		)
 		(property "Value" "0R"
-			(at 242.57 351.1889 90)
+			(at 222.25 351.1889 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22778,7 +23026,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 242.57 353.06 0)
+			(at 222.25 353.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22787,7 +23035,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 242.57 353.06 0)
+			(at 222.25 353.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22796,7 +23044,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 242.57 353.06 0)
+			(at 222.25 353.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22804,8 +23052,8 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "ERJ-1GN0R00C"
-			(at 242.57 353.06 0)
+		(property "MPN" "CRCW04020000Z0EDC"
+			(at 222.25 353.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22813,8 +23061,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
-			(at 242.57 353.06 0)
+		(property "Manufacturer" "Vishay"
+			(at 222.25 353.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23022,6 +23270,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "DNP"
+			(at 91.44 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 91.44 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ebfac911-6ddf-4b32-909a-e20591f2dbff")
 		)
@@ -23089,7 +23355,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "ERJ-1GN0R00C"
+		(property "MPN" "CRCW04020000Z0EDC"
 			(at 208.915 205.74 0)
 			(effects
 				(font
@@ -23098,7 +23364,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 208.915 205.74 0)
 			(effects
 				(font
@@ -23244,7 +23510,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 196.85 200.66 0)
 			(effects
 				(font
@@ -23362,7 +23628,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 449.3642 44.7178 0)
 			(effects
 				(font
@@ -23398,7 +23664,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 447.04 43.18 0)
 			(effects
 				(font
@@ -23551,6 +23817,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CRCW040216K9FKTD"
+			(at 316.23 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 316.23 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0ffe0593-d052-428e-8c51-ef84d27a5dc9")
 		)
@@ -23672,7 +23956,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 534.67 257.6534 90)
 			(effects
 				(font
@@ -23707,7 +23991,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 534.67 260.35 0)
 			(effects
 				(font
@@ -23959,7 +24243,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 81.0642 141.2378 0)
 			(effects
 				(font
@@ -23995,7 +24279,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 78.74 139.7 0)
 			(effects
 				(font
@@ -24081,6 +24365,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "MI0603L301R-10"
+			(at 424.18 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Laird"
+			(at 424.18 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ae9a150d-a126-433d-b491-3f0d9a6b6232")
 		)
@@ -24115,7 +24417,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10u"
+		(property "Value" "10uF"
 			(at 252.5142 198.3878 0)
 			(effects
 				(font
@@ -24143,6 +24445,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 250.19 196.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C0603C106M8PAC7411"
+			(at 250.19 196.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Kemet"
 			(at 250.19 196.85 0)
 			(effects
 				(font
@@ -24184,7 +24504,7 @@
 				)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "1uF"
 			(at 398.78 225.9034 90)
 			(effects
 				(font
@@ -24372,6 +24692,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "DNP"
+			(at 48.26 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 48.26 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "06335e4c-93c1-421c-822b-6bf6fd80b688")
 		)
@@ -24439,7 +24777,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201JR-13100KL"
+		(property "MPN" "RC0402FR-07100KL"
 			(at 38.1 165.1 0)
 			(effects
 				(font
@@ -24491,7 +24829,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "22uF"
 			(at 431.5842 68.8478 0)
 			(effects
 				(font
@@ -24527,7 +24865,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRT188C80J226ME13D"
+		(property "MPN" "MSASJ168BC6226MTNA01"
 			(at 429.26 67.31 0)
 			(effects
 				(font
@@ -24536,7 +24874,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Taiyo Yuden"
 			(at 429.26 67.31 0)
 			(effects
 				(font
@@ -24579,7 +24917,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.01u"
+		(property "Value" "0.01uF"
 			(at 533.8192 76.4678 0)
 			(effects
 				(font
@@ -24615,7 +24953,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R71A103KA01D"
+		(property "MPN" "C0402C103K8RAC7411"
 			(at 531.495 74.93 0)
 			(effects
 				(font
@@ -24624,7 +24962,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Kemet"
 			(at 531.495 74.93 0)
 			(effects
 				(font
@@ -24703,7 +25041,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 318.77 71.12 0)
 			(effects
 				(font
@@ -24921,6 +25259,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "MI0603L301R-10"
+			(at 424.18 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Laird"
+			(at 424.18 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c25a85bb-1dcd-4b8b-bfe9-ef29b0352f82")
 		)
@@ -25054,6 +25410,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "MI0603L301R-10"
+			(at 237.49 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Laird"
+			(at 237.49 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6ae6173f-8070-4b59-a3dd-5e5822826b11")
 		)
@@ -25088,7 +25462,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "22uF"
 			(at 384.5942 44.7178 0)
 			(effects
 				(font
@@ -25124,7 +25498,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRT188C80J226ME13D"
+		(property "MPN" "MSASJ168BC6226MTNA01"
 			(at 382.27 43.18 0)
 			(effects
 				(font
@@ -25133,7 +25507,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Taiyo Yuden"
 			(at 382.27 43.18 0)
 			(effects
 				(font
@@ -25297,8 +25671,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
+		(dnp yes)
 		(uuid "5e0bc02f-f3df-4782-aa54-9eaa6c9df094")
 		(property "Reference" "R24"
 			(at 312.9281 69.2098 0)
@@ -25346,7 +25719,7 @@
 			)
 		)
 		(property "DNP" "DNP"
-			(at 312.9281 73.8072 0)
+			(at 312.928 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25354,7 +25727,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 311.15 71.12 0)
 			(effects
 				(font
@@ -25632,7 +26005,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 541.4392 76.4678 0)
 			(effects
 				(font
@@ -25668,7 +26041,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 539.115 74.93 0)
 			(effects
 				(font
@@ -25855,7 +26228,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 280.67 152.4 0)
 			(effects
 				(font
@@ -25950,7 +26323,16 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "FH12-12S-0.5SH(55)"
+		(property "Manufacturer_No" ""
+			(at 55.88 252.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "FH12-12S-0.5SH(55)"
 			(at 55.88 252.73 0)
 			(effects
 				(font
@@ -26155,7 +26537,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 439.2042 90.4378 0)
 			(effects
 				(font
@@ -26191,7 +26573,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 436.88 88.9 0)
 			(effects
 				(font
@@ -26243,7 +26625,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 439.2042 101.8678 0)
 			(effects
 				(font
@@ -26279,7 +26661,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 436.88 100.33 0)
 			(effects
 				(font
@@ -26398,7 +26780,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.01u"
+		(property "Value" "0.01uF"
 			(at 533.8192 85.3578 0)
 			(effects
 				(font
@@ -26434,7 +26816,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R71A103KA01D"
+		(property "MPN" "C0402C103K8RAC7411"
 			(at 531.495 83.82 0)
 			(effects
 				(font
@@ -26443,7 +26825,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Kemet"
 			(at 531.495 83.82 0)
 			(effects
 				(font
@@ -26551,7 +26933,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.01u"
+		(property "Value" "0.01uF"
 			(at 404.9142 44.7178 0)
 			(effects
 				(font
@@ -26587,7 +26969,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R71A103KA01D"
+		(property "MPN" "C0402C103K8RAC7411"
 			(at 402.59 43.18 0)
 			(effects
 				(font
@@ -26596,7 +26978,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Kemet"
 			(at 402.59 43.18 0)
 			(effects
 				(font
@@ -26836,7 +27218,7 @@
 				)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "1uF"
 			(at 398.78 200.5034 90)
 			(effects
 				(font
@@ -26923,7 +27305,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4.7uF"
 			(at 252.5142 155.2078 0)
 			(effects
 				(font
@@ -26959,7 +27341,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRJ155R61A475ME11J"
+		(property "MPN" "GRT155C81A475ME13J"
 			(at 250.19 153.67 0)
 			(effects
 				(font
@@ -27011,7 +27393,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 439.2042 57.4178 0)
 			(effects
 				(font
@@ -27047,7 +27429,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 436.88 55.88 0)
 			(effects
 				(font
@@ -27135,6 +27517,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "DNP"
+			(at 251.46 350.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 251.46 350.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "dc9a2d3d-2a79-4938-bd9e-9a92810dc427")
 		)
@@ -27166,7 +27566,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.2u"
+		(property "Value" "2.2uF"
 			(at 275.3742 155.2078 0)
 			(effects
 				(font
@@ -27357,7 +27757,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "ERJ-1GN0R00C"
+		(property "MPN" "CRCW04020000Z0EDC"
 			(at 283.21 162.56 0)
 			(effects
 				(font
@@ -27366,7 +27766,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 283.21 162.56 0)
 			(effects
 				(font
@@ -27501,6 +27901,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 424.18 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MI0603L301R-10"
+			(at 424.18 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Laird"
 			(at 424.18 74.93 0)
 			(effects
 				(font
@@ -27672,6 +28090,24 @@
 			)
 		)
 		(property "Description" "30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"
+			(at 323.85 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "DMN2024U-7"
+			(at 323.85 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Diodes"
 			(at 323.85 213.36 0)
 			(effects
 				(font
@@ -27884,6 +28320,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "DNP"
+			(at 534.67 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 534.67 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "afab7050-c4af-4a62-9552-03322e26d21c")
 		)
@@ -27943,6 +28397,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 326.39 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RP0402BRD0736K5L"
+			(at 326.39 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
 			(at 326.39 205.74 0)
 			(effects
 				(font
@@ -28533,7 +29005,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 488.95 300.99 0)
 			(effects
 				(font
@@ -28621,7 +29093,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-7D1KL"
+		(property "MPN" "CRCW04021K00FKEDC"
 			(at 290.83 262.89 0)
 			(effects
 				(font
@@ -28630,7 +29102,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Vishay"
 			(at 290.83 262.89 0)
 			(effects
 				(font
@@ -28649,6 +29121,72 @@
 			(project "reform-camera"
 				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
 					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VBUS")
+		(at 146.05 227.33 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "82e5a6ae-941d-42b2-b740-7e4e4298cee7")
+		(property "Reference" "#PWR029"
+			(at 146.05 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VBUS"
+			(at 146.05 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 146.05 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 146.05 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 146.05 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6986f7f4-ffdd-44c2-897d-7e20b63215a0")
+		)
+		(instances
+			(project "reform-camera"
+				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -28741,7 +29279,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 541.4392 85.3578 0)
 			(effects
 				(font
@@ -28777,7 +29315,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 539.115 83.82 0)
 			(effects
 				(font
@@ -28811,8 +29349,96 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 146.05 224.79 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(fields_autoplaced yes)
+		(uuid "8481a88b-3eb6-4b5d-a01d-85b6ab47af4d")
+		(property "Reference" "R10"
+			(at 147.5487 224.0291 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "0R"
+			(at 147.5487 226.3278 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 146.05 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 146.05 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 146.05 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CRCW04020000Z0EDC"
+			(at 146.05 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 146.05 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f87cfc5a-0321-489f-b729-f277967962e7")
+		)
+		(pin "2"
+			(uuid "08cc22c3-8cea-4b16-ac82-08d4ea5fc3bd")
+		)
+		(instances
+			(project "reform-camera"
+				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
+					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
-		(at 144.78 237.49 0)
+		(at 137.16 237.49 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -28821,7 +29447,7 @@
 		(fields_autoplaced yes)
 		(uuid "8748cc5f-fd2a-43a8-a572-8f302d5b2aef")
 		(property "Reference" "#PWR018"
-			(at 144.78 241.3 0)
+			(at 137.16 241.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28830,7 +29456,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 144.78 232.41 0)
+			(at 137.16 232.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28838,7 +29464,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 144.78 237.49 0)
+			(at 137.16 237.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28847,7 +29473,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 144.78 237.49 0)
+			(at 137.16 237.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28856,7 +29482,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 144.78 237.49 0)
+			(at 137.16 237.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28895,7 +29521,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 543.3442 43.4478 0)
 			(effects
 				(font
@@ -28931,7 +29557,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 541.02 41.91 0)
 			(effects
 				(font
@@ -29019,7 +29645,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "ERJ-1GN0R00C"
+		(property "MPN" "CRCW04020000Z0EDC"
 			(at 208.28 162.56 0)
 			(effects
 				(font
@@ -29028,7 +29654,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 208.28 162.56 0)
 			(effects
 				(font
@@ -29105,7 +29731,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201FR-0722RL"
+		(property "MPN" "RC0402FR-7D22RL"
 			(at 495.3 191.77 0)
 			(effects
 				(font
@@ -29157,7 +29783,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.01u"
+		(property "Value" "0.01uF"
 			(at 526.8342 68.8478 0)
 			(effects
 				(font
@@ -29193,7 +29819,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R71A103KA01D"
+		(property "MPN" "C0402C103K8RAC7411"
 			(at 524.51 67.31 0)
 			(effects
 				(font
@@ -29202,7 +29828,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Kemet"
 			(at 524.51 67.31 0)
 			(effects
 				(font
@@ -29233,7 +29859,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "8b995baf-9375-4474-a8e0-b749cc2db251")
 		(property "Reference" "R26"
@@ -29287,7 +29913,7 @@
 				)
 			)
 		)
-		(property "MPN" "ERJ-1GN0R00C"
+		(property "MPN" "CRCW04020000Z0EDC"
 			(at 317.5 381 0)
 			(effects
 				(font
@@ -29296,7 +29922,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 317.5 381 0)
 			(effects
 				(font
@@ -29461,7 +30087,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "90e90083-a7ba-41e2-b55b-d26333224e80")
 		(property "Reference" "J2"
@@ -29507,6 +30133,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "DNP"
+			(at 48.26 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 48.26 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b7aaeb37-e013-4ff5-a6fd-91ff14ea3339")
 		)
@@ -29520,6 +30164,72 @@
 			(project "reform-camera"
 				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
 					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 146.05 222.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "90ec56d9-7688-429c-ace2-f108f8ceb0b5")
+		(property "Reference" "#PWR028"
+			(at 146.05 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 146.05 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 146.05 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 146.05 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 146.05 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "08bc56e7-683e-4630-83f6-fa2de8968a5a")
+		)
+		(instances
+			(project "reform-camera"
+				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -29987,7 +30697,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201FR-0722RL"
+		(property "MPN" "RC0402FR-7D22RL"
 			(at 495.3 194.31 0)
 			(effects
 				(font
@@ -30074,7 +30784,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Murata"
 			(at 452.12 312.42 0)
 			(effects
 				(font
@@ -30092,7 +30802,16 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CC0402KRX7R7BB104"
+		(property "Manufacturer_No" ""
+			(at 452.12 312.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 452.12 312.42 0)
 			(effects
 				(font
@@ -30436,6 +31155,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "SM20B-SRSS-TB"
+			(at 561.34 327.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "JST"
+			(at 561.34 327.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "9"
 			(uuid "9ff4d890-dcf1-4254-a7a8-c08f935e1414")
 		)
@@ -30558,6 +31295,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "MI0603L301R-10"
+			(at 424.18 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Laird"
+			(at 424.18 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3a97ad00-a701-4a92-9448-3fd28847ede8")
 		)
@@ -30592,7 +31347,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4.7uF"
 			(at 326.1742 155.2078 0)
 			(effects
 				(font
@@ -30628,7 +31383,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRJ155R61A475ME11J"
+		(property "MPN" "GRT155C81A475ME13J"
 			(at 323.85 153.67 0)
 			(effects
 				(font
@@ -30656,6 +31411,95 @@
 			(project "reform-camera"
 				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
 					(reference "C20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 228.6 356.87 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "af1684f4-492a-4e47-8351-10a7d07981c9")
+		(property "Reference" "R11"
+			(at 230.0987 356.1091 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 230.0987 358.4078 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 228.6 356.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 228.6 356.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 228.6 356.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0402FR-7D10KL"
+			(at 228.6 356.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 228.6 356.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "99a5838c-2f99-4d1c-b24c-9c5bd4774514")
+		)
+		(pin "2"
+			(uuid "d129beb6-b80f-4163-a6f3-ac9e688a811c")
+		)
+		(instances
+			(project "reform-camera"
+				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
+					(reference "R11")
 					(unit 1)
 				)
 			)
@@ -30724,7 +31568,16 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "TXS0104EPWRG4"
+		(property "Manufacturer_No" ""
+			(at 415.29 322.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TXS0104EPWRG4"
 			(at 415.29 322.58 0)
 			(effects
 				(font
@@ -30996,7 +31849,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.01u"
+		(property "Value" "0.01uF"
 			(at 431.5842 90.4378 0)
 			(effects
 				(font
@@ -31032,7 +31885,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R71A103KA01D"
+		(property "MPN" "C0402C103K8RAC7411"
 			(at 429.26 88.9 0)
 			(effects
 				(font
@@ -31041,7 +31894,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Kemet"
 			(at 429.26 88.9 0)
 			(effects
 				(font
@@ -31111,6 +31964,24 @@
 			)
 		)
 		(property "Description" "500mA Low-Dropout Linear Regulator, Adjustable Output, SOT-23-5"
+			(at 304.8 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TLV75801PDBV"
+			(at 304.8 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
 			(at 304.8 198.12 0)
 			(effects
 				(font
@@ -31293,7 +32164,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 396.0242 44.7178 0)
 			(effects
 				(font
@@ -31329,7 +32200,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 393.7 43.18 0)
 			(effects
 				(font
@@ -31357,6 +32228,91 @@
 			(project "reform-camera"
 				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
 					(reference "C22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 172.72 389.89 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bfbbe3f5-363f-4cf1-9c25-1c629e7533af")
+		(property "Reference" "H5"
+			(at 175.2601 388.8545 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 175.2601 391.6296 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad"
+			(at 172.72 389.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 172.72 389.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 172.72 389.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "DNP"
+			(at 172.72 389.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 172.72 389.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8d6c3f03-a353-43ec-a2cd-2e10061e9d50")
+		)
+		(instances
+			(project "reform-camera"
+				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
+					(reference "H5")
 					(unit 1)
 				)
 			)
@@ -31578,7 +32534,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 187.6922 258.8642 0)
 			(effects
 				(font
@@ -31614,7 +32570,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 189.23 256.54 0)
 			(effects
 				(font
@@ -31721,7 +32677,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "c4e7c4a0-7a59-4db6-adb1-3aaef8c4770c")
 		(property "Reference" "R25"
@@ -31775,7 +32731,7 @@
 				)
 			)
 		)
-		(property "MPN" "ERJ-1GN0R00C"
+		(property "MPN" "CRCW04020000Z0EDC"
 			(at 317.5 375.92 0)
 			(effects
 				(font
@@ -31784,7 +32740,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 317.5 375.92 0)
 			(effects
 				(font
@@ -32025,7 +32981,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22u"
+		(property "Value" "22uF"
 			(at 431.5842 79.0078 0)
 			(effects
 				(font
@@ -32061,7 +33017,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRT188C80J226ME13D"
+		(property "MPN" "MSASJ168BC6226MTNA01"
 			(at 429.26 77.47 0)
 			(effects
 				(font
@@ -32070,7 +33026,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Taiyo Yuden"
 			(at 429.26 77.47 0)
 			(effects
 				(font
@@ -32155,7 +33111,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "SM04B-SRSS-TB"
+		(property "Manufacturer_No" ""
 			(at 52.07 311.15 0)
 			(effects
 				(font
@@ -32165,6 +33121,15 @@
 			)
 		)
 		(property "LCSC" "C160404"
+			(at 52.07 311.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SM04B-SRSS-TB"
 			(at 52.07 311.15 0)
 			(effects
 				(font
@@ -32213,7 +33178,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 439.2042 79.0078 0)
 			(effects
 				(font
@@ -32249,7 +33214,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 436.88 77.47 0)
 			(effects
 				(font
@@ -32451,7 +33416,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "cf824d94-72cf-4289-861c-a7e8e98049f7")
 		(property "Reference" "R28"
@@ -32505,7 +33470,7 @@
 				)
 			)
 		)
-		(property "MPN" "ERJ-1GN0R00C"
+		(property "MPN" "CRCW04020000Z0EDC"
 			(at 322.58 373.38 0)
 			(effects
 				(font
@@ -32514,7 +33479,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 322.58 373.38 0)
 			(effects
 				(font
@@ -32724,6 +33689,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "DNP"
+			(at 53.34 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 53.34 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b4f49942-7a37-4137-860c-896349e51a53")
 		)
@@ -32792,7 +33775,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 486.41 300.99 0)
 			(effects
 				(font
@@ -32938,6 +33921,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 172.72 364.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "DNP"
+			(at 172.72 364.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
 			(at 172.72 364.49 0)
 			(effects
 				(font
@@ -33420,7 +34421,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 533.6159 178.0678 0)
 			(effects
 				(font
@@ -33456,7 +34457,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 535.94 176.53 0)
 			(effects
 				(font
@@ -33544,6 +34545,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "DNP"
+			(at 172.72 351.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 172.72 351.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "5a6138ce-6514-4071-83ed-6c79eb75799a")
 		)
@@ -33608,7 +34627,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201FR-0722RL"
+		(property "MPN" "RC0402FR-7D22RL"
 			(at 525.78 193.04 0)
 			(effects
 				(font
@@ -33660,7 +34679,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.2u"
+		(property "Value" "2.2uF"
 			(at 431.5842 57.4178 0)
 			(effects
 				(font
@@ -33895,7 +34914,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "d9077d85-d6d8-4673-b9f0-5877217a1e75")
 		(property "Reference" "R29"
@@ -33949,7 +34968,7 @@
 				)
 			)
 		)
-		(property "MPN" "ERJ-1GN0R00C"
+		(property "MPN" "CRCW04020000Z0EDC"
 			(at 322.58 378.46 0)
 			(effects
 				(font
@@ -33958,7 +34977,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic"
+		(property "Manufacturer" "Vishay"
 			(at 322.58 378.46 0)
 			(effects
 				(font
@@ -34000,7 +35019,7 @@
 				)
 			)
 		)
-		(property "Value" "10u"
+		(property "Value" "10uF"
 			(at 434.34 200.4464 90)
 			(effects
 				(font
@@ -34027,6 +35046,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 434.34 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C0603C106M8PAC7411"
+			(at 434.34 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Kemet"
 			(at 434.34 203.2 0)
 			(effects
 				(font
@@ -34069,7 +35106,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 440.4742 44.7178 0)
 			(effects
 				(font
@@ -34105,7 +35142,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 438.15 43.18 0)
 			(effects
 				(font
@@ -34618,7 +35655,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 422.6942 44.7178 0)
 			(effects
 				(font
@@ -34654,7 +35691,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 420.37 43.18 0)
 			(effects
 				(font
@@ -34743,7 +35780,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 275.59 215.9 0)
 			(effects
 				(font
@@ -34795,7 +35832,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 439.2042 68.8478 0)
 			(effects
 				(font
@@ -34831,7 +35868,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 436.88 67.31 0)
 			(effects
 				(font
@@ -34883,7 +35920,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.01u"
+		(property "Value" "0.01uF"
 			(at 431.5842 101.8678 0)
 			(effects
 				(font
@@ -34919,7 +35956,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R71A103KA01D"
+		(property "MPN" "C0402C103K8RAC7411"
 			(at 429.26 100.33 0)
 			(effects
 				(font
@@ -34928,7 +35965,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Kemet"
 			(at 429.26 100.33 0)
 			(effects
 				(font
@@ -34997,6 +36034,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 111.76 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SM03B-SRSS-TB"
+			(at 111.76 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "JST"
 			(at 111.76 237.49 0)
 			(effects
 				(font
@@ -35078,7 +36133,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CR0402-FX-4701GLF"
+		(property "MPN" "RC0402FR-074K7L"
 			(at 91.44 157.48 0)
 			(effects
 				(font
@@ -35087,7 +36142,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Bourns"
+		(property "Manufacturer" "Yageo"
 			(at 91.44 157.48 0)
 			(effects
 				(font
@@ -35230,7 +36285,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Murata"
 			(at 369.57 312.42 0)
 			(effects
 				(font
@@ -35248,7 +36303,16 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CC0402KRX7R7BB104"
+		(property "Manufacturer_No" ""
+			(at 369.57 312.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 369.57 312.42 0)
 			(effects
 				(font
@@ -36231,7 +37295,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "ecaba580-a263-420a-a316-a8d77a8180c4")
 		(property "Reference" "R22"
@@ -36288,7 +37352,7 @@
 				(justify left)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 303.53 71.12 0)
 			(effects
 				(font
@@ -36443,7 +37507,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 303.53 83.82 0)
 			(effects
 				(font
@@ -36495,7 +37559,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 413.8042 44.7178 0)
 			(effects
 				(font
@@ -36531,7 +37595,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 411.48 43.18 0)
 			(effects
 				(font
@@ -36611,6 +37675,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 403.86 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MI0603L301R-10"
+			(at 403.86 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Laird"
 			(at 403.86 198.12 0)
 			(effects
 				(font
@@ -36950,7 +38032,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201JR-13100KL"
+		(property "MPN" "RC0402FR-07100KL"
 			(at 54.61 163.83 0)
 			(effects
 				(font
@@ -37199,7 +38281,7 @@
 				)
 			)
 		)
-		(property "Value" "10u"
+		(property "Value" "10uF"
 			(at 434.34 225.8464 90)
 			(effects
 				(font
@@ -37226,6 +38308,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 434.34 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C0603C106M8PAC7411"
+			(at 434.34 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Kemet"
 			(at 434.34 228.6 0)
 			(effects
 				(font
@@ -37354,7 +38454,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "fe2c6925-de88-4865-9461-a8a275c8b92a")
 		(property "Reference" "J3"
@@ -37402,7 +38502,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "62201021121"
+		(property "MPN" "62201021121 (DNP)"
 			(at 52.07 54.61 0)
 			(effects
 				(font
@@ -37478,7 +38578,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" "1uF"
 			(at 294.4242 208.5478 0)
 			(effects
 				(font
@@ -37566,7 +38666,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "0.1uF"
 			(at 541.4392 68.8478 0)
 			(effects
 				(font
@@ -37602,7 +38702,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "GRM033R61E104KE14D"
+		(property "MPN" "GRM155R71C104KA88J"
 			(at 539.115 67.31 0)
 			(effects
 				(font
@@ -37690,7 +38790,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0201DR-0710KL"
+		(property "MPN" "RC0402FR-7D10KL"
 			(at 205.74 152.4 0)
 			(effects
 				(font
@@ -37718,6 +38818,71 @@
 			(project "reform-camera"
 				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
 					(reference "R14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 172.72 392.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fff9e699-7c06-4a9f-9297-3b0b9f21f72f")
+		(property "Reference" "#PWR027"
+			(at 172.72 398.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 172.72 396.7544 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 172.72 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 172.72 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b393ac4e-441a-446d-a663-e75a18b39f35")
+		)
+		(instances
+			(project "reform-camera"
+				(path "/907ee31d-4d92-4e39-8291-85f9f00a52c1"
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)

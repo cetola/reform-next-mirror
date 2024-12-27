@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.5
+          "min_clearance": 0.25
         }
       },
       "diff_pair_dimensions": [],
@@ -466,7 +466,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "nref-wifi-gerbers-d1",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "nref-wifi.step",
@@ -508,7 +508,7 @@
           "group_by": false,
           "label": "Datasheet",
           "name": "Datasheet",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
@@ -527,11 +527,107 @@
           "label": "DNP",
           "name": "${DNP}",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ALTIUM_VALUE",
+          "name": "ALTIUM_VALUE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Alt. Manufacturer",
+          "name": "Alt. Manufacturer",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Alt. Manufacturer Part Number",
+          "name": "Alt. Manufacturer Part Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Datasheet Link",
+          "name": "Datasheet Link",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Footprint_1",
+          "name": "Footprint_1",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LCSC",
+          "name": "LCSC",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer",
+          "name": "Manufacturer",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer Part Number",
+          "name": "Manufacturer Part Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer_No",
+          "name": "Manufacturer_No",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Mounting",
+          "name": "Mounting",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Notes",
+          "name": "Notes",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Operating Temperature",
+          "name": "Operating Temperature",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Subpart Type",
+          "name": "Subpart Type",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Substitutes Allowed",
+          "name": "Substitutes Allowed",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
-      "name": "Grouped By Value",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },

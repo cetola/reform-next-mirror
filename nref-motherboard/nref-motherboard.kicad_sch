@@ -36586,6 +36586,16 @@
 		)
 		(uuid "bb576e54-3a83-4a11-8839-535dd434282d")
 	)
+	(text "mouser alt: broadcom HSMF-C125"
+		(exclude_from_sim no)
+		(at 813.308 314.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "c6e055c4-401e-4eae-ac08-f411bde34644")
+	)
 	(text "Control DIP Switch Array"
 		(exclude_from_sim no)
 		(at 400.05 600.71 0)
@@ -36759,6 +36769,16 @@
 			(justify left bottom)
 		)
 		(uuid "eea3f327-876e-4edd-985e-df8d6a46a05a")
+	)
+	(text "TODO: change to standard 0606"
+		(exclude_from_sim no)
+		(at 812.038 326.39 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ef91c71c-c20e-4cdb-a515-6d08acc41ec4")
 	)
 	(text "TODO: expensive"
 		(exclude_from_sim no)
@@ -44536,6 +44556,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 294.64 575.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "TLV75718PDBVR"
+			(at 294.64 575.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "1f2c8212-6013-4384-97be-68bcd1da8bc9")
 		)
@@ -46922,6 +46960,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Murata"
+			(at 281.94 518.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "GCJ188C70J475KE02D"
+			(at 281.94 518.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4b772a09-1854-4f23-9ad2-a9bc5a53d733")
 		)
@@ -49082,7 +49138,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "YJYCOIN"
+		(property "Manufacturer" "Taiyo Yuden"
 			(at 488.95 93.98 0)
 			(effects
 				(font
@@ -49091,7 +49147,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "YNR3015-150M"
+		(property "Manufacturer_No" "NRH3012T220MN"
 			(at 488.95 93.98 0)
 			(effects
 				(font
@@ -49675,7 +49731,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RP2040"
+		(property "Manufacturer_No" "SC0914"
 			(at 709.93 269.24 0)
 			(effects
 				(font
@@ -49977,6 +50033,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Amphenol"
+			(at 200.66 539.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "10102166A812A"
+			(at 200.66 539.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "S4"
 			(uuid "4953e302-f9c6-44d2-911f-866cdf9d56ee")
 		)
@@ -50105,6 +50179,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 264.16 502.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 264.16 502.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "GCJ188C70J475KE02D"
 			(at 264.16 502.92 0)
 			(effects
 				(font
@@ -50549,7 +50641,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay"
+		(property "Manufacturer" "Yageo"
 			(at 463.55 510.54 0)
 			(effects
 				(font
@@ -50558,7 +50650,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CRCW04020000Z0EDC"
+		(property "Manufacturer_No" "RC0402FR-074K7L"
 			(at 463.55 510.54 0)
 			(effects
 				(font
@@ -52550,7 +52642,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay"
+		(property "Manufacturer" "Yageo"
 			(at 262.89 389.89 0)
 			(effects
 				(font
@@ -52559,7 +52651,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CRCW04020000Z0EDC"
+		(property "Manufacturer_No" "RC0402FR-0710KL"
 			(at 262.89 389.89 0)
 			(effects
 				(font
@@ -55770,7 +55862,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay"
+		(property "Manufacturer" "Yageo"
 			(at 252.73 389.89 0)
 			(effects
 				(font
@@ -55779,7 +55871,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CRCW04020000Z0EDC"
+		(property "Manufacturer_No" "RC0402FR-0710KL"
 			(at 252.73 389.89 0)
 			(effects
 				(font
@@ -56182,6 +56274,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 307.34 604.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 307.34 604.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "GCJ188C70J475KE02D"
 			(at 307.34 604.52 0)
 			(effects
 				(font
@@ -57520,7 +57630,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "6cefaeab-fce7-4cf2-9e83-066fd3ac8350")
 		(property "Reference" "TP3"
@@ -57560,6 +57670,24 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 829.31 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "DNP"
+			(at 829.31 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "DNP"
 			(at 829.31 163.83 0)
 			(effects
 				(font
@@ -62360,6 +62488,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Samsung"
+			(at 251.46 529.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
+			(at 251.46 529.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "049c6c19-253b-4875-a9d0-8a559f57ac14")
 		)
@@ -62427,7 +62573,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Everlight"
+		(property "Manufacturer" "Vishay"
 			(at 1074.42 137.16 0)
 			(effects
 				(font
@@ -62436,7 +62582,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "19-217/R6C-AL1M2VY/3T"
+		(property "Manufacturer_No" "VLMS1300-GS08"
 			(at 1074.42 137.16 0)
 			(effects
 				(font
@@ -62992,6 +63138,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 280.67 375.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "TS3USB30EDGSR"
+			(at 280.67 375.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "9a1e0a39-1ea8-4002-88af-749a5a923993")
 		)
@@ -63185,7 +63349,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Vishay"
 			(at 485.14 502.92 0)
 			(effects
 				(font
@@ -63194,7 +63358,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 485.14 502.92 0)
 			(effects
 				(font
@@ -64260,6 +64424,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Murata"
+			(at 273.05 577.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "GCJ188C70J475KE02D"
+			(at 273.05 577.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a4d4e08a-eae0-41c1-9b65-ecfed1129750")
 		)
@@ -64944,6 +65126,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 273.05 604.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 273.05 604.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "GCJ188C70J475KE02D"
 			(at 273.05 604.52 0)
 			(effects
 				(font
@@ -66200,6 +66400,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Murata"
+			(at 307.34 577.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "GCJ188C70J475KE02D"
+			(at 307.34 577.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "71a30c1d-a69d-49ba-9804-c065c081dc04")
 		)
@@ -66260,6 +66478,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 243.84 527.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 243.84 527.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 243.84 527.05 0)
 			(effects
 				(font
@@ -69758,6 +69994,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 294.64 601.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "TLV75712PDBVR"
+			(at 294.64 601.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "7b61839d-d119-4d60-90ce-a4d1e1c87af0")
 		)
@@ -72253,7 +72507,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "Vishay"
 			(at 477.52 505.46 0)
 			(effects
 				(font
@@ -72262,7 +72516,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 477.52 505.46 0)
 			(effects
 				(font
@@ -74240,7 +74494,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay"
+		(property "Manufacturer" "Yageo"
 			(at 469.9 513.08 0)
 			(effects
 				(font
@@ -74249,7 +74503,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CRCW04020000Z0EDC"
+		(property "Manufacturer_No" "RC0402FR-074K7L"
 			(at 469.9 513.08 0)
 			(effects
 				(font
@@ -74328,7 +74582,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Everlight"
+		(property "Manufacturer" "Vishay"
 			(at 553.72 537.21 0)
 			(effects
 				(font
@@ -74337,7 +74591,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "19-217/R6C-AL1M2VY/3T"
+		(property "Manufacturer_No" "VLMS1300-GS08"
 			(at 553.72 537.21 0)
 			(effects
 				(font
@@ -75687,7 +75941,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Everlight"
+		(property "Manufacturer" "Vishay"
 			(at 541.02 537.21 0)
 			(effects
 				(font
@@ -75696,7 +75950,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "19-217/R6C-AL1M2VY/3T"
+		(property "Manufacturer_No" "VLMS1300-GS08"
 			(at 541.02 537.21 0)
 			(effects
 				(font
@@ -77215,7 +77469,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Everlight"
+		(property "Manufacturer" "Vishay"
 			(at 528.32 537.21 0)
 			(effects
 				(font
@@ -77224,7 +77478,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "19-217/R6C-AL1M2VY/3T"
+		(property "Manufacturer_No" "VLMS1300-GS08"
 			(at 528.32 537.21 0)
 			(effects
 				(font
