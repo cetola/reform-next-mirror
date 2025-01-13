@@ -35836,6 +35836,16 @@
 		)
 		(uuid "2d716516-7c4b-4e5a-bb70-29346694c47c")
 	)
+	(text "could work: 83.5k + 9k"
+		(exclude_from_sim no)
+		(at 551.18 512.572 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "30a91ced-9eeb-48e7-b817-645a5681280d")
+	)
 	(text "phone SAI\n(pocket)"
 		(exclude_from_sim no)
 		(at 163.83 322.58 0)
@@ -36048,6 +36058,16 @@
 			)
 		)
 		(uuid "5b42bd88-8297-44a2-83b8-369ad822bc96")
+	)
+	(text "TODO WRONG calculation"
+		(exclude_from_sim no)
+		(at 553.974 478.536 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5c26a4c3-0b22-4f89-9d61-e72a8b4654b8")
 	)
 	(text "Hard Powerdown Interface"
 		(exclude_from_sim no)
