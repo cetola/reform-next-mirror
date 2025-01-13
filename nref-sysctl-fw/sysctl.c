@@ -337,24 +337,35 @@ int charger_configure() {
 
   //report_current = ibat_adc/1000.0;
 
-  // set recharge voltage: 0x17 = 0
-  bq25756_write_byte(0x17, 1);
+  // set recharge voltage: 0x17
+  bq25756_write_byte(0x17, 0b00011001);
+  //                               `---- ibat_load
 
-  // set battery low voltage: 0x14 = 1
-  bq25756_write_byte(0x14, (1<<3)|(3<<1)|(1));
+  // set battery low voltage (71.4% x VFB_REG)
+  // disable termination (bit 3)
+  // disable precharge (bit 0)
+  bq25756_write_byte(0x14, 0b0110);
+  // disable all safety timers
+  //bq25756_write_byte(0x15, 0b0);
+  // disable PFM
+  bq25756_write_byte(0x19, 0b00000000);
 
   // FIXME: disable JEITA, TS pin on lifepo4
   //bq25756_write_byte(0x1c, 0);
 
+  // boost charge voltage by 30mV
+  bq25756_write_byte(0x00, 0b11111);
+  //bq25756_write_byte(0x00, 0);
+
   // charge current limit (step = 50mA)
-  bq25756_write_byte(0x03, 0); // upper byte
-  bq25756_write_byte(0x02, (3000/50)<<2); // 400mA (0x8) is the low end
+  bq25756_write_byte(0x03, 1); // upper byte
+  bq25756_write_byte(0x02, (2000/50)<<2); // 400mA (0x8) is the low end
 
   // input current limit (step = 50mA). 50W = 20V @ 2.5A
-  //bq25756_write_byte(0x07, 0); // upper byte
-  //bq25756_write_byte(0x06, (3000/50)<<2); // 400mA (0x8) is the low end
-  bq25756_write_byte(0x07, 1<<2); // upper byte
-  bq25756_write_byte(0x06, 0); // 400mA (0x8) is the low end
+  bq25756_write_byte(0x07, 0); // upper byte
+  bq25756_write_byte(0x06, (3000/50)<<2); // 400mA (0x8) is the low end
+  //bq25756_write_byte(0x07, 1<<2); // upper byte
+  //bq25756_write_byte(0x06, 1); // 400mA (0x8) is the low end
 
   // FIXME: resistors! disable ICHG, ILIM
   bq25756_write_byte(0x18, 0);
@@ -366,6 +377,13 @@ int charger_configure() {
   printf("[bq25] charger_status_2: %02x\n", charger_status_2);
   printf("[bq25] charger_status_3: %02x\n", charger_status_3);
   printf("[bq25] fault_status: %02x\n", fault_status);
+  if (fault_status & 0b10) printf("[bq25] `-- DRV_SUP out of range\n");
+  if (fault_status & 0b100) printf("[bq25] `-- Charge safety timer expired\n");
+  if (fault_status & 0b1000) printf("[bq25] `-- Thermal shutdown\n");
+  if (fault_status & 0b10000) printf("[bq25] `-- Battery overvoltage\n");
+  if (fault_status & 0b100000) printf("[bq25] `-- Battery overcurrent\n");
+  if (fault_status & 0b1000000) printf("[bq25] `-- Input overvoltage\n");
+  if (fault_status & 0b10000000) printf("[bq25] `-- Input overcurrent\n");
   printf("[bq25] charger_flag_1: %02x\n", charger_flag_1);
   printf("[bq25] charger_flag_2: %02x\n", charger_flag_2);
   printf("[bq25] pin_control: %02x\n", pin_control);
@@ -479,7 +497,7 @@ int monitor_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int l
 
   bq76922_write_byte(i2c, 0x3e, subcmd);
   bq76922_write_byte(i2c, 0x3f, 0x00);
-  
+
   while (tries < 10) {
     uint8_t tmp1 = bq76922_read_byte(i2c, 0x3e);
     uint8_t tmp2 = bq76922_read_byte(i2c, 0x3f);
@@ -555,7 +573,7 @@ int monitor_configure(i2c_inst_t* i2c) {
     report_cells_v[6] = cell4_mv;
     report_cells_v[7] = cell5_mv;
   }
-  
+
   if (pack_mv == 0) {
     // pack not active
     return 0;
@@ -571,7 +589,7 @@ int monitor_configure(i2c_inst_t* i2c) {
     // FETs not enabled, setup the chip
     monitor_setup(i2c);
   }
-  
+
   // 0x0097: FET_CONTROL
 
   uint8_t control_status = bq76922_read_byte(i2c, 0x00);
@@ -590,7 +608,7 @@ int monitor_configure(i2c_inst_t* i2c) {
   uint16_t temp_ext_hi = bq76922_read_byte(i2c, 0x71);
   float temp_int_k = temp_int_lo|(temp_int_hi<<8);
   float temp_ext_k = temp_ext_lo|(temp_ext_hi<<8);
-  
+
   // balance above 3700mV
   // also interesting: https://e2e.ti.com/support/power-management-group/power-management/f/power-management-forum/1245177/bq76942-cell-balancing-not-activating
   //bq76922_write_byte(0x83, 16|8|0|2|1);
@@ -598,7 +616,7 @@ int monitor_configure(i2c_inst_t* i2c) {
 
   uint8_t bal_active_cells[2] = {0,0};
   uint8_t bal_status1[2] = {0,0};
-  
+
   monitor_read_subcommand(i2c, 0x83, bal_active_cells, 2);
   monitor_read_subcommand(i2c, 0x85, bal_status1, 2);
 
@@ -706,7 +724,7 @@ void monitor_setup(i2c_inst_t* i2c) {
   if (i2c == i2c1) id = 1;
 
   printf("[bq76:%d] monitor_setup begin\n", id);
-  
+
   // enter config update mode
   bq76922_write_byte(i2c, 0x3e, 0x90);
   bq76922_write_byte(i2c, 0x3f, 0x00);
@@ -754,7 +772,7 @@ void monitor_setup(i2c_inst_t* i2c) {
     battery_status = bq76922_read_u16(i2c, 0x12);
     printf("[bq76] `-- CFGUPD (expect 0): %d\n", !!(battery_status & (1<<0)));
   }
-  
+
   mon_sleep_off(i2c);
   mon_toggle_fet_en(i2c);
 
@@ -1449,7 +1467,7 @@ int main() {
             if ((pdo & PD_PDO_TYPE) == PD_PDO_TYPE_FIXED) {
               int voltage = print_src_fixed_pdo(i+1, pdo);
               // FIXME voltage
-              if (voltage > max_voltage && voltage <= 20) {
+              if (voltage > max_voltage && voltage <= 12) {
                 power_objects = i+1;
                 max_voltage = voltage;
               }
