@@ -2,7 +2,8 @@
 
 The original Open Hardware laptop, reloaded.
 
-![image](reform-next-render.jpg)
+![image](images/nref-purple-factorio_png_gallery-lg.jpg)
+![image](images/nref-20241212-black-overview_jpg_gallery-lg.jpg)
 
 ## Modular Concept
 
@@ -126,7 +127,7 @@ By default, this board doesn't expose any connectors to the outside. Instead, Wi
 
 ![MNT Reform Next Port Board Three Technical Drawing, Side View](images/reform-next-ports-three-techdraw.png)
 
-![MNT Reform Next Port Board Three Technical Drawing, Iso View](images/reform-next-ports-three-iso.png)
+![MNT Reform Next Port Board Three Technical Drawing, Iso View](images/nref-wi-fi_jpg_gallery-lg.jpg)
 
 The electrical interfaces normally available to the back side are:
 
@@ -172,7 +173,17 @@ The keyboard is an evolution/redesign of MNT Reform Keyboard V3 and integrates P
 
 ## Trackpad
 
-WIP. The trackpad is an evolution of the multitouch glass trackpad option for classic MNT Reform.
+![MNT Reform Next 2025-01 Trackpad Overview 4](images/)
+
+The trackpad is an evolution of the multitouch glass trackpad option for classic MNT Reform based on the Azoteq TPS65 with IQS550 sensor. We revised it with a bigger, seamless frosted glass cover for which we sampled multiple glass suppliers and selected the one with the best haptics. We also added a strip of 3 mouse buttons below the trackpad to offer an alternative to multi finger gestures, including a middle mouse button that is important on Linux/BSD/Plan 9 desktops. The buttons are ultra low profile mechanical switches: Cherry MX ULP. As there are no commercially available keycaps for these switches, we developed our own based on the resources at [https://github.com/pashutk/Cherry_MX_ULP](https://github.com/pashutk/Cherry_MX_ULP).
+
+## Camera Module
+
+![MNT Reform Next 2025-01 Camera Kit](images/nref-camera-kit_jpg_gallery-lg.jpg)
+![MNT Reform Next 2025-01 Camera Lens](images/camera-sensor.jpg)
+![MNT Reform Next 2025-01 Camera PCB](images/camera-pcb-install.jpg)
+
+We developed the electronics of our OSHW standalone USB camera into a new version that can be installed inside of the MNT Reform Next. The sensor with autofocus lens is installed in a cavity in the screen back case above the display. The screen front part has a 2mm hole that the camera can look through. Below the display sits an adapter PCB that converts the flat/flex cable of the image sensor for a JST-SH based cable that transmits the MIPI-CSI signal through the right hinge of the laptop. A camera acquisition PCB that is part of the camera kit can be installed on the 4x4cm mounting grid below the keyboard. This converts the camera video signal into standard USB 3 or 2 UVC for use by the main processor. This module also has a connector for a hard powerdown switch and a LED that shows if it is powered. 
 
 ## Credits (So Far)
 
