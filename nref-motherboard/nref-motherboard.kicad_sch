@@ -21824,12 +21824,6 @@
 		(uuid "06027e80-3c64-472c-a1fe-15169e166d53")
 	)
 	(junction
-		(at 557.53 422.91)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "07aced58-2b99-4197-ad8c-dbac8a689693")
-	)
-	(junction
 		(at 154.94 393.7)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -22458,12 +22452,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5fc326f5-eeff-4c1c-811e-c856e86b293c")
-	)
-	(junction
-		(at 544.83 422.91)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "60998198-84d8-40cb-a99f-a1ae340fef1d")
 	)
 	(junction
 		(at 695.96 187.96)
@@ -24963,16 +24951,6 @@
 	)
 	(wire
 		(pts
-			(xy 557.53 433.07) (xy 557.53 435.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0fb72e78-1dcf-45fc-a65f-3a50533391d8")
-	)
-	(wire
-		(pts
 			(xy 358.14 256.54) (xy 358.14 259.08)
 		)
 		(stroke
@@ -25640,16 +25618,6 @@
 			(type default)
 		)
 		(uuid "1afef6f2-f469-465a-9c2d-aa7fd7324596")
-	)
-	(wire
-		(pts
-			(xy 557.53 422.91) (xy 557.53 427.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1b098073-c5d4-4e3a-8553-f37b895e3caa")
 	)
 	(wire
 		(pts
@@ -26763,16 +26731,6 @@
 	)
 	(wire
 		(pts
-			(xy 557.53 422.91) (xy 570.23 422.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "31f1c31c-f976-4751-af90-4267d115d9ab")
-	)
-	(wire
-		(pts
 			(xy 436.88 199.39) (xy 436.88 207.01)
 		)
 		(stroke
@@ -26950,16 +26908,6 @@
 			(type default)
 		)
 		(uuid "36f94b5c-94fe-4a15-8c6a-a684db21d278")
-	)
-	(wire
-		(pts
-			(xy 570.23 433.07) (xy 570.23 435.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "372c1f11-dec0-41b7-945f-1ea82dbec253")
 	)
 	(wire
 		(pts
@@ -27680,16 +27628,6 @@
 			(type default)
 		)
 		(uuid "48b9bdf6-af80-478c-854d-d7026c63d649")
-	)
-	(wire
-		(pts
-			(xy 544.83 433.07) (xy 544.83 435.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "48c8e6a8-a225-4d4b-9636-e13457f14e54")
 	)
 	(wire
 		(pts
@@ -31633,16 +31571,6 @@
 	)
 	(wire
 		(pts
-			(xy 557.53 440.69) (xy 557.53 441.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ad3c763-482a-405a-89b1-f9ae3ee5b53f")
-	)
-	(wire
-		(pts
 			(xy 455.93 461.01) (xy 455.93 463.55)
 		)
 		(stroke
@@ -31790,16 +31718,6 @@
 			(type default)
 		)
 		(uuid "9d2e8a41-f572-4cd5-a163-9940492e269f")
-	)
-	(wire
-		(pts
-			(xy 570.23 422.91) (xy 570.23 427.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9dbee2eb-17fe-4000-8a29-ddf05657b4e9")
 	)
 	(wire
 		(pts
@@ -32140,16 +32058,6 @@
 			(type default)
 		)
 		(uuid "a36781f9-e4ca-4850-95f9-43be5a9c7a12")
-	)
-	(wire
-		(pts
-			(xy 544.83 422.91) (xy 544.83 427.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a37667e7-5c24-46cd-b5e3-50b713ed15ae")
 	)
 	(wire
 		(pts
@@ -34013,16 +33921,6 @@
 	)
 	(wire
 		(pts
-			(xy 544.83 440.69) (xy 544.83 441.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca33a811-1d2e-47e0-988f-8366282613d6")
-	)
-	(wire
-		(pts
 			(xy 861.06 389.89) (xy 861.06 392.43)
 		)
 		(stroke
@@ -34090,16 +33988,6 @@
 			(type default)
 		)
 		(uuid "cb0098d8-f0a7-41ad-8c7c-2656d8453d2a")
-	)
-	(wire
-		(pts
-			(xy 544.83 422.91) (xy 557.53 422.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cb09fdd1-8356-4ce3-b7f2-caa8ff0cf4a1")
 	)
 	(wire
 		(pts
@@ -34943,16 +34831,6 @@
 	)
 	(wire
 		(pts
-			(xy 544.83 419.1) (xy 544.83 422.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "db494c2b-20ad-47fb-a6ac-2d11dccb62e3")
-	)
-	(wire
-		(pts
 			(xy 425.45 134.62) (xy 425.45 140.97)
 		)
 		(stroke
@@ -35370,16 +35248,6 @@
 			(type default)
 		)
 		(uuid "e54a914e-a0bb-41e0-a563-9fac35daab7e")
-	)
-	(wire
-		(pts
-			(xy 570.23 440.69) (xy 570.23 441.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e5c2d7ee-9648-4b47-b00f-65fdd5b8197f")
 	)
 	(wire
 		(pts
@@ -41315,7 +41183,25 @@
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHMAAABCAAAATwAAAE4AAABMAAAAUAAAAGgAAAAz"
+			"AAAAdgAAAHQAAABwAAAAaQAAADQAAABXAAAAWQAAAEgAAABFAAAAMgAAAHkAAAA4AAAANQAAAGsA"
+			"AABYAAAAUwAAAFUAAAA1AAAANAAAAG8AAABBAAAAeAAAAC8AAABoAAAATAAAAEQAAABlAAAAVgAA"
+			"AHkAAABZAAAAegAAADIAAABzAAAAcwAAAGIAAAArAAAANAAAADgAAAB3AAAAbAAAAG8AAABWAAAA"
+			"RQAAADgAAAB4AAAASQAAADIAAAByAAAARgAAADEAAABFAAAATgAAAEcAAABpAAAAQQAAAEwAAABO"
+			"AAAASwAAAHoAAAA4AAAAMAAAAFYAAAAyAAAANwAAAEQAAAA5AAAATgAAAHEAAABtAAAAaQAAAHcA"
+			"AABZAAAATQAAAFAAAAA3AAAAKwAAAFAAAABMAAAAbgAAAFAAAABzAAAAcQAAAE4AAABLAAAAegAA"
+			"AG8AAABJAAAAMgAAAGgAAABhAAAAVwAAAFoAAABXAAAARwAAAFoAAABGAAAAawAAADYAAABrAAAA"
+			"ZwAAAFIAAABYAAAAYgAAAEgAAAB1AAAASwAAAHIAAABYAAAAMwAAADIAAABVAAAAcgAAAG8AAABU"
+			"AAAARAAAAGUAAABPAAAAOQAAAFIAAABuAAAAdgAAAHIAAABtAAAAawAAADUAAAB3AAAAWgAAAEwA"
+			"AAA0AAAARQAAADAAAAB5AAAAMQAAAE0AAABiAAAAcAAAAHUAAAByAAAAbwAAAEoAAABEAAAAcQAA"
+			"ADQAAAA5AAAAUgAAAGUAAAArAAAAeQAAAEcAAABNAAAAUAAAADMAAABzAAAAcgAAAFMAAABCAAAA"
+			"ZgAAAE8AAABZAAAAMQAAADcAAABXAAAARQAAADEAAABXAAAAdgAAAFgAAABzAAAANgAAAEEAAABw"
+			"AAAAagAAAG0AAABNAAAASwAAAGgAAABOAAAAQwAAAGYAAABTAAAANQAAAGsAAABwAAAAbgAAACsA"
+			"AABNAAAAdgAAAC8AAABtAAAAOQAAAGUAAABQAAAANQAAAG4AAABVAAAAOAAAAHIAAABuAAAAeAAA"
+			"AEUAAAAzAAAAegAAADYAAABzAAAAZgAAAHQAAABaAAAAMgAAAGoAAABZAAAAdAAAAEgAAAA5AAAA"
+			"TwAAAFgAAAB6AAAANwAAAFkAAABQAAAAUAAAAE0AAAA0AAAAWAAAAEgAAAA3AAAAMgAAAGQAAAAr"
+			"AAAAZAAAAFYAAABCAAAAeAAAAG4AAAB1AAAAUAAAADgAAABmAAAAUwAAAFQAAABPAAAAegAAAGkA"
+			"AABWAAAAegAAAEkAAABBAAAAUwAAADYAAABNAA=="
 		)
 	)
 	(image
@@ -51804,7 +51690,25 @@
 			"AEEAAABvAAAARgAAAEEAAABxAAAARgAAAFEAAABxAAAARgAAAFEAAABLAAAAQgAAAFIAAABmAAAA"
 			"RgAAAEUAAABxAAAAZwAAAFYAAABOAAAAegAAAFEAAABTAAAARwAAAGsAAABpAAAAMAAAAEsAAABn"
 			"AAAANwAAAGUAAABZAAAAQgAAAEYAAAB2AAAALwAAADAAAABSAAAAYQAAADAAAAA0AAAAWQAAAHQA"
-			"AABKAAAAMgAAAHQAAABwAAAATA=="
+			"AABKAAAAMgAAAHQAAABwAAAATAAAAHQAAABDAAAAeQAAAHAAAABEAAAAUQAAAEcAAABsAAAAcAAA"
+			"AGwAAAB2AAAAegAAADYAAABJAAAAKwAAAEIAAABYAAAANgAAAEcAAABWAAAANAAAAGkAAABRAAAA"
+			"NAAAAEsAAABpAAAAQwAAAEkAAABtAAAAVgAAAEEAAABsAAAAdAAAAHMAAABsAAAASwAAAEIAAABI"
+			"AAAAWAAAAG0AAABOAAAAMgAAAFkAAABuAAAAdQAAADkAAABvAAAATQAAAE8AAABOAAAAWAAAAEEA"
+			"AABnAAAAUQAAAHoAAAByAAAAbAAAADEAAABsAAAAagAAAHMAAABmAAAAUQAAAEQAAAByAAAANwAA"
+			"AHMAAABBAAAAVgAAAFAAAABPAAAAMwAAAG4AAABvAAAAbgAAAEUAAABiAAAAawAAAHIAAAAxAAAA"
+			"QQAAAG8AAAByAAAAaAAAAHoAAABYAAAAdwAAAC8AAABOAAAAVAAAAG8AAABiAAAAaAAAAGUAAABV"
+			"AAAAZAAAAGUAAABVAAAAUQAAAHEAAABGAAAAUQAAAEsAAABLAAAANAAAAFYAAABsAAAARQAAAEMA"
+			"AABwAAAAdQAAAEsAAABFAAAAUgAAAG0AAAB0AAAAMwAAAEUAAABrAAAANwAAAG8AAABYAAAAOAAA"
+			"AFgAAABmAAAAZgAAACsAAABmAAAAKwAAAFoAAABMAAAAVwAAAEsAAABvAAAAMgAAAHIAAAB1AAAA"
+			"RwAAADMAAAA3AAAAMwAAADYAAABSAAAAeAAAAG8AAABMAAAASAAAACsAAABUAAAALwAAAGYAAABX"
+			"AAAAQQAAAFEAAABqAAAAWgAAAFoAAABCAAAAVAAAAEYAAAB5AAAAUwAAAG4AAABSAAAANQAAAGIA"
+			"AAA4AAAARAAAAEoAAABOAAAAYwAAAEEAAABRAAAAUQAAAGcAAABTAAAAMQAAAFkAAABkAAAAQQAA"
+			"AGgAAABQAAAAbwAAAGUAAABYAAAAQwAAAGwAAABqAAAAUQAAAGsAAABFAAAAcwAAAHUAAAB5AAAA"
+			"aAAAAFMAAABiAAAAbgAAAGMAAAB6AAAARQAAAHUAAABKAAAAOAAAADMAAABWAAAASgAAAEwAAABK"
+			"AAAAcwAAAG0AAABxAAAAYgAAAGgAAAA5AAAAWAAAAHIAAABSAAAAZAAAAFIAAAAyAAAALwAAADMA"
+			"AAAwAAAAOQAAACsAAABmAAAAagAAADYAAABCAAAAUQAAAEkAAABDAAAANgAAAHUAAABqAAAAcQAA"
+			"AFcAAABMAAAAMQAAADkAAABPAAAAUwAAAGsAAABwAAAASwAAAGUAAABKAAAAdQAAAHUAAAB3AAAA"
+			"bAAAAHcAAABrAAAAUQAAAHQAAA=="
 		)
 	)
 	(label "M2_SMB_CLK"
@@ -51846,16 +51750,6 @@
 			(justify right bottom)
 		)
 		(uuid "43b79f81-9c19-41ad-8c6d-79d2cbbfc0d3")
-	)
-	(label "REGN"
-		(at 544.83 419.1 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "51a1a0a5-efdd-4f01-bb4e-6bc8fd1c3ab7")
 	)
 	(label "REGN"
 		(at 370.84 419.1 0)
@@ -52962,28 +52856,6 @@
 		(uuid "22bba09c-dab1-4649-9e67-1e9900c2ce60")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 1032.3068 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "~{CHRG_PG}"
-		(shape output)
-		(at 544.83 441.96 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "23518f63-5bc3-4fb4-b0cd-0df0fb979ba1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 544.83 453.5933 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -54663,28 +54535,6 @@
 			)
 		)
 	)
-	(global_label "CHRG_STAT2"
-		(shape output)
-		(at 557.53 441.96 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5f714328-8986-4bd2-b94a-72dbd527e6ce")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 557.53 456.4961 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "BAT2_ALERT"
 		(shape output)
 		(at 191.77 642.62 0)
@@ -54747,28 +54597,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "CHRG_STAT1"
-		(shape output)
-		(at 570.23 441.96 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "622cbf2c-d7e6-48a2-8261-585f0862617c")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 570.23 456.4961 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
@@ -60660,7 +60488,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Automated:Texas_VQFN-HR_RQM_4x4mm_P0.40-0.45mm"
+		(property "Footprint" "footprints:Texas_VQFN-HR_RQM_4x4mm_P0.40-0.45mm"
 			(at 392.43 396.24 0)
 			(effects
 				(font
@@ -83787,103 +83615,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 544.83 438.15 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c45c2820-7cb7-45ff-b5f3-241be9b66ff1")
-		(property "Reference" "R71"
-			(at 547.37 436.8799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 547.37 439.4199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 544.83 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 544.83 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 544.83 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C60490"
-			(at 544.83 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
-			(at 544.83 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
-			(at 544.83 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "749bfdff-3172-4281-bd7a-c547f4cdd802")
-		)
-		(pin "2"
-			(uuid "cd3eeaa8-58e4-414c-8893-101860dd973c")
-		)
-		(instances
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "R71")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 427.99 435.61 180)
 		(unit 1)
@@ -87387,103 +87118,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 570.23 438.15 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "de7a0a48-9cc6-430a-88f3-0653de4c3c85")
-		(property "Reference" "R73"
-			(at 572.77 436.8799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 572.77 439.4199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 570.23 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 570.23 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 570.23 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C60490"
-			(at 570.23 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
-			(at 570.23 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
-			(at 570.23 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "4018143a-52ee-4fdf-a496-1a458ad33afb")
-		)
-		(pin "2"
-			(uuid "8645f815-1403-40c0-8f7b-05b19ab7b819")
-		)
-		(instances
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "R73")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 791.21 330.2 0)
 		(unit 1)
@@ -87693,94 +87327,6 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "#PWR034")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 570.23 430.53 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e3dc1745-e2b4-4b7d-b394-db7ff62f798b")
-		(property "Reference" "D11"
-			(at 572.77 429.1964 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED_RED"
-			(at 572.77 431.7364 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 570.23 430.53 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 570.23 430.53 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 570.23 430.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Vishay"
-			(at 570.23 430.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "VLMS1300-GS08"
-			(at 570.23 430.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "544539fe-0b44-47ff-840f-4afab5ae8161")
-		)
-		(pin "2"
-			(uuid "5e4653ee-92b3-4d99-b26b-269ccf52cfa0")
-		)
-		(instances
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "D11")
 					(unit 1)
 				)
 			)
@@ -88774,94 +88320,6 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "C20")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 557.53 430.53 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "eaae3d09-5e57-4136-81a4-adfde0000c9c")
-		(property "Reference" "D10"
-			(at 560.07 429.1964 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED_RED"
-			(at 560.07 431.7364 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 557.53 430.53 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 557.53 430.53 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 557.53 430.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Vishay"
-			(at 557.53 430.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "VLMS1300-GS08"
-			(at 557.53 430.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1f02c0bb-38cf-4ffc-ada8-80d5edc5c03f")
-		)
-		(pin "2"
-			(uuid "3dd01e91-2124-4e67-980c-fbc53b4d1b44")
-		)
-		(instances
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "D10")
 					(unit 1)
 				)
 			)
@@ -90185,94 +89643,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_Small")
-		(at 544.83 430.53 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f472e0d9-d66e-4741-8d74-dcc7cdae9fbf")
-		(property "Reference" "D4"
-			(at 547.37 429.1964 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED_RED"
-			(at 547.37 431.7364 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 544.83 430.53 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 544.83 430.53 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 544.83 430.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Vishay"
-			(at 544.83 430.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "VLMS1300-GS08"
-			(at 544.83 430.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a2b75a55-f0d4-4531-9f84-2b853030035d")
-		)
-		(pin "2"
-			(uuid "5d257ff3-1a24-4456-ac12-6f71083f3b0a")
-		)
-		(instances
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "D4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 500.38 434.34 0)
 		(unit 1)
@@ -90502,103 +89872,6 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "#PWR036")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 557.53 438.15 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f60a959d-9611-48db-a36c-4b730cd63a88")
-		(property "Reference" "R72"
-			(at 560.07 436.8799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 560.07 439.4199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 557.53 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 557.53 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 557.53 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C60490"
-			(at 557.53 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
-			(at 557.53 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
-			(at 557.53 438.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bd5263a8-704a-4698-971d-6236aafa65f4")
-		)
-		(pin "2"
-			(uuid "a840b27c-1624-45db-8dca-464431f3a2d6")
-		)
-		(instances
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "R72")
 					(unit 1)
 				)
 			)
