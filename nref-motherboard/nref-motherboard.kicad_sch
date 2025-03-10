@@ -21045,16 +21045,6 @@
 		)
 		(uuid "0c31da0d-dd5b-47e1-b0a0-a44faa47da1e")
 	)
-	(text "SCL"
-		(exclude_from_sim no)
-		(at 413.004 532.384 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "10a43b05-cafe-4893-8d9c-14d8882b7c19")
-	)
 	(text "Rff"
 		(exclude_from_sim no)
 		(at 574.802 225.044 0)
@@ -21150,16 +21140,6 @@
 			)
 		)
 		(uuid "2f69e07c-72f3-4f00-b54a-8d2d504811b8")
-	)
-	(text "SDA"
-		(exclude_from_sim no)
-		(at 413.004 535.178 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "30339353-25d9-4d1d-8e9d-6611bc73636d")
 	)
 	(text "phone SAI\n(pocket)"
 		(exclude_from_sim no)
@@ -21396,16 +21376,6 @@
 		)
 		(uuid "6182c1ae-1a50-4104-8a27-bc088a40a69e")
 	)
-	(text "TODO: test points?"
-		(exclude_from_sim no)
-		(at 441.96 532.384 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "621ac15a-2e82-4bd4-a92a-98999b0c2b67")
-	)
 	(text "Power Interface"
 		(exclude_from_sim no)
 		(at 130.81 572.77 0)
@@ -21589,16 +21559,6 @@
 			(justify left bottom)
 		)
 		(uuid "7fed4551-af81-4052-b340-e29eadf5028d")
-	)
-	(text "HPD"
-		(exclude_from_sim no)
-		(at 413.004 529.844 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "823424a6-8d1c-4c7f-b45c-f0640ddf39fc")
 	)
 	(text "Rfbb"
 		(exclude_from_sim no)
@@ -24410,10 +24370,6 @@
 		(uuid "b83871c7-0604-4164-991d-f6718144c2b2")
 	)
 	(no_connect
-		(at 408.94 529.59)
-		(uuid "bd82abd2-c4c8-4071-b115-cef246f28664")
-	)
-	(no_connect
 		(at 1068.07 195.58)
 		(uuid "be781e14-58e4-414f-accb-67de2c1f6209")
 	)
@@ -24466,10 +24422,6 @@
 		(uuid "d6945688-a17e-45a7-be2c-a913917b1dcc")
 	)
 	(no_connect
-		(at 408.94 534.67)
-		(uuid "d84fc52c-a896-4492-9ed7-3d4479ca8309")
-	)
-	(no_connect
 		(at 154.94 189.23)
 		(uuid "d9d6c134-c612-4a51-a64d-4a905d68fac7")
 	)
@@ -24492,10 +24444,6 @@
 	(no_connect
 		(at 111.76 270.51)
 		(uuid "e28ffb97-44c1-416e-81a9-1eaba2c6dc58")
-	)
-	(no_connect
-		(at 408.94 532.13)
-		(uuid "e3ef8f6b-2296-4029-bd50-4f18b8614805")
 	)
 	(no_connect
 		(at 1068.07 175.26)
@@ -25040,6 +24988,16 @@
 			(type default)
 		)
 		(uuid "090c9265-af86-4a14-8708-4596f3f260cb")
+	)
+	(wire
+		(pts
+			(xy 408.94 529.59) (xy 410.21 529.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0914ec2a-d085-4fc3-8d30-8ae078e81430")
 	)
 	(wire
 		(pts
@@ -27990,6 +27948,16 @@
 			(type default)
 		)
 		(uuid "454f8383-bacf-4022-866a-4d8eeeef40dd")
+	)
+	(wire
+		(pts
+			(xy 408.94 534.67) (xy 445.77 534.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45d1bae1-1b29-4d24-aa31-aa5ee8cde6ba")
 	)
 	(wire
 		(pts
@@ -34300,6 +34268,16 @@
 			(type default)
 		)
 		(uuid "bf57cc48-0077-4aa3-94a3-fe3163656b27")
+	)
+	(wire
+		(pts
+			(xy 408.94 532.13) (xy 433.07 532.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bfacf1f8-4f27-4d19-af99-ae0b4c6d1c95")
 	)
 	(wire
 		(pts
@@ -42327,7 +42305,25 @@
 			"AAAA0CFMvn9VAACWLQAAAAAAAHB6P0cAAAAAID5kvn9VAAB7CwAAAAAAAMyXQusAAAAAUOBavn9V"
 			"AABDIwAAAAAAAO8hKHsAAAAAAFVZvn9VAAD7eAAAAAAAAFeaANwAAAAAsB9bvn9VAADoBwAAAAAA"
 			"ADq2aagAAAAAoGRlvn9VAACIcgAAAAAAAKV9GegAAAAAECtZvn9VAABDMgAAAAAAACD13UQAAAAA"
-			"cA9Zvn9VAADRRQAAAAAAAGI5gWAAAAAAEKtRvg=="
+			"cA9Zvn9VAADRRQAAAAAAAGI5gWAAAAAAEKtRvnBVAAAAhsMZcFUAAAEAAAAAAAAAoAAAAAAAAAAw"
+			"AAAAAAAAAG4YwU51VQAAYO/CGXBVAAAAAAAAAAAAAH69hUMAAAAA8AIAAAAAAADwAAAAAAAAAPCJ"
+			"3a+afwAAdLL3QJXATMHaqHE9vLL5QH2/TMGM1HM9mLL4QAnATMGzvnI9BQAAAEDh56+afwAAsDDx"
+			"C3BVAAAAAAAAAAAAAEj5ZD/F+OS+AAAAAEj5ZD/D+OS+AAAAABbXbT9MZr2+u7L5QH6/TMGL1HM9"
+			"dbL3QH6/TMGL1HM9u7L5QJTATMHbqHE9AAAAAJfyZD+OE+W+AAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAA////////////////bhIAvwAAAAB6OU3BAQAAAAXdf8EAAACAo9/rxAAAAIAAAACA4AMAAAAA"
+			"AAAgAAAAAAAAAF8tgnd1VQAAgLGDIHBVAABACAAAAAAAACAAAAAAAAAAP2/DTnVVAAAg88IZcFUA"
+			"AAAAAAAAAAAAAQIAAAAAAACQ+cIZcFUAALDidBxwVQAAgeHYPWGQV0Etd0zBb2zZPWCQV0ENokzB"
+			"+CbZPQUAAABA4eevmn8AAHBiigpwVQAAAAAAAAAAgD8vvTszAAAAAAAAgD8vvTszAAAAAD+Eez94"
+			"czgzFs4+PmCQV0Eud0zBguHYPWCQV0HszEzBguHYPWCQV0Eud0zBbmzZPf//fz8AAAAAAAAAgAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////////////wAAAAAAAACAX5BXQQAAAAAAAAAAnxU/"
+			"wgAAAACi32tFAAAAAPAAAAAAAAAAIQAAAAAAAADgrDggcFUAAEDNoBZwVQAAEAEAAAAAAADwAAAA"
+			"AAAAAPCJ3a+afwAASY9XQe3MTMFtbNk9YZBXQS13TMFHgto91Y9XQQ2iTMFa99k9BQAAAEDh56+a"
+			"fwAAcGKKCnBVAAAAAAAA1jNwP18nMDPXErE+QPlkP0frJzPn+OQ+QPlkP0frJzPn+OQ+YJBXQezM"
+			"TMFubNk9So9XQezMTMFGgto9So9XQS53TMFGgto9lvJkPwAAAACME+U+AAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAA////////////////AAAAAG0SAD/raVhBAAAAAKLf60SfFT/CnxU/QgAAAIAAAACA"
+			"YAoAAAAAAAAgAAAAAAAAAH9os051VQAAYPSyGXBVAAAAAAAAAAAAABEDAAAAAAAAUKE4IHBVAABg"
+			"9sIZcFUAAPGSs72rhUpB2AhBwQMIs70KhEpBNnNBwXpNs70FAAAAQOHnr5p/AADADhoMcFUAAAAA"
+			"AABm6KG+PZ0CKPHccr9N6KG+P50CKPTccr9N6A=="
 		)
 	)
 	(image
@@ -52888,7 +52884,25 @@
 			"OTkpKHh5IC0wLjg3OSAyLjQ5OCkoeHkgLTAuODc0IDIuNDk3KSh4eSAtMC44NjkgMi40OTUpKHh5"
 			"IC0wLjg2NCAyLjQ5MykoeHkgLTAuODU5IDIuNDkxKSh4eSAtMC44NTUgMi40ODkpKHh5IC0wLjg1"
 			"IDIuNDg3KSh4eSAtMC44NDYgMi40ODQpKHh5IC0wLjg0MSAyLjQ4MSkoeHkgLTAuODM3IDIuNDc4"
-			"KSh4eSAtMC44MzMgMi40NzQpKA=="
+			"KSh4eSAtMC44MzMgMi40NzQpKFUAAAAAAAAAAAAA0ZIBAAAAAADgLcItcFUAACAbHzibfwAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHXvAABAAAAAAAAAACAAAAAAAAAATB6HenVVAAAgxoUt"
+			"cFUAAAAAAAAAAAAAcZIBAAAAAADgLcItcFUAACAbHzibfwAAAAAAAAAAAAAAAAAAAAAAAADHhS1w"
+			"VQAAAgAAAAAAAABAAAAAAAAAACAAAAAAAAAALB6HenVVAACAxoUtcFUAAAAAAAAAAAAAEZIBAAAA"
+			"AADgLcItcFUAACAbHzibfwAAAAAAAAAAAAAAAAAAAAAAAGDHhS1wVQAAAQAAAAAAAABAAAAAAAAA"
+			"ACAAAAAAAAAAjB6HenVVAADgxoUtcFUAAAAAAAAAAAAAsZEBAAAAAADgLcItcFUAACAbHzibfwAA"
+			"AAAAAAAAAAAAAAAAAAAAAMDHhS1wVQAAAQAAAAAAAABAAAAAAAAAACAAAAAAAAAAbB+HenVVAABA"
+			"x4UtcFUAAAAAAAAAAAAAUZEBAAAAAADgLcItcFUAACAbHzibfwAAAAAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAHbvAABAAAAAAAAAACAAAAAAAAAAzB+HenVVAACgx4UtcFUAAAAAAAAAAAAA8ZAB"
+			"AAAAAADgLcItcFUAACAbHzibfwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHfvAABAAAAA"
+			"AAAAACAAAAAAAAAArB+HenVVAAAAyIUtcFUAAAAAAAAAAAAAkZABAAAAAADgLcItcFUAACAbHzib"
+			"fwAAAAAAAAAAAAAAAAAAAAAAAODIhS1wVQAAAAAAAAAAAABAAAAAAAAAACAAAAAAAAAADBCHenVV"
+			"AABgyIUtcFUAAAAAAAAAAAAAMZABAAAAAADgLcItcFUAACAbHzibfwAAAAAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAHjvAABAAAAAAAAAACAAAAAAAAAA7BCHenVVAADAyIUtcFUAAAAAAAAAAAAA"
+			"0Y8BAAAAAADgLcItcFUAACAbHzibfwAAAAAAAAAAAAAAAAAAAAAAAKDJhS1wVQAAAQAAAAAAAABA"
+			"AAAAAAAAACAAAAAAAAAATBGHenVVAAAgyYUtcFUAAAAAAAAAAAAAcY8BAAAAAADgLcItcFUAACAb"
+			"HzibfwAAAAAAAAAAAAAAAAAAAAAAAADKhS1wVQAAAQAAAAAAAABAAAAAAAAAACAAAAAAAAAALBGH"
+			"enVVAACAyYUtcFUAAAAAAAAAAAAAEY8BAAAAAADgLcItcFUAACAbHzibfwAAAAAAAAAAAAAAAAAA"
+			"AAAAAAAAAAAAAAAAAAAAAHnvAA=="
 		)
 	)
 	(label "RPU+"
@@ -61704,6 +61718,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 410.21 529.59 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0cf8118a-18cb-447c-997b-6f98bd1e08f0")
+		(property "Reference" "TP1"
+			(at 415.29 528.3199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "HSTX_HPD"
+			(at 415.29 530.8599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 410.21 534.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 410.21 534.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 410.21 529.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3cdffabc-173e-410a-845f-8e3fffd99534")
+		)
+		(instances
+			(project ""
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 707.39 613.41 0)
 		(unit 1)
@@ -63600,6 +63681,73 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "C103")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 433.07 532.13 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1d1bd085-0875-479e-9efc-551320ec2c5f")
+		(property "Reference" "TP2"
+			(at 438.15 530.8599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "HSTX_SCL"
+			(at 438.15 533.3999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 433.07 537.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 433.07 537.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 433.07 532.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "65b1de80-87e4-4686-9052-7c541560ba3e")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "TP2")
 					(unit 1)
 				)
 			)
@@ -65886,7 +66034,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 614.68 334.01 0)
 			(effects
 				(font
@@ -77039,7 +77187,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 603.25 334.01 0)
 			(effects
 				(font
@@ -82516,6 +82664,73 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "SW4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 445.77 534.67 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a3877136-0885-4fa5-98af-c6f57ddd9182")
+		(property "Reference" "TP4"
+			(at 450.85 533.3999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "HSTX_SDA"
+			(at 450.85 535.9399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 445.77 539.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 445.77 539.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 445.77 534.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4d2c93bc-2e04-4de2-83ce-0c2704b9375a")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "TP4")
 					(unit 1)
 				)
 			)

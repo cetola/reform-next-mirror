@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.0,
-          "height": 0.75,
-          "width": 1.0
+          "drill": 0.3,
+          "height": 0.6,
+          "width": 0.6
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -506,7 +506,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "nref-motherboard-gbr-d2",
+      "plot": "nref-motherboard-gbr-d3",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "nref-motherboard-d2.step",
