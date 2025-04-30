@@ -435,7 +435,7 @@ void charger_configure() {
 
   bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
   bq25792_write_word(0x01, 14800 / 10); // 14.4V charge voltage (conservative), VREG
-  bq25792_write_word(0x03, 2000 / 10); // 2A charge current (conservative)
+  bq25792_write_word(0x03, 2000 / 10); // 2A charge current
   bq25792_write_word(0x06, 3000 / 10); // defaults to 3A @ reset
 
   // ADC control: 0x2e (default: 0x30)
@@ -567,54 +567,89 @@ void bq76922_write_i16(i2c_inst_t* i2c, uint8_t addr, int16_t word)
   i2c_write_blocking(i2c, BQ76922_ADDR, buf, 3, false);
 }
 
-unsigned char bq76922_checksum(unsigned char *ptr, unsigned char len)
+void bq76922_write_u16(i2c_inst_t* i2c, uint8_t addr, uint16_t word)
 {
-    unsigned char i;
-    unsigned char checksum = 0;
-
-    for (i = 0; i < len; i++) checksum += ptr[i];
-
-    checksum = 0xff & ~checksum;
-
-    return (checksum);
+  uint8_t buf[3] = {addr, word&0xff, word>>8};
+  i2c_write_blocking(i2c, BQ76922_ADDR, buf, 3, false);
 }
 
-void bq76922_set_reg(i2c_inst_t* i2c, uint16_t reg_addr, uint32_t reg_data, uint8_t datalen)
-{
-  uint8_t TX_Buffer[3] = {0x00, 0x00, 0x00};
-  uint8_t TX_RegData[7] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+int bq76922_read_mem_u8(i2c_inst_t* i2c, uint16_t reg_addr, uint8_t* reg_data) {
 
-  //TX_RegData in little endian format
-  TX_RegData[1] = reg_addr & 0xff;
-  TX_RegData[2] = (reg_addr >> 8) & 0xff;
-  TX_RegData[3] = reg_data & 0xff;  // 1st byte of data
+  bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
+  bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
+  sleep_ms(10);
 
-  switch (datalen) {
-  case 1:
+  *reg_data = bq76922_read_byte(i2c, 0x40);
 
-    TX_RegData[0] = 0x3e;
-    i2c_write_blocking(i2c, BQ76922_ADDR, TX_RegData, 4, false);
-    sleep_ms(2);
+  int len = bq76922_read_byte(i2c, 0x61);
+  int checksum = bq76922_read_byte(i2c, 0x60);
 
-    TX_Buffer[0] = 0x60;
-    TX_Buffer[1] = bq76922_checksum(&TX_RegData[1], 3);
-    TX_Buffer[2] = 0x05;  //combined length of register address and data
-    i2c_write_blocking(i2c, BQ76922_ADDR, TX_Buffer, 3, false);
-    sleep_ms(2);
-    break;
+  printf("[bq76] read_mem_u8: %02x = %02x [len: %d checksum: %02x]\n", reg_addr, *reg_data, len, checksum);
 
-  case 2:
-    TX_RegData[4] = (reg_data >> 8) & 0xff;
-    sleep_ms(2);
-    i2c_write_blocking(i2c, BQ76922_ADDR, TX_RegData, 5, false);
+  return 1;
+}
 
-    TX_Buffer[0] = 0x60;
-    TX_Buffer[1] = bq76922_checksum(&TX_RegData[1], 4);
-    TX_Buffer[2] = 0x06;  //combined length of register address and data
-    i2c_write_blocking(i2c, BQ76922_ADDR, TX_Buffer, 3, false);
-    sleep_ms(2);
-    break;
-  }
+void bq76922_write_mem_u8(i2c_inst_t* i2c, uint16_t reg_addr, uint8_t reg_data) {
+  bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
+  bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
+
+  bq76922_write_byte(i2c, 0x40, reg_data);
+
+  // 5 = len
+  uint32_t checksum = (~((reg_addr & 0xff) + (reg_addr >> 8) + reg_data)) & 0xff;
+  bq76922_write_u16(i2c, 0x60, checksum | 5<<8);
+
+  printf("[bq76] write_mem_u8: %02x = %02x [checksum: %02x]\n", reg_addr, reg_data, checksum);
+
+  uint8_t buf = 0;
+  bq76922_read_mem_u8(i2c, reg_addr, &buf);
+}
+
+int bq76922_read_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t* reg_data) {
+  bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
+  bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
+  sleep_ms(10);
+
+  *reg_data = bq76922_read_u16(i2c, 0x40);
+
+  int len = bq76922_read_byte(i2c, 0x61);
+  int checksum = bq76922_read_byte(i2c, 0x60);
+
+  printf("[bq76] read_mem_u16: %02x = %04x [len: %d checksum: %02x]\n", reg_addr, *reg_data, len, checksum);
+
+  return 1;
+}
+
+void bq76922_write_mem_i16(i2c_inst_t* i2c, uint16_t reg_addr, int16_t reg_data) {
+  bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
+  bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
+  bq76922_write_byte(i2c, 0x40, reg_data & 0xff);
+  bq76922_write_byte(i2c, 0x41, reg_data >> 8);
+
+  // 5 = len
+  uint32_t checksum = (~((reg_addr & 0xff) + (reg_addr >> 8) + (reg_data & 0xff) + (reg_data >> 8))) & 0xff;
+  bq76922_write_u16(i2c, 0x60, checksum | 6<<8);
+
+  printf("[bq76] write_mem_i16: %02x = %04x [checksum: %02x]\n", reg_addr, reg_data, checksum);
+
+  int16_t buf = 0;
+  bq76922_read_mem_u16(i2c, reg_addr, (uint16_t*)&buf);
+}
+
+void bq76922_write_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t reg_data) {
+  bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
+  bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
+  bq76922_write_byte(i2c, 0x40, reg_data & 0xff);
+  bq76922_write_byte(i2c, 0x41, reg_data >> 8);
+
+  // 5 = len
+  uint32_t checksum = (~((reg_addr & 0xff) + (reg_addr >> 8) + (reg_data & 0xff) + (reg_data >> 8))) & 0xff;
+  bq76922_write_u16(i2c, 0x60, checksum | 6<<8);
+
+  printf("[bq76] write_mem_u16: %02x = %04x [checksum: %02x]\n", reg_addr, reg_data, checksum);
+
+  uint16_t buf = 0;
+  bq76922_read_mem_u16(i2c, reg_addr, &buf);
 }
 
 void monitor_setup(i2c_inst_t* i2c);
@@ -718,8 +753,6 @@ int monitor_configure(i2c_inst_t* i2c) {
     monitor_setup(i2c);
   }
 
-  // 0x0097: FET_CONTROL
-
   uint8_t control_status = bq76922_read_byte(i2c, 0x00);
   uint8_t safety_alert_a = bq76922_read_byte(i2c, 0x02);
   uint8_t safety_status_a = bq76922_read_byte(i2c, 0x03);
@@ -737,16 +770,13 @@ int monitor_configure(i2c_inst_t* i2c) {
   float temp_int_k = temp_int_lo|(temp_int_hi<<8);
   float temp_ext_k = temp_ext_lo|(temp_ext_hi<<8);
 
-  // balance above 3700mV
   // also interesting: https://e2e.ti.com/support/power-management-group/power-management/f/power-management-forum/1245177/bq76942-cell-balancing-not-activating
-  //bq76922_write_byte(0x83, 16|8|0|2|1);
-  //bq76922_write_i16(0x84, 3700);
 
-  uint8_t bal_active_cells[2] = {0,0};
-  uint8_t bal_status1[2] = {0,0};
+  uint16_t bal_active_cells = 0;
+  uint16_t bal_status1 = 0;
 
-  monitor_read_subcommand(i2c, 0x83, bal_active_cells, 2);
-  monitor_read_subcommand(i2c, 0x85, bal_status1, 2);
+  bq76922_read_mem_u16(i2c, 0x0083, &bal_active_cells);
+  bq76922_read_mem_u16(i2c, 0x0085, &bal_status1);
 
   printf("\n---------------------------\n[bq76:%d] c1 mV: %f\n", id, cell1_mv);
   printf("[bq76] c2 mV: %f\n", cell2_mv);
@@ -798,26 +828,54 @@ int monitor_configure(i2c_inst_t* i2c) {
   printf("[bq76] temp_int: %f C\n", (temp_int_k-273.15)/100.0);
   printf("[bq76] temp_ext: %f C\n", (temp_ext_k-273.15)/100.0);
 
-  printf("[bq76] bal_active_cells: %02x,%02x\n", bal_active_cells[0],bal_active_cells[1]);
-  printf("[bq76] bal_status1: %d,%d sec\n", bal_status1[0], bal_status1[1]);
+  printf("[bq76] bal_active_cells: %016b\n", bal_active_cells);
+  printf("[bq76] bal_status1: %d sec\n", bal_status1);
+
+  // balance all cells above 3.4V
+  bq76922_write_mem_u16(i2c, 0x0084, 3400);
+  /*if (cell4_mv > 3400) {
+    bq76922_write_mem_u16(i2c, 0x0083, 8);
+  } else if (cell4_mv <= 3300) {
+    bq76922_write_mem_u16(i2c, 0x0083, 0);
+  }*/
 
   return 1;
 }
 
 void mon_all_fets_off(i2c_inst_t* i2c) {
   printf("[bq76] turning all fets off...\n");
+  // ALL_FETS_OFF subcommand (0x0095)
   bq76922_write_byte(i2c, 0x3e, 0x95);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+// FIXME: call on cell overvoltage
+void mon_discharge_fets_off(i2c_inst_t* i2c) {
+  printf("[bq76] turning discharge fets off...\n");
+  // CHG_PDSG_OFF subcommand (0x0094)
+  bq76922_write_byte(i2c, 0x3e, 0x93);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+// FIXME: call on cell overvoltage
+void mon_charge_fets_off(i2c_inst_t* i2c) {
+  printf("[bq76] turning charge fets off...\n");
+  // CHG_PCHG_OFF subcommand (0x0094)
+  bq76922_write_byte(i2c, 0x3e, 0x94);
   bq76922_write_byte(i2c, 0x3f, 0x00);
 }
 
 void mon_all_fets_on(i2c_inst_t* i2c) {
   printf("[bq76] turning all fets on...\n");
+  // ALL_FETS_ON subcommand (0x0096)
   bq76922_write_byte(i2c, 0x3e, 0x96);
   bq76922_write_byte(i2c, 0x3f, 0x00);
 }
 
 void mon_toggle_fet_en(i2c_inst_t* i2c) {
   printf("[bq76] fet_en toggle...\n");
+  // FET_ENABLE subcommand (0x0022)
+  // toggles the FET_EN bit in Manufacturing Status
   bq76922_write_byte(i2c, 0x3e, 0x22);
   bq76922_write_byte(i2c, 0x3f, 0x00);
 }
@@ -847,11 +905,7 @@ void mon_sleep_on(i2c_inst_t* i2c) {
   bq76922_write_byte(i2c, 0x3f, 0x00);
 }
 
-void monitor_setup(i2c_inst_t* i2c) {
-  int id = 0;
-  if (i2c == i2c1) id = 1;
-
-  printf("[bq76:%d] monitor_setup begin\n", id);
+void monitor_config_update(i2c_inst_t* i2c) {
 
   // enter config update mode
   bq76922_write_byte(i2c, 0x3e, 0x90);
@@ -867,40 +921,70 @@ void monitor_setup(i2c_inst_t* i2c) {
     sleep_ms(10);
   }
 
-  if (cfgupd) {
-    // 4 cells, one missing in the middle
-    uint8_t vcell_mode = 16 | 8 | 0 | 2 | 1;
-    bq76922_set_reg(i2c, 0x9304, vcell_mode, 1);
-
-    // TODO: read back and check these values
-
-    // disable all FET protections :0
-    /*bq76922_set_reg(0x9265, 0, 1);
-      bq76922_set_reg(0x9266, 0, 1);
-      bq76922_set_reg(0x9267, 0, 1);
-      bq76922_set_reg(0x9269, 0, 1);
-      bq76922_set_reg(0x926a, 0, 1);
-      bq76922_set_reg(0x926b, 0, 1);*/
-
-    // FET options
-    bq76922_set_reg(i2c, 0x9308, (1<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0), 1);
-
-    // enable normal FET control in Mfg Status Init
-    // FIXME doesn't seem to work
-    bq76922_set_reg(i2c, 0x9343, (1<<6)|(1<<4), 2);
-
-    // enable balancing
-    // TODO: investigate
-    bq76922_set_reg(i2c, 0x9335, (0<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0), 1);
-
-    // exit config update mode
-    bq76922_write_byte(i2c, 0x3e, 0x92);
-    bq76922_write_byte(i2c, 0x3f, 0x00);
-
-    battery_status = bq76922_read_u16(i2c, 0x12);
-    printf("[bq76] `-- CFGUPD (expect 0): %d\n", !!(battery_status & (1<<0)));
+  if (!cfgupd) {
+    printf("[bq76] `-- failed to perform CFGUPD!\n");
+    return;
   }
 
+  // 4 cells, one missing in the middle
+  uint8_t vcell_mode = 16 | 8 | 0 | 2 | 1;
+  bq76922_write_mem_u8(i2c, 0x9304, vcell_mode);
+
+  // TODO: read back and check these values
+
+  // disable all FET protections :0
+  /*bq76922_set_reg(0x9265, 0, 1);
+    bq76922_set_reg(0x9266, 0, 1);
+    bq76922_set_reg(0x9267, 0, 1);
+    bq76922_set_reg(0x9269, 0, 1);
+    bq76922_set_reg(0x926a, 0, 1);
+    bq76922_set_reg(0x926b, 0, 1);*/
+
+  // FET options
+  // 0 = SFET (series fet mode)
+  // 1 = SLEEPCHG (chg fet may be enabled in sleep mode)
+  // 2 = HOST_FET_EN (host fet control is allowed)
+  // 3 = FET_CTRL_EN (fets are controlled by the device)
+  // 4 = PDSG_EN (pdsg fet is enabled)
+  // 5 = FET_INIT_OFF (default state allows fets to be on)
+  bq76922_write_mem_u8(i2c, 0x9308, (1<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0));
+
+  // enable normal FET control in Mfg Status Init
+  // FIXME doesn't seem to work
+  // 4 = FET_EN (normal fet control is enabled, test mode disabled)
+  // 6 = PF_EN (permanent failure checks are enabled)
+  // 7 = OPTW_EN (OTP writable, we don't enable this)
+  bq76922_write_mem_u16(i2c, 0x9343, (1<<6)|(1<<4));
+
+  // enable balancing
+  // TODO: investigate
+  // Cell Balancing Config / Balancing Configuration
+  bq76922_write_mem_u8(i2c, 0x9335, (0<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0));
+
+  // cell balance interval in seconds
+  bq76922_write_mem_u8(i2c, 0x9339, 10);
+  // cell balance max cells
+  bq76922_write_mem_u8(i2c, 0x933a, 2);
+  // cell balance min cell v (charge)
+  bq76922_write_mem_i16(i2c, 0x933b, 3300);
+  // cell balance min cell v (relax)
+  bq76922_write_mem_i16(i2c, 0x933f, 3300);
+
+  // exit config update mode
+  bq76922_write_byte(i2c, 0x3e, 0x92);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+
+  battery_status = bq76922_read_u16(i2c, 0x12);
+  printf("[bq76] `-- CFGUPD (expect 0): %d\n", !!(battery_status & (1<<0)));
+}
+
+void monitor_setup(i2c_inst_t* i2c) {
+  int id = 0;
+  if (i2c == i2c1) id = 1;
+
+  printf("[bq76:%d] monitor_setup begin\n", id);
+
+  monitor_config_update(i2c);
   mon_sleep_off(i2c);
   mon_toggle_fet_en(i2c);
 
@@ -1398,6 +1482,7 @@ int main() {
 
   int power_objects = 0;
   int max_voltage = 0;
+  int input_mv = 0;
 
   sleep_ms(1000);
 
@@ -1460,6 +1545,12 @@ int main() {
       }
       else if (usb_c == 'F') {
         mon_toggle_fet_en(i2c1);
+      }
+      else if (usb_c == 'c') {
+        monitor_config_update(i2c0);
+      }
+      else if (usb_c == 'C') {
+        monitor_config_update(i2c1);
       }
     }
 #endif
@@ -1632,13 +1723,11 @@ int main() {
       if (t>200) {
         printf("# [pd] state 3.\n");
 
-        //int input_mv = charger_status();
-
         // FIXME
-        //if (input_mv < 5100) {
-        //  printf("# [pd] input voltage below threshold, renegotiate.\n");
-        //  state = 0;
-        //}
+        if (input_mv > 4000 && input_mv < 5100) {
+          printf("# [pd] input voltage below threshold, renegotiate.\n");
+          state = 0;
+        }
 
         t = 0;
       }
@@ -1651,7 +1740,7 @@ int main() {
     if (t_report > 200) {
       monitor_configure(i2c0);
       monitor_configure(i2c1);
-      charger_status();
+      input_mv = charger_status();
       t_report = 0;
     }
   }
