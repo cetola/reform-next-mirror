@@ -434,8 +434,8 @@ void charger_configure() {
   // VREG = charge voltage
 
   bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
-  bq25792_write_word(0x01, 14800 / 10); // 14.4V charge voltage (conservative), VREG
-  bq25792_write_word(0x03, 2000 / 10); // 2A charge current
+  bq25792_write_word(0x01, 15600 / 10); // charge voltage (conservative), VREG
+  bq25792_write_word(0x03, 1500 / 10); // 2A charge current
   bq25792_write_word(0x06, 3000 / 10); // defaults to 3A @ reset
 
   // ADC control: 0x2e (default: 0x30)
