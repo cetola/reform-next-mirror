@@ -22,7 +22,7 @@
 
 #define FW_STRING1 "NREF1SYS"
 #define FW_STRING2 "R1"
-#define FW_STRING3 "20241212"
+#define FW_STRING3 "20250516"
 #define FW_REV FW_STRING1 FW_STRING2 FW_STRING3
 
 #define ACM_ENABLED 1
@@ -123,6 +123,10 @@ void clear_boot_magic() {
 // TODO: turn into a struct
 // 4.8A x 3600 seconds/hour (per cell)
 #define MAX_CAPACITY (4.0)*3600.0
+#define MV_OVERVOLT 3950
+#define MV_UNDERVOLT 2450
+#define MV_HYST 100
+
 float report_capacity_max_ampsecs =  MAX_CAPACITY;
 float report_capacity_accu_ampsecs = MAX_CAPACITY;
 float report_capacity_min_ampsecs = 0;
@@ -130,6 +134,9 @@ int report_capacity_percentage = 0;
 float report_volts = 0;
 float report_current = 0;
 float report_cells_v[8] = {0,0,0,0,0,0,0,0};
+int report_overvolt[2] = {0,0};
+int report_undervolt[2] = {0,0};
+int report_pack_active[2] = {0,0};
 bool reached_full_charge = true; // FIXME
 bool som_is_powered = false;
 bool print_pack_info = false;
@@ -435,21 +442,11 @@ void charger_configure() {
 
   bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
   bq25792_write_word(0x01, 15600 / 10); // charge voltage (conservative), VREG
-  bq25792_write_word(0x03, 1500 / 10); // 2A charge current
-  bq25792_write_word(0x06, 3000 / 10); // defaults to 3A @ reset
+  bq25792_write_word(0x03, 1500 / 10); // charge current
+  bq25792_write_word(0x06, 3000 / 10); // input current? defaults to 3A @ reset
 
   // ADC control: 0x2e (default: 0x30)
   bq25792_write_byte(0x2e, (1<<7) | (0b00 << 4) ); // enable ADC at 15 bit (7=ADC_EN, 5:4=ADC_SAMPLE)
-
-  // charger_control_0
-  // bit7: EN_AUTO_IBATDIS
-  // bit6: FORCE_IBATDIS
-  // bit5: EN_CHG
-  // bit4: EN_ICO
-  // bit3: FORCE_ICO
-  // bit2: EN_HIZ
-  // bit1: EN_TERM
-  bq25792_write_word(0x0f, 0b00100000);
 
   // charger_control_2
   // bit6: AUTO_INDET_EN (default on, D+/D- detection)
@@ -464,6 +461,28 @@ int charger_status() {
   // bit3: WD_RST
   // bit2-0: watchdog timeout
   bq25792_write_word(0x10, 0b00001000);
+
+  // charger_control_0
+  // bit7: EN_AUTO_IBATDIS
+  // bit6: FORCE_IBATDIS
+  // bit5: EN_CHG
+  // bit4: EN_ICO
+  // bit3: FORCE_ICO
+  // bit2: EN_HIZ
+  // bit1: EN_TERM
+  if (report_overvolt[0] && report_overvolt[1]) {
+    // disable charging
+    printf("# [bq25] disable charging (overvoltage).\n");
+    bq25792_write_word(0x0f, 0b00000000);
+  } else if (!report_pack_active[0] && !report_pack_active[1]) {
+    // disable charging
+    printf("# [bq25] disable charging (no packs connected).\n");
+    bq25792_write_word(0x0f, 0b00000000);
+  } else {
+    // enable charging
+    printf("# [bq25] enable charging.\n");
+    bq25792_write_word(0x0f, 0b00100000);
+  }
 
   uint8_t charger_status_0 = bq25792_read_byte(0x1b);
   uint8_t charger_status_1 = bq25792_read_byte(0x1c);
@@ -485,6 +504,11 @@ int charger_status() {
   uint16_t vbat_adc = bq25792_read_word(0x3b); // 1mV resolution
   uint16_t vsys_adc = bq25792_read_word(0x3d); // 1mV resolution
   float tdie_adc = (float)bq25792_read_word_signed(0x41) * 0.5; // 0.5 celsius resolution
+
+  if (!report_pack_active[0] && !report_pack_active[1]) {
+    report_volts = vbus_adc/100.0;
+    report_current = ibus_adc/1000.0;
+  }
 
   printf("\n---------------------------\n");
   printf("[bq25] charger_status_0: %08b\n", charger_status_0);
@@ -681,6 +705,67 @@ int monitor_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int l
   return 1;
 }
 
+void mon_all_fets_off(i2c_inst_t* i2c) {
+  printf("[bq76] turning all fets off...\n");
+  // ALL_FETS_OFF subcommand (0x0095)
+  bq76922_write_byte(i2c, 0x3e, 0x95);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_discharge_fets_off(i2c_inst_t* i2c) {
+  printf("[bq76] turning discharge fets off...\n");
+  // CHG_PDSG_OFF subcommand (0x0094)
+  bq76922_write_byte(i2c, 0x3e, 0x93);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_charge_fets_off(i2c_inst_t* i2c) {
+  printf("[bq76] turning charge fets off...\n");
+  // CHG_PCHG_OFF subcommand (0x0094)
+  bq76922_write_byte(i2c, 0x3e, 0x94);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_all_fets_on(i2c_inst_t* i2c) {
+  printf("[bq76] turning all fets on...\n");
+  // ALL_FETS_ON subcommand (0x0096)
+  bq76922_write_byte(i2c, 0x3e, 0x96);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_toggle_fet_en(i2c_inst_t* i2c) {
+  printf("[bq76] fet_en toggle...\n");
+  // FET_ENABLE subcommand (0x0022)
+  // toggles the FET_EN bit in Manufacturing Status
+  bq76922_write_byte(i2c, 0x3e, 0x22);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_fet_test(i2c_inst_t* i2c) {
+  printf("[bq76] fet test...\n");
+
+  bq76922_write_byte(i2c, 0x3e, 0x1c);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+  bq76922_write_byte(i2c, 0x3e, 0x1e);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+  bq76922_write_byte(i2c, 0x3e, 0x1f);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+  bq76922_write_byte(i2c, 0x3e, 0x20);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_sleep_off(i2c_inst_t* i2c) {
+  printf("[bq76] turning sleep off...\n");
+  bq76922_write_byte(i2c, 0x3e, 0x9a);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_sleep_on(i2c_inst_t* i2c) {
+  printf("[bq76] turning sleep on...\n");
+  bq76922_write_byte(i2c, 0x3e, 0x99);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
 int monitor_configure(i2c_inst_t* i2c) {
   int id = 0;
   if (i2c == i2c1) id = 1;
@@ -737,9 +822,65 @@ int monitor_configure(i2c_inst_t* i2c) {
     report_cells_v[7] = cell5_mv;
   }
 
-  if (pack_mv == 0) {
-    // pack not active
+  if (cell1_mv >= MV_OVERVOLT ||
+      cell2_mv >= MV_OVERVOLT ||
+      cell4_mv >= MV_OVERVOLT ||
+      cell5_mv >= MV_OVERVOLT) {
+    report_overvolt[id] = 1;
+  } else {
+    if (cell1_mv <= (MV_OVERVOLT-MV_HYST) &&
+        cell2_mv <= (MV_OVERVOLT-MV_HYST) &&
+        cell4_mv <= (MV_OVERVOLT-MV_HYST) &&
+        cell5_mv <= (MV_OVERVOLT-MV_HYST)) {
+      report_overvolt[id] = 0;
+    }
+  }
+
+  if (cell1_mv <= MV_UNDERVOLT ||
+      cell2_mv <= MV_UNDERVOLT ||
+      cell4_mv <= MV_UNDERVOLT ||
+      cell5_mv <= MV_UNDERVOLT) {
+    report_undervolt[id] = 1;
+  } else {
+    if (cell1_mv >= (MV_UNDERVOLT+MV_HYST) &&
+        cell2_mv >= (MV_UNDERVOLT+MV_HYST) &&
+        cell4_mv >= (MV_UNDERVOLT+MV_HYST) &&
+        cell5_mv >= (MV_UNDERVOLT+MV_HYST)) {
+      report_undervolt[id] = 0;
+    }
+  }
+
+  if (report_undervolt[id]) {
+    printf("# [undervolt] pack %d, turning discharge off.\n", id);
+    mon_discharge_fets_off(i2c);
+  } else if (report_overvolt[id]) {
+    printf("# [overvolt] pack %d, turning charge off.\n", id);
+    mon_charge_fets_off(i2c);
+  } else {
+    mon_all_fets_on(i2c);
+  }
+
+  uint8_t control_status = bq76922_read_byte(i2c, 0x00);
+
+  if (pack_mv <= 0 || pack_mv > 20000 || control_status == 0x3f) {
+    // pack not connected
+    if (id == 0) {
+      report_cells_v[0] = 0;
+      report_cells_v[1] = 0;
+      report_cells_v[2] = 0;
+      report_cells_v[3] = 0;
+    } else {
+      report_cells_v[4] = 0;
+      report_cells_v[5] = 0;
+      report_cells_v[6] = 0;
+      report_cells_v[7] = 0;
+    }
+    report_undervolt[id] = 0;
+    report_overvolt[id] = 0;
+    report_pack_active[id] = 0;
     return 0;
+  } else {
+    report_pack_active[id] = 1;
   }
 
   // TODO average pack 1 + 2
@@ -753,7 +894,6 @@ int monitor_configure(i2c_inst_t* i2c) {
     monitor_setup(i2c);
   }
 
-  uint8_t control_status = bq76922_read_byte(i2c, 0x00);
   uint8_t safety_alert_a = bq76922_read_byte(i2c, 0x02);
   uint8_t safety_status_a = bq76922_read_byte(i2c, 0x03);
   uint8_t safety_alert_b = bq76922_read_byte(i2c, 0x04);
@@ -842,71 +982,7 @@ int monitor_configure(i2c_inst_t* i2c) {
   return 1;
 }
 
-void mon_all_fets_off(i2c_inst_t* i2c) {
-  printf("[bq76] turning all fets off...\n");
-  // ALL_FETS_OFF subcommand (0x0095)
-  bq76922_write_byte(i2c, 0x3e, 0x95);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-// FIXME: call on cell overvoltage
-void mon_discharge_fets_off(i2c_inst_t* i2c) {
-  printf("[bq76] turning discharge fets off...\n");
-  // CHG_PDSG_OFF subcommand (0x0094)
-  bq76922_write_byte(i2c, 0x3e, 0x93);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-// FIXME: call on cell overvoltage
-void mon_charge_fets_off(i2c_inst_t* i2c) {
-  printf("[bq76] turning charge fets off...\n");
-  // CHG_PCHG_OFF subcommand (0x0094)
-  bq76922_write_byte(i2c, 0x3e, 0x94);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void mon_all_fets_on(i2c_inst_t* i2c) {
-  printf("[bq76] turning all fets on...\n");
-  // ALL_FETS_ON subcommand (0x0096)
-  bq76922_write_byte(i2c, 0x3e, 0x96);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void mon_toggle_fet_en(i2c_inst_t* i2c) {
-  printf("[bq76] fet_en toggle...\n");
-  // FET_ENABLE subcommand (0x0022)
-  // toggles the FET_EN bit in Manufacturing Status
-  bq76922_write_byte(i2c, 0x3e, 0x22);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void mon_fet_test(i2c_inst_t* i2c) {
-  printf("[bq76] fet test...\n");
-
-  bq76922_write_byte(i2c, 0x3e, 0x1c);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-  bq76922_write_byte(i2c, 0x3e, 0x1e);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-  bq76922_write_byte(i2c, 0x3e, 0x1f);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-  bq76922_write_byte(i2c, 0x3e, 0x20);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void mon_sleep_off(i2c_inst_t* i2c) {
-  printf("[bq76] turning sleep off...\n");
-  bq76922_write_byte(i2c, 0x3e, 0x9a);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void mon_sleep_on(i2c_inst_t* i2c) {
-  printf("[bq76] turning sleep on...\n");
-  bq76922_write_byte(i2c, 0x3e, 0x99);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
 void monitor_config_update(i2c_inst_t* i2c) {
-
   // enter config update mode
   bq76922_write_byte(i2c, 0x3e, 0x90);
   bq76922_write_byte(i2c, 0x3f, 0x00);
@@ -957,7 +1033,6 @@ void monitor_config_update(i2c_inst_t* i2c) {
   bq76922_write_mem_u16(i2c, 0x9343, (1<<6)|(1<<4));
 
   // enable balancing
-  // TODO: investigate
   // Cell Balancing Config / Balancing Configuration
   bq76922_write_mem_u8(i2c, 0x9335, (0<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0));
 
