@@ -122,8 +122,9 @@ void clear_boot_magic() {
 // battery information
 // 2.0A x 3600 seconds/hour (pack capacity)
 #define MAX_CAPACITY (2.0 * 3600.0)
-#define MV_OVERVOLT 3700
+#define MV_OVERVOLT 3800
 #define MV_UNDERVOLT 2450
+#define MV_FULL 3500 // some cells don't hold voltage > 3.5
 #define MV_BALANCE_ABOVE 3600
 #define MV_HYST 200
 
@@ -137,6 +138,7 @@ struct BatteryPack {
   float cells_v[8];
   int overvolt;
   int undervolt;
+  int fully_charged;
   float coulomb_max;
   float coulomb_cur;
   float gauge_percent;
@@ -447,8 +449,8 @@ void charger_configure() {
   // VREG = charge voltage
 
   bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
-  bq25792_write_word(0x01, 15600 / 10); // charge voltage (conservative), VREG
-  bq25792_write_word(0x03, 2500 / 10); // charge current
+  bq25792_write_word(0x01, 14800 / 10); // charge voltage (conservative), VREG
+  bq25792_write_word(0x03, 3000 / 10); // charge current
   bq25792_write_word(0x06, 3000 / 10); // input current, defaults to 3A @ reset (60W)
 
   // ADC control: 0x2e (default: 0x30)
@@ -485,9 +487,9 @@ int charger_status() {
   // bit3: FORCE_ICO
   // bit2: EN_HIZ
   // bit1: EN_TERM
-  if (packs[0].overvolt && packs[1].overvolt) {
+  if ((packs[0].overvolt && packs[1].overvolt) || (packs[0].fully_charged && packs[1].fully_charged)) {
     // disable charging
-    printf("# [bq25] disable charging (overvoltage).\n");
+    printf("# [bq25] disable charging (overvoltage/fully charged).\n");
     bq25792_write_byte(0x0f, 0b00000000);
   } else if (!packs[0].active && !packs[1].active) {
     // disable charging
@@ -870,6 +872,30 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   pack->cells_v[2] = cell4_mv;
   pack->cells_v[3] = cell5_mv;
 
+  if (cell1_mv >= MV_FULL &&
+      cell2_mv >= MV_FULL &&
+      cell4_mv >= MV_FULL &&
+      cell5_mv >= MV_FULL) {
+    if (!pack->fully_charged) {
+      // arrived at top end. if we never fully discharged,
+      // we don't know the actual capacity. if the capacity
+      // seems unrealistically low, reset to default capacity
+      if (pack->coulomb_max < MAX_CAPACITY * 0.4) {
+        // FIXME experiment with these numbers
+        pack->coulomb_cur = MAX_CAPACITY * 0.9;
+        pack->coulomb_max = MAX_CAPACITY * 0.9;
+      }
+    }
+    pack->fully_charged = 1;
+  } else {
+    if (cell1_mv <= (MV_FULL-MV_HYST) &&
+        cell2_mv <= (MV_FULL-MV_HYST) &&
+        cell4_mv <= (MV_FULL-MV_HYST) &&
+        cell5_mv <= (MV_FULL-MV_HYST)) {
+      pack->fully_charged = 0;
+    }
+  }
+
   if (cell1_mv >= MV_OVERVOLT ||
       cell2_mv >= MV_OVERVOLT ||
       cell4_mv >= MV_OVERVOLT ||
@@ -1057,6 +1083,7 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   printf("balancing: %016b\n", pack->bal_active_cells);
   printf("coulomb_cur/max: %.2f / %.2f\n", pack->coulomb_cur, pack->coulomb_max);
   printf("gauge_percent: %.2f\n", pack->gauge_percent);
+  printf("fully_charged: %d\n", pack->fully_charged);
   printf("============================================\n\n");
 
   return 1;
@@ -1386,6 +1413,8 @@ void handle_commands(char chr) {
     }
   }
 }
+
+// TODO: SPI can hang rp2350?
 
 #define SPI_BUF_LEN 0x8
 uint8_t spi_buf[SPI_BUF_LEN];
