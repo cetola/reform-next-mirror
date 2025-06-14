@@ -1,4 +1,8 @@
+/* MNT Reform Next Battery Pack */
+
 #include <next_pack.h>
+#include <stdio.h>
+
 
 // BQ76922 monitor on battery boards
 #define BQ76922_ADDR 0x08
@@ -41,8 +45,8 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   uint16_t cell1_mv_hi = bq76922_read_byte(i2c, 0x15);
   uint16_t cell2_mv_lo = bq76922_read_byte(i2c, 0x16);
   uint16_t cell2_mv_hi = bq76922_read_byte(i2c, 0x17);
-  uint16_t cell3_mv_lo = bq76922_read_byte(i2c, 0x18);
-  uint16_t cell3_mv_hi = bq76922_read_byte(i2c, 0x19);
+  //uint16_t cell3_mv_lo = bq76922_read_byte(i2c, 0x18);
+  //uint16_t cell3_mv_hi = bq76922_read_byte(i2c, 0x19);
   uint16_t cell4_mv_lo = bq76922_read_byte(i2c, 0x1a);
   uint16_t cell4_mv_hi = bq76922_read_byte(i2c, 0x1b);
   uint16_t cell5_mv_lo = bq76922_read_byte(i2c, 0x1c);
@@ -59,7 +63,7 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
 
   float cell1_mv = cell1_mv_lo|(cell1_mv_hi<<8);
   float cell2_mv = cell2_mv_lo|(cell2_mv_hi<<8);
-  float cell3_mv = cell3_mv_lo|(cell3_mv_hi<<8);
+  //float cell3_mv = cell3_mv_lo|(cell3_mv_hi<<8);
   float cell4_mv = cell4_mv_lo|(cell4_mv_hi<<8);
   float cell5_mv = cell5_mv_lo|(cell5_mv_hi<<8);
   float stack_mv = (int16_t)(stack_userv_lo|(stack_userv_hi<<8));
@@ -186,13 +190,13 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   }
 
   uint8_t control_status = bq76922_read_byte(i2c, 0x00);
-  uint8_t safety_alert_a = bq76922_read_byte(i2c, 0x02);
+  /*uint8_t safety_alert_a = bq76922_read_byte(i2c, 0x02);
   uint8_t safety_status_a = bq76922_read_byte(i2c, 0x03);
   uint8_t safety_alert_b = bq76922_read_byte(i2c, 0x04);
   uint8_t safety_status_b = bq76922_read_byte(i2c, 0x05);
   uint8_t safety_alert_c = bq76922_read_byte(i2c, 0x06);
   uint8_t safety_status_c = bq76922_read_byte(i2c, 0x07);
-  uint8_t alarm_status = bq76922_read_byte(i2c, 0x62);
+  uint8_t alarm_status = bq76922_read_byte(i2c, 0x62);*/
   uint16_t battery_status = bq76922_read_u16(i2c, 0x12);
   uint8_t fet_status = bq76922_read_byte(i2c, 0x7f);
   uint16_t temp_int_lo = bq76922_read_byte(i2c, 0x68);
@@ -208,7 +212,7 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   bq76922_read_mem_u16(i2c, 0x0083, &bal_active_cells);
   bq76922_read_mem_u16(i2c, 0x0085, &bal_status1);
 
-  if (pack_debug) {
+  if (pack->debug) {
     printf("[bq76] c1 mV: %f\n", cell1_mv);
     printf("[bq76] c2 mV: %f\n", cell2_mv);
     //printf("[bq76] c3 mV: %f\n", cell3_mv);

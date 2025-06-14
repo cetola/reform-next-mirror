@@ -1,7 +1,7 @@
 /*
   SPDX-License-Identifier: GPL-3.0-or-later
-  MNT Pocket Reform System Controller Firmware for RP2040
-  Copyright 2023-2024 MNT Research GmbH
+  MNT Reform Next System Controller Firmware for RP2350
+  Copyright 2023-2025 MNT Research GmbH
 
   fusb_read/write functions based on:
   https://git.clarahobbs.com/pd-buddy/pd-buddy-firmware/src/branch/master/lib/src/fusb302b.c
@@ -10,9 +10,12 @@
 #include "pico/divider.h"
 #include "tusb.h"
 #include "reform_stdio_usb.h"
+#include "next_gpio.h"
+#include "bq25792.h"
+#include "bq76922.h"
 
+// FIXME
 battery_info_s battery_info = {0};
-int disp_bl_percent = 100;
 
 // The Pico boot rom uses watchdog scratch registers 0, 1, 4, 5, 6, and 7.
 // That leaves 2 and 3 for our "system is on" magic.
@@ -37,101 +40,23 @@ void clear_boot_magic()
   watchdog_hw->scratch[3] = BOOT_MAGIC_OFF;
 }
 
-void charger_tick();
-
-void charger_init()
-{
-  // reset all registers
-
-  // turn off charging until PD allows it
-
-  //mps_read_buf(MPS_REGSTART_CONFIG, sizeof(mps_reg_config.all_regs), mps_reg_config.all_regs);
-  //mps_read_buf(MPS_REGSTART_LIMITS, sizeof(mps_reg_limits.all_regs), mps_reg_limits.all_regs);
-  //mps_read_buf(MPS_REGSTART_STATUS, sizeof(mps_reg_status.all_regs), mps_reg_status.all_regs);
-
-  // 2A max charge current, assumes 4000mAh cells.
-  // will be written into register by charger_disable_charge.
-  //mps_reg_limits.charge_current = 1<<5 | 1<<3;
-
-  // TODO
-  //charger_disable_charge();
-
-  // see https://www.ti.com/lit/ds/symlink/bq25792.pdf
-  // VREG = charge voltage
-
-  bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
-  bq25792_write_word(0x01, 14800 / 10); // charge voltage (conservative), VREG
-  bq25792_write_word(0x03, 3000 / 10); // charge current
-  bq25792_write_word(0x06, 3000 / 10); // input current, defaults to 3A @ reset (60W)
-
-  // ADC control: 0x2e (default: 0x30)
-  bq25792_write_byte(0x2e, (1<<7) | (0b00 << 4) ); // enable ADC at 15 bit (7=ADC_EN, 5:4=ADC_SAMPLE)
-
-  // default IOTG setting (3000mA)
-  bq25792_write_byte(0x0d, 0b01001011);
-
-  // charger_control_2
-  // bit6: AUTO_INDET_EN (default on, D+/D- detection)
-  bq25792_write_byte(0x11, 0b00000000);
-
-  // charger_control_5
-  // disable EXTILIM
-  // enable IBAT discharge current sensing
-  bq25792_write_byte(0x14, 0b00111100);
-
-  charger_tick();
-}
-
-void charger_tick() {
-  // TODO
-}
-
 // current in 10mA units
 void charger_enable_charge(int current) {
-  int current_reg_value = current / 5;
+  int current_reg_value = current / 10;
   printf("# [charger] setting limit %d \n", current_reg_value);
 
-  mps_reg_limits.input_i_limit1 = current_reg_value;
+  bq25792_write_word(0x03, current_reg_value); // charge current
+  bq25792_write_word(0x06, current_reg_value); // input current, defaults to 3A @ reset (60W)
 
   gpio_put(PIN_LED_R, 1);
 }
 
 void charger_disable_charge() {
-  // TODO: set all current limits to 500mA (should always be safe)
-
+  // set all current limits to 500mA (should always be safe)
+  bq25792_write_word(0x03, 500 / 10); // charge current
+  bq25792_write_word(0x06, 500 / 10); // input current, defaults to 3A @ reset (60W)
+  
   gpio_put(PIN_LED_R, 0);
-}
-
-void pack_tick(battery_info_s *battery_info)
-{
-  battery_info->charge_percentage = (int)rep_percentage;
-  // charger mostly doesn't charge to >98%
-  if (battery_info->charge_percentage >= 98)
-  {
-    battery_info->charge_percentage = 100;
-  }
-  battery_info->cell1_volts = cell1;
-  battery_info->cell2_volts = cell2;
-  battery_info->time_to_empty = rep_time_to_empty;
-
-  if (battery_info->print_pack_info) {
-    printf("[pack_info]\n");
-  }
-}
-
-void pack_init() {
-  gauge_tick(&battery_info);
-}
-
-void charger_dump(battery_info_s *battery_info)
-{
-  // carry over to globals for SPI reporting
-  battery_info->battery_amps = -(float)(adc_input_i - adc_discharge_c)/(float)1000.0;
-  battery_info->battery_volts = (float)adc_sys_v/(float)1000.0;
-  battery_info->input_volts = adc_input_v;
-
-  if (battery_info->print_pack_info) {
-  }
 }
 
 void turn_som_power_on() {
@@ -160,7 +85,6 @@ void turn_som_power_off() {
   gpio_ext_disable(GPIO_EXT_5V_EN);
   gpio_ext_disable(GPIO_EXT_3V3_EN);
 
-  som_is_powered = false;
   battery_info.som_is_powered = false;
 }
 
@@ -174,11 +98,15 @@ void setup()
 {
   tusb_init();
   reform_stdio_usb_init();
+
+  // reset if main loop is stuck for 1000ms
+  watchdog_enable(1000, 1);
+  
   init_spi_client();
 
   // FIXME: gone with rp2350
   //printf("# [reset] cause: %#.8x\n", vreg_and_chip_reset_hw->chip_reset);
-  printf("# [reset] magic: %#.8x%.8x\n",
+  printf("# [reset] magic: %#.8lx%.8lx\n",
          watchdog_hw->scratch[2], watchdog_hw->scratch[3]);
 
   // UART to keyboard
@@ -188,7 +116,6 @@ void setup()
   uart_set_fifo_enabled(UART_ID, true);
   gpio_set_function(PIN_KBD_UART_TX, GPIO_FUNC_UART);
   gpio_set_function(PIN_KBD_UART_RX, GPIO_FUNC_UART);
-  int UART_IRQ = UART_ID == uart0 ? UART0_IRQ : UART1_IRQ;
 
   // UART to som
   uart_init(uart0, BAUD_RATE);
@@ -203,16 +130,16 @@ void setup()
   gpio_set_function(PIN_SCL0, GPIO_FUNC_I2C);
   bi_decl(bi_2pins_with_func(PIN_SDA0, PIN_SCL0, GPIO_FUNC_I2C));
   i2c_init(i2c0, 100 * 1000);
-  packs[0].id = 0;
-  packs[0].i2c = i2c0;
+  battery_info.packs[0].id = 0;
+  battery_info.packs[0].i2c = i2c0;
 
   // I2C1
   gpio_set_function(PIN_SDA1, GPIO_FUNC_I2C);
   gpio_set_function(PIN_SCL1, GPIO_FUNC_I2C);
   bi_decl(bi_2pins_with_func(PIN_SDA1, PIN_SCL1, GPIO_FUNC_I2C));
   i2c_init(i2c1, 100 * 1000);
-  packs[1].id = 1;
-  packs[1].i2c = i2c1;
+  battery_info.packs[1].id = 1;
+  battery_info.packs[1].i2c = i2c1;
 
   // RGB LED
   gpio_init(PIN_LED_R);
@@ -252,10 +179,30 @@ void setup()
     //turn_som_power_off();
   }
 
-  gauge_init();
   charger_init();
-
   pd_init();
+}
+
+// FIXME: move to utils
+void i2c_scan(i2c_inst_t* i2c) {
+  int id = 0;
+  if (i2c == i2c1) id = 1;
+
+  printf("\nI2C Scan (I2C %d)\n", id);
+  printf("   0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F\n");
+
+  for (int addr = 0; addr < (1 << 7); ++addr) {
+    if (addr % 16 == 0) {
+      printf("%02x ", addr);
+    }
+
+    int ret;
+    uint8_t rxdata;
+    ret = i2c_read_blocking(i2c, addr, &rxdata, 1, false);
+
+    printf(ret < 0 ? "." : "@");
+    printf(addr % 16 == 15 ? "\n" : "  ");
+  }
 }
 
 void handle_usb_commands()
@@ -290,26 +237,19 @@ void handle_usb_commands()
 }
 
 void usb_host_5v_enable() {
-#ifndef OTG_AS_5V
-  gpio_put(PIN_USB_SRC_ENABLE, 1);
-#else
-  mps_reg_config.config0.otg_en = 1;
-  mps_write_byte(MPS_REG_CONFIG0, mps_reg_config.config0.reg_byte);
-#endif
+  // TODO
 }
 
 void usb_host_5v_disable() {
-#ifndef OTG_AS_5V
-  gpio_put(PIN_USB_SRC_ENABLE, 0);
-#else
-  mps_reg_config.config0.otg_en = 0;
-  mps_write_byte(MPS_REG_CONFIG0, mps_reg_config.config0.reg_byte);
-#endif
+  // TODO
 }
 
 void loop()
 {
   bool can_sleep = true;
+
+  // feed watchdog reset
+  watchdog_update();
 
   // handle commands from keyboard
   handle_uart_commands(&battery_info);
@@ -322,32 +262,12 @@ void loop()
   if (!pd_tick(&battery_info)) {
     can_sleep = false;
   }
-  charger_tick();
 
   battery_info.ticks++;
-
-  // every 100ms: query gauge and charger, update battery status
-  if (battery_info.ticks % 1000 == 0)
-  {
-  }
 
   // every 1000ms: report to serial
   if (battery_info.ticks % 10000 == 0)
   {
-    // TODO: print adc_charge_c adc_discharge_c
-    printf("# %s %s %s chg=%1x mps_flt=%02x input=%dmV@%dmA charge=%dmA discharge=%dmA p=%0.2fW ttempty=%umin\n",
-            battery_info.som_is_powered ? "ON" : "OFF",
-            mps_reg_status.status.acok ? "AC" : "BAT",
-            mps_reg_config.config0.chg_en ? "CHG" : "",
-            mps_reg_status.status.chg_stat,
-            mps_reg_status.fault.reg_byte,
-            mps_word_to_12800(mps_reg_adc.input_v),
-            mps_word_to_3200(mps_reg_adc.input_i),
-            mps_word_to_6400(mps_reg_adc.bat_charge_i),
-            mps_word_to_6400(mps_reg_adc.bat_discharge_i),
-            mps_word_to_watt(mps_reg_adc.sys_p),
-            (unsigned int)battery_info.time_to_empty/60
-            );
   }
 
   if (can_sleep) {
@@ -359,13 +279,13 @@ void mntre_reset_callback(void) {
   // TODO
 }
 
-bool spi_commands_task(__unused struct repeating_timer *t) {
-  charger_configure();
-  pack_configure(&packs[0], (float)ms_elapsed);
-  pack_configure(&packs[1], (float)ms_elapsed);
-  input_mv = charger_status();
-  //gauge_tick(&battery_info);
-  //charger_dump(&battery_info);
+#define BATTERY_TIMER_MS 1000
+
+bool battery_task(__unused struct repeating_timer *t) {
+  charger_configure(battery_info.packs);
+  pack_configure(&battery_info.packs[0], (float)BATTERY_TIMER_MS);
+  pack_configure(&battery_info.packs[1], (float)BATTERY_TIMER_MS);
+  charger_status(battery_info.packs);
   // timer should continue calling us
   return true;
 }
@@ -387,7 +307,7 @@ int main()
 
   // call configure task every 1000ms to ensure response time
   struct repeating_timer battery_timer;
-  add_repeating_timer_ms(-1000, battery_timer, NULL, &battery_timer);
+  add_repeating_timer_ms(-BATTERY_TIMER_MS, battery_task, NULL, &battery_timer);
 
   printf("# [next_sysctl] entering main loop\n");
 

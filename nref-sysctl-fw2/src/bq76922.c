@@ -1,9 +1,13 @@
+/* BQ76922 is the monitor and balancer chip on each battery pack of MNT Reform Next. */
+
 #include <bq76922.h>
 
 #include <stdio.h>
 #include <string.h>
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
+
+#define BQ76922_ADDR 0x08
 
 int bq76922_detect(i2c_inst_t* i2c) {
   uint8_t addr = 0x00;
@@ -56,9 +60,8 @@ int bq76922_read_mem_u8(i2c_inst_t* i2c, uint16_t reg_addr, uint8_t* reg_data) {
 
   *reg_data = bq76922_read_byte(i2c, 0x40);
 
-  int len = bq76922_read_byte(i2c, 0x61);
-  int checksum = bq76922_read_byte(i2c, 0x60);
-
+  //int len = bq76922_read_byte(i2c, 0x61);
+  //int checksum = bq76922_read_byte(i2c, 0x60);
   //printf("[bq76] read_mem_u8: %02x = %02x [len: %d checksum: %02x]\n", reg_addr, *reg_data, len, checksum);
 
   return 1;
@@ -87,9 +90,8 @@ int bq76922_read_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t* reg_data)
 
   *reg_data = bq76922_read_u16(i2c, 0x40);
 
-  int len = bq76922_read_byte(i2c, 0x61);
-  int checksum = bq76922_read_byte(i2c, 0x60);
-
+  //int len = bq76922_read_byte(i2c, 0x61);
+  //int checksum = bq76922_read_byte(i2c, 0x60);
   //printf("[bq76] read_mem_u16: %02x = %04x [len: %d checksum: %02x]\n", reg_addr, *reg_data, len, checksum);
 
   return 1;
@@ -126,8 +128,6 @@ void bq76922_write_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t reg_data
   uint16_t buf = 0;
   bq76922_read_mem_u16(i2c, reg_addr, &buf);
 }
-
-void monitor_setup(i2c_inst_t* i2c);
 
 int monitor_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int len) {
   int tries = 0;

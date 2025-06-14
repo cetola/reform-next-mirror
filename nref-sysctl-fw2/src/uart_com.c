@@ -3,9 +3,12 @@
 
 void handle_uart_commands(battery_info_s* battery_info)
 {
-  while (uart_is_readable(UART_ID))
+  // prevent endless loop
+  int uart_max = 8;
+  while (uart_is_readable(UART_ID) && uart_max > 0)
   {
     handle_commands(uart_getc(UART_ID), battery_info);
+    uart_max--;
   }
 }
 
@@ -15,7 +18,8 @@ void handle_uart_commands(battery_info_s* battery_info)
 void handle_commands(char chr, battery_info_s* battery_info)
 {
     static uart_state_s uart_state = {0};
-
+    struct BatteryPack* packs = battery_info->packs;
+    
     char uart_buffer[UART_BUFSZ+1] = {0};
 
     if (uart_state.echo)
@@ -172,31 +176,49 @@ void handle_commands(char chr, battery_info_s* battery_info)
             }
             else if (uart_state.remote_cmd == 'c')
             {
-                // get status of cells, current, voltage, fuel gauge
-                int mA = (int)(battery_info->battery_amps * 1000.0);
-                char mA_sign = ' ';
-                if (mA < 0)
-                {
-                    mA = -mA;
-                    mA_sign = '-';
-                }
-                int mV = (int)(battery_info->battery_volts * 1000.0);
-                snprintf(uart_buffer, UART_BUFSZ, "%02d %02d %02d %02d %02d %02d %02d %02d mA%c%04dmV%05d %3d%% P%d\r\n",
-                        (int)(battery_info->cell1_volts / 100),
-                        (int)(battery_info->cell2_volts / 100),
-                        (int)(0),
-                        (int)(0),
-                        (int)(0),
-                        (int)(0),
-                        (int)(0),
-                        (int)(0),
-                        mA_sign,
-                        mA,
-                        mV,
-                        battery_info->charge_percentage,
-                        battery_info->som_is_powered ? 1 : 0);
+              // get status of cells, current, voltage, fuel gauge
+              int mA = (int)(packs[0].ampere*1000.0 + packs[1].ampere*1000.0);
+              float gauge_percent = 0.0;
+              float mV = 0.0;
+              float num_packs = 0;
+              // FIXME DUPLICATION
+              if (packs[0].active) {
+                gauge_percent += packs[0].gauge_percent;
+                mV += packs[0].volt * 1000.0;
+                num_packs++;
+              }
+              if (packs[1].active) {
+                gauge_percent += packs[1].gauge_percent;
+                mV += packs[1].volt * 1000.0;
+                num_packs++;
+              }
+              if (num_packs >= 2) {
+                gauge_percent /= num_packs;
+                mV /= num_packs;
+              }
 
-                uart_puts(UART_ID, uart_buffer);
+              char mA_sign = ' ';
+              if (mA<0) {
+                mA = -mA;
+                mA_sign = '-';
+              }
+              sprintf(uart_buffer,"%02d %02d %02d %02d %02d %02d %02d %02d mA%c%04dmV%05d %3d%% P%d\r\n",
+                      (int)(packs[0].cells_v[0]/100),
+                      (int)(packs[0].cells_v[1]/100),
+                      (int)(packs[0].cells_v[2]/100),
+                      (int)(packs[0].cells_v[3]/100),
+                      (int)(packs[1].cells_v[0]/100),
+                      (int)(packs[1].cells_v[1]/100),
+                      (int)(packs[1].cells_v[2]/100),
+                      (int)(packs[1].cells_v[3]/100),
+                      mA_sign,
+                      mA,
+                      (int)mV,
+                      (int)gauge_percent,
+                      battery_info->som_is_powered?1:0);
+
+              //printf("[uart] %s", uart_buffer);
+              uart_puts(UART_ID, uart_buffer);
             }
             else if (uart_state.remote_cmd == 'S')
             {

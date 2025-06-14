@@ -13,10 +13,11 @@ pico_sdk_init()
 
 add_executable(${PROJECT}
 	src/sysctl.c
-	src/max17320.c
-	src/mp2650.c
 	src/fusb302b.c
-	src/pd_com.c
+  src/next_gpio.c
+  src/next_pack.c
+  src/bq25792.c
+  src/bq76922.c
 	src/spi_com.c
 	src/uart_com.c
 	src/pd_com.c

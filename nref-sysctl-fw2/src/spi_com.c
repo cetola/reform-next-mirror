@@ -30,6 +30,7 @@ void handle_spi_commands(battery_info_s *battery_info)
   uint8_t spi_arg1 = 0;
   uint8_t spi_buf[SPI_BUF_LEN]; // normally 8 bytes
   int spi_rxlen = 0;
+  struct BatteryPack* packs = battery_info->packs;
 
   if (!battery_info->som_is_powered) return;
   if (!spi_is_readable(spi1)) return;
@@ -73,13 +74,7 @@ void handle_spi_commands(battery_info_s *battery_info)
   // clear receive buffer, reuse as send buffer
   memset(spi_buf, 0, SPI_BUF_LEN);
 
-  /* deliver the responses first, then execute
-     any blocking work later */
-
-  if (spi_command == 'p') {
-    spi_buf[0] = spi_arg1;
-  }
-  else if (spi_command == 'f') {
+  if (spi_command == 'f') {
     // return firmware version and api info
     if (spi_arg1 == 0) memcpy(spi_buf, FW_STRING1, MIN(SPI_BUF_LEN, sizeof(FW_STRING1)));
     else if (spi_arg1 == 1) memcpy(spi_buf, FW_STRING2, MIN(SPI_BUF_LEN, sizeof(FW_STRING2)));
@@ -87,10 +82,30 @@ void handle_spi_commands(battery_info_s *battery_info)
   }
   else if (spi_command == 'q') {
     // execute status query command
-    uint8_t percentage = (uint8_t)battery_info->charge_percentage;
-    int16_t voltsInt = (int16_t)(battery_info->battery_volts * 1000.0);
-    int16_t currentInt = (int16_t)(battery_info->battery_amps * 1000.0);
+    float gauge_percent = 0.0;
+    float mV = 0.0;
+    int mA = (int)(packs[0].ampere*1000.0 + packs[1].ampere*1000.0);
+    int num_packs = 0;
+    // FIXME DUPLICATION
+    if (packs[0].active) {
+      gauge_percent += packs[0].gauge_percent;
+      mV += packs[0].volt * 1000.0;
+      num_packs++;
+    }
+    if (packs[1].active) {
+      gauge_percent += packs[1].gauge_percent;
+      mV += packs[1].volt * 1000.0;
+      num_packs++;
+    }
+    if (num_packs >= 2) {
+      gauge_percent /= num_packs;
+      mV /= num_packs;
+    }
 
+    uint8_t percentage = (uint8_t)gauge_percent;
+    int16_t voltsInt = (int16_t)(mV*1000.0);
+    int16_t currentInt = (int16_t)(mA*1000.0);
+    
     spi_buf[0] = (uint8_t)voltsInt;
     spi_buf[1] = (uint8_t)(voltsInt >> 8);
     spi_buf[2] = (uint8_t)currentInt;
@@ -113,47 +128,27 @@ void handle_spi_commands(battery_info_s *battery_info)
       spi_buf[c*2] = (uint8_t)volts;
       spi_buf[(c*2)+1] = (uint8_t)(volts >> 8);
     }
-    
-    if (spi_arg1 == 0) {
-      // pack 0
-      volts = battery_info->cell1_volts;
-      spi_buf[0] = (uint8_t)volts;
-      spi_buf[1] = (uint8_t)(volts >> 8);
-
-      volts = battery_info->cell2_volts;
-      spi_buf[2] = (uint8_t)volts;
-      spi_buf[3] = (uint8_t)(volts >> 8);
-    }
   }
   else if (spi_command == 'c') {
     // get calculated capacity (emulated)
-    uint16_t cap_accu = (uint16_t)BATTERY_CAPACITY_MILLIAMP_HOURS * (((float)battery_info->charge_percentage) / 100.0);
-    uint16_t cap_min = (uint16_t)0;
-    uint16_t cap_max = (uint16_t)BATTERY_CAPACITY_MILLIAMP_HOURS;
+    uint16_t cap_cur = (uint16_t)((packs[0].coulomb_cur + packs[1].coulomb_cur) / 3.6);
+    uint16_t cap_min = (uint16_t)0; // deprecated
+    uint16_t cap_max = (uint16_t)((packs[0].coulomb_max + packs[1].coulomb_max) / 3.6);
 
-    spi_buf[0] = (uint8_t)cap_accu;
-    spi_buf[1] = (uint8_t)(cap_accu >> 8);
+    spi_buf[0] = (uint8_t)cap_cur;
+    spi_buf[1] = (uint8_t)(cap_cur >> 8);
     spi_buf[2] = (uint8_t)cap_min;
     spi_buf[3] = (uint8_t)(cap_min >> 8);
     spi_buf[4] = (uint8_t)cap_max;
     spi_buf[5] = (uint8_t)(cap_max >> 8);
   }
-
-  /* send response to host (8 bytes) and discard response */
-  if (battery_info->som_is_powered) {
-    spi_write_blocking(spi1, (const uint8_t*)spi_buf, 8);
-  }
-
-  /* execute commands that may block for a while */
-  if (spi_command == 'p') {
-    // toggle system power and/or reset imx
+  else if (spi_command == 'p') {
+    // toggle system power off
     if (spi_arg1 == 1) {
       turn_som_power_off();
-    } else if (spi_arg1 == 2) {
-      turn_som_power_on();
-    } else if (spi_arg1 == 3) {
-      /* TODO: not yet implemented */
-      /* reset_som(); */
+      // don't try to send a response to turned-off SOM,
+      // because SPI will hang otherwise
+      return;
     }
   }
   else if (spi_command == 'z') {
@@ -161,13 +156,11 @@ void handle_spi_commands(battery_info_s *battery_info)
     /* TODO: not yet implemented */
   }
   else if (spi_command == 'b') {
-    // only for display v2
-    int brightness = spi_arg1;
-    // 80% is a limit of the hardware (above, the backlight can flicker)
-    if (brightness < 0)
-      brightness = 0;
-    if (brightness > 80)
-      brightness = 80;
-    set_display_backlight(brightness);
+    // TODO: display brightness
+  }
+
+  /* send response to host (8 bytes) and discard response */
+  if (battery_info->som_is_powered) {
+    spi_write_blocking(spi1, (const uint8_t*)spi_buf, 8);
   }
 }

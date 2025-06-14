@@ -14,54 +14,62 @@
 #include "hardware/pwm.h"
 #include "hardware/watchdog.h"
 #include "hardware/structs/watchdog.h"
-#include "hardware/structs/vreg_and_chip_reset.h"
+#include "next_pack.h"
 
 // #define OTG_AS_5V // WARNING: defining this requires the hardware mod described in https://source.mnt.re/reform/pocket-reform/-/issues/3
 // #define FACTORY_MODE // turn device on immediately after starting sysctl
-// #define ACM_ENABLED // usb serial control for debugging
-// #define PREF_DISPLAY_V2 // backlight control for second type of display, TOP070F01A (not LT070ME05000)
+#define ACM_ENABLED 1 // usb serial control for debugging
 
 #define FW_STRING1 "NREF1SYS"
 #define FW_STRING2 "R1"
 
-#define PIN_SDA 0
-#define PIN_SCL 1
+#define PIN_SDA0 0
+#define PIN_SCL0 1
+#define PIN_SDA1 2
+#define PIN_SCL1 3
 
-#define PIN_DISP_RESET 2
-#define PIN_FLIGHTMODE 3
 #define PIN_KBD_UART_TX 4
 #define PIN_KBD_UART_RX 5
-#define PIN_WOWWAN 6
-#define PIN_DISP_EN 7
+
+#define PIN_BAT1_ALERT 6
+#define PIN_BAT2_ALERT 7
+
 #define PIN_SOM_MOSI 8
 #define PIN_SOM_SS0 9
 #define PIN_SOM_SCK 10
 #define PIN_SOM_MISO 11
-#define PIN_SOM_UART_TX 12
-#define PIN_SOM_UART_RX 13
-#define PIN_FUSB_INT 14
-#define PIN_LED_B 15
-#define PIN_LED_R 16
-#define PIN_LED_G 17
-#define PIN_MODEM_POWER 18
-#define PIN_SOM_WAKE 19
-#define PIN_MODEM_RESET 20
-#define PIN_1V1_ENABLE 23
-#define PIN_3V3_ENABLE 24
-#define PIN_5V_ENABLE 25
-#define PIN_PHONE_DPR 27
-#define PIN_USB_SRC_ENABLE 28
-#define PIN_PWREN_LATCH 29
+
+#define PIN_HSTX_D0P 12
+#define PIN_HSTX_D0N 13
+#define PIN_HSTX_DCKP 14
+#define PIN_HSTX_DCKN 15
+#define PIN_HSTX_D2P 16
+#define PIN_HSTX_D2N 17
+#define PIN_HSTX_D1P 18
+#define PIN_HSTX_D1N 19
+
+#define PIN_LED_B 20
+#define PIN_LED_R 21
+#define PIN_LED_G 22
+
+#define PIN_CHRG_CFG 23
+#define PIN_CHRG_ALERT 24
+
+#define PIN_BACKLIGHT_EN 25
+#define PIN_BACKLIGHT_PWM 26
+
+#define PIN_SOM_WAKE 27
+#define PIN_SOM_UART_TX 28
+#define PIN_SOM_UART_RX 29
+
+// FIXME: the following are now on PCA9536DP (on SDA/SCL1)
+// 3V3_ENABLE
+// 5V_ENABLE
+// HDMI_DP_SWITCH
+// ~QON
 
 // FUSB302B USB-PD controller
 #define FUSB_ADDR 0x22
-// MAX17320 protector/balancer
-// https://datasheets.maximintegrated.com/en/ds/MAX17320.pdf
-#define MAX_ADDR1 0x36
-#define MAX_ADDR2 0x0b
-// MP2650 charger
-// https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Datasheet/lang/en/sku/MP2650GV/document_id/9664/
-#define MPS_ADDR 0x5c
 
 #define I2C_TIMEOUT (1000 * 500)
 
@@ -75,13 +83,15 @@
 #define BOOT_MAGIC_3 0x0F0F55AA
 #define BOOT_MAGIC_OFF (io_rw_32)(-1)
 
-#define BATTERY_CAPACITY_MILLIAMP_HOURS 4000
+//#define BATTERY_CAPACITY_MILLIAMP_HOURS 4000
 
 #include "pd_com.h"
 
 typedef struct battery_info_s
 {
     bool som_is_powered;
+  
+    struct BatteryPack packs[2];
 
     // reported by charger
     float battery_volts;
@@ -92,11 +102,9 @@ typedef struct battery_info_s
     float cell1_volts;
     float cell2_volts;
     int charge_percentage;
-    float time_to_empty;
 
     // metadata
     bool print_pack_info;
-    uint16_t max17320_devname;
     uint16_t ticks;
 } battery_info_s;
 
@@ -104,8 +112,6 @@ typedef struct battery_info_s
 #include "pd.h"
 #include "uart_com.h"
 #include "spi_com.h"
-#include "max17320.h"
-#include "mp2650.h"
 
 // Shared functions with communication classes
 void som_wake();

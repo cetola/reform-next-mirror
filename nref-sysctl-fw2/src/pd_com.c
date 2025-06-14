@@ -132,10 +132,9 @@ bool pd_tick(battery_info_s* battery_info) {
         usb_host_5v_disable();
         mode = 0b10 << FUSB_CONTROL2_MODE_SHIFT;  // SNK only
       }
-      mps_reg_config.config0.susp_en = 1;
-      mps_reg_config.config0.chg_en = 0;
-      mps_write_byte(MPS_REG_CONFIG0, mps_reg_config.config0.reg_byte);
 
+      charger_disable_charge();
+      
       fusb_write_byte(FUSB_CONTROL2, FUSB_CONTROL2_TOGGLE | mode);
 
       fusb_write_byte(FUSB_MASK1, 0); //0xEE);  // enable I_VBUSOK
@@ -365,11 +364,9 @@ bool pd_tick(battery_info_s* battery_info) {
             }
 
             printf("# [pd] discarding further messages\n");
-            while (fusb_read_message(&rx_msg)) {
-              // TODO: can probably remove this
-            }
-
+            
             // FIXME: what about headroom for passing power to other USB devices?
+            // FIXME: pass in via battery_info ?
             requested_current = pdo_current;
             if (requested_current > 300) {
               requested_current = 300;
@@ -435,14 +432,18 @@ bool pd_tick(battery_info_s* battery_info) {
           tx.hdr = PD_MSGTYPE_REJECT | pd_datarole | (pd_powerrole << PD_HDR_POWERROLE_SHIFT);
           fusb_send_message(&tx);
         }
-      } else if (t>10000 && !mps_reg_config.config0.chg_en) {
+      } else if (t>10000 && false /*!mps_reg_config.config0.chg_en*/) {
+        // FIXME: ask @zeha about reading chg_en
+        
         // for some reason charging did not start.
         // TODO: send soft reset first.
         // TODO: fix timer.
         printf("# [pd] PD_STATE_ATTACHED_SNK timeout while handshaking, reset\n");
         t = 0;
         pd_state = PD_STATE_SETUP;
-      } else if (t>8000 && !mps_reg_config.config0.chg_en && !pd_sent_soft_reset) {
+      } else if (t>8000 && false /*!mps_reg_config.config0.chg_en && !pd_sent_soft_reset*/) {
+        // FIXME: ask @zeha about reading chg_en
+        
         // Charging did not start.
         // This situation was observed with an Apple 30W charger, which apparently ignores a hard-reset
         // without a soft-reset and without an actual detach. Unclear why this happens.
