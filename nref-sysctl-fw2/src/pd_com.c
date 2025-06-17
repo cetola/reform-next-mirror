@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
-
+#include "bq25792.h"
 #include "fusb302b.h"
 #include "pd.h"
 #include "pd_com.h"
@@ -106,10 +106,19 @@ inline void pd_set_fusb_switches1() {
   fusb_write_byte(FUSB_SWITCHES1, FUSB_SWITCHES1_SPECREV_REV2_0| (pd_datarole == PD_DATAROLE_DFP) ? FUSB_SWITCHES1_DATAROLE_SRC_DFP : FUSB_SWITCHES1_DATAROLE_SNK_UFP);
 }
 
+unsigned int pd_last_state = -1;
+
+#define LOW_CURRENT_MA 500
+
 bool pd_tick(battery_info_s* battery_info) {
+  if (pd_state != pd_last_state) {
+    printf("# [pd] STATE %d -> %d\n", pd_last_state, pd_state);
+    pd_last_state = pd_state;
+  }
+
   if (pd_state == PD_STATE_SETUP) {
     // setup/timeout state
-    charger_disable_charge();
+    charger_set_input_current(LOW_CURRENT_MA);
     request_sent = 0;
 
     printf("# [pd] PD_STATE_SETUP\n");
@@ -133,8 +142,8 @@ bool pd_tick(battery_info_s* battery_info) {
         mode = 0b10 << FUSB_CONTROL2_MODE_SHIFT;  // SNK only
       }
 
-      charger_disable_charge();
-      
+      charger_set_input_current(LOW_CURRENT_MA);
+
       fusb_write_byte(FUSB_CONTROL2, FUSB_CONTROL2_TOGGLE | mode);
 
       fusb_write_byte(FUSB_MASK1, 0); //0xEE);  // enable I_VBUSOK
@@ -364,7 +373,7 @@ bool pd_tick(battery_info_s* battery_info) {
             }
 
             printf("# [pd] discarding further messages\n");
-            
+
             // FIXME: what about headroom for passing power to other USB devices?
             // FIXME: pass in via battery_info ?
             requested_current = pdo_current;
@@ -396,7 +405,7 @@ bool pd_tick(battery_info_s* battery_info) {
           // power supply is ready
           printf("# [pd] power supply ready.\n");
 
-          charger_enable_charge(requested_current);
+          charger_set_input_current(requested_current * 10);
 
           t = 0;
         } else if (msgrole == PD_POWERROLE_SOURCE && msgtype == PD_MSGTYPE_DR_SWAP) {
@@ -434,7 +443,7 @@ bool pd_tick(battery_info_s* battery_info) {
         }
       } else if (t>10000 && false /*!mps_reg_config.config0.chg_en*/) {
         // FIXME: ask @zeha about reading chg_en
-        
+
         // for some reason charging did not start.
         // TODO: send soft reset first.
         // TODO: fix timer.
@@ -443,7 +452,7 @@ bool pd_tick(battery_info_s* battery_info) {
         pd_state = PD_STATE_SETUP;
       } else if (t>8000 && false /*!mps_reg_config.config0.chg_en && !pd_sent_soft_reset*/) {
         // FIXME: ask @zeha about reading chg_en
-        
+
         // Charging did not start.
         // This situation was observed with an Apple 30W charger, which apparently ignores a hard-reset
         // without a soft-reset and without an actual detach. Unclear why this happens.

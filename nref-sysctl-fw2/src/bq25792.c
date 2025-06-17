@@ -3,14 +3,14 @@
 #include "hardware/i2c.h"
 #include "next_pack.h"
 #include "bq25792.h"
+#include "sysctl.h"
 
 // BQ25792 charger
 #define BQ25792_ADDR 0x6b
 
-#define I2C_TIMEOUT (1000*500)
-
 // FIXME
 static int pack_debug = 0;
+static int charger_current_ma = 500;
 
 uint8_t bq25792_read_byte(uint8_t addr)
 {
@@ -94,8 +94,8 @@ void charger_configure() {
 
   bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
   bq25792_write_word(0x01, 14800 / 10); // charge voltage (conservative), VREG
-  bq25792_write_word(0x03, 3000 / 10); // charge current
-  bq25792_write_word(0x06, 3000 / 10); // input current, defaults to 3A @ reset (60W)
+  //bq25792_write_word(0x03, 3000 / 10); // charge current
+  //bq25792_write_word(0x06, 3000 / 10); // input current, defaults to 3A @ reset (60W)
 
   // ADC control: 0x2e (default: 0x30)
   bq25792_write_byte(0x2e, (1<<7) | (0b00 << 4) ); // enable ADC at 15 bit (7=ADC_EN, 5:4=ADC_SAMPLE)
@@ -117,17 +117,18 @@ void charger_init()
 {
   // reset all registers
 
-  // TODO turn off charging until PD allows it
+  charger_current_ma = 500;
 
-  // TODO
-  //charger_disable_charge();
+  // turn off charging until PD allows it
+  bq25792_write_byte(0x0f, 0b00000000);
 
   // see https://www.ti.com/lit/ds/symlink/bq25792.pdf
   // VREG = charge voltage
+  bq25792_write_word(0x01, 14800 / 10); // charge voltage (conservative), VREG
 
   bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
-  bq25792_write_word(0x01, 14800 / 10); // charge voltage (conservative), VREG
-  bq25792_write_word(0x03, 3000 / 10); // charge current
+
+  bq25792_write_word(0x03, 500 / 10); // charge current
   bq25792_write_word(0x06, 3000 / 10); // input current, defaults to 3A @ reset (60W)
 
   // ADC control: 0x2e (default: 0x30)
@@ -146,8 +147,17 @@ void charger_init()
   bq25792_write_byte(0x14, 0b00111100);
 }
 
+// current in mA
+void charger_set_input_current(int ma) {
+  printf("# [charger] setting input current limit %d mA\n", ma);
+  charger_current_ma = ma;
+}
+
 // returns VBUS measurement
 int charger_status(struct BatteryPack* packs) {
+  // FIXME: this function itself shouldn't printf
+  // as we're in an IRQ callback
+
   if (pack_debug) {
     printf("\n---------------------------\n");
   }
@@ -169,17 +179,27 @@ int charger_status(struct BatteryPack* packs) {
     // disable charging
     printf("# [bq25] disable charging (overvoltage/fully charged).\n");
     bq25792_write_byte(0x0f, 0b00000000);
+    disable_led(PIN_LED_R);
   } else if (!packs[0].active && !packs[1].active) {
     // disable charging
     // FIXME: can we still get discharged packs online?
     printf("# [bq25] disable charging (no packs connected).\n");
     bq25792_write_byte(0x0f, 0b00000000);
+    disable_led(PIN_LED_R);
   } else {
     // enable charging
-    if (pack_debug) {
-      printf("# [bq25] enable charging.\n");
+    //if (pack_debug) {
+    printf("# [bq25] enable charging.\n");
+    //}
+    // FIXME how to derive charge current correctly?
+    int bat_charge_current = 500;
+    if (charger_current_ma >= 3000) {
+      bat_charge_current = 1500;
     }
+    bq25792_write_word(0x03, bat_charge_current / 10); // charge current
+    bq25792_write_word(0x06, charger_current_ma / 10); // input current, defaults to 3A @ reset (60W)
     bq25792_write_byte(0x0f, 0b00100000);
+    enable_led(PIN_LED_R);
   }
 
   uint8_t charger_status_0 = bq25792_read_byte(0x1b);
@@ -209,7 +229,7 @@ int charger_status(struct BatteryPack* packs) {
     //report_current = ibus_adc/1000.0;
   //}
 
-  if (1 || pack_debug) {
+  if (0 || pack_debug) {
     printf("[bq25] charger_status_0: %08b\n", charger_status_0);
     if (charger_status_0 & 0b1) printf("[bq25] `-- VBUS present\n");
     if (charger_status_0 & 0b10) printf("[bq25] `-- VAC1 present\n");
@@ -221,14 +241,14 @@ int charger_status(struct BatteryPack* packs) {
     if (charger_status_0 & 0b1000000) printf("[bq25] `-- VINDPM/VOTG\n");
     if (charger_status_0 & 0b10000000) printf("[bq25] `-- IINDPM/IOTG\n");
     printf("[bq25] charger_status_1: %08b\n", charger_status_1);
-    if ((charger_status_1 & 0b11100000)>>5 == 0) printf("[bq25] `-- not charging\n");
+    /*if ((charger_status_1 & 0b11100000)>>5 == 0) printf("[bq25] `-- not charging\n");
     if ((charger_status_1 & 0b11100000)>>5 == 1) printf("[bq25] `-- trickle charge\n");
     if ((charger_status_1 & 0b11100000)>>5 == 2) printf("[bq25] `-- pre-charge\n");
     if ((charger_status_1 & 0b11100000)>>5 == 3) printf("[bq25] `-- fast charge CC\n");
     if ((charger_status_1 & 0b11100000)>>5 == 4) printf("[bq25] `-- taper charge CV\n");
     if ((charger_status_1 & 0b11100000)>>5 == 5) printf("[bq25] `-- reserved\n");
     if ((charger_status_1 & 0b11100000)>>5 == 6) printf("[bq25] `-- top-off timer\n");
-    if ((charger_status_1 & 0b11100000)>>5 == 7) printf("[bq25] `-- termination done\n");
+    if ((charger_status_1 & 0b11100000)>>5 == 7) printf("[bq25] `-- termination done\n");*/
     printf("[bq25] charger_status_2: %08b\n", charger_status_2);
     printf("[bq25] charger_status_3: %08b\n", charger_status_3);
     printf("[bq25] charger_status_4: %08b\n", charger_status_4);
@@ -249,7 +269,6 @@ int charger_status(struct BatteryPack* packs) {
     if (fault_status_1 & 0b100000) printf("[bq25] `-- OTG over-voltage\n");
     if (fault_status_1 & 0b1000000) printf("[bq25] `-- VSYS over-voltage\n");
     if (fault_status_1 & 0b10000000) printf("[bq25] `-- VSYS short circuit\n");
-
   }
 
   uint16_t vreg = bq25792_read_word(0x01)*10; // 10mV resolution
@@ -257,17 +276,17 @@ int charger_status(struct BatteryPack* packs) {
 
   printf("[bq25] charger_status_2: %08b\n", charger_status_2);
 
-    printf("[bq25] ICHG: %d mA\n", ichg);
-    printf("[bq25] VREG: %d mV\n", vreg);
+  printf("[bq25] ICHG: %d mA\n", ichg);
+  printf("[bq25] VREG: %d mV\n", vreg);
 
-    printf("[bq25] vbus: %d mV\n", vbus_adc);
-    printf("[bq25] vac1: %d mV\n", vac1_adc);
-    printf("[bq25] vbat: %d mV\n", vbat_adc);
-    printf("[bq25] ibus: %d mA\n", ibus_adc);
-    printf("[bq25] ibat: %d mA\n", ibat_adc);
-    printf("[bq25] ilim: %d mA\n", ilim);
-    printf("[bq25] tdie: %f C\n",  tdie_adc);
-    printf("---------------------------\n");
+  printf("[bq25] vbus: %d mV\n", vbus_adc);
+  printf("[bq25] vac1: %d mV\n", vac1_adc);
+  printf("[bq25] vbat: %d mV\n", vbat_adc);
+  printf("[bq25] ibus: %d mA\n", ibus_adc);
+  printf("[bq25] ibat: %d mA\n", ibat_adc);
+  printf("[bq25] ilim: %d mA\n", ilim);
+  printf("[bq25] tdie: %f C\n",  tdie_adc);
+  printf("---------------------------\n");
 
   return vbus_adc;
 }

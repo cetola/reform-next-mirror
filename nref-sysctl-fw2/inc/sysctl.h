@@ -1,19 +1,7 @@
 #ifndef _NEXT_SYSCTL_H
 #define _NEXT_SYSCTL_H
 
-#include <stdio.h>
-#include <string.h>
 #include <ctype.h>
-#include "pico/stdlib.h"
-#include "pico/binary_info.h"
-#include "hardware/i2c.h"
-#include "hardware/spi.h"
-#include "hardware/irq.h"
-#include "hardware/rtc.h"
-#include "hardware/clocks.h"
-#include "hardware/pwm.h"
-#include "hardware/watchdog.h"
-#include "hardware/structs/watchdog.h"
 #include "next_pack.h"
 
 // #define OTG_AS_5V // WARNING: defining this requires the hardware mod described in https://source.mnt.re/reform/pocket-reform/-/issues/3
@@ -48,9 +36,9 @@
 #define PIN_HSTX_D1P 18
 #define PIN_HSTX_D1N 19
 
-#define PIN_LED_B 20
-#define PIN_LED_R 21
-#define PIN_LED_G 22
+#define PIN_LED_G 20
+#define PIN_LED_B 21
+#define PIN_LED_R 22
 
 #define PIN_CHRG_CFG 23
 #define PIN_CHRG_ALERT 24
@@ -90,7 +78,7 @@
 typedef struct battery_info_s
 {
     bool som_is_powered;
-  
+
     struct BatteryPack packs[2];
 
     // reported by charger
@@ -118,10 +106,10 @@ void som_wake();
 void turn_som_power_on();
 void turn_som_power_off();
 void set_display_backlight(int percent);
+void disable_led(int pin);
+void enable_led(int pin);
 
 void usb_host_5v_enable();
 void usb_host_5v_disable();
-void charger_enable_charge(int current);
-void charger_disable_charge();
 
 #endif

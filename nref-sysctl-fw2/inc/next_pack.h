@@ -1,4 +1,5 @@
 /* MNT Reform Next Battery Pack */
+
 #ifndef _NEXT_PACK_H
 #define _NEXT_PACK_H
 

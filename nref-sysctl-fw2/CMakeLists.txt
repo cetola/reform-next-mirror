@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.13)
 
 include(lib/pico_sdk_import.cmake)
-set(SHARED_FW_INC "${CMAKE_CURRENT_LIST_DIR}/../../pocket-reform/pocket-reform-shared-fw/inc")
-set(SHARED_FW_SRC "${CMAKE_CURRENT_LIST_DIR}/../../pocket-reform/pocket-reform-shared-fw/src")
+set(SHARED_FW_INC "${CMAKE_CURRENT_LIST_DIR}/../pocket-reform-shared-fw/inc")
+set(SHARED_FW_SRC "${CMAKE_CURRENT_LIST_DIR}/../pocket-reform-shared-fw/src")
 set(SCRIPTS "${CMAKE_CURRENT_LIST_DIR}/../scripts")
 
 set(PROJECT sysctl)
@@ -14,10 +14,10 @@ pico_sdk_init()
 add_executable(${PROJECT}
 	src/sysctl.c
 	src/fusb302b.c
-  src/next_gpio.c
-  src/next_pack.c
-  src/bq25792.c
-  src/bq76922.c
+	src/next_gpio.c
+	src/next_pack.c
+	src/bq25792.c
+	src/bq76922.c
 	src/spi_com.c
 	src/uart_com.c
 	src/pd_com.c
@@ -37,7 +37,6 @@ target_link_libraries(${PROJECT}
 	pico_stdlib
 	hardware_i2c
 	hardware_spi
-	hardware_rtc
 	hardware_pwm
 	pico_stdio
 	pico_time
@@ -48,11 +47,8 @@ target_link_libraries(${PROJECT}
 pico_enable_stdio_uart(${PROJECT} 0)
 pico_add_extra_outputs(${PROJECT})
 
-target_compile_definitions(${PROJECT} PUBLIC PICO_RP2040_USB_DEVICE_ENUMERATION_FIX=1)
+#target_compile_definitions(${PROJECT} PUBLIC PICO_RP2040_USB_DEVICE_ENUMERATION_FIX=1)
 target_compile_options(${PROJECT} PRIVATE -Wall -Wextra -Werror)
-target_compile_definitions(${PROJECT} PUBLIC
-	PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
-)
 
 if (DEFINED ENV{MNTRE_FIRMWARE_VERSION} AND (NOT MNTRE_FIRMWARE_VERSION))
 	set(MNTRE_FIRMWARE_VERSION $ENV{MNTRE_FIRMWARE_VERSION})

@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+#include <stdio.h>
+
 #include "fusb302b.h"
 
 #include <sysctl.h>

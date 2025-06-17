@@ -7,6 +7,6 @@ fi
 
 mkdir -p build
 cd build
-cmake ..
+cmake -DPICO_BOARD=pico2 ..
 
 make

@@ -11,6 +11,9 @@
 #include <bq76922.h>
 
 int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
+  // FIXME: this function itself shouldn't printf
+  // as we're in an IRQ callback
+
   // subcommand: lo to 0x3e, hi to 0x3f
   // read 0x3e, 0x3f. if == 0xff, busy
   //                  if == written subcommand, done
@@ -23,6 +26,7 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
 
   i2c_inst_t* i2c = pack->i2c;
 
+  printf("[pack %d] detecting...\n", pack->id);
   int detected = bq76922_detect(i2c);
 
   if (detected != 1) {
@@ -41,6 +45,7 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
     pack->active = true;
   }
 
+  printf("[pack %d] reading...\n", pack->id);
   uint16_t cell1_mv_lo = bq76922_read_byte(i2c, 0x14);
   uint16_t cell1_mv_hi = bq76922_read_byte(i2c, 0x15);
   uint16_t cell2_mv_lo = bq76922_read_byte(i2c, 0x16);
@@ -135,6 +140,7 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
     printf("[bq76:%d] overvoltage, turning charge off.\n", pack->id);
     mon_charge_fets_off(i2c);
   } else {
+    printf("[pack %d] all_fets_on...\n", pack->id);
     mon_all_fets_on(i2c);
   }
 
@@ -181,6 +187,8 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   }
 
   // --------------------------------------------
+
+  printf("[pack %d] monitor_read_subcommand...\n", pack->id);
 
   uint8_t manufacturing_status = 0;
   monitor_read_subcommand(i2c, 0x57, &manufacturing_status, 1);

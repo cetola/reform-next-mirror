@@ -4,6 +4,10 @@
  * Ported from MNT Reform reform2-lpc-fw.
  */
 
+#include <stdio.h>
+#include <string.h>
+#include "hardware/spi.h"
+#include "hardware/gpio.h"
 #include "spi_com.h"
 
 void init_spi_client()
@@ -105,7 +109,7 @@ void handle_spi_commands(battery_info_s *battery_info)
     uint8_t percentage = (uint8_t)gauge_percent;
     int16_t voltsInt = (int16_t)(mV*1000.0);
     int16_t currentInt = (int16_t)(mA*1000.0);
-    
+
     spi_buf[0] = (uint8_t)voltsInt;
     spi_buf[1] = (uint8_t)(voltsInt >> 8);
     spi_buf[2] = (uint8_t)currentInt;

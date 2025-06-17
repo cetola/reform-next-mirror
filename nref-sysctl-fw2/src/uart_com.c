@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+#include "hardware/uart.h"
 #include "uart_com.h"
 #include "pd_com.h"
 
@@ -19,7 +22,7 @@ void handle_commands(char chr, battery_info_s* battery_info)
 {
     static uart_state_s uart_state = {0};
     struct BatteryPack* packs = battery_info->packs;
-    
+
     char uart_buffer[UART_BUFSZ+1] = {0};
 
     if (uart_state.echo)
