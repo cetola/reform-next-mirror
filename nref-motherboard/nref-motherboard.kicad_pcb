@@ -1072,6 +1072,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Samsung"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "adc21fc0-0400-44d1-ae65-3057727e557a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a446cdb9-b381-4cf5-9b15-abe99526b64b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/781281b5-be05-439b-9c45-50512f5f3e7e")
 		(sheetname "/")
@@ -4735,6 +4761,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "96b04c78-aa6b-4254-92a5-144c0e4b7f35")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "CC0402KRX7R9BB473"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0503ab22-cceb-4e5c-a054-079ade3ee563")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1b3c07f9-03c8-49ca-8f06-75b4611e976e")
 		(sheetname "/")
@@ -5213,7 +5265,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5424,6 +5476,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "56057b9c-667f-43b4-af04-d077bf246c67")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM21BR61H106KE43L"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1590b303-ef0e-410d-8a64-7a03a7e789e6")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -5654,7 +5732,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402JR-0710KL"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6175,7 +6253,7 @@
 				)
 			)
 		)
-		(property "Value" "3.3u"
+		(property "Value" "3.3uH"
 			(at 0 1.7 0)
 			(layer "F.Fab")
 			(uuid "861d99ed-008a-48db-93ca-d9d41d222f31")
@@ -7880,6 +7958,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "806e933b-5f9e-4ccb-b2a6-7f569d4fa217")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "RC0402JR-0710KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ee94ae04-998a-44c2-89fd-e9a8a25177a4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/a03a7931-505c-4377-83b9-759416d6dbb4")
 		(sheetname "/")
@@ -8284,6 +8388,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "13edc386-8098-4ff3-833f-03abe9c867b5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-07270RL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "978bacdf-4a6d-4acd-ab2a-de512e7deb82")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/6785d1e4-fb8e-42e7-bbd4-435a331639a1")
 		(sheetname "/")
@@ -8490,6 +8620,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "7710cf0d-202e-40ed-a7c0-f709f84e646c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Coilcraft"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "99d61c23-3f8d-481a-8cef-1ad50232aab4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "XGL6060-222MEC"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ef8b31fa-92cc-4a82-adea-17ebc3c03a5c")
 			(effects
 				(font
 					(size 1 1)
@@ -13395,12 +13551,38 @@
 				)
 			)
 		)
-		(property "MPN" "GRM155R61H474KE11D"
+		(property "MPN" ""
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "34bb6008-1979-4d22-9ed7-673af969e210")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a1219eeb-c3a1-401c-8678-99a5afdcb991")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM155R61H474KE11D"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "07154582-e55e-4b7c-9105-033efd2c65e7")
 			(effects
 				(font
 					(size 1 1)
@@ -13634,7 +13816,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" ""
+		(property "Manufacturer_No" "CC0603GRNPO9BN150"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -14085,6 +14267,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "69d68a89-35e4-4d4d-af83-7dc306282c7f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-0715KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "696267c5-83ab-4854-8e92-92669395a53c")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -16446,6 +16654,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "32dd77ed-81cc-4203-bef0-6292021c485e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM21BR61H106KE43L"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cc459202-5937-4548-8796-d01e0f42a124")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/9988a7b5-108a-469a-8e0b-7918f52ec8f6")
 		(sheetname "/")
@@ -16885,6 +17119,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5152795d-8790-4ef6-a654-dc4b57a46778")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0603FR-072RL"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8968e0f7-a199-42a9-be5b-5a82264718f2")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -17835,7 +18095,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402JR-0710KL"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -18316,7 +18576,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" ""
+		(property "Manufacturer_No" "CL05A105KO5NNNC"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -18557,7 +18817,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20413,7 +20673,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -20651,7 +20911,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -20861,6 +21121,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "42adf6b6-f2d5-47cf-b553-e6ea9f3a6402")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-07270RL"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c760f3cc-1503-4008-acbe-8d517eda5533")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -22613,7 +22899,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" ""
+		(property "Manufacturer_No" "CL05A105KO5NNNC"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22791,7 +23077,7 @@
 				)
 			)
 		)
-		(property "Value" "LED_NVME"
+		(property "Value" "Red"
 			(at 0 1.43 270)
 			(layer "F.Fab")
 			(uuid "78409c53-b02f-4b26-a986-49603d18bdbc")
@@ -23082,6 +23368,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Raspberry Pi"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "94e535fe-a130-48d4-98be-0f16a3456029")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "RP2350A"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "89bcf9b8-5470-4b3c-a52a-b76a73bc7cba")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -24157,12 +24469,38 @@
 				)
 			)
 		)
-		(property "MPN" "CL31A106KBHNNNE"
+		(property "MPN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "0a0a0239-eb2f-4c76-9b9d-e7fde594aa23")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "30715323-b789-4fc6-8096-ca49a4dae321")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "CL31A106KBHNNNE"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0bdcb1bb-cab1-4921-b379-40b8d4eee832")
 			(effects
 				(font
 					(size 1 1)
@@ -24396,7 +24734,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -24971,12 +25309,38 @@
 				)
 			)
 		)
-		(property "MPN" "CL31A106KBHNNNE"
+		(property "MPN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "b5b7a817-199b-45f5-b0b6-ff5c3dab8350")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9c2f00f2-4e01-4e06-93c0-e1b32acd23e3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "CL31A106KBHNNNE"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e4559e7c-4848-424a-9fb2-5a877fe533ca")
 			(effects
 				(font
 					(size 1 1)
@@ -25212,7 +25576,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25423,6 +25787,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "25106c07-c929-471a-9e2a-9618aadbf45d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-07270RL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b039c926-9095-405d-8b47-f7714d698cea")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -26095,6 +26485,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fd955ad5-6844-40b6-aef4-295c61a3dca7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0603FR-07100KL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "01c0a737-76d5-49c8-9227-3ecfc78b093f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/8201ef29-5d72-4ba9-8a63-337b2c9720fe")
 		(sheetname "/")
@@ -26534,6 +26950,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "19e18cc4-883d-47ac-9641-eb3eb13d03e4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM21BR61H106KE43L"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3c4c914e-2199-4266-a821-bbe7d7b65952")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -26994,7 +27436,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Vishay"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27007,7 +27449,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" ""
+		(property "Manufacturer_No" "CRCW04020000Z0EDC"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27456,6 +27898,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "19973eb2-ba26-45a3-a3d6-82ab24c12d34")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM155C61E475ME15D"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "42cffea6-7cde-4cff-9f2a-db9ca72378ad")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -28394,6 +28862,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Samsung"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "72bb55e2-60d1-4805-9dba-cbbb67678ec3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7e51a089-c9fc-4caf-bb2e-03fe4f59da86")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/7287a3b7-2aef-4e50-9cac-833ce1d7e73c")
 		(sheetname "/")
@@ -28620,7 +29114,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" ""
+		(property "Manufacturer_No" "CC0603GRNPO9BN150"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -29038,7 +29532,7 @@
 				)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4.7uF"
 			(at 0 1.16 0)
 			(layer "F.Fab")
 			(uuid "c700728c-a015-4a24-bf25-dffed333ff77")
@@ -29071,6 +29565,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "63e75c0e-440e-4262-9bbf-bd579f587a42")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM155C61E475ME15D"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2446f6dc-7632-453a-b09b-7fa48f5eb28f")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -29971,7 +30491,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402JR-0710KL"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -32290,7 +32810,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Winbond"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -34621,7 +35141,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -35064,12 +35584,38 @@
 				)
 			)
 		)
-		(property "MPN" "GRM155R61H474KE11D"
+		(property "MPN" ""
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "4fcea95f-5390-4912-a004-982d4faa2f02")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1a3d8bd0-85f9-44c1-acf2-b7914a2936c1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM155R61H474KE11D"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d9090791-85a1-43ed-ae8c-aa29e4d5fba1")
 			(effects
 				(font
 					(size 1 1)
@@ -36268,6 +36814,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3e7f5cb0-de9a-4984-8fd5-c9b06a97b845")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-0727KL"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c31d3198-e2a2-44af-87f3-3f62ba248c18")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/62065d80-ad68-418e-8c66-75b139d7f699")
 		(sheetname "/")
@@ -36470,7 +37042,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0402JR-0710KL"
+		(property "MPN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -36489,6 +37061,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "114e1539-39b1-4264-b484-384dabe101e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "RC0402JR-0710KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cf7a18de-9833-4e2d-b09e-e5709008ce56")
 			(effects
 				(font
 					(size 1 1)
@@ -36939,6 +37524,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "NXP"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c86bc74c-3778-47b4-9a28-ee3459e46704")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "PCA9536DP,118"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "92893a7c-78c2-4859-a409-388a8bad0b40")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "TSSOP*3x3mm*P0.65mm*")
 		(path "/7c5246ca-ef21-4c7b-8634-46f41b108388")
 		(sheetname "/")
@@ -37252,6 +37863,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fd495ddf-4528-4742-af13-d12e022cf213")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "BQ25792RQMR"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b8a716b4-2060-4127-bcfa-83a3269e3a24")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -38067,7 +38704,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Samsung"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -38080,7 +38717,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" ""
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -40236,6 +40873,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3700f50f-7a27-4355-9cf0-a623befc3041")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM21BR61H106KE43L"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "90913266-fa48-4025-a3e5-ce7fa878c411")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/d5ea441c-2429-4ca4-8047-763510e86802")
 		(sheetname "/")
@@ -41010,7 +41673,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Bourns"
+		(property "Manufacturer" "Pulse"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -41036,7 +41699,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "SRP6030CA-2R2M"
+		(property "Manufacturer_No" "PM2205.332NLT"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -42629,6 +43292,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fd5f6bd1-0ac1-4c95-bd3e-caa8cc3162ea")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-07100RL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "eba559ba-941d-49cb-b4f5-2a6eb461b054")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/4b4fff68-b2d6-4841-a60d-80579d048298")
 		(sheetname "/")
@@ -43032,7 +43721,7 @@
 				)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4.7uF"
 			(at 0 1.16 0)
 			(layer "F.Fab")
 			(uuid "894de790-66fe-4d62-ac3f-fe4571fbf8ca")
@@ -43065,6 +43754,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e904de0f-ed48-4df5-934b-e1d6c9554d65")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM155C61E475ME15D"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3496019f-d329-4ec2-85a2-385bf92d013f")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -45521,6 +46236,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "12e336d8-2563-4dc9-9fa6-74983c45b7be")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-07270RL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "211dfb47-8d2c-494e-af36-18591219a3c0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/29d57ed4-b8e5-477d-a8a7-07602c731925")
 		(sheetname "/")
@@ -45957,6 +46698,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f9d9b366-5d01-4f19-b5ec-f6a546ea3752")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "CC1206KKX7R9BB225"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5041f02a-e22d-4ec9-b5ab-103a046e3260")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -48176,7 +48943,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402JR-0710KL"
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
@@ -48631,7 +49398,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0402JR-0710KL"
+		(property "MPN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -48650,6 +49417,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "65b17c24-0d1d-47fb-a979-50fe52ea90fc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "RC0402JR-0710KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0c8195dd-ece0-470e-840c-837b7c9a04e9")
 			(effects
 				(font
 					(size 1 1)
@@ -49579,6 +50359,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ef21d23f-5392-4004-8534-684556249f6e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-07270RL"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5fee8f7d-f8c4-405b-a59d-e61be08a9a0b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/6579983f-67df-4b67-a916-7db8d47c4a7d")
 		(sheetname "/")
@@ -49777,6 +50583,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "154ea31f-9f91-4d45-bd13-2a7595dee2be")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-07270RL"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "179b7624-c43e-46da-be53-a66056b7aefe")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -50221,7 +51053,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0402JR-0710KL"
+		(property "MPN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -50240,6 +51072,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "d14168e5-8ad4-4bf0-a1e2-9c54d3b587ef")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "RC0402JR-0710KL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7e3c53d8-f64e-4bf3-9946-ebd844dfcbfd")
 			(effects
 				(font
 					(size 1 1)
@@ -50690,12 +51535,38 @@
 				)
 			)
 		)
-		(property "MPN" "GRM155R61H474KE11D"
+		(property "MPN" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "37f4f6f6-33e8-482d-9b0b-9d08589c61a3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "924bb25a-b0df-47a8-9a1c-01d2bbe4c1d2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM155R61H474KE11D"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "19c404da-d3d7-4b3e-b279-90ce76f85908")
 			(effects
 				(font
 					(size 1 1)
@@ -51143,6 +52014,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "175fe041-be8a-4343-b952-06310150c78f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "GRM21BR61H106KE43L"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1a93c911-2af6-4a70-a45e-c94d181a2e0f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/4bc0001e-ccf9-406f-8bb0-e998dc93f632")
 		(sheetname "/")
@@ -51341,6 +52238,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e07c72fc-f527-499a-a887-65bd1c390131")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-07270RL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0c935964-6cc8-4704-8b8f-f4cccfde75b4")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -52029,6 +52952,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4f8c865b-fb95-4f59-80a2-e52d353fd1eb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0603FR-07127KL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c541e0ba-d525-4f4b-8cfa-e59f0178cb4f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/aa92de94-5930-473a-b7d6-a59e6d03e6b1")
 		(sheetname "/")
@@ -52465,6 +53414,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2bcfc302-2084-4309-ad04-f03a7d752a7b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-07270RL"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ec271b42-e345-4a44-bd8f-06b8c8a91231")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -55033,6 +56008,32 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4c14731c-8c7b-47cd-843b-ccca80cac7e3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-0733RL"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a37cef69-7977-4db8-8ce7-4111ea523e6f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/355e28c1-6efe-4357-943a-789c075cacfa")
 		(sheetname "/")
@@ -55267,7 +56268,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -56765,7 +57766,7 @@
 		(path "/0cf8118a-18cb-447c-997b-6f98bd1e08f0")
 		(sheetname "/")
 		(sheetfile "nref-motherboard.kicad_sch")
-		(attr exclude_from_pos_files)
+		(attr exclude_from_pos_files dnp)
 		(fp_circle
 			(center 0 0)
 			(end 0 -0.7)
@@ -56865,6 +57866,34 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "2bf95546-c118-4b1c-b162-a32bda335cba")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer_No" "CC0402KRX7R9BB473"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "dbf4482b-63f4-4d47-9e57-cecc8b7a851d")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -58182,7 +59211,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -59498,6 +60527,34 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "886b2a63-cb49-4380-8c24-501d6a33341b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer_No" "GRM155R71H102JA01D"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "12d24950-a4dd-475b-a894-56147eb90ef9")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -61305,7 +62362,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -61554,7 +62611,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402JR-0710KL"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -62052,7 +63109,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -66083,7 +67140,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -66332,7 +67389,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -66862,6 +67919,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "05c32cf6-5310-4ff2-b877-5aab966bcfbb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer_No" "CC0402KRX7R9BB473"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "333758a2-bb68-4fae-af45-3a8e6b566af9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/feb6bab5-19bc-4147-818d-1ed34227dadb")
 		(sheetname "/")
@@ -67064,6 +68149,34 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "JST"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "24fe595b-03f9-4dec-ab60-799fa1730e59")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer_No" "SM03B-SRSS-TB"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "adfe1461-b12f-4b78-bc75-a0425054dec8")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -69271,7 +70384,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4.7uF"
 			(at 0 -1.16 180)
 			(layer "B.Fab")
 			(uuid "a88bff34-b51a-4f43-b20a-ce2363596054")
@@ -69306,6 +70419,34 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ba0b6a9e-0b7e-4a0d-ba4b-6098a10254b5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer_No" "GRM155C61E475ME15D"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "fd5f9a52-e024-46b3-ad2f-0aef3a812e31")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -69531,7 +70672,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Murata"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -69544,7 +70685,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" ""
+		(property "Manufacturer_No" "GCJ188C70J475KE02D"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -69792,7 +70933,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -70017,7 +71158,7 @@
 		(path "/a3877136-0885-4fa5-98af-c6f57ddd9182")
 		(sheetname "/")
 		(sheetfile "nref-motherboard.kicad_sch")
-		(attr exclude_from_pos_files)
+		(attr exclude_from_pos_files dnp)
 		(fp_circle
 			(center 0 0)
 			(end 0 -0.7)
@@ -70150,7 +71291,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "RC0402FR-0710KL"
+		(property "Manufacturer_No" "RC0402JR-0710KL"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -70615,6 +71756,34 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d7c77fb1-ef61-4f3e-9e17-c0d38dd29dc3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer_No" "VLMS1300-GS08"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9af39b08-aee8-4c4d-9a3b-741cb7e7c573")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -72036,7 +73205,7 @@
 		(path "/1d1bd085-0875-479e-9efc-551320ec2c5f")
 		(sheetname "/")
 		(sheetfile "nref-motherboard.kicad_sch")
-		(attr exclude_from_pos_files)
+		(attr exclude_from_pos_files dnp)
 		(fp_circle
 			(center 0 0)
 			(end 0 -0.7)
@@ -72136,6 +73305,34 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "404fd2aa-f2b3-40bf-9978-9717b0006176")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer_No" "AF0402FR-0722KL"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7d0492bc-6eae-483f-99af-0a9a8c2278ac")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 				(justify mirror)
@@ -72919,7 +74116,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -73168,7 +74365,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" "CL10A106MO8NQNC"
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -73777,7 +74974,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer_No" ""
+		(property "Manufacturer_No" "GRM188R61E106KA73J"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)

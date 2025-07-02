@@ -149,7 +149,9 @@ struct BatteryPack {
 
 struct BatteryPack packs[2];
 bool som_is_powered = false;
+bool charger_debug = false;
 bool pack_debug = false;
+bool pack_info = false;
 
 void i2c_scan(i2c_inst_t* i2c) {
   int id = 0;
@@ -446,11 +448,10 @@ void charger_configure() {
   // - [x] REG0F_Charger_Control_0 (some interesting stuff here like ICO)
   // - [x] REG14_Charger_Control_5 -> EN_IBAT (bit 5)
 
-  // VREG = charge voltage
-
   bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
   bq25792_write_word(0x01, 14800 / 10); // charge voltage (conservative), VREG
-  bq25792_write_word(0x03, 3000 / 10); // charge current
+  // FIXME: 3A (3000) can cause charger to "flicker"
+  bq25792_write_word(0x03, 2000 / 10); // charge current
   bq25792_write_word(0x06, 3000 / 10); // input current, defaults to 3A @ reset (60W)
 
   // ADC control: 0x2e (default: 0x30)
@@ -470,7 +471,7 @@ void charger_configure() {
 }
 
 int charger_status() {
-  if (pack_debug) {
+  if (charger_debug) {
     printf("\n---------------------------\n");
   }
 
@@ -498,7 +499,7 @@ int charger_status() {
     bq25792_write_byte(0x0f, 0b00000000);
   } else {
     // enable charging
-    if (pack_debug) {
+    if (charger_debug) {
       printf("# [bq25] enable charging.\n");
     }
     bq25792_write_byte(0x0f, 0b00100000);
@@ -507,8 +508,8 @@ int charger_status() {
   uint8_t charger_status_0 = bq25792_read_byte(0x1b);
   uint8_t charger_status_1 = bq25792_read_byte(0x1c);
   uint8_t charger_status_2 = bq25792_read_byte(0x1d);
-  uint8_t charger_status_3 = bq25792_read_byte(0x1e);
-  uint8_t charger_status_4 = bq25792_read_byte(0x1f);
+  //uint8_t charger_status_3 = bq25792_read_byte(0x1e);
+  //uint8_t charger_status_4 = bq25792_read_byte(0x1f);
   uint8_t fault_status_0 = bq25792_read_byte(0x20);
   uint8_t fault_status_1 = bq25792_read_byte(0x21);
   uint8_t recharge_ctl = bq25792_read_byte(0x0a);
@@ -531,7 +532,7 @@ int charger_status() {
     //report_current = ibus_adc/1000.0;
   }
 
-  if (1 || pack_debug) {
+  if (charger_debug) {
     printf("[bq25] charger_status_0: %08b\n", charger_status_0);
     if (charger_status_0 & 0b1) printf("[bq25] `-- VBUS present\n");
     if (charger_status_0 & 0b10) printf("[bq25] `-- VAC1 present\n");
@@ -552,8 +553,8 @@ int charger_status() {
     if ((charger_status_1 & 0b11100000) == 6) printf("[bq25] `-- top-off timer\n");
     if ((charger_status_1 & 0b11100000) == 7) printf("[bq25] `-- termination done\n");
     printf("[bq25] charger_status_2: %08b\n", charger_status_2);
-    printf("[bq25] charger_status_3: %08b\n", charger_status_3);
-    printf("[bq25] charger_status_4: %08b\n", charger_status_4);
+    //printf("[bq25] charger_status_3: %08b\n", charger_status_3);
+    //printf("[bq25] charger_status_4: %08b\n", charger_status_4);
 
     printf("[bq25] fault_status_0  : %08b\n", fault_status_0);
     if (fault_status_0 & 0b1) printf("[bq25] `-- VAC1 over-voltage\n");
@@ -572,12 +573,8 @@ int charger_status() {
     if (fault_status_1 & 0b1000000) printf("[bq25] `-- VSYS over-voltage\n");
     if (fault_status_1 & 0b10000000) printf("[bq25] `-- VSYS short circuit\n");
 
-  }
-
-  uint16_t vreg = bq25792_read_word(0x01)*10; // 10mV resolution
-  uint16_t ichg = bq25792_read_word(0x03)*10; // 10mA resolution
-
-  printf("[bq25] charger_status_2: %08b\n", charger_status_2);
+    uint16_t vreg = bq25792_read_word(0x01)*10; // 10mV resolution
+    uint16_t ichg = bq25792_read_word(0x03)*10; // 10mA resolution
 
     printf("[bq25] ICHG: %d mA\n", ichg);
     printf("[bq25] VREG: %d mV\n", vreg);
@@ -590,6 +587,7 @@ int charger_status() {
     printf("[bq25] ilim: %d mA\n", ilim);
     printf("[bq25] tdie: %f C\n",  tdie_adc);
     printf("---------------------------\n");
+  }
 
   return vbus_adc;
 }
@@ -1073,18 +1071,29 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
     bq76922_write_mem_u16(i2c, 0x0083, 0);
   }*/
 
-  printf("\n[PACK %d] ===================================\n", pack->id);
-  printf("cells: %.2fV %.2fV %.2fV %.2fV\n",
-         pack->cells_v[0],
-         pack->cells_v[1],
-         pack->cells_v[2],
-         pack->cells_v[3]);
-  printf("current: %.2fA voltage: %.2fV\n", pack->ampere, pack->volt);
-  printf("balancing: %016b\n", pack->bal_active_cells);
-  printf("coulomb_cur/max: %.2f / %.2f\n", pack->coulomb_cur, pack->coulomb_max);
-  printf("gauge_percent: %.2f\n", pack->gauge_percent);
-  printf("fully_charged: %d\n", pack->fully_charged);
-  printf("============================================\n\n");
+  if (pack_info) {
+    if (pack->id == 1) printf("\x1b[9F\x1b[44C");
+
+    printf("[PACK %d] ===================================\n", pack->id);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("cells: %.2fV %.2fV %.2fV %.2fV\n",
+           pack->cells_v[0],
+           pack->cells_v[1],
+           pack->cells_v[2],
+           pack->cells_v[3]);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("current: %.2fA voltage: %.2fV\n", pack->ampere, pack->volt);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("balancing: %016b\n", pack->bal_active_cells);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("coulomb_cur/max: %.2f / %.2f\n", pack->coulomb_cur, pack->coulomb_max);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("gauge_percent: %.2f\n", pack->gauge_percent);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("fully_charged: %d\n", pack->fully_charged);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("============================================\n\n");
+  }
 
   return 1;
 }
@@ -1456,7 +1465,7 @@ void handle_spi_commands() {
     return;
   }
 
-  //printf("# [spi] rx (len = %d): %02x %02x %02x %02x %02x %02x %02x %02x\n", len, spi_buf[0], spi_buf[1], spi_buf[2], spi_buf[3], spi_buf[4], spi_buf[5], spi_buf[6], spi_buf[7]);
+  printf("# [spi] rx (len = %d): %02x %02x %02x %02x %02x %02x %02x %02x\n", len, spi_buf[0], spi_buf[1], spi_buf[2], spi_buf[3], spi_buf[4], spi_buf[5], spi_buf[6], spi_buf[7]);
 
   // states:
   // 0   arg1 byte expected
@@ -1777,6 +1786,13 @@ int main() {
       else if (usb_c == 'C') {
         monitor_config_update(i2c1);
       }
+      else if (usb_c == 'd') {
+        charger_debug = !charger_debug;
+        pack_debug = !pack_debug;
+      }
+      else if (usb_c == 'p') {
+        pack_info = !pack_info;
+      }
     }
 #endif
 
@@ -1966,7 +1982,7 @@ int main() {
     ms_before = ms_now;
 
     if (ms_elapsed >= 1000) {
-      printf("\033[2J"); // clear screen
+      //printf("\033[2J"); // clear screen
       charger_configure();
       pack_configure(&packs[0], (float)ms_elapsed);
       pack_configure(&packs[1], (float)ms_elapsed);
