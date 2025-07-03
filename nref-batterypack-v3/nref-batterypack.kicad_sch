@@ -4069,6 +4069,16 @@
 		)
 		(uuid "6a33dd7c-654d-4b89-90c4-c8283663f8d7")
 	)
+	(text "was: NTCGS163JX103DT7"
+		(exclude_from_sim no)
+		(at 179.324 153.924 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6f9975e6-40a9-431c-9a25-ea3f11946e81")
+	)
 	(text "V_{CE,sat} <= 70mV @ 0.1A (BC817-*)\n-----------------------\nh_{FE,min} = 350 @ 25°C (BC817-40W)\nh_{FE,min} = 250 @ 25°C (BC817-25W)\nh_{FE,min} = 150 @ 25°C (BC817-16W)"
 		(exclude_from_sim no)
 		(at 14.478 190.754 0)
@@ -16628,7 +16638,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 181.61 139.7 0)
 			(effects
 				(font
@@ -16655,7 +16665,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "NTCGS163JX103DT7"
+		(property "MPN" "REPLACE"
 			(at 181.61 139.7 0)
 			(effects
 				(font
@@ -18232,7 +18242,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 151.384 139.7 0)
 			(effects
 				(font
@@ -18259,7 +18269,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "NTCGS163JX103DT7"
+		(property "MPN" "REPLACE"
 			(at 151.384 139.7 0)
 			(effects
 				(font
@@ -19262,7 +19272,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Automated:S713145R"
+		(property "Footprint" "footprints:S174146R"
 			(at 35.306 106.68 0)
 			(effects
 				(font
@@ -19289,7 +19299,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" "S174146R"
 			(at 35.306 106.68 0)
 			(effects
 				(font
@@ -20366,7 +20376,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 175.26 139.7 0)
 			(effects
 				(font
@@ -20393,7 +20403,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "NTCGS163JX103DT7"
+		(property "MPN" "REPLACE"
 			(at 175.26 139.7 0)
 			(effects
 				(font
@@ -21529,7 +21539,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Automated:S713145R"
+		(property "Footprint" "footprints:S70332002045R"
 			(at 35.306 102.87 0)
 			(effects
 				(font
@@ -21556,7 +21566,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" " S70-332002045R"
 			(at 35.306 102.87 0)
 			(effects
 				(font
@@ -21784,7 +21794,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Automated:S713145R"
+		(property "Footprint" "footprints:S70332002045R"
 			(at 25.4 146.05 0)
 			(effects
 				(font
@@ -21811,7 +21821,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" " S70-332002045R"
 			(at 25.4 146.05 0)
 			(effects
 				(font
@@ -22639,7 +22649,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Automated:S713145R"
+		(property "Footprint" "footprints:S174146R"
 			(at 25.4 62.23 0)
 			(effects
 				(font
@@ -22666,7 +22676,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "S7131-45R"
+		(property "MPN" "S174146R"
 			(at 25.4 62.23 0)
 			(effects
 				(font
@@ -22725,7 +22735,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 145.796 139.7 0)
 			(effects
 				(font
@@ -22752,7 +22762,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "NTCGS163JX103DT7"
+		(property "MPN" "REPLACE"
 			(at 145.796 139.7 0)
 			(effects
 				(font
