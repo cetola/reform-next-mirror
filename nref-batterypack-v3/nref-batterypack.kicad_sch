@@ -4184,17 +4184,6 @@
 		)
 		(uuid "3287954d-b933-4da7-bed6-bfcaa810e1c8")
 	)
-	(text "SM07B-SHLS is rated for\nonly 1 A per pin, so 2 A\ntotal per pack, doesn't\nhave enough margin, and\nlooks like an nVIDIA design"
-		(exclude_from_sim no)
-		(at 255.778 157.734 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "492d04d0-66c1-4592-907e-d23973c42fe9")
-	)
 	(text "TODO: there was a wake button\nconnected to TS2 here"
 		(exclude_from_sim no)
 		(at 177.8 129.54 0)
@@ -4225,6 +4214,16 @@
 			)
 		)
 		(uuid "7172b20a-337d-40b6-b5b3-8c2bb2bd5eb8")
+	)
+	(text "1A per pin = 2A max"
+		(exclude_from_sim no)
+		(at 251.46 135.89 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8676511a-0224-4200-b5f9-81f474391afc")
 	)
 	(text "60 mA pre(dis)charge at 16 V\n1W power dissipation max."
 		(exclude_from_sim no)
@@ -16265,7 +16264,25 @@
 			"AAAAeQAAAFAAAABjAAAANQAAAG0AAABoAAAAVwAAAGEAAABXAAAAeAAAAHUAAAA1AAAAYwAAAG4A"
 			"AABRAAAAOQAAAEUAAABwAAAAVwAAAEIAAABrAAAAbQAAAC8AAABmAAAAdwAAAFIAAABNAAAAUAAA"
 			"AGYAAABKAAAAZAAAAHYAAAAvAAAAdQAAAEEAAAB4AAAAVAAAAGwAAABlAAAATgAAADUAAAB0AAAA"
-			"YQAAAFAAAAB2AAAAWQAAACsAAAA3AAAAYgAAAA=="
+			"YQAAAFAAAAB2AAAAWQAAACsAAAA3AAAAYgAAAP2yg8Ef3BA+i8rsQfuyg8EMhRM+nAkAAAEAAAB4"
+			"a+xBGeGDwRHFAz55Oe1BFXqDwQyFEz7o5wAAAAABAInK7EFEyIPBH9wQPvXW7EH7soPBDIUTPuXn"
+			"AAAAAAEAicrsQUTIg8Ef3BA+9dbsQULIg8EMhRM+4OcAAAAAAgCJyuxBRMiDwR/cED4v1exBQsiD"
+			"wQyFEz7d5wAAAAAAAInK7EFEyIPBH9wQPobS7EFCyIPBDIUTPpoJAAACAAAAhNLsQUTIg8Ef3BA+"
+			"L9XsQULIg8EMhRM+3+cAAAAAAACE0uxBRMiDwR/cED5p0+xBQsiDwQyFEz6ZCQAAAQAAAITS7EFE"
+			"yIPBH9wQPi/V7EFCyIPBDIUTPpgJAAABAAAAhNLsQUTIg8GcTRE+9dbsQULIg8EMhRM+5OcAAAAA"
+			"AgCE0uxBRMiDwZxNET711uxBQsiDwQyFEz7j5wAAAAAAAITS7EFEyIPBnE0RPhLW7EFCyIPBDIUT"
+			"PpcJAAABAAAAhNLsQUTIg8GcTRE+9dbsQULIg8EMhRM+lgkAAAEAAACE0uxBRMiDwRi/ET711uxB"
+			"QsiDwQyFEz6VCQAAAQAAAInK7EFEyIPBH9wQPobS7EH7soPBDIUTPufnAAAAAAIAicrsQUTIg8Ef"
+			"3BA+htLsQfuyg8Eh3BA+lAkAAAEAAACJyuxBRMiDwR/cED6LyuxB+7KDwQyFEz6SCQAAAgAAAHhr"
+			"7EEZ4YPBEcUDPnk57UEVeoPBBeEJPpEJAAABAAAA957sQUTIg8ERxQM++gXtQXwag8EMhRM+6+cA"
+			"AAAAAgD3nuxBnK2DwRHFAz76Be1BIzWDwQXhCT6PCQAAAgAAAIaj7EFEyIPBH9wQPi/V7EF8GoPB"
+			"DIUTPvvnAAAAAAAAhqPsQf2yg8Ef3BA+i8rsQcMvg8EMhRM++OcAAAAAAgCGo+xB/bKDwR/cED6L"
+			"yuxBwy+DwZcwEj715wAAAAACAEyl7EH9soPBH9wQPovK7EHDL4PBnk0RPvLnAAAAAAIAEqfsQf2y"
+			"g8Ef3BA+i8rsQcMvg8Eh3BA+8ecAAAAAAAASp+xB/bKDwR/cED7aqOxBwy+DwSHcED6NCQAAAgAA"
+			"ANio7EH9soPBH9wQPovK7EHDL4PBIdwQPosJAAACAAAATKXsQf2yg8Ef3BA+FKfsQcMvg8GeTRE+"
+			"9OcAAAAAAgAvpuxB/bKDwR/cED4Up+xBwy+DwZ5NET6JCQAAAgAAAEyl7EH9soPBnE0RPjGm7EHD"
+			"L4PBnk0RPocJAAACAAAAhqPsQf2yg8GcTRE+TqXsQcMvg8GXMBI+9+cAAAAAAgBppOxB/bKDwZxN"
+			"ET5OpexBwy+DwRq/ET6FCQAAAgAAAIaj7EH9sg=="
 		)
 	)
 	(label "DSG"
@@ -23864,7 +23881,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_SM07B-SRSS-TB_1x07-1MP_P1.00mm_Horizontal"
+		(property "Footprint" "Connector_JST:JST_SH_BM07B-SRSS-TB_1x07-1MP_P1.00mm_Vertical"
 			(at 252.222 148.844 0)
 			(effects
 				(font
@@ -23891,7 +23908,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "SM07B-SHLS-TF(LF)(SN)"
+		(property "MPN" "BM07B-SRSS-TB"
 			(at 252.222 148.844 0)
 			(effects
 				(font

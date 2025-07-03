@@ -3700,6 +3700,30 @@
 		(layer "Edge.Cuts")
 		(uuid "eb90c3e9-6cb8-4731-b3b8-178e722b693f")
 	)
+	(gr_text "TODO: fix holes etc"
+		(at 117.2 79.5 0)
+		(layer "Dwgs.User")
+		(uuid "46cd07ff-aebb-4560-b0cf-59acbafe8ae4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "TODO: 4 layers to ensure thickness!"
+		(at 117.4 77.2 0)
+		(layer "Dwgs.User")
+		(uuid "a53abaac-ecb1-4971-8ca6-1eb1114d8d77")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
 	(segment
 		(start 130.9 88.9)
 		(end 128.8 91)
