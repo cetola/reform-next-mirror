@@ -4038,16 +4038,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "TODO: RST test point"
-		(exclude_from_sim no)
-		(at 222.25 101.6 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "1673990a-eee7-40b2-9ab1-3855c39b13f4")
-	)
 	(text "GND is carrying high current\nVSS is only a few mA"
 		(exclude_from_sim no)
 		(at 22.098 174.498 0)
@@ -4058,16 +4048,6 @@
 			(justify left)
 		)
 		(uuid "3287954d-b933-4da7-bed6-bfcaa810e1c8")
-	)
-	(text "TODO: there was a wake button\nconnected to TS2 here"
-		(exclude_from_sim no)
-		(at 177.8 129.54 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "6a33dd7c-654d-4b89-90c4-c8283663f8d7")
 	)
 	(text "was: NTCGS163JX103DT7"
 		(exclude_from_sim no)
@@ -4099,6 +4079,16 @@
 			)
 		)
 		(uuid "7172b20a-337d-40b6-b5b3-8c2bb2bd5eb8")
+	)
+	(text "NOTE: Reset by bridging C11"
+		(exclude_from_sim no)
+		(at 203.2 116.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "739ed8ec-9a0e-49da-bc68-5b812f659ebf")
 	)
 	(text "1A per pin = 2A max"
 		(exclude_from_sim no)
@@ -4154,16 +4144,6 @@
 		)
 		(uuid "d15b456d-006c-429d-a127-74b0ffe9baf3")
 	)
-	(text "TODO: test points (near top) for:\n- i2c\n- all cells\n- rst\n- wake\n- gnd\n- pack+\n- vss"
-		(exclude_from_sim no)
-		(at 92.71 27.94 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "d2981335-c4c0-4589-be14-c80a2ec635c9")
-	)
 	(text "SLUAA81A"
 		(exclude_from_sim no)
 		(at 122.174 155.448 0)
@@ -4174,16 +4154,6 @@
 			(justify right)
 		)
 		(uuid "ec7cffef-ded9-4288-a52a-5f8bc5b51499")
-	)
-	(text "TODO: zeners on i2c"
-		(exclude_from_sim no)
-		(at 219.71 137.16 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "fd72d24d-5968-41a6-833a-d1ea931813a7")
 	)
 	(junction
 		(at 97.028 152.4)
@@ -16167,7 +16137,25 @@
 			"ANio7EH9soPBH9wQPovK7EHDL4PBIdwQPosJAAACAAAATKXsQf2yg8Ef3BA+FKfsQcMvg8GeTRE+"
 			"9OcAAAAAAgAvpuxB/bKDwR/cED4Up+xBwy+DwZ5NET6JCQAAAgAAAEyl7EH9soPBnE0RPjGm7EHD"
 			"L4PBnk0RPocJAAACAAAAhqPsQf2yg8GcTRE+TqXsQcMvg8GXMBI+9+cAAAAAAgBppOxB/bKDwZxN"
-			"ET5OpexBwy+DwRq/ET6FCQAAAgAAAIaj7EH9sg=="
+			"ET5OpexBwy+DwRq/ET6FCQAAAgAAAIaj7EH9sgAAagAAAGMAAABBAAAAbwAAAGsAAAA3AAAATwAA"
+			"AHAAAABIAAAAYwAAADgAAABrAAAAUgAAAHkAAABTAAAAcQAAAHUAAAB2AAAAKwAAAGcAAAB4AAAA"
+			"QwAAAGgAAABLAAAAdQAAAEYAAAAyAAAARAAAADcAAABUAAAAagAAAGIAAABzAAAAeQAAADIAAABJ"
+			"AAAAYwAAAEkAAABRAAAATwAAAEIAAABKAAAASwAAAFcAAABYAAAAQwAAAGoAAABHAAAASwAAADcA"
+			"AABqAAAAeQAAAEoAAAA5AAAAaQAAAEwAAABDAAAAegAAAEYAAABnAAAATgAAAGQAAAA3AAAARgAA"
+			"AHEAAAAyAAAAbAAAAHUAAAAyAAAAdAAAAEgAAABWAAAAVAAAAGUAAABQAAAANAAAADYAAABTAAAA"
+			"cgAAAEQAAABRAAAATQAAAGcAAABiAAAAMAAAAFgAAABhAAAAdQAAAFEAAAA2AAAANAAAAGUAAAA4"
+			"AAAAYQAAAGkAAABUAAAAOAAAAHUAAABuAAAAYgAAAEwAAABxAAAAVgAAAEUAAABxAAAAcgAAAHIA"
+			"AABpAAAANwAAADAAAABHAAAAbQAAAHcAAABMAAAAVgAAADAAAABjAAAAcgAAAGMAAAB1AAAAKwAA"
+			"AFUAAAAzAAAAQQAAAG8AAABtAAAAWgAAADUAAABlAAAAaAAAAFIAAABkAAAAZwAAAG0AAAArAAAA"
+			"MwAAAEMAAAA3AAAAZgAAADQAAABXAAAAYgAAAGgAAABLAAAAeAAAAFMAAAB4AAAAbQAAAFEAAABX"
+			"AAAARAAAAC8AAABhAAAAVAAAAEUAAABQAAAAWgAAAEMAAAB0AAAATQAAAEYAAAArAAAAdQAAADkA"
+			"AABhAAAAdQAAADgAAABEAAAAMAAAAEUAAABCAAAAcgAAADcAAAAwAAAAYwAAAHMAAABhAAAAawAA"
+			"AGwAAAB0AAAAcQAAADIAAABEAAAALwAAAGEAAABoAAAAdAAAAGkAAAA4AAAAYwAAADcAAABLAAAA"
+			"ZAAAAHAAAAA1AAAAegAAAFoAAABhAAAAMgAAAHcAAABJAAAATQAAACsAAAArAAAAUgAAAHMAAABL"
+			"AAAAbwAAAG8AAABTAAAAawAAAE0AAABJAAAAQwAAAGMAAABmAAAATgAAAGUAAAA5AAAAaQAAAEIA"
+			"AAB3AAAAKwAAAFIAAABJAAAAbwAAAHIAAABxAAAAdwAAAFAAAABQAAAAeQAAACsAAABSAAAAdAAA"
+			"AHcAAABWAAAAeQAAAHMAAABCAAAAUgAAAHoAAAA1AAAAQwAAADMAAAA3AAAALwAAAHAAAAA3AAAA"
+			"RQAAAFEAAABzAAAAWgAAAE8AAAB6AAAAeAAAAA=="
 		)
 	)
 	(label "DSG"
@@ -20640,7 +20628,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal"
 			(at 25.4 107.95 0)
 			(effects
 				(font
@@ -20667,7 +20655,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "SM02B-SHLS-TF(LF)(SN)"
+		(property "MPN" "SM02B-SRSS-TB"
 			(at 25.4 107.95 0)
 			(effects
 				(font

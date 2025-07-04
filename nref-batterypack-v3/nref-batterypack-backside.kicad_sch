@@ -522,7 +522,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprints:S713145R"
+		(property "Footprint" "footprints:S70332002045R"
 			(at 106.68 96.52 0)
 			(effects
 				(font
@@ -541,6 +541,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 106.68 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "S70-332002045R"
+			(at 106.68 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Harwin"
 			(at 106.68 96.52 0)
 			(effects
 				(font
@@ -587,7 +605,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprints:S713145R"
+		(property "Footprint" "footprints:S70332002045R"
 			(at 106.68 74.93 0)
 			(effects
 				(font
@@ -614,6 +632,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "S70-332002045R"
+			(at 106.68 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Harwin"
+			(at 106.68 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "37b847cc-6840-45dc-a5ee-26424250889f")
 		)
@@ -621,70 +657,6 @@
 			(project "nref-batterypack-backside"
 				(path "/992fdb00-2079-4fab-820a-500481d674d7"
 					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 97.79 127 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6e6c6b23-0eb2-4454-9c25-40b0e3c7bfe9")
-		(property "Reference" "H2"
-			(at 100.33 125.7299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 100.33 128.2699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2"
-			(at 97.79 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 97.79 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 97.79 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "nref-batterypack-backside"
-				(path "/992fdb00-2079-4fab-820a-500481d674d7"
-					(reference "H2")
 					(unit 1)
 				)
 			)
@@ -745,6 +717,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" ""
+			(at 97.79 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 97.79 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project "nref-batterypack-backside"
 				(path "/992fdb00-2079-4fab-820a-500481d674d7"
@@ -779,7 +769,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SHL_SM02B-SHLS-TF_1x02-1MP_P1.00mm_Horizontal"
+		(property "Footprint" "Connector_JST:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal"
 			(at 88.9 97.79 0)
 			(effects
 				(font
@@ -798,6 +788,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 88.9 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SM02B-SRSS-TB"
+			(at 88.9 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "JST"
 			(at 88.9 97.79 0)
 			(effects
 				(font
@@ -847,7 +855,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprints:S713145R"
+		(property "Footprint" "footprints:S174146R"
 			(at 106.68 85.09 0)
 			(effects
 				(font
@@ -866,6 +874,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 106.68 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "S174146R"
+			(at 106.68 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Harwin"
 			(at 106.68 85.09 0)
 			(effects
 				(font
@@ -912,7 +938,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprints:S713145R"
+		(property "Footprint" "footprints:S174146R"
 			(at 106.68 109.22 0)
 			(effects
 				(font
@@ -931,6 +957,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 106.68 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "S174146R"
+			(at 106.68 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Harwin"
 			(at 106.68 109.22 0)
 			(effects
 				(font
@@ -998,6 +1042,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
+			(at 97.79 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" ""
+			(at 97.79 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 97.79 120.65 0)
 			(effects
 				(font
