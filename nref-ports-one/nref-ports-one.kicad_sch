@@ -13100,7 +13100,7 @@
 		)
 		(uuid "310cb98f-cff5-40b4-9432-752eb61d0686")
 	)
-	(text "1GBe to motherboard\n(flipped)"
+	(text "1GBe to motherboard"
 		(exclude_from_sim no)
 		(at 259.08 401.32 0)
 		(effects
@@ -13234,7 +13234,7 @@
 		)
 		(uuid "76bc5ece-bff7-43c8-bdf9-4f091c49666f")
 	)
-	(text "SD Card\n(flipped)"
+	(text "SD Card"
 		(exclude_from_sim no)
 		(at 224.282 401.066 0)
 		(effects
@@ -13307,7 +13307,7 @@
 		)
 		(uuid "aa6f7c30-7856-4b84-ad3e-eafb67fcc558")
 	)
-	(text "I2S Audio\n(flipped)"
+	(text "I2S Audio"
 		(exclude_from_sim no)
 		(at 184.912 401.32 0)
 		(effects
@@ -13404,7 +13404,7 @@
 		)
 		(uuid "f0cbd3c9-17b9-45e2-bb02-ab165611a085")
 	)
-	(text "USB3 to port farm 1\n(flipped)"
+	(text "USB3 to port farm 1"
 		(exclude_from_sim no)
 		(at 299.72 401.32 0)
 		(effects

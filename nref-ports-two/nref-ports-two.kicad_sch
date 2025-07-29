@@ -9182,17 +9182,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "TODO: are these pullups required here or are they already on the mb?"
-		(exclude_from_sim no)
-		(at 261.62 144.78 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "044f116f-1a76-4bfa-a198-c93f5093d22e")
-	)
-	(text "USB3 to port farm 2\n(flipped)"
+	(text "USB3 to port farm 2"
 		(exclude_from_sim no)
 		(at 267.97 -92.71 0)
 		(effects
@@ -9202,6 +9192,16 @@
 			(justify left bottom)
 		)
 		(uuid "0dbea4a7-2014-44f1-8bee-edbc9f6cd692")
+	)
+	(text "TODO: change to 10k!"
+		(exclude_from_sim no)
+		(at 267.97 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "17021c4a-27f6-4842-8a1f-f654dcc489c1")
 	)
 	(text "Hub RC reset circuit"
 		(exclude_from_sim no)
@@ -9224,6 +9224,16 @@
 		)
 		(uuid "1e66160d-2fc0-4fcd-b612-cf19b883b6ab")
 	)
+	(text "TODO: six layer design, power close to diff pairs is questionable"
+		(exclude_from_sim no)
+		(at 419.1 132.08 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "2f24107b-1afa-4493-9171-00a6267605c4")
+	)
 	(text "=3.3V"
 		(exclude_from_sim no)
 		(at 302.26 226.06 0)
@@ -9234,6 +9244,16 @@
 			(justify left bottom)
 		)
 		(uuid "518600ef-0714-41c4-943c-9135e96d4497")
+	)
+	(text "TODO: works only in one orientation"
+		(exclude_from_sim no)
+		(at 72.39 194.31 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "63bc0ea5-d0af-4f98-9e2d-e975e6e696ed")
 	)
 	(text "TODO: double check ENN_CC, PORT"
 		(exclude_from_sim no)
@@ -9328,6 +9348,16 @@
 			(justify left bottom)
 		)
 		(uuid "daf6c590-e89a-41d0-9864-cb38210b699d")
+	)
+	(text "TODO: missing caps on TX"
+		(exclude_from_sim no)
+		(at 435.61 182.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e2a77d0c-8b31-4be0-89b4-f0e919134f07")
 	)
 	(text "USB-C port 2"
 		(exclude_from_sim no)
