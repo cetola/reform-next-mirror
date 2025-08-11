@@ -21812,6 +21812,16 @@
 		)
 		(uuid "94167424-09da-470e-9799-883d868191a7")
 	)
+	(text "TODO: tie ACDRV1+2 to GND!"
+		(exclude_from_sim no)
+		(at 364.49 457.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9535ca84-9e11-4ee8-9221-c3266834de11")
+	)
 	(text "required on the board:\n- [x] reform slot\n- [x] M.2 SSD slot (can it fit underneath?)\n- [x] 3V3 dcdc\n- [x] sysctl (next-gen rpi2040?)\n- [x] FPC or JST-SH headers going to ports\n\noff board:\n\n- [ ] USB-C FUSB\n- [ ] DAC/ADC\n"
 		(exclude_from_sim no)
 		(at 36.83 763.27 0)
@@ -22214,6 +22224,16 @@
 			(justify left bottom)
 		)
 		(uuid "e6f82b35-a27d-48b8-ad65-5e36e67247d3")
+	)
+	(text "TODO: J11+J12: hotplug diodes on V+"
+		(exclude_from_sim no)
+		(at 182.88 623.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e76fafeb-92ca-4a08-b973-dc56d7cea757")
 	)
 	(text "New PCIe Lane!\n\nUnused pins on prev.\nMNT Reform modules"
 		(exclude_from_sim no)
