@@ -14918,148 +14918,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "pocket-reform-motherboard-rescue:Ferrite_Bead_Small-Device"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "FB"
-				(at 1.905 1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "Ferrite_Bead_Small-Device"
-				(at 1.905 -1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at -1.778 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Inductor_* L_* *Ferrite*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Ferrite_Bead_Small-Device_0_1"
-				(polyline
-					(pts
-						(xy -1.8288 0.2794) (xy -1.1176 1.4986) (xy 1.8288 -0.2032) (xy 1.1176 -1.4224) (xy -1.8288 0.2794)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0.889) (xy 0 1.2954)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -1.27) (xy 0 -0.7874)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "Ferrite_Bead_Small-Device_1_1"
-				(pin passive line
-					(at 0 2.54 270)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "pocket-reform:MAX1837EUT33+T"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -16063,107 +15921,6 @@
 								(size 1.27 1.27)
 							)
 						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "power:PWR_FLAG"
-			(power)
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#FLG"
-				(at 0 1.905 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "PWR_FLAG"
-				(at 0 3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Special symbol for telling ERC where power comes from"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "power-flag"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "PWR_FLAG_0_0"
-				(pin power_out line
-					(at 0 0 90)
-					(length 0)
-					(name "pwr"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "PWR_FLAG_0_1"
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
 					)
 				)
 			)
@@ -22768,12 +22525,6 @@
 		(uuid "03384707-07bd-435a-a308-e30a44e7e925")
 	)
 	(junction
-		(at 1057.91 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0387d7b4-53f9-4af3-8698-dee9b775db90")
-	)
-	(junction
 		(at 294.64 609.6)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -22786,22 +22537,10 @@
 		(uuid "04b16708-25d6-4afe-87c4-c9aa602b4c79")
 	)
 	(junction
-		(at 1057.91 116.84)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "04eeb135-17c4-40a2-b451-2b0d375fb73f")
-	)
-	(junction
 		(at 520.7 229.87)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "05cb2dce-9edd-4afd-aa77-3dbab1624849")
-	)
-	(junction
-		(at 1068.07 116.84)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "06027e80-3c64-472c-a1fe-15169e166d53")
 	)
 	(junction
 		(at 154.94 393.7)
@@ -22844,6 +22583,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0d904f64-9505-428e-9b69-deef10c55ead")
+	)
+	(junction
+		(at 1057.91 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0ffc35cb-721f-491c-b4f2-b3b3626f765d")
 	)
 	(junction
 		(at 487.68 214.63)
@@ -23536,6 +23281,12 @@
 		(uuid "6ce87b7d-f2ab-4370-b826-7f66bbad8698")
 	)
 	(junction
+		(at 1068.07 116.84)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6cfeb6a1-85fb-4101-8518-3d6ddbd3cd04")
+	)
+	(junction
 		(at 107.95 369.57)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -24166,12 +23917,6 @@
 		(uuid "bf88048f-4d4a-4adf-aa06-c64d42e9472c")
 	)
 	(junction
-		(at 1047.75 116.84)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "bfa3f899-9a0f-4c92-bd1b-458f2158d6ad")
-	)
-	(junction
 		(at 763.27 289.56)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -24182,12 +23927,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bfbb7a46-5865-44c9-aa98-262e4b3cd928")
-	)
-	(junction
-		(at 1018.54 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c095751a-bc52-40b2-a473-2ccc054f8013")
 	)
 	(junction
 		(at 849.63 304.8)
@@ -24230,12 +23969,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c6b05be0-f7fe-4a1c-b26d-4c535cd984b2")
-	)
-	(junction
-		(at 1027.43 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c7932e7a-7f6f-41fb-944f-3f41509b25a1")
 	)
 	(junction
 		(at 439.42 439.42)
@@ -24370,12 +24103,6 @@
 		(uuid "d64257ba-ba62-4820-a32d-96e0d6336719")
 	)
 	(junction
-		(at 1047.75 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d696ba09-79b5-41bf-8607-3081f71a8246")
-	)
-	(junction
 		(at 1024.89 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -24404,12 +24131,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d99a4b0f-8143-46af-8dd5-79bcac0270cf")
-	)
-	(junction
-		(at 1037.59 116.84)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d9f3e164-4ee7-4e01-827e-9bf682e84fb2")
 	)
 	(junction
 		(at 1010.92 193.04)
@@ -24604,12 +24325,6 @@
 		(uuid "ec7a0547-1ee6-4d87-92af-1118ee9a2005")
 	)
 	(junction
-		(at 128.27 519.43)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ed441f25-fc44-4468-a30e-96606f2a4994")
-	)
-	(junction
 		(at 148.59 647.7)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -24674,12 +24389,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f4cd55d4-915b-4143-9b50-90443cebc34e")
-	)
-	(junction
-		(at 1037.59 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f58335cc-3383-49f0-bdff-db3b31924d90")
 	)
 	(junction
 		(at 214.63 447.04)
@@ -26368,16 +26077,6 @@
 			(type default)
 		)
 		(uuid "149db65a-7656-4497-9951-92f49bdfc85e")
-	)
-	(wire
-		(pts
-			(xy 1047.75 116.84) (xy 1037.59 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "14b0c3bd-e90e-481c-921f-c26c7046e5c4")
 	)
 	(wire
 		(pts
@@ -28621,6 +28320,16 @@
 	)
 	(wire
 		(pts
+			(xy 1057.91 111.76) (xy 1068.07 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "42b5f699-1b1e-4c47-9a2f-8ead2612fd50")
+	)
+	(wire
+		(pts
 			(xy 1068.07 147.32) (xy 1087.12 147.32)
 		)
 		(stroke
@@ -28911,7 +28620,7 @@
 	)
 	(wire
 		(pts
-			(xy 1018.54 111.76) (xy 1027.43 111.76)
+			(xy 1018.54 111.76) (xy 1057.91 111.76)
 		)
 		(stroke
 			(width 0)
@@ -28948,6 +28657,16 @@
 			(type default)
 		)
 		(uuid "4a27ba86-2d71-4948-93cb-4ef7d66b80cb")
+	)
+	(wire
+		(pts
+			(xy 1057.91 116.84) (xy 1068.07 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a289e42-d742-4ed0-9e97-ac1f9c2c20d9")
 	)
 	(wire
 		(pts
@@ -29401,7 +29120,7 @@
 	)
 	(wire
 		(pts
-			(xy 1018.54 111.76) (xy 1018.54 110.49)
+			(xy 1018.54 105.41) (xy 1018.54 111.76)
 		)
 		(stroke
 			(width 0)
@@ -32111,16 +31830,6 @@
 	)
 	(wire
 		(pts
-			(xy 1047.75 111.76) (xy 1057.91 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "882851a8-8c00-4b02-992a-b9138ebd3d0f")
-	)
-	(wire
-		(pts
 			(xy 287.02 601.98) (xy 281.94 601.98)
 		)
 		(stroke
@@ -33251,16 +32960,6 @@
 	)
 	(wire
 		(pts
-			(xy 1057.91 111.76) (xy 1068.07 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9d065241-408d-482f-9dc8-54cee8850d94")
-	)
-	(wire
-		(pts
 			(xy 438.15 160.02) (xy 438.15 154.94)
 		)
 		(stroke
@@ -33458,16 +33157,6 @@
 			(type default)
 		)
 		(uuid "a13752ec-0491-4ce2-84c5-ccba817db36f")
-	)
-	(wire
-		(pts
-			(xy 1057.91 116.84) (xy 1047.75 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a1761f6f-9f37-4ea2-acd2-70379677561b")
 	)
 	(wire
 		(pts
@@ -34901,16 +34590,6 @@
 	)
 	(wire
 		(pts
-			(xy 1057.91 116.84) (xy 1068.07 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bce3ba67-6501-4f5a-8e65-3cc164ba770e")
-	)
-	(wire
-		(pts
 			(xy 535.94 229.87) (xy 535.94 227.33)
 		)
 		(stroke
@@ -35411,7 +35090,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 519.43) (xy 128.27 518.16)
+			(xy 128.27 513.08) (xy 128.27 519.43)
 		)
 		(stroke
 			(width 0)
@@ -37091,16 +36770,6 @@
 	)
 	(wire
 		(pts
-			(xy 1037.59 111.76) (xy 1047.75 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e6f377bd-7ffc-44ed-b968-35886a19e461")
-	)
-	(wire
-		(pts
 			(xy 425.45 200.66) (xy 425.45 207.01)
 		)
 		(stroke
@@ -37238,16 +36907,6 @@
 			(type default)
 		)
 		(uuid "e9cce5e2-e51a-483d-814e-5bcb1f097d2d")
-	)
-	(wire
-		(pts
-			(xy 1037.59 116.84) (xy 1027.43 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ea44e5d6-f31e-4c2e-a869-6a661803c68d")
 	)
 	(wire
 		(pts
@@ -37638,16 +37297,6 @@
 			(type default)
 		)
 		(uuid "f2d71397-0c75-49b6-924c-7e0f13c791e4")
-	)
-	(wire
-		(pts
-			(xy 1027.43 111.76) (xy 1037.59 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f36e84bc-3a33-4b4a-a644-6d1f10453671")
 	)
 	(wire
 		(pts
@@ -43465,7 +43114,43 @@
 			"Q1RJT04KICAgIC8vIFZlbG9jaXR5IGlzIGFzc3VtZWQgdG8gYmUgY2FsY3VsYXRlZCBmb3IgbW90"
 			"aW9uIGJsdXIsIHNvIHdlIG5lZWQgdG8KICAgIC8vIGludmVyc2UgaXQgZm9yIHJlcHJvamVjdGlv"
 			"bjoKICAgIGZsb2F0MiB2ZWxvY2l0eSA9IC1TTUFBX0RFQ09ERV9WRUxPQ0lUWShTTUFBU2FtcGxl"
-			"UG9pbnQodmVsb2NpdHlUZXgsIHRleGNvb3JkKQ=="
+			"UG9pbnQodmVsb2NpdHlUZXgsIHRleGNvb3JkKQAAOAAAAHIAAABGAAAAYQAAAHIAAAByAAAAdQAA"
+			"AE4AAABJAAAAbQAAADEAAABZAAAAdwAAAEcAAABFAAAAUgAAAGQAAABYAAAAUgAAADIAAABhAAAA"
+			"bQAAADUAAAB1AAAAaAAAAEsAAABJAAAATQAAAGoAAAArAAAAWAAAAGoAAABuAAAAaAAAAGoAAABH"
+			"AAAAZwAAAFkAAABzAAAAeAAAAEQAAABXAAAAMQAAAHMAAABiAAAAYQAAAG0AAAB0AAAAcgAAAFIA"
+			"AABhAAAAZAAAADAAAABYAAAAMQAAADgAAABmAAAAbwAAAHEAAABLAAAAaQAAAGsAAABKAAAAQwAA"
+			"AFEAAABnAAAATwAAAHoAAABzAAAAYgAAAEcAAABSAAAAawAAAFoAAABJAAAAagAAAE8AAABJAAAA"
+			"bQAAADMAAABBAAAANAAAAGsAAAB4AAAAcAAAADkAAAA5AAAAdgAAAFkAAAAyAAAASQAAAGkAAABH"
+			"AAAAaAAAAGcAAABiAAAAZAAAAGkAAABBAAAALwAAAGUAAAAwAAAAVwAAAE0AAABNAAAAagAAAEkA"
+			"AABUAAAARAAAAEcAAABFAAAATgAAAFAAAABUAAAAdwAAADgAAABxAAAASwAAAHkAAAB0AAAARgAA"
+			"AHAAAAB4AAAAVAAAAHYAAABIAAAAQQAAAEwAAABVAAAAVQAAAFQAAAB0AAAAWgAAAFcAAABWAAAA"
+			"bgAAAGkAAABYAAAAVgAAAFkAAABjAAAAWQAAACsAAABvAAAAbwAAAHUAAAA1AAAAcQAAAGEAAABH"
+			"AAAAbAAAAFIAAABYAAAAVgAAADQAAAB0AAAAMwAAADkAAABBAAAAUQAAAEMAAABBAAAAVQAAAFIA"
+			"AABFAAAAUgAAAEMAAABBAAAAbAAAAEoAAABRAAAAVQAAAFoAAABHAAAAUgAAAGwAAABJAAAAVAAA"
+			"AFUAAAAxAAAARgAAAGYAAABIAAAAeQAAADgAAAByAAAAbQAAAE0AAABxAAAAVgAAAEgAAAA2AAAA"
+			"MAAAAHgAAAA2AAAAVQAAAG8AAABDAAAAagAAAG8AAAA3AAAATwAAADEAAABGAAAAZgAAAFgAAAA0"
+			"AAAALwAAAFQAAABwAAAAMAAAACsAAABMAAAASQAAAEkAAABNAAAAcwAAAHkAAAAzAAAAQQAAADYA"
+			"AABuAAAAVQAAAGgAAABKAAAAUwAAAFUAAABGAAAAMgAAAGQAAABqAAAAYQAAAFMAAABrAAAANQAA"
+			"AE0AAABSAAAARgAAAFIAAABVAAAAMQAAAHAAAABFAAAATgAAAGEAAABTAAAAOQAAAHUAAABjAAAA"
+			"ZQAAAEYAAAAzAAAAVgAAADEAAABkAAAAVwAAAGMAAABzAAAASgAAAEQAAABJAAAAeQAAAFEAAAB5"
+			"AAAAWgAAAFkAAABnAAAARQAAAFgAAABIAAAAZQAAAHcAAABaAAAASAAAADMAAAB1AAAATAAAAEgA"
+			"AAA3AAAAOQAAADUAAABoAAAAdgAAAEcAAABjAAAASQAAAEYAAAA2AAAAMwAAAGwAAABQAAAAdgAA"
+			"AHUAAAAzAAAAMAAAAFIAAABMAAAAZAAAAFEAAABDAAAAdgAAADUAAABJAAAASwAAAGEAAAAwAAAA"
+			"VQAAADkAAAA3AAAARQAAAHEAAAB0AAAAbQAAAEUAAABmAAAAZAAAAHMAAABYAAAAMAAAAHgAAAB6"
+			"AAAAWAAAAFkAAABCAAAAYwAAACsAAABnAAAAegAAAFAAAAA3AAAAegAAAHQAAABMAAAALwAAADcA"
+			"AABnAAAATAAAAGgAAABrAAAAQgAAAGIAAABnAAAAeQAAADYAAABnAAAAYwAAAE0AAABMAAAAVQAA"
+			"AEwAAAB0AAAAagAAAEcAAABpAAAAdgAAAGwAAABOAAAAQgAAAEkAAAB3AAAAWgAAADQAAABXAAAA"
+			"OAAAAGgAAAB3AAAAQQAAAHEAAAB4AAAAYQAAAFAAAABGAAAAaQAAAG0AAABtAAAAbwAAAFMAAAB5"
+			"AAAATQAAAEkAAABrAAAAcAAAADAAAAArAAAAZgAAAFkAAABDAAAAdwAAADkAAABvAAAAWQAAAHMA"
+			"AABLAAAAVAAAAEUAAAA1AAAAZQAAAFoAAABQAAAAZQAAAGgAAABZAAAAYgAAAEoAAABtAAAAaAAA"
+			"AE4AAABVAAAAUAAAAFAAAABzAAAAeAAAAE4AAAAzAAAAZQAAADIAAABFAAAAaQAAAHcAAABYAAAA"
+			"TwAAAHYAAABuAAAARwAAAEMAAAA5AAAATAAAAEMAAABXAAAAagAAADUAAABLAAAASwAAAHkAAABm"
+			"AAAAUQAAAG8AAABKAAAANAAAADYAAABlAAAASgAAADUAAAAxAAAAegAAAFMAAABMAAAAUgAAAGMA"
+			"AAB4AAAANAAAAHIAAABPAAAAUgAAAG8AAABJAAAAbQAAAEsAAABLAAAARQAAAFEAAABsAAAANwAA"
+			"AFUAAAA0AAAATAAAAFQAAABYAAAARAAAAEMAAABCAAAASQAAAE8AAABHAAAAeAAAAGcAAABXAAAA"
+			"NQAAAEkAAABkAAAANgAAADIAAABQAAAASAAAAEMAAABxAAAAKwAAAHcAAAA2AAAAZAAAAEoAAABx"
+			"AAAAUgAAAHQAAABCAAAANgAAAEEAAABWAAAAKwAAADcAAABUAAAAdwAAAHYAAABGAAAAMgAAAEgA"
+			"AAB2AAAAagAAAFMAAABiAAAALwAAAE4AAABmAA=="
 		)
 	)
 	(image
@@ -54296,7 +53981,43 @@
 			"VQAAAAAAAAAAAAD///////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 			"AADhWQAAAAAAAFAUc0ZXVQAAIBufqNx/AAAAAAAAAAAAAAAAAAAAAAAAmgYAAFdVAAAgznJGV1UA"
 			"AOCcoKncfwAAcQAAAAAAAABwx3JGV1UAAPDgVkVXVQAAsQAAAAAAAACwmHdGV1UAADAAAAAAAAAA"
-			"QAAAAAAAAABrugYTUlUAADkAAA=="
+			"QAAAAAAAAABrugYTUlUAADkAAABVAAAAVgAAAEMAAABMAAAAbwAAAEUAAABoAAAAQQAAAEsAAABC"
+			"AAAATAAAAHMAAAA0AAAAdQAAAFgAAAA4AAAATAAAAFQAAAB6AAAAcgAAAE8AAABFAAAANAAAAG4A"
+			"AABvAAAARwAAAEQAAABoAAAAUQAAADkAAABWAAAAYgAAAHEAAAA5AAAAaAAAAC8AAABCAAAAeQAA"
+			"AEMAAABvAAAARgAAAEcAAABlAAAAcwAAAEsAAABvAAAANgAAAEsAAABqAAAAQQAAAEMAAABPAAAA"
+			"QwAAADUAAABrAAAAMQAAAGoAAAAzAAAASgAAAFEAAABpAAAAegAAAHQAAABVAAAAOQAAAHoAAABa"
+			"AAAATgAAAFAAAABiAAAAVwAAAEQAAABFAAAAZAAAADIAAABaAAAARQAAAFAAAABUAAAASwAAAHQA"
+			"AABwAAAAQgAAAEkAAABoAAAASQAAAE4AAABoAAAAeAAAAGcAAABVAAAATgAAAHYAAAByAAAAVQAA"
+			"AFkAAAA1AAAAWAAAAG8AAABzAAAAdQAAAEYAAABZAAAAUQAAAHcAAABVAAAAQgAAAHgAAABKAAAA"
+			"RAAAAEsAAAArAAAAZQAAAHcAAAByAAAAUQAAAHAAAABGAAAAUwAAAFEAAABJAAAAawAAAEUAAABM"
+			"AAAAYQAAAFgAAABwAAAAUwAAAGYAAABNAAAAKwAAAEoAAABGAAAAQgAAADEAAAAzAAAAWAAAAGsA"
+			"AABWAAAATAAAAGkAAABjAAAARAAAAGoAAABJAAAAeQAAAGMAAABrAAAAaAAAAE0AAAB6AAAATwAA"
+			"AFQAAABTAAAAWgAAAFAAAAArAAAAZgAAAC8AAABiAAAAZQAAAE8AAAA4AAAANgAAAHEAAAA2AAAA"
+			"dAAAADcAAAA3AAAAZgAAADYAAAArAAAAMQAAADkAAAArAAAAbAAAAHoAAABwAAAAagAAAGUAAABt"
+			"AAAARAAAAHoAAABQAAAATQAAAEQAAABFAAAAWAAAAEsAAABNAAAAQQAAAE4AAABTAAAAUgAAAFkA"
+			"AABwAAAAZAAAAHIAAABLAAAAQQAAAHgAAABNAAAAZgAAAEcAAABhAAAAbQAAADIAAABwAAAAdQAA"
+			"AGsAAABsAAAAKwAAAFMAAABtAAAANQAAAHYAAABjAAAAbQAAAHkAAABkAAAAUAAAADgAAAByAAAA"
+			"egAAAHUAAABrAAAAOQAAAHUAAABTAAAASgAAACsAAABhAAAAbQAAADMAAABIAAAAUQAAAFQAAABl"
+			"AAAANgAAAEsAAABpAAAAUgAAAGgAAABSAAAARQAAAFEAAABsAAAATwAAAGsAAABLAAAAMgAAADEA"
+			"AABBAAAAUQAAAEIAAABnAAAAWQAAAEkAAAA1AAAAQQAAAG8AAABsAAAAQQAAAHgAAABRAAAAWAAA"
+			"AEYAAAB4AAAAQQAAADYAAAA2AAAAbgAAAGQAAAByAAAASAAAAHoAAAA1AAAAQwAAAEoAAABmAAAA"
+			"UAAAADYAAABxAAAATAAAAHUAAAB3AAAARwAAAG0AAAA4AAAANAAAACsAAABZAAAAeAAAAEwAAAB1"
+			"AAAAOAAAAHMAAAB4AAAAdwAAADkAAABMAAAAKwAAAHoAAABqAAAAaAAAAHcAAABZAAAAaQAAAGMA"
+			"AABvAAAAdQAAAEcAAABOAAAATgAAAGUAAAB3AAAANAAAADMAAABFAAAANwAAADEAAABvAAAAWgAA"
+			"ADIAAABzAAAANwAAAG8AAABsAAAAegAAAC8AAABFAAAAUQAAAG4AAABSAAAANAAAADUAAAB0AAAA"
+			"WgAAAGUAAAB1AAAAWgAAAGoAAAAxAAAARwAAAHQAAAB3AAAAYgAAAEkAAAAwAAAAUQAAAG0AAABN"
+			"AAAATAAAAGsAAAB4AAAAcAAAAHMAAABBAAAAeQAAAFYAAABBAAAAeAAAAGUAAABoAAAAcQAAAGEA"
+			"AAA2AAAAWgAAAFgAAABlAAAAdwAAAGwAAABuAAAAQgAAAE8AAAAwAAAAZAAAAFUAAAB1AAAASQAA"
+			"AE4AAABCAAAAawAAAGwAAABOAAAAVAAAAGMAAABPAAAASwAAAHgAAAA3AAAASAAAAHcAAABZAAAA"
+			"RgAAAGkAAABLAAAAWQAAAEMAAABCAAAAQQAAAGwAAAA5AAAATgAAAFQAAABaAAAAYQAAAEMAAABK"
+			"AAAAMAAAAGcAAABKAAAAcAAAAEMAAABKAAAAUwAAAFcAAABaAAAASgAAAFoAAABOAAAAWgAAAHUA"
+			"AABHAAAAQwAAAGYAAABkAAAAegAAAC8AAAArAAAAMAAAAGQAAAA1AAAAZQAAAGsAAAAwAAAANgAA"
+			"AFUAAAA3AAAAVgAAAEcAAABPAAAALwAAAFkAAABQAAAANwAAAE8AAABRAAAATgAAAEQAAAA2AAAA"
+			"RwAAAGsAAABNAAAASwAAAGwAAABwAAAAYQAAAFYAAABoAAAASwAAADIAAABBAAAASwAAAGwAAABt"
+			"AAAAVQAAAFQAAABRAAAAWgAAADkAAAB0AAAAUgAAAFYAAAA1AAAAZAAAADAAAABjAAAAWQAAAFoA"
+			"AAArAAAAZwAAAHkAAAAxAAAAQwAAAEcAAABJAAAAWgAAAEIAAABkAAAAbgAAAFkAAAAyAAAATgAA"
+			"ADkAAAA5AAAAOAAAAE0AAAA5AAAATwAAAG0AAABUAAAAZQAAAE8AAABOAAAATgAAADkAAAA1AAAA"
+			"ZwAAAHgAAABZAAAAbwAAAFYAAA=="
 		)
 	)
 	(label "RPU+"
@@ -64152,102 +63873,6 @@
 		)
 	)
 	(symbol
-		(lib_id "pocket-reform-motherboard-rescue:Ferrite_Bead_Small-Device")
-		(at 128.27 515.62 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "13ae42d2-744c-4ddd-b574-f063b0e11903")
-		(property "Reference" "FB3"
-			(at 130.81 514.4516 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100@100MHz 3A"
-			(at 130.81 516.763 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
-			(at 126.492 515.62 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 128.27 515.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 128.27 515.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Murata"
-			(at 128.27 515.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "BLM18PG121SN1D"
-			(at 128.27 515.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C14709"
-			(at 128.27 515.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7964a5e3-58bb-41d9-b9ac-d10cf045faeb")
-		)
-		(pin "2"
-			(uuid "f6dd4527-c07f-43e2-ba51-d5e172bd6a05")
-		)
-		(instances
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "FB3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 810.26 524.51 0)
 		(mirror y)
@@ -67535,7 +67160,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 614.68 334.01 0)
 			(effects
 				(font
@@ -68505,108 +68130,6 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "C80")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 1057.91 114.3 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "39cb48c5-86cc-410a-a82c-725f8ea6e4dd")
-		(property "Reference" "C36"
-			(at 1060.2468 113.1316 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1uF"
-			(at 1060.2468 115.443 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 1057.91 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 1057.91 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 1057.91 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Samsung"
-			(at 1057.91 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "CL05B104KO5NNNC"
-			(at 1057.91 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C1525"
-			(at 1057.91 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "62735330-e51b-4223-8dab-a09eeac8d8d6")
-		)
-		(pin "2"
-			(uuid "df5dda89-808f-4f3e-ad4c-04670dc63f54")
-		)
-		(instances
-			(project "pocket-reform-motherboard"
-				(path "/63c56ea4-91a3-4172-b9de-a4388cc8f894"
-					(reference "C61")
-					(unit 1)
-				)
-			)
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "C36")
 					(unit 1)
 				)
 			)
@@ -69773,108 +69296,6 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "R50")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 1047.75 114.3 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "42388058-2e1b-4bca-badc-24a96596dd22")
-		(property "Reference" "C35"
-			(at 1050.0868 113.1316 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1uF"
-			(at 1050.0868 115.443 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 1047.75 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 1047.75 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 1047.75 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Samsung"
-			(at 1047.75 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "CL05B104KO5NNNC"
-			(at 1047.75 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C1525"
-			(at 1047.75 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d8823d49-ad39-4cc4-8a99-b9dab0ae2e91")
-		)
-		(pin "2"
-			(uuid "fc333167-df45-4535-8a8c-8857e652550b")
-		)
-		(instances
-			(project "pocket-reform-motherboard"
-				(path "/63c56ea4-91a3-4172-b9de-a4388cc8f894"
-					(reference "C60")
-					(unit 1)
-				)
-			)
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "C35")
 					(unit 1)
 				)
 			)
@@ -75847,108 +75268,6 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "C111")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 1037.59 114.3 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6daffe38-e40e-4161-83cf-8a9764bced1d")
-		(property "Reference" "C34"
-			(at 1039.9268 113.1316 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1uF"
-			(at 1039.9268 115.443 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 1037.59 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 1037.59 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 1037.59 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Samsung"
-			(at 1037.59 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "CL05B104KO5NNNC"
-			(at 1037.59 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C1525"
-			(at 1037.59 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "df6e724c-e84e-4d86-8e44-9c781875138a")
-		)
-		(pin "2"
-			(uuid "baa08dff-1fc7-4a0a-a610-772c151c9799")
-		)
-		(instances
-			(project "pocket-reform-motherboard"
-				(path "/63c56ea4-91a3-4172-b9de-a4388cc8f894"
-					(reference "C59")
-					(unit 1)
-				)
-			)
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "C34")
 					(unit 1)
 				)
 			)
@@ -86163,6 +85482,102 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
+		(at 1057.91 114.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b03acfa9-e9e1-4114-9b4d-f4b5e05e71e1")
+		(property "Reference" "C43"
+			(at 1060.2468 113.1316 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "47uF"
+			(at 1060.2468 115.443 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 1057.91 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 1057.91 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 1057.91 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata"
+			(at 1057.91 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "GRM188R60J476ME15D"
+			(at 1057.91 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C140782"
+			(at 1057.91 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cac75423-62cf-451d-bfbf-e652afd0ef96")
+		)
+		(pin "2"
+			(uuid "98ed4337-6dbe-4b70-9308-b7e7f9c948f1")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "C43")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
 		(at 759.46 518.16 0)
 		(mirror y)
 		(unit 1)
@@ -89678,71 +89093,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 128.27 519.43 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c6a34014-f54a-4174-a95f-f21e8fcb1a00")
-		(property "Reference" "#FLG03"
-			(at 128.27 521.335 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 128.27 523.8242 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 128.27 519.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 128.27 519.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 128.27 519.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2b82f389-4b15-4646-98ff-99dc28f62e48")
-		)
-		(instances
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "#FLG03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small")
 		(at 713.74 570.23 180)
 		(unit 1)
@@ -91891,77 +91241,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 1018.54 111.76 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d7485f16-c0db-4851-95b9-17d1e0ea183d")
-		(property "Reference" "#FLG02"
-			(at 1018.54 113.665 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 1018.54 116.1542 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 1018.54 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 1018.54 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 1018.54 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "22b6cd95-c5ad-466e-a76b-0e4081ffa2e1")
-		)
-		(instances
-			(project "pocket-reform-motherboard"
-				(path "/63c56ea4-91a3-4172-b9de-a4388cc8f894"
-					(reference "#FLG0108")
-					(unit 1)
-				)
-			)
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "#FLG02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 1073.15 453.39 0)
 		(unit 1)
@@ -93454,108 +92733,6 @@
 		)
 	)
 	(symbol
-		(lib_id "pocket-reform-motherboard-rescue:Ferrite_Bead_Small-Device")
-		(at 1018.54 107.95 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e676aa21-12f9-49e5-be2c-cca880234da1")
-		(property "Reference" "FB1"
-			(at 1021.08 106.7816 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100@100MHz 3A"
-			(at 1021.08 109.093 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
-			(at 1016.762 107.95 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 1018.54 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 1018.54 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Murata"
-			(at 1018.54 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "BLM18PG121SN1D"
-			(at 1018.54 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C14709"
-			(at 1018.54 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1a60397c-d3ee-4c85-987c-8eb32940d9b7")
-		)
-		(pin "2"
-			(uuid "32769bc1-96db-42b8-ace2-c3fb8e92089d")
-		)
-		(instances
-			(project "pocket-reform-motherboard"
-				(path "/63c56ea4-91a3-4172-b9de-a4388cc8f894"
-					(reference "FB4")
-					(unit 1)
-				)
-			)
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "FB1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_name "GND_4")
 		(lib_id "power:GND")
 		(at 469.9 622.3 0)
@@ -94396,108 +93573,6 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "U3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 1027.43 114.3 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ebaf115a-c74a-46be-87f5-e4bd9c58beed")
-		(property "Reference" "C33"
-			(at 1029.7668 113.1316 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10nF"
-			(at 1029.7668 115.443 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 1027.43 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 1027.43 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 1027.43 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Samsung"
-			(at 1027.43 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "CL10B103KB8NNNC"
-			(at 1027.43 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C1589"
-			(at 1027.43 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d0a3381d-773c-4afb-8114-add9ad8380fd")
-		)
-		(pin "2"
-			(uuid "f3e497b9-4287-4f23-9ff8-69a451fa1437")
-		)
-		(instances
-			(project "pocket-reform-motherboard"
-				(path "/63c56ea4-91a3-4172-b9de-a4388cc8f894"
-					(reference "C58")
-					(unit 1)
-				)
-			)
-			(project "nref-motherboard"
-				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
-					(reference "C33")
 					(unit 1)
 				)
 			)

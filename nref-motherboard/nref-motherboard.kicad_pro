@@ -630,6 +630,14 @@
       {
         "netclass": "90ohm Outer",
         "pattern": "*XUD*"
+      },
+      {
+        "netclass": "90ohm Inner",
+        "pattern": "*ETH*+*"
+      },
+      {
+        "netclass": "90ohm Inner",
+        "pattern": "*ETH*-*"
       }
     ]
   },
