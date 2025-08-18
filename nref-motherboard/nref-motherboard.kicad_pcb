@@ -158,7 +158,6 @@
 			(psnegative no)
 			(psa4output no)
 			(plot_black_and_white yes)
-			(plotinvisibletext no)
 			(sketchpadsonfab no)
 			(plotpadnumbers no)
 			(hidednponfab no)
@@ -76108,6 +76107,19 @@
 			(justify bottom mirror)
 		)
 	)
+	(gr_text "these should be >7.6mm spaced"
+		(at 119.45 141.1 90)
+		(layer "Cmts.User")
+		(uuid "0450b806-b321-4644-98cf-bb187557829c")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "TODO: i could make this end a bit longer to have GND behind the main connector"
 		(at 73.7 187.75 0)
 		(layer "Cmts.User")
@@ -76144,7 +76156,7 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "TODO: HS thinner, more spacing"
+	(gr_text "DONE: HS thinner, more spacing"
 		(at 150.95 137.7 0)
 		(layer "Cmts.User")
 		(uuid "a0de95ae-7201-4056-8b7a-9dbb67a76bb5")
@@ -76156,7 +76168,7 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "TODO: HS on top/bottom"
+	(gr_text "DONE: HS on top/bottom"
 		(at 150.75 133.6 0)
 		(layer "Cmts.User")
 		(uuid "a8262849-6142-48aa-b934-78a352d4a04c")
