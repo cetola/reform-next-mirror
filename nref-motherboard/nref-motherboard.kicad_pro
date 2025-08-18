@@ -586,7 +586,7 @@
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.4,
         "via_diameter": 0.6,
-        "via_drill": 0.4
+        "via_drill": 0.3
       }
     ],
     "meta": {
@@ -596,7 +596,7 @@
     "netclass_assignments": null,
     "netclass_patterns": [
       {
-        "netclass": "90ohm Outer",
+        "netclass": "90ohm Outer Coplanar",
         "pattern": "*PCI*"
       },
       {
@@ -620,15 +620,15 @@
         "pattern": "+5V"
       },
       {
-        "netclass": "90ohm Outer",
+        "netclass": "90ohm Outer Coplanar",
         "pattern": "*RPU*"
       },
       {
-        "netclass": "90ohm Outer",
+        "netclass": "90ohm Outer Coplanar",
         "pattern": "*RUD*"
       },
       {
-        "netclass": "90ohm Outer",
+        "netclass": "90ohm Outer Coplanar",
         "pattern": "*XUD*"
       },
       {
@@ -638,6 +638,18 @@
       {
         "netclass": "90ohm Inner",
         "pattern": "*ETH*-*"
+      },
+      {
+        "netclass": "90ohm Outer Coplanar",
+        "pattern": "*HSTX*"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "VPD"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "VCC"
       }
     ]
   },
