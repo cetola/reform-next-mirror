@@ -21128,16 +21128,6 @@
 		)
 		(uuid "217a4356-ef34-482c-93da-934552f0ebb5")
 	)
-	(text "TODO: get rid of ferrites, put TVS"
-		(exclude_from_sim no)
-		(at 1116.584 461.264 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "247b9e3a-0985-4dfc-8ee7-769cacc887ab")
-	)
 	(text "PERp2"
 		(exclude_from_sim no)
 		(at 1015.492 151.13 0)
@@ -21159,16 +21149,6 @@
 			(justify left)
 		)
 		(uuid "29144f28-ef4e-4dff-be79-4d71f799fc60")
-	)
-	(text "SDA1 latched up"
-		(exclude_from_sim no)
-		(at 784.86 342.9 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "2943fea1-93d5-4de8-a2a1-69fbfb1f8786")
 	)
 	(text "FIXME: 10k wrong??"
 		(exclude_from_sim no)
@@ -21370,16 +21350,6 @@
 		)
 		(uuid "4eaafe8a-41e0-4b1e-8355-b37c55954461")
 	)
-	(text "TODO: remove FB"
-		(exclude_from_sim no)
-		(at 146.558 502.158 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "5124836a-c2c8-4c9a-b62c-85ac6c30a48b")
-	)
 	(text "Cff"
 		(exclude_from_sim no)
 		(at 574.918 165.0889 0)
@@ -21390,7 +21360,7 @@
 		)
 		(uuid "52363aa9-d7dc-496c-9953-38167d24068a")
 	)
-	(text "TODO: these pulldowns are not strong enough,\n10k works in practice"
+	(text "NOTE: these pulldowns were not strong enough,\n10k works in practice"
 		(exclude_from_sim no)
 		(at 414.02 170.18 0)
 		(effects
@@ -21740,16 +21710,6 @@
 		)
 		(uuid "85f98b73-5187-40ee-b193-d4d4385c9aef")
 	)
-	(text "TODO: protection, this chip died"
-		(exclude_from_sim no)
-		(at 281.94 251.46 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "8a4f819f-18b7-438b-96ae-b29b2af6eed1")
-	)
 	(text "PERn2"
 		(exclude_from_sim no)
 		(at 1015.492 148.59 0)
@@ -21995,16 +21955,6 @@
 		)
 		(uuid "b5c6e1d7-fd46-48dc-bee4-081ab8143c42")
 	)
-	(text "TODO: protect these!"
-		(exclude_from_sim no)
-		(at 800.1 340.36 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "b6cc0a92-98b9-4444-a43f-bac6a47e114a")
-	)
 	(text "SoM Interface"
 		(exclude_from_sim no)
 		(at 120.65 49.53 0)
@@ -22035,16 +21985,6 @@
 			)
 		)
 		(uuid "bb576e54-3a83-4a11-8839-535dd434282d")
-	)
-	(text "TODO: very dangerous!"
-		(exclude_from_sim no)
-		(at 1074.42 520.7 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "bcb5b20e-177e-4a73-af92-9d336746ac2e")
 	)
 	(text "EAST1616RGBB2"
 		(exclude_from_sim no)
@@ -22161,16 +22101,6 @@
 			(justify left bottom)
 		)
 		(uuid "d655ed45-027e-4eff-9538-9b03d852f203")
-	)
-	(text "actually, probably rp2350a damaged?"
-		(exclude_from_sim no)
-		(at 281.94 254 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "de541a86-634e-4dca-9484-39d414efed4b")
 	)
 	(text "Internal USB/UART (Keyboard/TB Interface)"
 		(exclude_from_sim no)
@@ -22301,7 +22231,7 @@
 		)
 		(uuid "fa100957-7eae-46f0-8fa6-6785f6811fc7")
 	)
-	(text "TODO: there's no hardware configuration for LFP/LiPo,\nneeds to be done via I²C on the MCU"
+	(text "NOTE: there's no hardware configuration for LFP/LiPo,\nneeds to be done via I²C on the MCU"
 		(exclude_from_sim no)
 		(at 382.016 472.694 0)
 		(effects
@@ -24372,6 +24302,10 @@
 	(no_connect
 		(at 1068.07 162.56)
 		(uuid "11047a32-aad1-4866-8501-3c7cc7d080f8")
+	)
+	(no_connect
+		(at 1068.07 524.51)
+		(uuid "14dcc665-2450-47ab-8e78-9650da62947a")
 	)
 	(no_connect
 		(at 154.94 255.27)
@@ -30809,6 +30743,16 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 506.73) (xy 93.98 504.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78af27a5-3597-48b3-b35f-1a10cb436271")
+	)
+	(wire
+		(pts
 			(xy 755.65 603.25) (xy 758.19 603.25)
 		)
 		(stroke
@@ -31066,6 +31010,16 @@
 			(type default)
 		)
 		(uuid "7c6b3385-0cea-4666-9b75-fba176c189a4")
+	)
+	(wire
+		(pts
+			(xy 82.55 506.73) (xy 93.98 506.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c6c926c-4c3f-4ef2-aaf3-89114baad105")
 	)
 	(wire
 		(pts
@@ -54426,28 +54380,6 @@
 			)
 		)
 	)
-	(global_label "STANDBY_3V3"
-		(shape input)
-		(at 82.55 506.73 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "095d10f5-d9bf-4163-b4a1-a3da0e934c46")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 97.5742 506.6506 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "HDMI_TX1N"
 		(shape input)
 		(at 194.31 389.89 0)
@@ -59211,28 +59143,6 @@
 			)
 		)
 	)
-	(global_label "STANDBY_3V3"
-		(shape input)
-		(at 1068.07 524.51 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "abd56018-e43a-4b9e-bbcd-d46d44e77537")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 1083.0942 524.4306 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "PWR_OVERRIDE"
 		(shape output)
 		(at 434.34 633.73 0)
@@ -61452,6 +61362,71 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 93.98 504.19 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "01357dc2-b14d-4872-8e2d-2b6dc79009b3")
+		(property "Reference" "#PWR072"
+			(at 93.98 508 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 94.361 499.7958 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 93.98 504.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 93.98 504.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 93.98 504.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "35701f52-e2f8-4a64-af2c-7884c9a029c0")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "#PWR072")
 					(unit 1)
 				)
 			)
@@ -78604,6 +78579,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 1126.49 157.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "85c2d2f9-1377-46eb-bf6c-2850a79bbdbe")
+		(property "Reference" "#PWR066"
+			(at 1126.49 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 1126.49 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 1126.49 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 1126.49 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 1126.49 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "216ecc03-870e-4b31-b42c-accbc4080560")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "#PWR066")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+1V8")
 		(at 259.08 497.84 0)
 		(unit 1)
@@ -92527,6 +92568,108 @@
 			(project "nref-motherboard"
 				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
 					(reference "#PWR043")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 1126.49 154.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e6e71b0f-7ead-47c3-a00b-bff95f2d20b1")
+		(property "Reference" "H8"
+			(at 1129.03 153.6954 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "NGFF-Mount"
+			(at 1129.03 156.0068 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "footprints:WA-SMSI-M2"
+			(at 1126.49 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 1126.49 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 1126.49 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DNP" ""
+			(at 1126.49 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Würth"
+			(at 1126.49 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "9774020243R"
+			(at 1126.49 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 1126.49 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "30e15af8-8bfd-48b8-a388-4cbadc3107bd")
+		)
+		(instances
+			(project "nref-motherboard"
+				(path "/a432b2af-5748-42a5-94fe-8be4ed1e5510"
+					(reference "H8")
 					(unit 1)
 				)
 			)
