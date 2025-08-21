@@ -21788,6 +21788,16 @@
 		)
 		(uuid "414fb121-9a6a-4364-a33d-9f9e997dbadb")
 	)
+	(text "SCL"
+		(exclude_from_sim no)
+		(at 218.186 364.744 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "43d6f00e-368d-4769-8851-e87cf80bd327")
+	)
 	(text "CHECK: HD3SS460"
 		(exclude_from_sim no)
 		(at 198.12 331.47 0)
@@ -21850,6 +21860,16 @@
 			(justify left bottom)
 		)
 		(uuid "4eaafe8a-41e0-4b1e-8355-b37c55954461")
+	)
+	(text "SDA"
+		(exclude_from_sim no)
+		(at 218.186 361.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "51e7ee91-f5e0-4cad-a5bf-b1783cf47901")
 	)
 	(text "Cff"
 		(exclude_from_sim no)
@@ -22106,6 +22126,16 @@
 			(justify left bottom)
 		)
 		(uuid "769a5e84-d79d-4463-8a64-993e6ea9165e")
+	)
+	(text "SCL"
+		(exclude_from_sim no)
+		(at 248.92 373.634 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "77195225-03b1-4e60-b9ae-978cbd126de0")
 	)
 	(text "1V1"
 		(exclude_from_sim no)
@@ -22623,6 +22653,16 @@
 			)
 		)
 		(uuid "e199707e-aef7-42fb-911c-fa71de1338c9")
+	)
+	(text "SDA"
+		(exclude_from_sim no)
+		(at 248.92 370.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e1f5dcc5-d6a7-4146-b39b-4dadfdbdcd61")
 	)
 	(text "PERp1"
 		(exclude_from_sim no)
@@ -54762,7 +54802,7 @@
 		)
 		(uuid "f88804f6-8bf5-44f3-b790-ceb6292d4456")
 	)
-	(global_label "RP_SCL1"
+	(global_label "RP_SCL0"
 		(shape input)
 		(at 459.74 534.67 0)
 		(fields_autoplaced yes)
@@ -55218,7 +55258,7 @@
 			)
 		)
 	)
-	(global_label "RP_SDA1"
+	(global_label "RP_SDA0"
 		(shape input)
 		(at 459.74 532.13 0)
 		(fields_autoplaced yes)
@@ -57828,7 +57868,7 @@
 			)
 		)
 	)
-	(global_label "HDMI_SCL_AUXN"
+	(global_label "HDMI_DDC_AUXN"
 		(shape bidirectional)
 		(at 270.51 373.38 180)
 		(fields_autoplaced yes)
@@ -57840,7 +57880,7 @@
 		)
 		(uuid "6a639825-64ed-45fc-8ad7-deb4834bf3e1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 251.3549 373.38 0)
+			(at 251.0525 373.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -59372,7 +59412,7 @@
 			)
 		)
 	)
-	(global_label "HDMI_SCL_AUXN"
+	(global_label "HDMI_DDC_AUXN"
 		(shape bidirectional)
 		(at 194.31 364.49 0)
 		(fields_autoplaced yes)
@@ -59384,7 +59424,7 @@
 		)
 		(uuid "9e0bc74d-4007-441e-8ea8-3a26c65b8241")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 213.4651 364.49 0)
+			(at 213.7675 364.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -59568,7 +59608,7 @@
 			)
 		)
 	)
-	(global_label "HDMI_SDA_AUXP"
+	(global_label "HDMI_DDC_AUXP"
 		(shape bidirectional)
 		(at 270.51 370.84 180)
 		(fields_autoplaced yes)
@@ -59580,7 +59620,7 @@
 		)
 		(uuid "a3a8a972-1658-4576-8879-92bf7d90438c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 251.3549 370.84 0)
+			(at 251.113 370.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -61051,7 +61091,7 @@
 			)
 		)
 	)
-	(global_label "HDMI_SDA_AUXP"
+	(global_label "HDMI_DDC_AUXP"
 		(shape bidirectional)
 		(at 194.31 361.95 0)
 		(fields_autoplaced yes)
@@ -61063,7 +61103,7 @@
 		)
 		(uuid "e699e6bd-becf-4d25-9c53-4843fd24849d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 213.4651 361.95 0)
+			(at 213.707 361.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
