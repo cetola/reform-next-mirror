@@ -1,0 +1,5 @@
+.vscode
+build
+lib/pico-sdk
+lib/pico-extras
+lib/tinyusb

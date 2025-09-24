@@ -15,16 +15,14 @@
 #include "hardware/i2c.h"
 #include "hardware/spi.h"
 #include "hardware/irq.h"
-#include "hardware/rtc.h"
 #include "hardware/watchdog.h"
 #include "hardware/structs/watchdog.h"
-#include "hardware/structs/vreg_and_chip_reset.h"
 #include "fusb302b.h"
 #include "pd.h"
 
 #define FW_STRING1 "NREF1SYS"
 #define FW_STRING2 "R1"
-#define FW_STRING3 "20241212"
+#define FW_STRING3 "20250516"
 #define FW_REV FW_STRING1 FW_STRING2 FW_STRING3
 
 #define ACM_ENABLED 1
@@ -36,33 +34,58 @@
 
 #define PIN_KBD_UART_TX 4
 #define PIN_KBD_UART_RX 5
-#define PIN_DISP_EN 7
+
+#define PIN_BAT1_ALERT 6
+#define PIN_BAT2_ALERT 7
+
 #define PIN_SOM_MOSI 8
 #define PIN_SOM_SS0 9
 #define PIN_SOM_SCK 10
 #define PIN_SOM_MISO 11
-#define PIN_SOM_UART_TX 12
-#define PIN_SOM_UART_RX 13
-#define PIN_FUSB_INT 14
-#define PIN_LED_B 15
-#define PIN_LED_R 16
-#define PIN_LED_G 17
-#define PIN_SOM_WAKE 19
-#define PIN_CHRG_CE 20
-#define PIN_3V3_ENABLE 24
-#define PIN_5V_ENABLE 25
-//#define PIN_USB_SRC_ENABLE 28
-#define PIN_PWREN_LATCH 29
 
-// FUSB302B USB-PD controller
+#define PIN_HSTX_D0P 12
+#define PIN_HSTX_D0N 13
+#define PIN_HSTX_DCKP 14
+#define PIN_HSTX_DCKN 15
+#define PIN_HSTX_D2P 16
+#define PIN_HSTX_D2N 17
+#define PIN_HSTX_D1P 18
+#define PIN_HSTX_D1N 19
+
+#define PIN_LED_B 20
+#define PIN_LED_R 21
+#define PIN_LED_G 22
+
+#define PIN_CHRG_CFG 23
+#define PIN_CHRG_ALERT 24
+
+#define PIN_BACKLIGHT_EN 25
+#define PIN_BACKLIGHT_PWM 26
+
+#define PIN_SOM_WAKE 27
+#define PIN_SOM_UART_TX 28
+#define PIN_SOM_UART_RX 29
+
+// FIXME: the following are now on PCA9536DP (on SDA/SCL1)
+// 3V3_ENABLE
+// 5V_ENABLE
+// HDMI_DP_SWITCH
+// ~QON
+
+// PCA9536DP GPIO extender (on motherboard, i2c1)
+#define PCA9536_ADDR 0x41
+
+// FUSB302B USB-PD controller (on usb-c pd board)
 #define FUSB_ADDR 0x22
 
-// PCAL6416AHF GPIO extender
+// PCAL6416AHF GPIO extender (on usb-c pd board)
 #define PCAL_ADDR 0x20
 
-// BQ25756RRVR charger
+// BQ25792 charger
+#define BQ25792_ADDR 0x6b
 
-#define BQ25756_ADDR 0x6b
+// BQ76922 monitor on battery boards
+#define BQ76922_ADDR 0x08
 
 #define I2C_TIMEOUT (1000*500)
 
@@ -97,19 +120,38 @@ void clear_boot_magic() {
 }
 
 // battery information
-// TODO: turn into a struct
-// 4.8A x 3600 seconds/hour (per cell)
-#define MAX_CAPACITY (4.0)*3600.0
-float report_capacity_max_ampsecs =  MAX_CAPACITY;
-float report_capacity_accu_ampsecs = MAX_CAPACITY;
-float report_capacity_min_ampsecs = 0;
-int report_capacity_percentage = 0;
-float report_volts = 0;
-float report_current = 0;
-float report_cells_v[8] = {0,0,0,0,0,0,0,0};
-bool reached_full_charge = true; // FIXME
+// 2.0A x 3600 seconds/hour (pack capacity)
+#define MAX_CAPACITY (2.0 * 3600.0)
+#define MV_OVERVOLT 3800
+#define MV_UNDERVOLT 2450
+#define MV_FULL 3500 // some cells don't hold voltage > 3.5
+#define MV_BALANCE_ABOVE 3600
+#define MV_HYST 200
+
+// 1 coulomb = 1 amp * second
+struct BatteryPack {
+  int id;
+  i2c_inst_t* i2c;
+  bool active;
+  float volt;
+  float ampere;
+  float cells_v[8];
+  int overvolt;
+  int undervolt;
+  int fully_charged;
+  float coulomb_max;
+  float coulomb_cur;
+  float gauge_percent;
+  float temp_int_k;
+  float temp_ext_k;
+  int bal_active_cells;
+};
+
+struct BatteryPack packs[2];
 bool som_is_powered = false;
-bool print_pack_info = false;
+bool charger_debug = false;
+bool pack_debug = false;
+bool pack_info = false;
 
 void i2c_scan(i2c_inst_t* i2c) {
   int id = 0;
@@ -284,132 +326,280 @@ int print_src_fixed_pdo(int number, uint32_t pdo) {
   return voltage;
 }
 
-uint8_t bq25756_read_byte(uint8_t addr)
-{
+void pca9536_write_byte(uint8_t addr, uint8_t val) {
+  uint8_t buf[2] = {addr, val};
+  i2c_write_blocking(i2c1, PCA9536_ADDR, buf, 2, false);
+}
+
+uint8_t pca9536_read_byte(uint8_t addr) {
   uint8_t buf;
-  i2c_write_blocking(i2c0, BQ25756_ADDR, &addr, 1, true);
-  i2c_read_blocking(i2c0, BQ25756_ADDR, &buf, 1, false);
+  i2c_write_blocking(i2c1, PCA9536_ADDR, &addr, 1, true);
+  i2c_read_blocking(i2c1, PCA9536_ADDR, &buf, 1, false);
   return buf;
 }
 
-int16_t bq25756_read_word(uint8_t addr)
+static uint8_t gpio_ext_state;
+
+#define GPIO_EXT_5V_EN 0
+#define GPIO_EXT_3V3_EN 1
+#define GPIO_EXT_HDMI_DP 2
+#define GPIO_EXT_NQON 3
+
+void gpio_ext_setup() {
+  /*
+    IO0: 5V_ENABLE
+    IO1: 3V3_ENABLE
+    IO2: HDMI_DP_SWITCH
+    IO3: ~QON
+  */
+
+  gpio_ext_state = 0b0000;
+
+  // config: all outputs
+  pca9536_write_byte(3, 0b0000);
+  // output port:
+  pca9536_write_byte(1, gpio_ext_state);
+}
+
+void gpio_ext_enable(uint8_t bit) {
+  gpio_ext_state |= (1<<bit);
+  pca9536_write_byte(1, gpio_ext_state);
+}
+void gpio_ext_disable(uint8_t bit) {
+  gpio_ext_state &= ~(1<<bit);
+  pca9536_write_byte(1, gpio_ext_state);
+}
+
+uint8_t bq25792_read_byte(uint8_t addr)
+{
+  uint8_t buf;
+  i2c_write_blocking(i2c0, BQ25792_ADDR, &addr, 1, true);
+  i2c_read_blocking(i2c0, BQ25792_ADDR, &buf, 1, false);
+  return buf;
+}
+
+int16_t bq25792_read_word_signed(uint8_t addr)
 {
   uint8_t buf[2] = {0,0};
-  i2c_write_blocking(i2c0, BQ25756_ADDR, &addr, 1, true);
-  i2c_read_blocking(i2c0, BQ25756_ADDR, &buf[0], 1, false);
+  i2c_write_blocking(i2c0, BQ25792_ADDR, &addr, 1, true);
+  i2c_read_blocking(i2c0, BQ25792_ADDR, &buf[0], 1, false);
   addr++;
-  i2c_write_blocking(i2c0, BQ25756_ADDR, &addr, 1, true);
-  i2c_read_blocking(i2c0, BQ25756_ADDR, &buf[1], 1, false);
+  i2c_write_blocking(i2c0, BQ25792_ADDR, &addr, 1, true);
+  i2c_read_blocking(i2c0, BQ25792_ADDR, &buf[1], 1, false);
 
-  int16_t lsb = buf[0];
-  int16_t msb = buf[1];
+  int16_t lsb = buf[1];
+  int16_t msb = buf[0];
 
   return (msb<<8) | lsb;
 }
 
-void bq25756_write_byte(uint8_t addr, uint8_t byte)
+uint16_t bq25792_read_word(uint8_t addr)
+{
+  uint8_t buf[2] = {0,0};
+  i2c_write_blocking(i2c0, BQ25792_ADDR, &addr, 1, true);
+  i2c_read_blocking(i2c0, BQ25792_ADDR, &buf[0], 1, false);
+  addr++;
+  i2c_write_blocking(i2c0, BQ25792_ADDR, &addr, 1, true);
+  i2c_read_blocking(i2c0, BQ25792_ADDR, &buf[1], 1, false);
+
+  int16_t lsb = buf[1];
+  int16_t msb = buf[0];
+
+  return (msb<<8) | lsb;
+}
+
+void bq25792_write_byte(uint8_t addr, uint8_t byte)
 {
   uint8_t buf[2] = {addr, byte};
-  i2c_write_blocking(i2c0, BQ25756_ADDR, buf, 2, false);
+  i2c_write_blocking(i2c0, BQ25792_ADDR, buf, 2, false);
 }
 
+void bq25792_write_word(uint8_t addr, uint16_t word)
+{
+  uint8_t buf_msb[2] = {addr, word>>8};
+  uint8_t buf_lsb[2] = {addr+1, word & 0xff};
 
-int charger_configure() {
-  // TODO
-  // see https://www.ti.com/lit/an/sluaat5/sluaat5.pdf
-
-  bq25756_write_byte(0x2b, 1<<7); // enable ADC
-  bq25756_write_byte(0x2c, (0<<7)|(0<<6)|(0<<5)|(0<<4)|(1<<1)); // enable ADC channels
-
-  uint8_t charger_control = bq25756_read_byte(0x17);
-  uint8_t charger_status_1 = bq25756_read_byte(0x21);
-  uint8_t charger_status_2 = bq25756_read_byte(0x22);
-  uint8_t charger_status_3 = bq25756_read_byte(0x23);
-  uint8_t fault_status = bq25756_read_byte(0x24);
-  uint8_t charger_flag_1 = bq25756_read_byte(0x25);
-  uint8_t charger_flag_2 = bq25756_read_byte(0x26);
-  uint8_t pin_control = bq25756_read_byte(0x18);
-
-  int16_t iac_adc = bq25756_read_word(0x2d);
-  int16_t ibat_adc = bq25756_read_word(0x2f);
-  int16_t vac_adc = bq25756_read_word(0x31);
-  int16_t vbat_adc = bq25756_read_word(0x33);
-
-  //report_current = ibat_adc/1000.0;
-
-  // set recharge voltage: 0x17
-  bq25756_write_byte(0x17, 0b00011001);
-  //                               `---- ibat_load
-
-  // set battery low voltage (71.4% x VFB_REG)
-  // disable termination (bit 3)
-  // disable precharge (bit 0)
-  bq25756_write_byte(0x14, 0b0110);
-  // disable all safety timers
-  //bq25756_write_byte(0x15, 0b0);
-  // disable PFM
-  bq25756_write_byte(0x19, 0b00000000);
-
-  // FIXME: disable JEITA, TS pin on lifepo4
-  //bq25756_write_byte(0x1c, 0);
-
-  // boost charge voltage by 30mV
-  bq25756_write_byte(0x00, 0b11111);
-  //bq25756_write_byte(0x00, 0);
-
-  // charge current limit (step = 50mA)
-  bq25756_write_byte(0x03, 1); // upper byte
-  bq25756_write_byte(0x02, (2000/50)<<2); // 400mA (0x8) is the low end
-
-  // input current limit (step = 50mA). 50W = 20V @ 2.5A
-  bq25756_write_byte(0x07, 0); // upper byte
-  bq25756_write_byte(0x06, (3000/50)<<2); // 400mA (0x8) is the low end
-  //bq25756_write_byte(0x07, 1<<2); // upper byte
-  //bq25756_write_byte(0x06, 1); // 400mA (0x8) is the low end
-
-  // FIXME: resistors! disable ICHG, ILIM
-  bq25756_write_byte(0x18, 0);
-
-  // TODO charge current limit
-
-  printf("\n---------------------------\n[bq25] charger_control: %02x\n", charger_control);
-  printf("[bq25] charger_status_1: %02x\n", charger_status_1);
-  printf("[bq25] charger_status_2: %02x\n", charger_status_2);
-  printf("[bq25] charger_status_3: %02x\n", charger_status_3);
-  printf("[bq25] fault_status: %02x\n", fault_status);
-  if (fault_status & 0b10) printf("[bq25] `-- DRV_SUP out of range\n");
-  if (fault_status & 0b100) printf("[bq25] `-- Charge safety timer expired\n");
-  if (fault_status & 0b1000) printf("[bq25] `-- Thermal shutdown\n");
-  if (fault_status & 0b10000) printf("[bq25] `-- Battery overvoltage\n");
-  if (fault_status & 0b100000) printf("[bq25] `-- Battery overcurrent\n");
-  if (fault_status & 0b1000000) printf("[bq25] `-- Input overvoltage\n");
-  if (fault_status & 0b10000000) printf("[bq25] `-- Input overcurrent\n");
-  printf("[bq25] charger_flag_1: %02x\n", charger_flag_1);
-  printf("[bq25] charger_flag_2: %02x\n", charger_flag_2);
-  printf("[bq25] pin_control: %02x\n", pin_control);
-
-  printf("[bq25] vac_adc: %d mV\n", vac_adc * 2);
-  printf("[bq25] vbat_adc: %d mV\n", vbat_adc * 2);
-  printf("[bq25] iac_adc: %f mA\n", ((float)iac_adc) * 0.8);
-  printf("[bq25] ibat_adc: %d mA\n", ibat_adc * 2);
-
-  /*
-    [bq25] charger_control: c9
-    [bq25] charger_status_1: 08
-    [bq25] charger_status_2: b0
-    [bq25] charger_status_3: 00
-    [bq25] fault_status: 00
-    [bq25] charger_flag_1: 48
-    [bq25] charger_flag_2: 90
-    [bq25] pin_control: c0
-   */
-
-  //bq25756_write_byte(0x14, 1);
-
-  return vac_adc * 2;
+  i2c_write_blocking(i2c0, BQ25792_ADDR, buf_msb, 2, false);
+  i2c_write_blocking(i2c0, BQ25792_ADDR, buf_lsb, 2, false);
 }
 
-#define BQ76922_ADDR 0x08
+void bq25792_write_word_signed(uint8_t addr, int16_t word)
+{
+  uint8_t buf_msb[2] = {addr, word>>8};
+  uint8_t buf_lsb[2] = {addr+1, word & 0xff};
+
+  i2c_write_blocking(i2c0, BQ25792_ADDR, buf_msb, 2, false);
+  i2c_write_blocking(i2c0, BQ25792_ADDR, buf_lsb, 2, false);
+}
+
+void charger_configure() {
+  // see https://www.ti.com/lit/ds/symlink/bq25792.pdf
+
+  // TODO:
+  // - [x] REG00_Minimal_System_Voltage
+  // - [x] REG01_Charge_Voltage_Limit range: 3000mV - 18800mV. 16 bit reg
+  //   - should be set to around 14.4-15.6? (4x3.9)
+  //   - bit step 10mV
+  // - [ ] REG05_Input_Voltage_Limit ?
+  // - [ ] REG08_Precharge_Control
+  // - [ ] REG09_Termination_Control
+  // - [ ] REG0A_Re-charge_Control
+  // - [ ] REG0E_Timer_Control
+  // - [x] REG0F_Charger_Control_0 (some interesting stuff here like ICO)
+  // - [x] REG14_Charger_Control_5 -> EN_IBAT (bit 5)
+
+  bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
+  bq25792_write_word(0x01, 14800 / 10); // charge voltage (conservative), VREG
+  // FIXME: 3A (3000) can cause charger to "flicker"
+  bq25792_write_word(0x03, 2000 / 10); // charge current
+  bq25792_write_word(0x06, 3000 / 10); // input current, defaults to 3A @ reset (60W)
+
+  // ADC control: 0x2e (default: 0x30)
+  bq25792_write_byte(0x2e, (1<<7) | (0b00 << 4) ); // enable ADC at 15 bit (7=ADC_EN, 5:4=ADC_SAMPLE)
+
+  // default IOTG setting (3000mA)
+  bq25792_write_byte(0x0d, 0b01001011);
+
+  // charger_control_2
+  // bit6: AUTO_INDET_EN (default on, D+/D- detection)
+  bq25792_write_byte(0x11, 0b00000000);
+
+  // charger_control_5
+  // disable EXTILIM
+  // enable IBAT discharge current sensing
+  bq25792_write_byte(0x14, 0b00111100);
+}
+
+int charger_status() {
+  if (charger_debug) {
+    printf("\n---------------------------\n");
+  }
+
+  // charger_control_1
+  // bit3: WD_RST
+  // bit2-0: watchdog timeout
+  bq25792_write_byte(0x10, 0b00001000);
+
+  // charger_control_0
+  // bit7: EN_AUTO_IBATDIS
+  // bit6: FORCE_IBATDIS
+  // bit5: EN_CHG
+  // bit4: EN_ICO
+  // bit3: FORCE_ICO
+  // bit2: EN_HIZ
+  // bit1: EN_TERM
+  if ((packs[0].overvolt && packs[1].overvolt) || (packs[0].fully_charged && packs[1].fully_charged)) {
+    // disable charging
+    printf("# [bq25] disable charging (overvoltage/fully charged).\n");
+    bq25792_write_byte(0x0f, 0b00000000);
+  } else if (!packs[0].active && !packs[1].active) {
+    // disable charging
+    // FIXME: can we still get discharged packs online?
+    printf("# [bq25] disable charging (no packs connected).\n");
+    bq25792_write_byte(0x0f, 0b00000000);
+  } else {
+    // enable charging
+    if (charger_debug) {
+      printf("# [bq25] enable charging.\n");
+    }
+    bq25792_write_byte(0x0f, 0b00100000);
+  }
+
+  uint8_t charger_status_0 = bq25792_read_byte(0x1b);
+  uint8_t charger_status_1 = bq25792_read_byte(0x1c);
+  uint8_t charger_status_2 = bq25792_read_byte(0x1d);
+  //uint8_t charger_status_3 = bq25792_read_byte(0x1e);
+  //uint8_t charger_status_4 = bq25792_read_byte(0x1f);
+  uint8_t fault_status_0 = bq25792_read_byte(0x20);
+  uint8_t fault_status_1 = bq25792_read_byte(0x21);
+  uint8_t recharge_ctl = bq25792_read_byte(0x0a);
+
+  uint8_t cell_count = (recharge_ctl >> 6) && 0b11;
+
+  int16_t ibus_adc = bq25792_read_word_signed(0x31); // 1mA resolution
+  int16_t ibat_adc = bq25792_read_word_signed(0x33); // 1mA resolution
+  int16_t ilim = bq25792_read_word_signed(0x19)*10; // 10mA resolution
+  uint16_t vbus_adc = bq25792_read_word(0x35); // 1mV resolution
+  uint16_t vac1_adc = bq25792_read_word(0x37); // 1mV resolution
+  uint16_t vac2_adc = bq25792_read_word(0x39); // 1mV resolution
+  uint16_t vbat_adc = bq25792_read_word(0x3b); // 1mV resolution
+  uint16_t vsys_adc = bq25792_read_word(0x3d); // 1mV resolution
+  float tdie_adc = (float)bq25792_read_word_signed(0x41) * 0.5; // 0.5 celsius resolution
+
+  // FIXME not here
+  if (!packs[0].active && !packs[1].active) {
+    //report_volts = vbus_adc/100.0;
+    //report_current = ibus_adc/1000.0;
+  }
+
+  if (charger_debug) {
+    printf("[bq25] charger_status_0: %08b\n", charger_status_0);
+    if (charger_status_0 & 0b1) printf("[bq25] `-- VBUS present\n");
+    if (charger_status_0 & 0b10) printf("[bq25] `-- VAC1 present\n");
+    if (charger_status_0 & 0b100) printf("[bq25] `-- VAC2 present\n");
+    if (charger_status_0 & 0b1000) printf("[bq25] `-- Power good\n");
+    if (!(charger_status_0 & 0b1000)) printf("[bq25] `-- Power not good\n");
+    if (charger_status_0 & 0b10000) printf("[bq25] `-- Poor source\n");
+    if (charger_status_0 & 0b100000) printf("[bq25] `-- WD timer expired\n");
+    if (charger_status_0 & 0b1000000) printf("[bq25] `-- VINDPM/VOTG\n");
+    if (charger_status_0 & 0b10000000) printf("[bq25] `-- IINDPM/IOTG\n");
+    printf("[bq25] charger_status_1: %08b\n", charger_status_1);
+    if ((charger_status_1 & 0b11100000) == 0) printf("[bq25] `-- not charging\n");
+    if ((charger_status_1 & 0b11100000) == 1) printf("[bq25] `-- trickle charge\n");
+    if ((charger_status_1 & 0b11100000) == 2) printf("[bq25] `-- pre-charge\n");
+    if ((charger_status_1 & 0b11100000) == 3) printf("[bq25] `-- fast charge CC\n");
+    if ((charger_status_1 & 0b11100000) == 4) printf("[bq25] `-- taper charge CV\n");
+    if ((charger_status_1 & 0b11100000) == 5) printf("[bq25] `-- reserved\n");
+    if ((charger_status_1 & 0b11100000) == 6) printf("[bq25] `-- top-off timer\n");
+    if ((charger_status_1 & 0b11100000) == 7) printf("[bq25] `-- termination done\n");
+    printf("[bq25] charger_status_2: %08b\n", charger_status_2);
+    //printf("[bq25] charger_status_3: %08b\n", charger_status_3);
+    //printf("[bq25] charger_status_4: %08b\n", charger_status_4);
+
+    printf("[bq25] fault_status_0  : %08b\n", fault_status_0);
+    if (fault_status_0 & 0b1) printf("[bq25] `-- VAC1 over-voltage\n");
+    if (fault_status_0 & 0b10) printf("[bq25] `-- VAC2 over-voltage\n");
+    if (fault_status_0 & 0b100) printf("[bq25] `-- Converter over-current\n");
+    if (fault_status_0 & 0b1000) printf("[bq25] `-- IBAT over-current\n");
+    if (fault_status_0 & 0b10000) printf("[bq25] `-- IBUS over-current\n");
+    if (fault_status_0 & 0b100000) printf("[bq25] `-- VBAT over-voltage\n");
+    if (fault_status_0 & 0b1000000) printf("[bq25] `-- VBUS over-voltage\n");
+    if (fault_status_0 & 0b10000000) printf("[bq25] `-- IBAT regulation\n");
+
+    printf("[bq25] fault_status_1  : %08b\n", fault_status_1);
+    if (fault_status_1 & 0b100) printf("[bq25] `-- Thermal shutdown\n");
+    if (fault_status_1 & 0b10000) printf("[bq25] `-- OTG under-voltage\n");
+    if (fault_status_1 & 0b100000) printf("[bq25] `-- OTG over-voltage\n");
+    if (fault_status_1 & 0b1000000) printf("[bq25] `-- VSYS over-voltage\n");
+    if (fault_status_1 & 0b10000000) printf("[bq25] `-- VSYS short circuit\n");
+
+    uint16_t vreg = bq25792_read_word(0x01)*10; // 10mV resolution
+    uint16_t ichg = bq25792_read_word(0x03)*10; // 10mA resolution
+
+    printf("[bq25] ICHG: %d mA\n", ichg);
+    printf("[bq25] VREG: %d mV\n", vreg);
+
+    printf("[bq25] vbus: %d mV\n", vbus_adc);
+    printf("[bq25] vac1: %d mV\n", vac1_adc);
+    printf("[bq25] vbat: %d mV\n", vbat_adc);
+    printf("[bq25] ibus: %d mA\n", ibus_adc);
+    printf("[bq25] ibat: %d mA\n", ibat_adc);
+    printf("[bq25] ilim: %d mA\n", ilim);
+    printf("[bq25] tdie: %f C\n",  tdie_adc);
+    printf("---------------------------\n");
+  }
+
+  return vbus_adc;
+}
+
+int bq76922_detect(i2c_inst_t* i2c) {
+  uint8_t addr = 0x00;
+  uint8_t buf = 0x00;
+  int res = i2c_write_blocking(i2c, BQ76922_ADDR, &addr, 1, true);
+  if (res == PICO_ERROR_GENERIC) return res;
+  res = i2c_read_blocking(i2c, BQ76922_ADDR, &buf, 1, false);
+  return res;
+}
 
 uint8_t bq76922_read_byte(i2c_inst_t* i2c, uint8_t addr)
 {
@@ -439,54 +629,89 @@ void bq76922_write_i16(i2c_inst_t* i2c, uint8_t addr, int16_t word)
   i2c_write_blocking(i2c, BQ76922_ADDR, buf, 3, false);
 }
 
-unsigned char bq76922_checksum(unsigned char *ptr, unsigned char len)
+void bq76922_write_u16(i2c_inst_t* i2c, uint8_t addr, uint16_t word)
 {
-    unsigned char i;
-    unsigned char checksum = 0;
-
-    for (i = 0; i < len; i++) checksum += ptr[i];
-
-    checksum = 0xff & ~checksum;
-
-    return (checksum);
+  uint8_t buf[3] = {addr, word&0xff, word>>8};
+  i2c_write_blocking(i2c, BQ76922_ADDR, buf, 3, false);
 }
 
-void bq76922_set_reg(i2c_inst_t* i2c, uint16_t reg_addr, uint32_t reg_data, uint8_t datalen)
-{
-  uint8_t TX_Buffer[3] = {0x00, 0x00, 0x00};
-  uint8_t TX_RegData[7] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+int bq76922_read_mem_u8(i2c_inst_t* i2c, uint16_t reg_addr, uint8_t* reg_data) {
 
-  //TX_RegData in little endian format
-  TX_RegData[1] = reg_addr & 0xff;
-  TX_RegData[2] = (reg_addr >> 8) & 0xff;
-  TX_RegData[3] = reg_data & 0xff;  // 1st byte of data
+  bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
+  bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
+  sleep_ms(10);
 
-  switch (datalen) {
-  case 1:
+  *reg_data = bq76922_read_byte(i2c, 0x40);
 
-    TX_RegData[0] = 0x3e;
-    i2c_write_blocking(i2c, BQ76922_ADDR, TX_RegData, 4, false);
-    sleep_ms(2);
+  int len = bq76922_read_byte(i2c, 0x61);
+  int checksum = bq76922_read_byte(i2c, 0x60);
 
-    TX_Buffer[0] = 0x60;
-    TX_Buffer[1] = bq76922_checksum(&TX_RegData[1], 3);
-    TX_Buffer[2] = 0x05;  //combined length of register address and data
-    i2c_write_blocking(i2c, BQ76922_ADDR, TX_Buffer, 3, false);
-    sleep_ms(2);
-    break;
+  //printf("[bq76] read_mem_u8: %02x = %02x [len: %d checksum: %02x]\n", reg_addr, *reg_data, len, checksum);
 
-  case 2:
-    TX_RegData[4] = (reg_data >> 8) & 0xff;
-    sleep_ms(2);
-    i2c_write_blocking(i2c, BQ76922_ADDR, TX_RegData, 5, false);
+  return 1;
+}
 
-    TX_Buffer[0] = 0x60;
-    TX_Buffer[1] = bq76922_checksum(&TX_RegData[1], 4);
-    TX_Buffer[2] = 0x06;  //combined length of register address and data
-    i2c_write_blocking(i2c, BQ76922_ADDR, TX_Buffer, 3, false);
-    sleep_ms(2);
-    break;
-  }
+void bq76922_write_mem_u8(i2c_inst_t* i2c, uint16_t reg_addr, uint8_t reg_data) {
+  bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
+  bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
+
+  bq76922_write_byte(i2c, 0x40, reg_data);
+
+  // 5 = len
+  uint32_t checksum = (~((reg_addr & 0xff) + (reg_addr >> 8) + reg_data)) & 0xff;
+  bq76922_write_u16(i2c, 0x60, checksum | 5<<8);
+
+  //printf("[bq76] write_mem_u8: %02x = %02x [checksum: %02x]\n", reg_addr, reg_data, checksum);
+
+  uint8_t buf = 0;
+  bq76922_read_mem_u8(i2c, reg_addr, &buf);
+}
+
+int bq76922_read_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t* reg_data) {
+  bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
+  bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
+  sleep_ms(10);
+
+  *reg_data = bq76922_read_u16(i2c, 0x40);
+
+  int len = bq76922_read_byte(i2c, 0x61);
+  int checksum = bq76922_read_byte(i2c, 0x60);
+
+  //printf("[bq76] read_mem_u16: %02x = %04x [len: %d checksum: %02x]\n", reg_addr, *reg_data, len, checksum);
+
+  return 1;
+}
+
+void bq76922_write_mem_i16(i2c_inst_t* i2c, uint16_t reg_addr, int16_t reg_data) {
+  bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
+  bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
+  bq76922_write_byte(i2c, 0x40, reg_data & 0xff);
+  bq76922_write_byte(i2c, 0x41, reg_data >> 8);
+
+  // 5 = len
+  uint32_t checksum = (~((reg_addr & 0xff) + (reg_addr >> 8) + (reg_data & 0xff) + (reg_data >> 8))) & 0xff;
+  bq76922_write_u16(i2c, 0x60, checksum | 6<<8);
+
+  //printf("[bq76] write_mem_i16: %02x = %04x [checksum: %02x]\n", reg_addr, reg_data, checksum);
+
+  int16_t buf = 0;
+  bq76922_read_mem_u16(i2c, reg_addr, (uint16_t*)&buf);
+}
+
+void bq76922_write_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t reg_data) {
+  bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
+  bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
+  bq76922_write_byte(i2c, 0x40, reg_data & 0xff);
+  bq76922_write_byte(i2c, 0x41, reg_data >> 8);
+
+  // 5 = len
+  uint32_t checksum = (~((reg_addr & 0xff) + (reg_addr >> 8) + (reg_data & 0xff) + (reg_data >> 8))) & 0xff;
+  bq76922_write_u16(i2c, 0x60, checksum | 6<<8);
+
+  //printf("[bq76] write_mem_u16: %02x = %04x [checksum: %02x]\n", reg_addr, reg_data, checksum);
+
+  uint16_t buf = 0;
+  bq76922_read_mem_u16(i2c, reg_addr, &buf);
 }
 
 void monitor_setup(i2c_inst_t* i2c);
@@ -518,10 +743,68 @@ int monitor_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int l
   return 1;
 }
 
-int monitor_configure(i2c_inst_t* i2c) {
-  int id = 0;
-  if (i2c == i2c1) id = 1;
+void mon_all_fets_off(i2c_inst_t* i2c) {
+  printf("[bq76] turning all fets off...\n");
+  // ALL_FETS_OFF subcommand (0x0095)
+  bq76922_write_byte(i2c, 0x3e, 0x95);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
 
+void mon_discharge_fets_off(i2c_inst_t* i2c) {
+  printf("[bq76] turning discharge fets off...\n");
+  // CHG_PDSG_OFF subcommand (0x0094)
+  bq76922_write_byte(i2c, 0x3e, 0x93);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_charge_fets_off(i2c_inst_t* i2c) {
+  printf("[bq76] turning charge fets off...\n");
+  // CHG_PCHG_OFF subcommand (0x0094)
+  bq76922_write_byte(i2c, 0x3e, 0x94);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_all_fets_on(i2c_inst_t* i2c) {
+  //printf("[bq76] turning all fets on...\n");
+  // ALL_FETS_ON subcommand (0x0096)
+  bq76922_write_byte(i2c, 0x3e, 0x96);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_toggle_fet_en(i2c_inst_t* i2c) {
+  printf("[bq76] fet_en toggle...\n");
+  // FET_ENABLE subcommand (0x0022)
+  // toggles the FET_EN bit in Manufacturing Status
+  bq76922_write_byte(i2c, 0x3e, 0x22);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_fet_test(i2c_inst_t* i2c) {
+  printf("[bq76] fet test...\n");
+
+  bq76922_write_byte(i2c, 0x3e, 0x1c);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+  bq76922_write_byte(i2c, 0x3e, 0x1e);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+  bq76922_write_byte(i2c, 0x3e, 0x1f);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+  bq76922_write_byte(i2c, 0x3e, 0x20);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_sleep_off(i2c_inst_t* i2c) {
+  printf("[bq76] turning sleep off...\n");
+  bq76922_write_byte(i2c, 0x3e, 0x9a);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+void mon_sleep_on(i2c_inst_t* i2c) {
+  printf("[bq76] turning sleep on...\n");
+  bq76922_write_byte(i2c, 0x3e, 0x99);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+}
+
+int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   // subcommand: lo to 0x3e, hi to 0x3f
   // read 0x3e, 0x3f. if == 0xff, busy
   //                  if == written subcommand, done
@@ -531,6 +814,26 @@ int monitor_configure(i2c_inst_t* i2c) {
   // don't read checksum and length at the same time (auto-increment stuff)
 
   // later, we can write defaults to OTP memory
+
+  i2c_inst_t* i2c = pack->i2c;
+
+  int detected = bq76922_detect(i2c);
+
+  if (detected != 1) {
+    printf("[pack %d] not detected: %d\n", pack->id, detected);
+    // pack not connected
+    pack->cells_v[0] = 0;
+    pack->cells_v[1] = 0;
+    pack->cells_v[2] = 0;
+    pack->cells_v[3] = 0;
+    pack->undervolt = 0;
+    pack->overvolt = 0;
+    pack->active = false;
+    // TODO reset coulomb counter?
+    return 0;
+  } else {
+    pack->active = true;
+  }
 
   uint16_t cell1_mv_lo = bq76922_read_byte(i2c, 0x14);
   uint16_t cell1_mv_hi = bq76922_read_byte(i2c, 0x15);
@@ -562,26 +865,116 @@ int monitor_configure(i2c_inst_t* i2c) {
   float ld_mv = (int16_t)(ld_userv_lo|(ld_userv_hi<<8));
   float cc2_ma = -((int16_t)(cc2_usera_lo|(cc2_usera_hi<<8)));
 
-  if (id == 0) {
-    report_cells_v[0] = cell1_mv;
-    report_cells_v[1] = cell2_mv;
-    report_cells_v[2] = cell4_mv;
-    report_cells_v[3] = cell5_mv;
+  pack->cells_v[0] = cell1_mv;
+  pack->cells_v[1] = cell2_mv;
+  pack->cells_v[2] = cell4_mv;
+  pack->cells_v[3] = cell5_mv;
+
+  if (cell1_mv >= MV_FULL &&
+      cell2_mv >= MV_FULL &&
+      cell4_mv >= MV_FULL &&
+      cell5_mv >= MV_FULL) {
+    if (!pack->fully_charged) {
+      // arrived at top end. if we never fully discharged,
+      // we don't know the actual capacity. if the capacity
+      // seems unrealistically low, reset to default capacity
+      if (pack->coulomb_max < MAX_CAPACITY * 0.4) {
+        // FIXME experiment with these numbers
+        pack->coulomb_cur = MAX_CAPACITY * 0.9;
+        pack->coulomb_max = MAX_CAPACITY * 0.9;
+      }
+    }
+    pack->fully_charged = 1;
   } else {
-    report_cells_v[4] = cell1_mv;
-    report_cells_v[5] = cell2_mv;
-    report_cells_v[6] = cell4_mv;
-    report_cells_v[7] = cell5_mv;
+    if (cell1_mv <= (MV_FULL-MV_HYST) &&
+        cell2_mv <= (MV_FULL-MV_HYST) &&
+        cell4_mv <= (MV_FULL-MV_HYST) &&
+        cell5_mv <= (MV_FULL-MV_HYST)) {
+      pack->fully_charged = 0;
+    }
   }
 
-  if (pack_mv == 0) {
-    // pack not active
-    return 0;
+  if (cell1_mv >= MV_OVERVOLT ||
+      cell2_mv >= MV_OVERVOLT ||
+      cell4_mv >= MV_OVERVOLT ||
+      cell5_mv >= MV_OVERVOLT) {
+    pack->overvolt = 1;
+  } else {
+    if (cell1_mv <= (MV_OVERVOLT-MV_HYST) &&
+        cell2_mv <= (MV_OVERVOLT-MV_HYST) &&
+        cell4_mv <= (MV_OVERVOLT-MV_HYST) &&
+        cell5_mv <= (MV_OVERVOLT-MV_HYST)) {
+      pack->overvolt = 0;
+    }
   }
 
-  // TODO average pack 1 + 2
-  report_volts = stack_mv/100.0; // default unit is centivolts
-  report_current = cc2_ma/1000.0; // default unit is mA
+  if (cell1_mv <= MV_UNDERVOLT ||
+      cell2_mv <= MV_UNDERVOLT ||
+      cell4_mv <= MV_UNDERVOLT ||
+      cell5_mv <= MV_UNDERVOLT) {
+    pack->undervolt = 1;
+  } else {
+    if (cell1_mv >= (MV_UNDERVOLT+MV_HYST) &&
+        cell2_mv >= (MV_UNDERVOLT+MV_HYST) &&
+        cell4_mv >= (MV_UNDERVOLT+MV_HYST) &&
+        cell5_mv >= (MV_UNDERVOLT+MV_HYST)) {
+      pack->undervolt = 0;
+    }
+  }
+
+  if (pack->undervolt) {
+    printf("[bq76:%d] undervoltage, turning discharge off.\n", pack->id);
+    mon_discharge_fets_off(i2c);
+  } else if (pack->overvolt) {
+    printf("[bq76:%d] overvoltage, turning charge off.\n", pack->id);
+    mon_charge_fets_off(i2c);
+  } else {
+    mon_all_fets_on(i2c);
+  }
+
+  pack->volt = stack_mv/100.0; // default unit is centivolts
+  pack->ampere = cc2_ma/1000.0; // default unit is mA
+
+  // coulomb counting (gauge) -------------------
+
+  float coulomb = pack->ampere * (ms_elapsed / 1000.0);
+  //printf("~~ coloumb: %.2f ~~ elapsed: %f ms\n", coulomb, ms_elapsed);
+
+  if (ms_elapsed > 0) {
+    if (pack->undervolt) {
+      // if we've hit the low voltage end and coulomb_cur > 0,
+      // we've overestimated the capacity by coulomb_cur.
+      if (pack->coulomb_cur > 0) {
+        pack->coulomb_max -= pack->coulomb_cur;
+      }
+      pack->coulomb_cur = 0;
+    } else if (pack->overvolt) {
+      // FIXME how to count balancing current?
+      // - we could stop counting during balancing.
+      pack->coulomb_max = pack->coulomb_cur;
+    } else {
+      pack->coulomb_cur -= coulomb;
+    }
+
+    if (pack->coulomb_max > MAX_CAPACITY) {
+      pack->coulomb_max = MAX_CAPACITY;
+    }
+
+    if (pack->coulomb_cur > pack->coulomb_max) pack->coulomb_max = pack->coulomb_cur;
+    if (pack->coulomb_cur < 0) {
+      // there's more in the pack than expected, add to _max
+      pack->coulomb_max -= pack->coulomb_cur;
+      pack->coulomb_cur = 0;
+    }
+
+    if (pack->coulomb_max <= 0) {
+      pack->gauge_percent = 0;
+    } else {
+      pack->gauge_percent = (pack->coulomb_cur / pack->coulomb_max) * 100.0;
+    }
+  }
+
+  // --------------------------------------------
 
   uint8_t manufacturing_status = 0;
   monitor_read_subcommand(i2c, 0x57, &manufacturing_status, 1);
@@ -589,8 +982,6 @@ int monitor_configure(i2c_inst_t* i2c) {
     // FETs not enabled, setup the chip
     monitor_setup(i2c);
   }
-
-  // 0x0097: FET_CONTROL
 
   uint8_t control_status = bq76922_read_byte(i2c, 0x00);
   uint8_t safety_alert_a = bq76922_read_byte(i2c, 0x02);
@@ -606,125 +997,108 @@ int monitor_configure(i2c_inst_t* i2c) {
   uint16_t temp_int_hi = bq76922_read_byte(i2c, 0x69);
   uint16_t temp_ext_lo = bq76922_read_byte(i2c, 0x70);
   uint16_t temp_ext_hi = bq76922_read_byte(i2c, 0x71);
-  float temp_int_k = temp_int_lo|(temp_int_hi<<8);
-  float temp_ext_k = temp_ext_lo|(temp_ext_hi<<8);
+  pack->temp_int_k = temp_int_lo|(temp_int_hi<<8);
+  pack->temp_ext_k = temp_ext_lo|(temp_ext_hi<<8);
 
-  // balance above 3700mV
-  // also interesting: https://e2e.ti.com/support/power-management-group/power-management/f/power-management-forum/1245177/bq76942-cell-balancing-not-activating
-  //bq76922_write_byte(0x83, 16|8|0|2|1);
-  //bq76922_write_i16(0x84, 3700);
+  uint16_t bal_active_cells = 0;
+  uint16_t bal_status1 = 0;
 
-  uint8_t bal_active_cells[2] = {0,0};
-  uint8_t bal_status1[2] = {0,0};
+  bq76922_read_mem_u16(i2c, 0x0083, &bal_active_cells);
+  bq76922_read_mem_u16(i2c, 0x0085, &bal_status1);
 
-  monitor_read_subcommand(i2c, 0x83, bal_active_cells, 2);
-  monitor_read_subcommand(i2c, 0x85, bal_status1, 2);
+  if (pack_debug) {
+    printf("[bq76] c1 mV: %f\n", cell1_mv);
+    printf("[bq76] c2 mV: %f\n", cell2_mv);
+    //printf("[bq76] c3 mV: %f\n", cell3_mv);
+    printf("[bq76] c4 mV: %f\n", cell4_mv);
+    printf("[bq76] c5 mV: %f\n", cell5_mv);
+    printf("[bq76] stack V: %f\n", pack->volt); // FIXME ???
+    printf("[bq76] pack V: %f\n", pack_mv/100.0);
+    printf("[bq76] ld V: %f\n", ld_mv/100.0);
+    printf("[bq76] cc2 A: %f\n", pack->ampere);
+    printf("[bq76] control_status: %02x\n", control_status);
+    printf("[bq76] manufacturing_status: %02x\n", manufacturing_status);
+    printf("[bq76] `--     FET_EN: %d\n", !!(manufacturing_status & (1<<4)));
+    printf("[bq76] `--      PF_EN: %d\n", !!(manufacturing_status & (1<<6)));
+    /*printf("[bq76] `--   DSG_TEST: %d\n", !!(manufacturing_status & (1<<2)));
+      printf("[bq76] `--   CHG_TEST: %d\n", !!(manufacturing_status & (1<<1)));
+      printf("[bq76] `--  PCHG_TEST: %d\n", !!(manufacturing_status & (1<<0)));
+      printf("[bq76] `--  PDSG_TEST: %d\n", !!(manufacturing_status & (1<<5)));*/
+    printf("[bq76] battery_status: %04x\n", battery_status);
+    printf("[bq76] `--  SLEEP: %d\n", !!(battery_status & (1<<15)));
+    //printf("[bq76] `-- SD_CMD: %d\n", !!(battery_status & (1<<13)));
+    //printf("[bq76] `--     PF: %d\n", !!(battery_status & (1<<12)));
+    //printf("[bq76] `--     SS: %d\n", !!(battery_status & (1<<11)));
+    /*printf("[bq76] `--   FUSE: %d\n", !!(battery_status & (1<<10)));
+      printf("[bq76] `--   SEC1: %d\n", !!(battery_status & (1<<9)));
+      printf("[bq76] `--   SEC0: %d\n", !!(battery_status & (1<<8)));
+      printf("[bq76] `--   OTPB: %d\n", !!(battery_status & (1<<7)));
+      printf("[bq76] `--   OTPW: %d\n", !!(battery_status & (1<<6)));
+      printf("[bq76] `-- COWCHK: %d\n", !!(battery_status & (1<<5)));*/
+    printf("[bq76] `--     WD: %d\n", !!(battery_status & (1<<4)));
+    printf("[bq76] `--    POR: %d\n", !!(battery_status & (1<<3)));
+    printf("[bq76] `-- SLEEPE: %d\n", !!(battery_status & (1<<2)));
+    printf("[bq76] `-- PCHG_M: %d\n", !!(battery_status & (1<<1)));
+    //printf("[bq76] `-- CFGUPD: %d\n", !!(battery_status & (1<<0)));
+    printf("[bq76] fet_status: %02x\n", fet_status);
+    printf("[bq76] `-- ALRT: %d\n", !!(fet_status & (1<<6)));
+    printf("[bq76] `-- PDSG: %d\n", !!(fet_status & (1<<3)));
+    printf("[bq76] `--  DSG: %d\n", !!(fet_status & (1<<2)));
+    printf("[bq76] `-- PCHG: %d\n", !!(fet_status & (1<<1)));
+    printf("[bq76] `--  CHG: %d\n", !!(fet_status & (1<<0)));
+    /*printf("[bq76] safety_alert_a:  %02x\n", safety_alert_a);
+      printf("[bq76] safety_alert_b:  %02x\n", safety_alert_b);
+      printf("[bq76] safety_alert_c:  %02x\n", safety_alert_c);
+      printf("[bq76] safety_status_a: %02x\n", safety_status_a);
+      printf("[bq76] safety_status_b: %02x\n", safety_status_b);
+      printf("[bq76] safety_status_c: %02x\n", safety_status_c);*/
 
-  printf("\n---------------------------\n[bq76:%d] c1 mV: %f\n", id, cell1_mv);
-  printf("[bq76] c2 mV: %f\n", cell2_mv);
-  printf("[bq76] c3 mV: %f\n", cell3_mv);
-  printf("[bq76] c4 mV: %f\n", cell4_mv);
-  printf("[bq76] c5 mV: %f\n", cell5_mv);
-  printf("[bq76] stack V: %f\n", report_volts);
-  printf("[bq76] pack V: %f\n", pack_mv/100.0);
-  printf("[bq76] ld V: %f\n", ld_mv/100.0);
-  printf("[bq76] cc2 A: %f\n", report_current);
-  printf("[bq76:%d] control_status: %02x\n", id, control_status);
-  printf("[bq76:%d] manufacturing_status: %02x\n", id, manufacturing_status);
-  printf("[bq76] `--     FET_EN: %d\n", !!(manufacturing_status & (1<<4)));
-  printf("[bq76] `--      PF_EN: %d\n", !!(manufacturing_status & (1<<6)));
-  printf("[bq76] `--   DSG_TEST: %d\n", !!(manufacturing_status & (1<<2)));
-  printf("[bq76] `--   CHG_TEST: %d\n", !!(manufacturing_status & (1<<1)));
-  printf("[bq76] `--  PCHG_TEST: %d\n", !!(manufacturing_status & (1<<0)));
-  printf("[bq76] `--  PDSG_TEST: %d\n", !!(manufacturing_status & (1<<5)));
-  printf("[bq76:%d] battery_status: %04x\n", id, battery_status);
-  printf("[bq76] `--  SLEEP: %d\n", !!(battery_status & (1<<15)));
-  printf("[bq76] `-- SD_CMD: %d\n", !!(battery_status & (1<<13)));
-  printf("[bq76] `--     PF: %d\n", !!(battery_status & (1<<12)));
-  printf("[bq76] `--     SS: %d\n", !!(battery_status & (1<<11)));
-  printf("[bq76] `--   FUSE: %d\n", !!(battery_status & (1<<10)));
-  printf("[bq76] `--   SEC1: %d\n", !!(battery_status & (1<<9)));
-  printf("[bq76] `--   SEC0: %d\n", !!(battery_status & (1<<8)));
-  printf("[bq76] `--   OTPB: %d\n", !!(battery_status & (1<<7)));
-  printf("[bq76] `--   OTPW: %d\n", !!(battery_status & (1<<6)));
-  printf("[bq76] `-- COWCHK: %d\n", !!(battery_status & (1<<5)));
-  printf("[bq76] `--     WD: %d\n", !!(battery_status & (1<<4)));
-  printf("[bq76] `--    POR: %d\n", !!(battery_status & (1<<3)));
-  printf("[bq76] `-- SLEEPE: %d\n", !!(battery_status & (1<<2)));
-  printf("[bq76] `-- PCHG_M: %d\n", !!(battery_status & (1<<1)));
-  printf("[bq76] `-- CFGUPD: %d\n", !!(battery_status & (1<<0)));
-  printf("[bq76:%d] fet_status: %02x\n", id, fet_status);
-  printf("[bq76] `-- ALRT: %d\n", !!(fet_status & (1<<6)));
-  printf("[bq76] `-- PDSG: %d\n", !!(fet_status & (1<<3)));
-  printf("[bq76] `--  DSG: %d\n", !!(fet_status & (1<<2)));
-  printf("[bq76] `-- PCHG: %d\n", !!(fet_status & (1<<1)));
-  printf("[bq76] `--  CHG: %d\n", !!(fet_status & (1<<0)));
-  printf("[bq76] safety_alert_a:  %02x\n", safety_alert_a);
-  printf("[bq76] safety_alert_b:  %02x\n", safety_alert_b);
-  printf("[bq76] safety_alert_c:  %02x\n", safety_alert_c);
-  printf("[bq76] safety_status_a: %02x\n", safety_status_a);
-  printf("[bq76] safety_status_b: %02x\n", safety_status_b);
-  printf("[bq76] safety_status_c: %02x\n", safety_status_c);
+    // TODO double check calculation
+    printf("[bq76] temp_int: %f C\n", (pack->temp_int_k-273.15)/100.0);
+    printf("[bq76] temp_ext: %f C\n", (pack->temp_ext_k-273.15)/100.0);
 
-  // TODO double check calculation
-  printf("[bq76] temp_int: %f C\n", (temp_int_k-273.15)/100.0);
-  printf("[bq76] temp_ext: %f C\n", (temp_ext_k-273.15)/100.0);
+    printf("[bq76] bal_status1: %d sec\n", bal_status1);
+    printf("[bq76] bal_active_cells: %016b\n", bal_active_cells);
+  }
 
-  printf("[bq76] bal_active_cells: %02x,%02x\n", bal_active_cells[0],bal_active_cells[1]);
-  printf("[bq76] bal_status1: %d,%d sec\n", bal_status1[0], bal_status1[1]);
+  pack->bal_active_cells = bal_active_cells;
+
+  // balance all cells above threshold
+  bq76922_write_mem_u16(i2c, 0x0084, MV_BALANCE_ABOVE);
+  /*if (cell4_mv > 3400) {
+    bq76922_write_mem_u16(i2c, 0x0083, 8);
+  } else if (cell4_mv <= 3300) {
+    bq76922_write_mem_u16(i2c, 0x0083, 0);
+  }*/
+
+  if (pack_info) {
+    if (pack->id == 1) printf("\x1b[9F\x1b[44C");
+
+    printf("[PACK %d] ===================================\n", pack->id);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("cells: %.2fV %.2fV %.2fV %.2fV\n",
+           pack->cells_v[0],
+           pack->cells_v[1],
+           pack->cells_v[2],
+           pack->cells_v[3]);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("current: %.2fA voltage: %.2fV\n", pack->ampere, pack->volt);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("balancing: %016b\n", pack->bal_active_cells);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("coulomb_cur/max: %.2f / %.2f\n", pack->coulomb_cur, pack->coulomb_max);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("gauge_percent: %.2f\n", pack->gauge_percent);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("fully_charged: %d\n", pack->fully_charged);
+    if (pack->id == 1) printf("\x1b[44C");
+    printf("============================================\n\n");
+  }
 
   return 1;
 }
 
-void mon_all_fets_off(i2c_inst_t* i2c) {
-  printf("[bq76] turning all fets off...\n");
-  bq76922_write_byte(i2c, 0x3e, 0x95);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void mon_all_fets_on(i2c_inst_t* i2c) {
-  printf("[bq76] turning all fets on...\n");
-  bq76922_write_byte(i2c, 0x3e, 0x96);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void mon_toggle_fet_en(i2c_inst_t* i2c) {
-  printf("[bq76] fet_en toggle...\n");
-  bq76922_write_byte(i2c, 0x3e, 0x22);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void mon_fet_test(i2c_inst_t* i2c) {
-  printf("[bq76] fet test...\n");
-
-  bq76922_write_byte(i2c, 0x3e, 0x1c);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-  bq76922_write_byte(i2c, 0x3e, 0x1e);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-  bq76922_write_byte(i2c, 0x3e, 0x1f);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-  bq76922_write_byte(i2c, 0x3e, 0x20);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void mon_sleep_off(i2c_inst_t* i2c) {
-  printf("[bq76] turning sleep off...\n");
-  bq76922_write_byte(i2c, 0x3e, 0x9a);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void mon_sleep_on(i2c_inst_t* i2c) {
-  printf("[bq76] turning sleep on...\n");
-  bq76922_write_byte(i2c, 0x3e, 0x99);
-  bq76922_write_byte(i2c, 0x3f, 0x00);
-}
-
-void monitor_setup(i2c_inst_t* i2c) {
-  int id = 0;
-  if (i2c == i2c1) id = 1;
-
-  printf("[bq76:%d] monitor_setup begin\n", id);
-
+void monitor_config_update(i2c_inst_t* i2c) {
   // enter config update mode
   bq76922_write_byte(i2c, 0x3e, 0x90);
   bq76922_write_byte(i2c, 0x3f, 0x00);
@@ -739,40 +1113,69 @@ void monitor_setup(i2c_inst_t* i2c) {
     sleep_ms(10);
   }
 
-  if (cfgupd) {
-    // 4 cells, one missing in the middle
-    uint8_t vcell_mode = 16 | 8 | 0 | 2 | 1;
-    bq76922_set_reg(i2c, 0x9304, vcell_mode, 1);
-
-    // TODO: read back and check these values
-
-    // disable all FET protections :0
-    /*bq76922_set_reg(0x9265, 0, 1);
-      bq76922_set_reg(0x9266, 0, 1);
-      bq76922_set_reg(0x9267, 0, 1);
-      bq76922_set_reg(0x9269, 0, 1);
-      bq76922_set_reg(0x926a, 0, 1);
-      bq76922_set_reg(0x926b, 0, 1);*/
-
-    // FET options
-    bq76922_set_reg(i2c, 0x9308, (1<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0), 1);
-
-    // enable normal FET control in Mfg Status Init
-    // FIXME doesn't seem to work
-    bq76922_set_reg(i2c, 0x9343, (1<<6)|(1<<4), 2);
-
-    // enable balancing
-    // TODO: investigate
-    bq76922_set_reg(i2c, 0x9335, (0<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0), 1);
-
-    // exit config update mode
-    bq76922_write_byte(i2c, 0x3e, 0x92);
-    bq76922_write_byte(i2c, 0x3f, 0x00);
-
-    battery_status = bq76922_read_u16(i2c, 0x12);
-    printf("[bq76] `-- CFGUPD (expect 0): %d\n", !!(battery_status & (1<<0)));
+  if (!cfgupd) {
+    printf("[bq76] `-- failed to perform CFGUPD!\n");
+    return;
   }
 
+  // 4 cells, one missing in the middle
+  uint8_t vcell_mode = 16 | 8 | 0 | 2 | 1;
+  bq76922_write_mem_u8(i2c, 0x9304, vcell_mode);
+
+  // TODO: read back and check these values
+
+  // disable all FET protections :0
+  /*bq76922_set_reg(0x9265, 0, 1);
+    bq76922_set_reg(0x9266, 0, 1);
+    bq76922_set_reg(0x9267, 0, 1);
+    bq76922_set_reg(0x9269, 0, 1);
+    bq76922_set_reg(0x926a, 0, 1);
+    bq76922_set_reg(0x926b, 0, 1);*/
+
+  // FET options
+  // 0 = SFET (series fet mode)
+  // 1 = SLEEPCHG (chg fet may be enabled in sleep mode)
+  // 2 = HOST_FET_EN (host fet control is allowed)
+  // 3 = FET_CTRL_EN (fets are controlled by the device)
+  // 4 = PDSG_EN (pdsg fet is enabled)
+  // 5 = FET_INIT_OFF (default state allows fets to be on)
+  bq76922_write_mem_u8(i2c, 0x9308, (1<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0));
+
+  // enable normal FET control in Mfg Status Init
+  // FIXME doesn't seem to work
+  // 4 = FET_EN (normal fet control is enabled, test mode disabled)
+  // 6 = PF_EN (permanent failure checks are enabled)
+  // 7 = OPTW_EN (OTP writable, we don't enable this)
+  bq76922_write_mem_u16(i2c, 0x9343, (1<<6)|(1<<4));
+
+  // enable balancing
+  // Cell Balancing Config / Balancing Configuration
+  bq76922_write_mem_u8(i2c, 0x9335, (0<<4)|(1<<3)|(1<<2)|(1<<1)|(1<<0));
+
+  // cell balance interval in seconds
+  bq76922_write_mem_u8(i2c, 0x9339, 10);
+  // cell balance max cells
+  bq76922_write_mem_u8(i2c, 0x933a, 2);
+  // cell balance min cell v (charge)
+  bq76922_write_mem_i16(i2c, 0x933b, 3300);
+  // cell balance min cell v (relax)
+  bq76922_write_mem_i16(i2c, 0x933f, 3300);
+
+  // exit config update mode
+  bq76922_write_byte(i2c, 0x3e, 0x92);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+
+  battery_status = bq76922_read_u16(i2c, 0x12);
+  printf("[bq76] `-- CFGUPD (expect 0): %d\n", !!(battery_status & (1<<0)));
+}
+
+void monitor_setup(i2c_inst_t* i2c) {
+  int id = 0;
+  if (i2c == i2c1) id = 1;
+
+  printf("[bq76:%d] monitor_setup begin\n", id);
+
+  monitor_config_update(i2c);
   mon_sleep_off(i2c);
   mon_toggle_fet_en(i2c);
 
@@ -784,21 +1187,15 @@ void init_spi_client();
 void turn_som_power_on() {
   init_spi_client();
 
-  // latch
-  gpio_put(PIN_PWREN_LATCH, 1);
-
   gpio_put(PIN_LED_B, 1);
 
   set_boot_magic();
 
   printf("# [action] turn_som_power_on\n");
-  gpio_put(PIN_5V_ENABLE, 1);
-  sleep_ms(10);
-  gpio_put(PIN_3V3_ENABLE, 1);
-  sleep_ms(10);
 
-  // done with latching
-  gpio_put(PIN_PWREN_LATCH, 0);
+  gpio_ext_enable(GPIO_EXT_3V3_EN);
+  sleep_ms(10);
+  gpio_ext_enable(GPIO_EXT_5V_EN);
 
   som_is_powered = true;
 }
@@ -806,21 +1203,14 @@ void turn_som_power_on() {
 void turn_som_power_off() {
   init_spi_client();
 
-  // latch
-  gpio_put(PIN_PWREN_LATCH, 1);
-
   gpio_put(PIN_LED_B, 0);
 
   clear_boot_magic();
 
   printf("# [action] turn_som_power_off\n");
 
-  gpio_put(PIN_5V_ENABLE, 0);
-  sleep_ms(10);
-  gpio_put(PIN_3V3_ENABLE, 0);
-
-  // done with latching
-  gpio_put(PIN_PWREN_LATCH, 0);
+  gpio_ext_disable(GPIO_EXT_5V_EN);
+  gpio_ext_disable(GPIO_EXT_3V3_EN);
 
   som_is_powered = false;
 }
@@ -961,28 +1351,47 @@ void handle_commands(char chr) {
       }
       else if (remote_cmd == 'c') {
         // get status of cells, current, voltage, fuel gauge
-        int mA = (int)(report_current*1000.0);
+        int mA = (int)(packs[0].ampere*1000.0 + packs[1].ampere*1000.0);
+        float gauge_percent = 0.0;
+        float mV = 0.0;
+        float num_packs = 0;
+        // FIXME DUPLICATION
+        if (packs[0].active) {
+          gauge_percent += packs[0].gauge_percent;
+          mV += packs[0].volt * 1000.0;
+          num_packs++;
+        }
+        if (packs[1].active) {
+          gauge_percent += packs[1].gauge_percent;
+          mV += packs[1].volt * 1000.0;
+          num_packs++;
+        }
+        if (num_packs >= 2) {
+          gauge_percent /= num_packs;
+          mV /= num_packs;
+        }
+
         char mA_sign = ' ';
         if (mA<0) {
           mA = -mA;
           mA_sign = '-';
         }
-        int mV = (int)(report_volts*1000.0);
         sprintf(uart_buffer,"%02d %02d %02d %02d %02d %02d %02d %02d mA%c%04dmV%05d %3d%% P%d\r\n",
-                (int)(report_cells_v[0]/100),
-                (int)(report_cells_v[1]/100),
-                (int)(report_cells_v[2]/100),
-                (int)(report_cells_v[3]/100),
-                (int)(report_cells_v[4]/100),
-                (int)(report_cells_v[5]/100),
-                (int)(report_cells_v[6]/100),
-                (int)(report_cells_v[7]/100),
+                (int)(packs[0].cells_v[0]/100),
+                (int)(packs[0].cells_v[1]/100),
+                (int)(packs[0].cells_v[2]/100),
+                (int)(packs[0].cells_v[3]/100),
+                (int)(packs[1].cells_v[0]/100),
+                (int)(packs[1].cells_v[1]/100),
+                (int)(packs[1].cells_v[2]/100),
+                (int)(packs[1].cells_v[3]/100),
                 mA_sign,
                 mA,
-                mV,
-                report_capacity_percentage,
+                (int)mV,
+                (int)gauge_percent,
                 som_is_powered?1:0);
 
+        //printf("[uart] %s", uart_buffer);
         uart_puts(UART_ID, uart_buffer);
       }
       else if (remote_cmd == 'S') {
@@ -1013,6 +1422,8 @@ void handle_commands(char chr) {
     }
   }
 }
+
+// TODO: SPI can hang rp2350?
 
 #define SPI_BUF_LEN 0x8
 uint8_t spi_buf[SPI_BUF_LEN];
@@ -1054,7 +1465,7 @@ void handle_spi_commands() {
     return;
   }
 
-  //printf("# [spi] rx (len = %d): %02x %02x %02x %02x %02x %02x %02x %02x\n", len, spi_buf[0], spi_buf[1], spi_buf[2], spi_buf[3], spi_buf[4], spi_buf[5], spi_buf[6], spi_buf[7]);
+  printf("# [spi] rx (len = %d): %02x %02x %02x %02x %02x %02x %02x %02x\n", len, spi_buf[0], spi_buf[1], spi_buf[2], spi_buf[3], spi_buf[4], spi_buf[5], spi_buf[6], spi_buf[7]);
 
   // states:
   // 0   arg1 byte expected
@@ -1135,9 +1546,29 @@ void handle_spi_commands() {
   }
   // execute status query command
   else if (spi_command == 'q') {
-    uint8_t percentage = (uint8_t)report_capacity_percentage;
-    int16_t voltsInt = (int16_t)(report_volts*1000.0);
-    int16_t currentInt = (int16_t)(report_current*1000.0);
+    float gauge_percent = 0.0;
+    float mV = 0.0;
+    int mA = (int)(packs[0].ampere*1000.0 + packs[1].ampere*1000.0);
+    int num_packs = 0;
+    // FIXME DUPLICATION
+    if (packs[0].active) {
+      gauge_percent += packs[0].gauge_percent;
+      mV += packs[0].volt * 1000.0;
+      num_packs++;
+    }
+    if (packs[1].active) {
+      gauge_percent += packs[1].gauge_percent;
+      mV += packs[1].volt * 1000.0;
+      num_packs++;
+    }
+    if (num_packs >= 2) {
+      gauge_percent /= num_packs;
+      mV /= num_packs;
+    }
+
+    uint8_t percentage = (uint8_t)gauge_percent;
+    int16_t voltsInt = (int16_t)(mV*1000.0);
+    int16_t currentInt = (int16_t)(mA*1000.0);
 
     spi_buf[0] = (uint8_t)voltsInt;
     spi_buf[1] = (uint8_t)(voltsInt >> 8);
@@ -1150,26 +1581,27 @@ void handle_spi_commands() {
   // get cell voltage
   else if (spi_command == 'v') {
     uint16_t volts = 0;
-    uint8_t cell1 = 0;
+    uint8_t id = 0;
 
     if (spi_arg1 == 1) {
-      cell1 = 4;
+      id = 1;
     }
 
     for (uint8_t c = 0; c < 4; c++) {
-      volts = report_cells_v[c + cell1];
+      volts = packs[id].cells_v[c];
       spi_buf[c*2] = (uint8_t)volts;
       spi_buf[(c*2)+1] = (uint8_t)(volts >> 8);
     }
   }
   // get calculated capacity
   else if (spi_command == 'c') {
-    uint16_t cap_accu = (uint16_t) report_capacity_max_ampsecs / 3.6;
-    uint16_t cap_min = (uint16_t) report_capacity_min_ampsecs / 3.6;
-    uint16_t cap_max = (uint16_t) report_capacity_max_ampsecs / 3.6;
+    // TODO
+    uint16_t cap_cur = (uint16_t)((packs[0].coulomb_cur + packs[1].coulomb_cur) / 3.6);
+    uint16_t cap_min = (uint16_t)0; // deprecated
+    uint16_t cap_max = (uint16_t)((packs[0].coulomb_max + packs[1].coulomb_max) / 3.6);
 
-    spi_buf[0] = (uint8_t)cap_accu;
-    spi_buf[1] = (uint8_t)(cap_accu >> 8);
+    spi_buf[0] = (uint8_t)cap_cur;
+    spi_buf[1] = (uint8_t)(cap_cur >> 8);
     spi_buf[2] = (uint8_t)cap_min;
     spi_buf[3] = (uint8_t)(cap_min >> 8);
     spi_buf[4] = (uint8_t)cap_max;
@@ -1206,7 +1638,8 @@ int main() {
   stdio_init_all();
   init_spi_client();
 
-  printf("# [reset] cause: %#.8x\n", vreg_and_chip_reset_hw->chip_reset);
+  // FIXME: gone with rp2350
+  //printf("# [reset] cause: %#.8x\n", vreg_and_chip_reset_hw->chip_reset);
   printf("# [reset] magic: %#.8x%.8x\n",
          watchdog_hw->scratch[2], watchdog_hw->scratch[3]);
 
@@ -1232,12 +1665,16 @@ int main() {
   gpio_set_function(PIN_SCL0, GPIO_FUNC_I2C);
   bi_decl(bi_2pins_with_func(PIN_SDA0, PIN_SCL0, GPIO_FUNC_I2C));
   i2c_init(i2c0, 100 * 1000);
+  packs[0].id = 0;
+  packs[0].i2c = i2c0;
 
   // I2C1
   gpio_set_function(PIN_SDA1, GPIO_FUNC_I2C);
   gpio_set_function(PIN_SCL1, GPIO_FUNC_I2C);
   bi_decl(bi_2pins_with_func(PIN_SDA1, PIN_SCL1, GPIO_FUNC_I2C));
   i2c_init(i2c1, 100 * 1000);
+  packs[1].id = 1;
+  packs[1].i2c = i2c1;
 
   gpio_init(PIN_LED_R);
   gpio_init(PIN_LED_G);
@@ -1246,28 +1683,19 @@ int main() {
   gpio_set_dir(PIN_LED_G, 1);
   gpio_set_dir(PIN_LED_B, 1);
 
-  gpio_init(PIN_3V3_ENABLE);
-  gpio_init(PIN_5V_ENABLE);
-  gpio_set_dir(PIN_3V3_ENABLE, 1);
-  gpio_set_dir(PIN_5V_ENABLE, 1);
-  gpio_put(PIN_3V3_ENABLE, 0);
-  gpio_put(PIN_5V_ENABLE, 0);
-
-  gpio_init(PIN_PWREN_LATCH);
-  gpio_set_dir(PIN_PWREN_LATCH, 1);
-  gpio_put(PIN_PWREN_LATCH, 0);
-
-  gpio_init(PIN_CHRG_CE);
-  gpio_put(PIN_CHRG_CE, 0);
-
   gpio_put(PIN_LED_R, 0);
   gpio_put(PIN_LED_G, 0);
   gpio_put(PIN_LED_B, 0);
 
-  // FIXME this is now on gpio extender
+  // FIXME this is now on (usb-c) gpio extender
   //gpio_init(PIN_USB_SRC_ENABLE);
   //gpio_set_dir(PIN_USB_SRC_ENABLE, 1);
   //gpio_put(PIN_USB_SRC_ENABLE, 0);
+
+  // motherboard external GPIOS
+  gpio_ext_setup();
+
+  charger_configure();
 
   // if this is a warm boot, then we need to avoid latching the PWR and display
   // pins.
@@ -1275,13 +1703,12 @@ int main() {
       printf("# [reset] watchdog scratch had valid on magic, not latching power.\n");
       som_is_powered = true;
   } else {
-      gpio_put(PIN_PWREN_LATCH, 1);
-      gpio_put(PIN_PWREN_LATCH, 0);
+    // FIXME
   }
 
-  unsigned int t = 0;
-  unsigned int t_report = 0;
-
+  uint32_t t = 0;
+  uint32_t ms_before = to_ms_since_boot(get_absolute_time());
+  uint32_t ms_elapsed = 0;
   int state = 0;
   int request_sent = 0;
   uint8_t rxdata[2];
@@ -1292,6 +1719,7 @@ int main() {
 
   int power_objects = 0;
   int max_voltage = 0;
+  int input_mv = 0;
 
   sleep_ms(1000);
 
@@ -1322,9 +1750,6 @@ int main() {
       else if (usb_c == '0') {
         turn_som_power_off();
       }
-      else if (usb_c == 'p') {
-        print_pack_info = !print_pack_info;
-      }
       else if (usb_c == 'i') {
         i2c_scan(i2c0);
       }
@@ -1354,6 +1779,19 @@ int main() {
       }
       else if (usb_c == 'F') {
         mon_toggle_fet_en(i2c1);
+      }
+      else if (usb_c == 'c') {
+        monitor_config_update(i2c0);
+      }
+      else if (usb_c == 'C') {
+        monitor_config_update(i2c1);
+      }
+      else if (usb_c == 'd') {
+        charger_debug = !charger_debug;
+        pack_debug = !pack_debug;
+      }
+      else if (usb_c == 'p') {
+        pack_info = !pack_info;
       }
     }
 #endif
@@ -1467,7 +1905,7 @@ int main() {
             if ((pdo & PD_PDO_TYPE) == PD_PDO_TYPE_FIXED) {
               int voltage = print_src_fixed_pdo(i+1, pdo);
               // FIXME voltage
-              if (voltage > max_voltage && voltage <= 12) {
+              if (voltage > max_voltage && voltage <= 20) {
                 power_objects = i+1;
                 max_voltage = voltage;
               }
@@ -1485,6 +1923,7 @@ int main() {
           request_sent = 0;
           t = 0;
           state = 3;
+          printf("# [pd] state 3.\n");
         } else {
           printf("# [pd] state 1, msg type: 0x%x numobj: %d\n", msgtype, numobj);
         }
@@ -1500,7 +1939,7 @@ int main() {
       tx.hdr &= ~PD_HDR_MESSAGEID;
       tx.hdr |= (tx_id_count % 8) << PD_HDR_MESSAGEID_SHIFT;
 
-      int current = 100;
+      int current = 300; // = 3000 mA
 
       tx.obj[0] = PD_RDO_FV_MAX_CURRENT_SET(current)
         | PD_RDO_FV_CURRENT_SET(current)
@@ -1524,11 +1963,9 @@ int main() {
 
       // running
       if (t>200) {
-        printf("# [pd] state 3.\n");
 
-        int input_mv = charger_configure();
-
-        if (input_mv < 5100) {
+        // FIXME
+        if (input_mv > 4000 && input_mv < 5100) {
           printf("# [pd] input voltage below threshold, renegotiate.\n");
           state = 0;
         }
@@ -1539,13 +1976,18 @@ int main() {
 
     sleep_ms(10);
     t++;
-    t_report++;
 
-    if (t_report > 200) {
-      monitor_configure(i2c0);
-      monitor_configure(i2c1);
+    uint32_t ms_now = to_ms_since_boot(get_absolute_time());
+    ms_elapsed += ms_now - ms_before;
+    ms_before = ms_now;
+
+    if (ms_elapsed >= 1000) {
+      //printf("\033[2J"); // clear screen
       charger_configure();
-      t_report = 0;
+      pack_configure(&packs[0], (float)ms_elapsed);
+      pack_configure(&packs[1], (float)ms_elapsed);
+      input_mv = charger_status();
+      ms_elapsed = 0;
     }
   }
 

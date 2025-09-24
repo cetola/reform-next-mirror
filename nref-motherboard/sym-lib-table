@@ -1,0 +1,7 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "BQ25756RRVR")(type "KiCad")(uri "${KIPRJMOD}/lib/BQ25756RRVR.kicad_sym")(options "")(descr ""))
+  (lib (name "Si52111-B5")(type "KiCad")(uri "${KIPRJMOD}/lib/Si52111-B5.kicad_sym")(options "")(descr ""))
+  (lib (name "10102166A812A")(type "KiCad")(uri "${KIPRJMOD}/lib/10102166A812A.kicad_sym")(options "")(descr ""))
+  (lib (name "MCU_RaspberryPi_RP2350")(type "KiCad")(uri "${KIPRJMOD}/lib/MCU_RaspberryPi_RP2350.kicad_sym")(options "")(descr ""))
+)
