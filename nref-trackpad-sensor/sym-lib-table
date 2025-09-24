@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Trackpad_IQS9150")(type "KiCad")(uri "${KIPRJMOD}/Trackpad_IQS9150.kicad_sym")(options "")(descr ""))
+)
