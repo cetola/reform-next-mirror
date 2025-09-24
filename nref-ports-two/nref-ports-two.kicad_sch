@@ -9338,6 +9338,16 @@
 		)
 		(uuid "cb0248f2-bc2d-4622-839a-9ea3dd978507")
 	)
+	(text "TODO: experimentally fitted 10k\nto boost to 1.2V"
+		(exclude_from_sim no)
+		(at 304.8 163.83 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ccd12af6-4e7e-4145-9f1f-1883358e99a2")
+	)
 	(text "1A"
 		(exclude_from_sim no)
 		(at 270.51 217.17 0)

@@ -4215,6 +4215,16 @@
 		)
 		(uuid "44769c91-4d9b-4b07-ad5c-0e41fe97e8aa")
 	)
+	(text "TODO: error: DN/DP flipped!"
+		(exclude_from_sim no)
+		(at 39.37 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "55e8d4cb-c069-47d5-ad4f-7633303b81bc")
+	)
 	(text "=3.3V"
 		(exclude_from_sim no)
 		(at 116.84 208.28 0)
@@ -6148,7 +6158,7 @@
 		)
 	)
 	(global_label "R_USB_RXN"
-		(shape input)
+		(shape output)
 		(at 318.77 82.55 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6346,7 +6356,7 @@
 		)
 	)
 	(global_label "R_USB_RXP"
-		(shape input)
+		(shape output)
 		(at 318.77 85.09 0)
 		(fields_autoplaced yes)
 		(effects
