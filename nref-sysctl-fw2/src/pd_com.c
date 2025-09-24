@@ -108,7 +108,7 @@ inline void pd_set_fusb_switches1() {
 
 unsigned int pd_last_state = -1;
 
-#define LOW_CURRENT_MA 500
+#define LOW_CURRENT_MA 100
 
 bool pd_tick(battery_info_s* battery_info) {
   if (pd_state != pd_last_state) {
@@ -362,6 +362,10 @@ bool pd_tick(battery_info_s* battery_info) {
                 int voltage = PD_PDV_V(PD_PDO_SRC_FIXED_VOLTAGE_GET(pdo));
                 // PD reports power in 10mA steps
                 int current = PD_PDO_SRC_FIXED_CURRENT_GET(pdo);
+
+                // FIXME voltage changed from 20V
+                // due to charge current issues
+
                 if (voltage > max_voltage && voltage <= 20 && current >= 10) {
                   power_objects = i+1;
                   max_voltage = voltage;

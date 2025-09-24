@@ -13,6 +13,8 @@ void bq25792_write_word_signed(uint8_t addr, int16_t word);
 void charger_init();
 void charger_configure();
 void charger_set_input_current(int ma);
+void charger_set_charge_current(int ma);
 int charger_status(struct BatteryPack* packs);
+void bq25792_set_debug(int debug);
 
 #endif

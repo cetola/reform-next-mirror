@@ -25,6 +25,7 @@ void mon_discharge_fets_off(i2c_inst_t* i2c);
 void mon_charge_fets_off(i2c_inst_t* i2c);
 void mon_all_fets_on(i2c_inst_t* i2c);
 void mon_toggle_fet_en(i2c_inst_t* i2c);
+void mon_toggle_pf_en(i2c_inst_t* i2c);
 void mon_fet_test(i2c_inst_t* i2c);
 void mon_sleep_off(i2c_inst_t* i2c);
 void mon_sleep_on(i2c_inst_t* i2c);

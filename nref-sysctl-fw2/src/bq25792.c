@@ -10,7 +10,13 @@
 
 // FIXME
 static int pack_debug = 0;
-static int charger_current_ma = 500;
+static int charger_charge_current_ma = 100;
+static int charger_input_current_ma = 500;
+
+void bq25792_set_debug(int debug)
+{
+  pack_debug = debug;
+}
 
 uint8_t bq25792_read_byte(uint8_t addr)
 {
@@ -77,6 +83,8 @@ void bq25792_write_word_signed(uint8_t addr, int16_t word)
 void charger_configure() {
   // see https://www.ti.com/lit/ds/symlink/bq25792.pdf
 
+  //printf("[charger_configure] ~~~~~~~~~~~~~~~~~~\n");
+
   // TODO:
   // - [x] REG00_Minimal_System_Voltage
   // - [x] REG01_Charge_Voltage_Limit range: 3000mV - 18800mV. 16 bit reg
@@ -90,68 +98,94 @@ void charger_configure() {
   // - [x] REG0F_Charger_Control_0 (some interesting stuff here like ICO)
   // - [x] REG14_Charger_Control_5 -> EN_IBAT (bit 5)
 
-  // VREG = charge voltage
-
-  bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
-  bq25792_write_word(0x01, 14800 / 10); // charge voltage (conservative), VREG
-  //bq25792_write_word(0x03, 3000 / 10); // charge current
-  //bq25792_write_word(0x06, 3000 / 10); // input current, defaults to 3A @ reset (60W)
-
-  // ADC control: 0x2e (default: 0x30)
-  bq25792_write_byte(0x2e, (1<<7) | (0b00 << 4) ); // enable ADC at 15 bit (7=ADC_EN, 5:4=ADC_SAMPLE)
-
-  // default IOTG setting (3000mA)
-  bq25792_write_byte(0x0d, 0b01001011);
-
-  // charger_control_2
-  // bit6: AUTO_INDET_EN (default on, D+/D- detection)
-  bq25792_write_byte(0x11, 0b00000000);
-
-  // charger_control_5
-  // disable EXTILIM
-  // enable IBAT discharge current sensing
-  bq25792_write_byte(0x14, 0b00111100);
+  charger_init();
 }
 
 void charger_init()
 {
   // reset all registers
 
-  charger_current_ma = 500;
+  //printf("[charger_init] ~~~~~~~~~~~~~~~~~~\n");
 
   // turn off charging until PD allows it
-  bq25792_write_byte(0x0f, 0b00000000);
+  // bit 7 = EN_AUTO_IBATDIS
+  //bq25792_write_byte(0x0f, 0b10000000);
 
   // see https://www.ti.com/lit/ds/symlink/bq25792.pdf
   // VREG = charge voltage
-  bq25792_write_word(0x01, 14800 / 10); // charge voltage (conservative), VREG
+  bq25792_write_word(0x01, 14600 / 10); // charge voltage (conservative), VREG
 
-  bq25792_write_byte(0x00, (10000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
+  //bq25792_write_byte(0x00, (12000 - 2500) / 250); // 10.0V vsysmin, 250mV step, 2500mV offset
+  bq25792_write_byte(0x00, 0b00); // 2.5V vsysmin
 
-  bq25792_write_word(0x03, 500 / 10); // charge current
-  bq25792_write_word(0x06, 3000 / 10); // input current, defaults to 3A @ reset (60W)
+  bq25792_write_word(0x03, charger_charge_current_ma / 10); // charge current
+  bq25792_write_word(0x06, charger_input_current_ma / 10); // input current, defaults to 3A @ reset (60W)
 
   // ADC control: 0x2e (default: 0x30)
   bq25792_write_byte(0x2e, (1<<7) | (0b00 << 4) ); // enable ADC at 15 bit (7=ADC_EN, 5:4=ADC_SAMPLE)
 
+  // lets try one shot
+  //bq25792_write_byte(0x2e, (1<<7) | (1<<6) | (0b10 << 4) ); // enable ADC at 15 bit (7=ADC_EN, 5:4=ADC_SAMPLE)
+
   // default IOTG setting (3000mA)
-  bq25792_write_byte(0x0d, 0b01001011);
+  //bq25792_write_byte(0x0d, 0b01001011);
 
   // charger_control_2
   // bit6: AUTO_INDET_EN (default on, D+/D- detection)
   bq25792_write_byte(0x11, 0b00000000);
 
+  // charger_control_3
+  // bit0: disable "out of audio" in forward mode
+  // bit4: disable PFM in forward mode
+  // bit7: disable ACDRV
+  // bit2: disable batfet LDO
+  bq25792_write_byte(0x12, 0b10000100);
+
+  // charger_control_4
+  // disable ACDRV
+  // bit 2: disable OTG uvp
+  // bit 0: enable IBUS_OCP
+  // bit 5: PWM @ 750kHz
+  bq25792_write_byte(0x13, 0b00100001);
+
   // charger_control_5
   // disable EXTILIM
-  // enable IBAT discharge current sensing
-  bq25792_write_byte(0x14, 0b00111100);
+  // bit 2: enable IINDPM
+  // bit 3+4: OTG regulation: 5A
+  // bit 5: enable IBAT discharge current sensing
+  // disable BAT OCP
+  //bq25792_write_byte(0x14, 0b00111100);
+  bq25792_write_byte(0x14, 0b00110100);
+
+  // FIXME: without IINDPM, we immediately get BAT_OVP+BUS_OVP with no battery
+
+  // VOTG test
+  //bq25792_write_byte(0x0b, 0);
+  //bq25792_write_byte(0x0c, 0);
+
+  // dpdm driver test
+  //bq25792_write_byte(0x47, 0);
+}
+
+// current in mA
+void charger_set_charge_current(int ma) {
+  if (ma < 0) ma = 0;
+  if (ma > 2000) ma = 2000;
+  printf("# [charger] setting charge current limit %d mA\n", ma);
+  charger_charge_current_ma = ma;
+  bq25792_write_word(0x03, charger_charge_current_ma / 10);
 }
 
 // current in mA
 void charger_set_input_current(int ma) {
+  if (ma < 1000) ma = 1000;
+  if (ma > 4000) ma = 4000;
   printf("# [charger] setting input current limit %d mA\n", ma);
-  charger_current_ma = ma;
+  charger_input_current_ma = ma;
+  charger_set_charge_current(ma/2); // FIXME
+  bq25792_write_word(0x06, charger_input_current_ma / 10);
 }
+
 
 // returns VBUS measurement
 int charger_status(struct BatteryPack* packs) {
@@ -175,30 +209,33 @@ int charger_status(struct BatteryPack* packs) {
   // bit3: FORCE_ICO
   // bit2: EN_HIZ
   // bit1: EN_TERM
-  if ((packs[0].overvolt && packs[1].overvolt) || (packs[0].fully_charged && packs[1].fully_charged)) {
+
+  bool charging_allowed = false;
+  if (packs[0].active && packs[1].active) {
+    if (!packs[0].overvolt && !packs[1].overvolt && !(packs[0].fully_charged && packs[1].fully_charged)) {
+      charging_allowed = true;
+    }
+  } else if (packs[0].active && !packs[0].overvolt && !packs[0].fully_charged) {
+    charging_allowed = true;
+  } else if (packs[1].active && !packs[1].overvolt && !packs[1].fully_charged) {
+    charging_allowed = true;
+  }
+
+  if (!packs[0].active && !packs[1].active) {
+    // disable charging
+    // FIXME: we can't get discharged packs online like this
+    printf("# [bq25] disable/trickle charging (no packs connected).\n");
+    bq25792_write_byte(0x0f, 0b10000000);
+    disable_led(PIN_LED_R);
+  } else if (!charging_allowed) {
     // disable charging
     printf("# [bq25] disable charging (overvoltage/fully charged).\n");
-    bq25792_write_byte(0x0f, 0b00000000);
-    disable_led(PIN_LED_R);
-  } else if (!packs[0].active && !packs[1].active) {
-    // disable charging
-    // FIXME: can we still get discharged packs online?
-    printf("# [bq25] disable charging (no packs connected).\n");
-    bq25792_write_byte(0x0f, 0b00000000);
+    bq25792_write_byte(0x0f, 0b10000000);
     disable_led(PIN_LED_R);
   } else {
     // enable charging
-    //if (pack_debug) {
     printf("# [bq25] enable charging.\n");
-    //}
-    // FIXME how to derive charge current correctly?
-    int bat_charge_current = 500;
-    if (charger_current_ma >= 3000) {
-      bat_charge_current = 1500;
-    }
-    bq25792_write_word(0x03, bat_charge_current / 10); // charge current
-    bq25792_write_word(0x06, charger_current_ma / 10); // input current, defaults to 3A @ reset (60W)
-    bq25792_write_byte(0x0f, 0b00100000);
+    bq25792_write_byte(0x0f, 0b10100000);
     enable_led(PIN_LED_R);
   }
 
@@ -211,6 +248,8 @@ int charger_status(struct BatteryPack* packs) {
   uint8_t fault_status_1 = bq25792_read_byte(0x21);
   //uint8_t recharge_ctl = bq25792_read_byte(0x0a);
   //uint8_t cell_count = (recharge_ctl >> 6) && 0b11;
+  uint8_t fault_flag_0 = bq25792_read_byte(0x26);
+  uint8_t fault_flag_1 = bq25792_read_byte(0x27);
 
   int16_t ibus_adc = bq25792_read_word_signed(0x31); // 1mA resolution
   int16_t ibat_adc = bq25792_read_word_signed(0x33); // 1mA resolution
@@ -229,7 +268,7 @@ int charger_status(struct BatteryPack* packs) {
     //report_current = ibus_adc/1000.0;
   //}
 
-  if (0 || pack_debug) {
+  if (pack_debug) {
     printf("[bq25] charger_status_0: %08b\n", charger_status_0);
     if (charger_status_0 & 0b1) printf("[bq25] `-- VBUS present\n");
     if (charger_status_0 & 0b10) printf("[bq25] `-- VAC1 present\n");
@@ -241,17 +280,34 @@ int charger_status(struct BatteryPack* packs) {
     if (charger_status_0 & 0b1000000) printf("[bq25] `-- VINDPM/VOTG\n");
     if (charger_status_0 & 0b10000000) printf("[bq25] `-- IINDPM/IOTG\n");
     printf("[bq25] charger_status_1: %08b\n", charger_status_1);
-    /*if ((charger_status_1 & 0b11100000)>>5 == 0) printf("[bq25] `-- not charging\n");
+    if ((charger_status_1 & 0b11100000)>>5 == 0) printf("[bq25] `-- not charging\n");
     if ((charger_status_1 & 0b11100000)>>5 == 1) printf("[bq25] `-- trickle charge\n");
     if ((charger_status_1 & 0b11100000)>>5 == 2) printf("[bq25] `-- pre-charge\n");
     if ((charger_status_1 & 0b11100000)>>5 == 3) printf("[bq25] `-- fast charge CC\n");
     if ((charger_status_1 & 0b11100000)>>5 == 4) printf("[bq25] `-- taper charge CV\n");
     if ((charger_status_1 & 0b11100000)>>5 == 5) printf("[bq25] `-- reserved\n");
     if ((charger_status_1 & 0b11100000)>>5 == 6) printf("[bq25] `-- top-off timer\n");
-    if ((charger_status_1 & 0b11100000)>>5 == 7) printf("[bq25] `-- termination done\n");*/
+    if ((charger_status_1 & 0b11100000)>>5 == 7) printf("[bq25] `-- termination done\n");
+
+    if ((charger_status_1 & 0b11110)>>1 == 0) printf("[bq25] `-- no input or bhot/bcold in otg\n");
+    if ((charger_status_1 & 0b11110)>>1 == 1) printf("[bq25] `-- USB SDP\n");
+    if ((charger_status_1 & 0b11110)>>1 == 2) printf("[bq25] `-- USB DCP\n");
+    if ((charger_status_1 & 0b11110)>>1 == 3) printf("[bq25] `-- no input or bhot/bcold in otg\n");
+    if ((charger_status_1 & 0b11110)>>1 == 4) printf("[bq25] `-- HVDCP\n");
+    if ((charger_status_1 & 0b11110)>>1 == 5) printf("[bq25] `-- unknown adapter (3A)\n");
+    if ((charger_status_1 & 0b11110)>>1 == 6) printf("[bq25] `-- non-standard adapter\n");
+    if ((charger_status_1 & 0b11110)>>1 == 7) printf("[bq25] `-- OTG mode\n");
+    if ((charger_status_1 & 0b11110)>>1 == 8) printf("[bq25] `-- not qualified adapter\n");
+    if ((charger_status_1 & 0b11110)>>1 == 0xb) printf("[bq25] `-- directly powered from VBUS\n");
+
     printf("[bq25] charger_status_2: %08b\n", charger_status_2);
+    if (charger_status_2 & 0b1) printf("[bq25] `-- VBAT present\n");
     printf("[bq25] charger_status_3: %08b\n", charger_status_3);
+    if (charger_status_3 & 0b100000) printf("[bq25] `-- ADC done\n");
+    if ((charger_status_3 & 0b100000) == 0) printf("[bq25] `-- ADC not done\n");
+    if (charger_status_3 & 0b10000) printf("[bq25] `-- VBAT < VSYSmin\n");
     printf("[bq25] charger_status_4: %08b\n", charger_status_4);
+    if (charger_status_4 & 0b10000) printf("[bq25] `-- VBAT too low for OTG\n");
 
     printf("[bq25] fault_status_0  : %08b\n", fault_status_0);
     if (fault_status_0 & 0b1) printf("[bq25] `-- VAC1 over-voltage\n");
@@ -269,12 +325,15 @@ int charger_status(struct BatteryPack* packs) {
     if (fault_status_1 & 0b100000) printf("[bq25] `-- OTG over-voltage\n");
     if (fault_status_1 & 0b1000000) printf("[bq25] `-- VSYS over-voltage\n");
     if (fault_status_1 & 0b10000000) printf("[bq25] `-- VSYS short circuit\n");
+
+    printf("[bq25] fault_flag_0  : %08b\n", fault_flag_0);
+    printf("[bq25] fault_flag_1  : %08b\n", fault_flag_1);
   }
 
   uint16_t vreg = bq25792_read_word(0x01)*10; // 10mV resolution
   uint16_t ichg = bq25792_read_word(0x03)*10; // 10mA resolution
 
-  printf("[bq25] charger_status_2: %08b\n", charger_status_2);
+  //printf("[bq25] charger_status_2: %08b\n", charger_status_2);
 
   printf("[bq25] ICHG: %d mA\n", ichg);
   printf("[bq25] VREG: %d mV\n", vreg);

@@ -212,6 +212,8 @@ void setup()
   charger_init();
 }
 
+static int charge_ma = 500;
+
 void handle_usb_commands()
 {
   int usb_c = getchar_timeout_us(0);
@@ -236,6 +238,38 @@ void handle_usb_commands()
     else if (usb_c == 'I') {
       i2c_scan(i2c1);
     }
+    else if (usb_c == 'd') {
+      battery_info.packs[0].debug = 1;
+      battery_info.packs[1].debug = 1;
+      bq25792_set_debug(1);
+    }
+    else if (usb_c == 'D') {
+      battery_info.packs[0].debug = 0;
+      battery_info.packs[1].debug = 0;
+      bq25792_set_debug(0);
+    }
+    else if (usb_c == 'u') {
+      pd_init();
+    }
+    else if (usb_c == 'c') {
+      monitor_setup(i2c0);
+    }
+    else if (usb_c == 'f') {
+      mon_fet_test(i2c0);
+    }
+    else if (usb_c == 'F') {
+      mon_toggle_fet_en(i2c0);
+    }
+    else if (usb_c == '+') {
+      charge_ma += 100;
+      if (charge_ma > 2000) charge_ma = 2000;
+      charger_set_charge_current(charge_ma); // charge current
+    }
+    else if (usb_c == '-') {
+      charge_ma -= 100;
+      if (charge_ma < 50) charge_ma = 50;
+      charger_set_charge_current(charge_ma);
+    }
   }
 }
 
@@ -247,7 +281,7 @@ void usb_host_5v_disable() {
   // TODO
 }
 
-#define BATTERY_TIMER_MS 1000
+#define BATTERY_TIMER_MS 2000
 
 int64_t battery_task(__unused alarm_id_t id, __unused void *user_data) {
   pack_configure(&battery_info.packs[0], (float)BATTERY_TIMER_MS);
@@ -288,10 +322,10 @@ void loop()
 
   battery_info.ticks++;
 
-  // every 1000ms: report to serial
-  if (battery_info.ticks % 1000 == 0)
+  // every 5000ms: report to serial
+  if (battery_info.ticks % 5000 == 0)
   {
-    printf("1000 ticks...\n");
+    printf("5000 ticks...\n");
   }
 
   if (can_sleep) {

@@ -26,7 +26,7 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
 
   i2c_inst_t* i2c = pack->i2c;
 
-  printf("[pack %d] detecting...\n", pack->id);
+  //printf("[pack %d] detecting...\n", pack->id);
   int detected = bq76922_detect(i2c);
 
   if (detected != 1) {
@@ -45,7 +45,10 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
     pack->active = true;
   }
 
-  printf("[pack %d] reading...\n", pack->id);
+  // FIXME
+  mon_sleep_off(i2c);
+
+  //printf("[pack %d] reading...\n", pack->id);
   uint16_t cell1_mv_lo = bq76922_read_byte(i2c, 0x14);
   uint16_t cell1_mv_hi = bq76922_read_byte(i2c, 0x15);
   uint16_t cell2_mv_lo = bq76922_read_byte(i2c, 0x16);
@@ -140,7 +143,6 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
     printf("[bq76:%d] overvoltage, turning charge off.\n", pack->id);
     mon_charge_fets_off(i2c);
   } else {
-    printf("[pack %d] all_fets_on...\n", pack->id);
     mon_all_fets_on(i2c);
   }
 
@@ -188,7 +190,7 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
 
   // --------------------------------------------
 
-  printf("[pack %d] monitor_read_subcommand...\n", pack->id);
+  //printf("[pack %d] monitor_read_subcommand...\n", pack->id);
 
   uint8_t manufacturing_status = 0;
   monitor_read_subcommand(i2c, 0x57, &manufacturing_status, 1);
@@ -198,13 +200,13 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   }
 
   uint8_t control_status = bq76922_read_byte(i2c, 0x00);
-  /*uint8_t safety_alert_a = bq76922_read_byte(i2c, 0x02);
+  uint8_t safety_alert_a = bq76922_read_byte(i2c, 0x02);
   uint8_t safety_status_a = bq76922_read_byte(i2c, 0x03);
   uint8_t safety_alert_b = bq76922_read_byte(i2c, 0x04);
   uint8_t safety_status_b = bq76922_read_byte(i2c, 0x05);
   uint8_t safety_alert_c = bq76922_read_byte(i2c, 0x06);
   uint8_t safety_status_c = bq76922_read_byte(i2c, 0x07);
-  uint8_t alarm_status = bq76922_read_byte(i2c, 0x62);*/
+  //uint8_t alarm_status = bq76922_read_byte(i2c, 0x62);
   uint16_t battery_status = bq76922_read_u16(i2c, 0x12);
   uint8_t fet_status = bq76922_read_byte(i2c, 0x7f);
   uint16_t temp_int_lo = bq76922_read_byte(i2c, 0x68);
@@ -260,12 +262,12 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
     printf("[bq76] `--  DSG: %d\n", !!(fet_status & (1<<2)));
     printf("[bq76] `-- PCHG: %d\n", !!(fet_status & (1<<1)));
     printf("[bq76] `--  CHG: %d\n", !!(fet_status & (1<<0)));
-    /*printf("[bq76] safety_alert_a:  %02x\n", safety_alert_a);
-      printf("[bq76] safety_alert_b:  %02x\n", safety_alert_b);
-      printf("[bq76] safety_alert_c:  %02x\n", safety_alert_c);
-      printf("[bq76] safety_status_a: %02x\n", safety_status_a);
-      printf("[bq76] safety_status_b: %02x\n", safety_status_b);
-      printf("[bq76] safety_status_c: %02x\n", safety_status_c);*/
+    printf("[bq76] safety_alert_a:  %02x\n", safety_alert_a);
+    printf("[bq76] safety_alert_b:  %02x\n", safety_alert_b);
+    printf("[bq76] safety_alert_c:  %02x\n", safety_alert_c);
+    printf("[bq76] safety_status_a: %02x\n", safety_status_a);
+    printf("[bq76] safety_status_b: %02x\n", safety_status_b);
+    printf("[bq76] safety_status_c: %02x\n", safety_status_c);
 
     // TODO double check calculation
     printf("[bq76] temp_int: %f C\n", (pack->temp_int_k-273.15)/100.0);
@@ -302,6 +304,12 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
 }
 
 void monitor_config_update(i2c_inst_t* i2c) {
+
+  // reset first
+  bq76922_write_byte(i2c, 0x3e, 0x12);
+  bq76922_write_byte(i2c, 0x3f, 0x00);
+  sleep_ms(100);
+
   // enter config update mode
   bq76922_write_byte(i2c, 0x3e, 0x90);
   bq76922_write_byte(i2c, 0x3f, 0x00);
@@ -325,15 +333,61 @@ void monitor_config_update(i2c_inst_t* i2c) {
   uint8_t vcell_mode = 16 | 8 | 0 | 2 | 1;
   bq76922_write_mem_u8(i2c, 0x9304, vcell_mode);
 
+  // CC gain (Rsense resistor config)
+  // Rsense = 15mOhms
+  float ccgain = 7.5684 / 15.0;
+  // manual says 7.4768 in another place
+  uint8_t* ccgain_bytes = (uint8_t*)&ccgain;
+  bq76922_write_mem_u8(i2c, 0x91a8, ccgain_bytes[0]);
+  bq76922_write_mem_u8(i2c, 0x91a9, ccgain_bytes[1]);
+  bq76922_write_mem_u8(i2c, 0x91aa, ccgain_bytes[2]);
+  bq76922_write_mem_u8(i2c, 0x91ab, ccgain_bytes[3]);
+
+  float cap_gain = ccgain * 298261.6178;
+  uint8_t* cap_bytes = (uint8_t*)&cap_gain;
+  bq76922_write_mem_u8(i2c, 0x91ac, cap_bytes[0]);
+  bq76922_write_mem_u8(i2c, 0x91ad, cap_bytes[1]);
+  bq76922_write_mem_u8(i2c, 0x91ae, cap_bytes[2]);
+  bq76922_write_mem_u8(i2c, 0x91af, cap_bytes[3]);
+
+  // OCC threshold based on sense resistor
+  bq76922_write_mem_u8(i2c, 0x9280, 2*15);
+  // OCD1 threshold based on sense resistor
+  bq76922_write_mem_u8(i2c, 0x9282, 4*15);
+  // OCD2 threshold based on sense resistor
+  bq76922_write_mem_u8(i2c, 0x9284, 3*15);
+  // SCD threshold based on sense resistor
+  bq76922_write_mem_u8(i2c, 0x9286, 15); // 150mV (max is 15 = 500mV)
+
+  // turn off TS1 thermistor (FIXME)
+  bq76922_write_mem_u8(i2c, 0x92fd, 0);
+
   // TODO: read back and check these values
 
+  // set CUV (undervolt threshold)
+  bq76922_write_mem_u8(i2c, 0x91d4, 2400/50.6);
+  // overvoltage threshold
+  bq76922_write_mem_u8(i2c, 0x91d6, 4200/50.6);
+
+  // configure protections (A)
+  // 7 = SCD
+  // 6 = OCD2
+  // 5 = OCD1
+  // 4 = OCC
+  // 3 = COV
+  // 2 = CUV
+  bq76922_write_mem_u8(i2c, 0x925f, (1<<3)|(1<<2));
+
+  // TODO: protections B, internal overtemp etc
+  // TODO: Shutdown Stack Voltage
+
   // disable all FET protections :0
-  /*bq76922_set_reg(0x9265, 0, 1);
-    bq76922_set_reg(0x9266, 0, 1);
-    bq76922_set_reg(0x9267, 0, 1);
-    bq76922_set_reg(0x9269, 0, 1);
-    bq76922_set_reg(0x926a, 0, 1);
-    bq76922_set_reg(0x926b, 0, 1);*/
+  /*bq76922_write_mem_u8(i2c, 0x9265, 0);
+  bq76922_write_mem_u8(i2c, 0x9266, 0);
+  bq76922_write_mem_u8(i2c, 0x9267, 0);
+  bq76922_write_mem_u8(i2c, 0x9269, 0);
+  bq76922_write_mem_u8(i2c, 0x926a, 0);
+  bq76922_write_mem_u8(i2c, 0x926b, 0);*/
 
   // FET options
   // 0 = SFET (series fet mode)
@@ -349,7 +403,7 @@ void monitor_config_update(i2c_inst_t* i2c) {
   // 4 = FET_EN (normal fet control is enabled, test mode disabled)
   // 6 = PF_EN (permanent failure checks are enabled)
   // 7 = OPTW_EN (OTP writable, we don't enable this)
-  bq76922_write_mem_u16(i2c, 0x9343, (1<<6)|(1<<4));
+  bq76922_write_mem_u16(i2c, 0x9343, (0<<6)|(1<<4));
 
   // enable balancing
   // Cell Balancing Config / Balancing Configuration
