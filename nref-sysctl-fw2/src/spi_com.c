@@ -107,8 +107,8 @@ void handle_spi_commands(battery_info_s *battery_info)
     }
 
     uint8_t percentage = (uint8_t)gauge_percent;
-    int16_t voltsInt = (int16_t)(mV/1000.0);
-    int16_t currentInt = (int16_t)(mA/1000.0);
+    int16_t voltsInt = (int16_t)mV;
+    int16_t currentInt = (int16_t)mA;
 
     spi_buf[0] = (uint8_t)voltsInt;
     spi_buf[1] = (uint8_t)(voltsInt >> 8);
