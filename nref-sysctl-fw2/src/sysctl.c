@@ -71,6 +71,7 @@ void turn_som_power_on() {
   set_boot_magic();
 
   gpio_ext_enable(GPIO_EXT_3V3_EN);
+  // TODO: required?
   sleep_ms(10);
   gpio_ext_enable(GPIO_EXT_5V_EN);
 
@@ -341,10 +342,9 @@ int main()
 {
   setup();
 
-  sleep_ms(1000);
+  sleep_ms(500);
   printf("# [next_sysctl] sleep before main loop\n");
-  sleep_ms(1000);
-
+  
   ALARM_IRQ = timer_hardware_alarm_get_irq_num(timer_hw, 2);
 
   // call SPI task every 5ms to ensure response time

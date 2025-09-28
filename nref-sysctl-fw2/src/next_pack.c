@@ -304,12 +304,10 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
 }
 
 void monitor_config_update(i2c_inst_t* i2c) {
-
   // reset first
   bq76922_write_byte(i2c, 0x3e, 0x12);
   bq76922_write_byte(i2c, 0x3f, 0x00);
-  sleep_ms(100);
-
+  busy_wait_us(100*1000);
   // enter config update mode
   bq76922_write_byte(i2c, 0x3e, 0x90);
   bq76922_write_byte(i2c, 0x3f, 0x00);
@@ -321,7 +319,7 @@ void monitor_config_update(i2c_inst_t* i2c) {
     cfgupd = !!(battery_status & (1<<0));
     printf("[bq76] `-- CFGUPD (expect 1) (try %d): %d\n", i, cfgupd);
     if (cfgupd) break;
-    sleep_ms(10);
+    busy_wait_us(10*1000);
   }
 
   if (!cfgupd) {
