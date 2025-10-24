@@ -13173,6 +13173,16 @@
 		)
 		(uuid "5e4dd3a5-e93d-48d3-b281-bce797fa6376")
 	)
+	(text "TODO: replace with HD3SS460"
+		(exclude_from_sim no)
+		(at 74.93 209.55 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "60125c9e-b364-4fb2-8a83-234c1b919dad")
+	)
 	(text "Sleeve"
 		(exclude_from_sim no)
 		(at 160.02 463.55 0)
@@ -29820,7 +29830,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf?ts=1718344395887"
 			(at 83.82 251.46 0)
 			(effects
 				(font
