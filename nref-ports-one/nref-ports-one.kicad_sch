@@ -13245,6 +13245,16 @@
 		)
 		(uuid "78678bd9-ecfb-4860-861c-a40bdfddc8f0")
 	)
+	(text "TODO: smaller chip"
+		(exclude_from_sim no)
+		(at 331.47 165.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "825a0359-ef25-43d4-af6d-8ab8e73ff948")
+	)
 	(text "Headset jack CTIA"
 		(exclude_from_sim no)
 		(at 167.64 459.74 0)
