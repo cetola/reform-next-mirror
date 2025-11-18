@@ -15005,6 +15005,16 @@
 		)
 		(uuid "91fd83df-e1da-46b9-b4d2-0bfe6860b6bb")
 	)
+	(text "TODO: move all the way up on board"
+		(exclude_from_sim no)
+		(at 207.01 497.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "93facca4-61cb-48bf-ac36-b2d53c1083f7")
+	)
 	(text "Power Interface\n(not flipped)"
 		(exclude_from_sim no)
 		(at 360.68 427.99 0)
