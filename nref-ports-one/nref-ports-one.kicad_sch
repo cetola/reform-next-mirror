@@ -14857,6 +14857,16 @@
 		)
 		(uuid "37924df8-425f-45ff-852b-15e15b175c30")
 	)
+	(text "TODO: possibly 0R"
+		(exclude_from_sim no)
+		(at 212.0566 171.437 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "45227847-8969-46be-b394-ac0b97d696b1")
+	)
 	(text "1.25mm pitch\nMolex Picoblade"
 		(exclude_from_sim no)
 		(at 187.96 524.51 0)
@@ -15113,7 +15123,7 @@
 	)
 	(text "USB 3 Redriver"
 		(exclude_from_sim no)
-		(at 179.705 154.305 0)
+		(at 178.435 144.145 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -16319,6 +16329,16 @@
 	)
 	(wire
 		(pts
+			(xy 194.31 266.7) (xy 194.31 270.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0520c9f0-4a62-4c66-b08b-321821a0bcc4")
+	)
+	(wire
+		(pts
 			(xy 52.07 375.92) (xy 52.07 382.27)
 		)
 		(stroke
@@ -17069,6 +17089,16 @@
 	)
 	(wire
 		(pts
+			(xy 191.77 173.99) (xy 191.77 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "236a62ab-c5da-495c-8f97-b0f6dd42736c")
+	)
+	(wire
+		(pts
 			(xy 52.07 90.17) (xy 85.09 90.17)
 		)
 		(stroke
@@ -17189,7 +17219,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 229.87) (xy 189.23 246.38)
+			(xy 180.34 243.84) (xy 180.34 246.38)
 		)
 		(stroke
 			(width 0)
@@ -17959,6 +17989,16 @@
 	)
 	(wire
 		(pts
+			(xy 191.77 229.87) (xy 191.77 254)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4535cf5b-06c7-4dab-a483-661add5b4173")
+	)
+	(wire
+		(pts
 			(xy 361.95 454.66) (xy 367.03 454.66)
 		)
 		(stroke
@@ -18529,7 +18569,7 @@
 	)
 	(wire
 		(pts
-			(xy 196.85 229.87) (xy 196.85 242.57)
+			(xy 203.2 243.84) (xy 203.2 246.38)
 		)
 		(stroke
 			(width 0)
@@ -20649,6 +20689,16 @@
 	)
 	(wire
 		(pts
+			(xy 194.31 229.87) (xy 194.31 261.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae025aa7-39bc-438d-a82a-929e590a413e")
+	)
+	(wire
+		(pts
 			(xy 322.58 387.35) (xy 322.58 391.16)
 		)
 		(stroke
@@ -20896,6 +20946,16 @@
 			(type default)
 		)
 		(uuid "b7e1ffff-9dcb-4502-a6cf-1f59e3c5f5b4")
+	)
+	(wire
+		(pts
+			(xy 189.23 161.29) (xy 189.23 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b89cbf2f-a6d5-4652-9a47-c2f717028d78")
 	)
 	(wire
 		(pts
@@ -21209,6 +21269,16 @@
 	)
 	(wire
 		(pts
+			(xy 191.77 161.29) (xy 191.77 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c59d5cbf-3624-4c39-8999-fcc4e35999a6")
+	)
+	(wire
+		(pts
 			(xy 232.41 321.31) (xy 232.41 325.12)
 		)
 		(stroke
@@ -21276,6 +21346,16 @@
 			(type default)
 		)
 		(uuid "c765e583-8476-4795-8984-457d53a60490")
+	)
+	(wire
+		(pts
+			(xy 203.2 243.84) (xy 196.85 243.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c7795a7c-7d52-4254-bd77-98a15cfcfc09")
 	)
 	(wire
 		(pts
@@ -21639,6 +21719,16 @@
 	)
 	(wire
 		(pts
+			(xy 196.85 243.84) (xy 196.85 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d5aac1f9-86b1-4ecf-886a-4cb4daa07528")
+	)
+	(wire
+		(pts
 			(xy 121.92 190.5) (xy 133.35 190.5)
 		)
 		(stroke
@@ -21726,6 +21816,16 @@
 			(type default)
 		)
 		(uuid "da5cfbf2-3b82-4203-aca6-c1d919279104")
+	)
+	(wire
+		(pts
+			(xy 189.23 170.18) (xy 189.23 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da7d0ff3-928d-44c5-af40-c1f66e3ead77")
 	)
 	(wire
 		(pts
@@ -22149,6 +22249,16 @@
 	)
 	(wire
 		(pts
+			(xy 189.23 243.84) (xy 189.23 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee910aea-cf99-489f-8529-3aab7759454a")
+	)
+	(wire
+		(pts
 			(xy 53.975 544.83) (xy 59.055 544.83)
 		)
 		(stroke
@@ -22166,6 +22276,16 @@
 			(type default)
 		)
 		(uuid "ef0d173d-f0b2-43ac-a9bd-f346586c2f7a")
+	)
+	(wire
+		(pts
+			(xy 180.34 243.84) (xy 189.23 243.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "efadb234-955b-4ca1-9aa2-51c8d5b8f3ed")
 	)
 	(wire
 		(pts
@@ -22519,6 +22639,16 @@
 	)
 	(wire
 		(pts
+			(xy 191.77 259.08) (xy 191.77 270.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fca66bc8-2255-4a54-9ea3-fd2cc0595853")
+	)
+	(wire
+		(pts
 			(xy 111.76 483.87) (xy 111.76 505.46)
 		)
 		(stroke
@@ -22617,6 +22747,36 @@
 		)
 		(uuid "1ce22dcd-21b2-40bd-985a-ffcea3c1b843")
 	)
+	(label "SDAOP"
+		(at 191.77 243.84 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "25379ed1-dc7f-48fc-941b-111201bee9b9")
+	)
+	(label "SDAON"
+		(at 194.31 243.84 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2f920dd9-9273-4a05-a391-bff9100c8fea")
+	)
+	(label "SDBON"
+		(at 189.23 180.34 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "64d2ca77-2a63-483c-85e5-787e843ebbaf")
+	)
 	(label "USB_B_AC_TXN"
 		(at 123.19 95.25 0)
 		(effects
@@ -22636,6 +22796,16 @@
 			(justify left bottom)
 		)
 		(uuid "72ab95f0-55b6-4a54-9cb0-0198afebaf7a")
+	)
+	(label "SDBOP"
+		(at 191.77 180.34 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8674f83d-96f7-496f-882c-c39567ceae62")
 	)
 	(label "USB_A_AC_TXN"
 		(at 123.19 110.49 0)
@@ -23151,7 +23321,7 @@
 	)
 	(global_label "USB1_RXP"
 		(shape output)
-		(at 191.77 229.87 270)
+		(at 191.77 270.51 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23161,7 +23331,7 @@
 		)
 		(uuid "1f8951a3-761e-4273-86bd-ac8202ff6ec7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 191.77 242.5918 90)
+			(at 191.77 283.2318 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23195,7 +23365,7 @@
 	)
 	(global_label "USB1_RE_TXN"
 		(shape output)
-		(at 189.23 184.15 90)
+		(at 189.23 161.29 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23205,7 +23375,7 @@
 		)
 		(uuid "248d49e2-9bdc-4c0a-96ca-cea3b41a005e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 189.23 168.2835 90)
+			(at 189.23 145.4235 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23809,7 +23979,7 @@
 	)
 	(global_label "USB1_RE_TXP"
 		(shape output)
-		(at 191.77 184.15 90)
+		(at 191.77 161.29 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23819,7 +23989,7 @@
 		)
 		(uuid "44916920-1029-4f58-b38e-673b71ce2a89")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 191.77 168.344 90)
+			(at 191.77 145.484 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25209,7 +25379,7 @@
 	)
 	(global_label "USB1_RXN"
 		(shape output)
-		(at 194.31 229.87 270)
+		(at 194.31 270.51 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -25219,7 +25389,7 @@
 		)
 		(uuid "ba23fefe-ba19-4803-97ff-b922daaeb462")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 194.31 242.6523 90)
+			(at 194.31 283.2923 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26655,7 +26825,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C138002"
+		(property "LCSC" "C25105"
 			(at 162.56 137.795 0)
 			(effects
 				(font
@@ -27084,7 +27254,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C278795"
+		(property "LCSC" "C160408"
 			(at 356.87 447.04 0)
 			(effects
 				(font
@@ -27329,7 +27499,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C114762"
+		(property "LCSC" "C25879"
 			(at 64.77 297.18 0)
 			(effects
 				(font
@@ -27550,7 +27720,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C86295"
+		(property "LCSC" "C29277"
 			(at 138.43 487.68 0)
 			(effects
 				(font
@@ -27740,7 +27910,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 189.23 246.38 180)
+		(at 180.34 246.38 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -27749,7 +27919,7 @@
 		(fields_autoplaced yes)
 		(uuid "10b7abaa-d68d-4167-bc0a-e5f8ad95414f")
 		(property "Reference" "TP4"
-			(at 191.77 248.4119 0)
+			(at 182.88 248.4119 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27758,7 +27928,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 191.77 250.9519 0)
+			(at 182.88 250.9519 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27767,7 +27937,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 184.15 246.38 0)
+			(at 175.26 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27776,7 +27946,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 184.15 246.38 0)
+			(at 175.26 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27785,7 +27955,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 189.23 246.38 0)
+			(at 180.34 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28496,7 +28666,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C60490"
+		(property "LCSC" "C25744"
 			(at 289.56 218.44 0)
 			(effects
 				(font
@@ -28592,7 +28762,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 227.33 251.46 0)
 			(effects
 				(font
@@ -28669,7 +28839,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 147.32 67.31 0)
 			(effects
 				(font
@@ -29106,7 +29276,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 266.7 302.26 0)
 			(effects
 				(font
@@ -29563,7 +29733,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "LCSC" "C52923"
 			(at 215.9 257.81 0)
 			(effects
 				(font
@@ -29707,7 +29877,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C114762"
+		(property "LCSC" "C25879"
 			(at 139.7 535.94 0)
 			(effects
 				(font
@@ -29803,7 +29973,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C60491"
+		(property "LCSC" "C25741"
 			(at 81.28 510.54 0)
 			(effects
 				(font
@@ -29917,7 +30087,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "LCSC" "C52923"
 			(at 254 252.73 0)
 			(effects
 				(font
@@ -30423,7 +30593,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 196.85 242.57 180)
+		(at 203.2 246.38 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -30432,7 +30602,7 @@
 		(fields_autoplaced yes)
 		(uuid "373ed797-1c4a-45d6-a48a-7fbb499990bb")
 		(property "Reference" "TP5"
-			(at 199.39 244.6019 0)
+			(at 205.74 248.4119 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30441,7 +30611,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 199.39 247.1419 0)
+			(at 205.74 250.9519 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30450,7 +30620,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 191.77 242.57 0)
+			(at 198.12 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30459,7 +30629,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 191.77 242.57 0)
+			(at 198.12 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30468,7 +30638,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 196.85 242.57 0)
+			(at 203.2 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30657,7 +30827,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 232.41 302.26 0)
 			(effects
 				(font
@@ -30849,7 +31019,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14709"
+		(property "LCSC" "C76891"
 			(at 138.43 449.58 0)
 			(effects
 				(font
@@ -32025,7 +32195,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C60491"
+		(property "LCSC" "C25741"
 			(at 95.25 374.65 0)
 			(effects
 				(font
@@ -32206,7 +32376,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 168.91 180.34 0)
 			(effects
 				(font
@@ -32386,6 +32556,102 @@
 			(project "nref-ports-one"
 				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
 					(reference "U13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 191.77 171.45 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4caa5ddf-591a-4c4a-81e4-6c35bd59f396")
+		(property "Reference" "C56"
+			(at 194.1068 170.2816 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 194.1068 172.593 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 191.77 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 191.77 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 191.77 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 191.77 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
+			(at 191.77 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 191.77 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4f700ec0-23b8-4bd8-924d-ec4d70bc1c16")
+		)
+		(pin "2"
+			(uuid "606d09e5-74f1-4e7e-987c-0491380956bc")
+		)
+		(instances
+			(project "nref-ports-one"
+				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
+					(reference "C56")
 					(unit 1)
 				)
 			)
@@ -32730,7 +32996,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C60490"
+		(property "LCSC" "C25744"
 			(at 40.64 369.57 0)
 			(effects
 				(font
@@ -32824,7 +33090,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 88.9 195.58 0)
 			(effects
 				(font
@@ -33195,7 +33461,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "LCSC" "C52923"
 			(at 322.58 393.7 0)
 			(effects
 				(font
@@ -33422,7 +33688,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C138002"
+		(property "LCSC" "C25105"
 			(at 63.5 525.78 0)
 			(effects
 				(font
@@ -34320,7 +34586,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 121.92 185.42 0)
 			(effects
 				(font
@@ -34529,7 +34795,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C106235"
+		(property "LCSC" "C11702"
 			(at 148.59 298.45 0)
 			(effects
 				(font
@@ -34625,7 +34891,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C106235"
+		(property "LCSC" "C11702"
 			(at 162.56 298.45 0)
 			(effects
 				(font
@@ -34979,7 +35245,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14709"
+		(property "LCSC" "C76891"
 			(at 163.83 212.09 0)
 			(effects
 				(font
@@ -35122,7 +35388,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 74.93 556.26 0)
 			(effects
 				(font
@@ -35559,7 +35825,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C138002"
+		(property "LCSC" "C25105"
 			(at 53.34 528.32 0)
 			(effects
 				(font
@@ -35636,7 +35902,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C138002"
+		(property "LCSC" "C25105"
 			(at 154.305 135.255 0)
 			(effects
 				(font
@@ -36219,6 +36485,102 @@
 			(project "nref-ports-one"
 				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
 					(reference "#PWR064")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 189.23 167.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "834d8e80-519c-47cd-8862-ab3cd6b43722")
+		(property "Reference" "C57"
+			(at 181.4068 166.4716 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 181.4068 168.783 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 189.23 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 189.23 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 189.23 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 189.23 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
+			(at 189.23 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 189.23 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ab0a6033-436f-41ea-b413-b884a33a1e06")
+		)
+		(pin "2"
+			(uuid "14643fd9-f340-40c5-98ad-a5f2f6ee90c3")
+		)
+		(instances
+			(project "nref-ports-one"
+				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
+					(reference "C57")
 					(unit 1)
 				)
 			)
@@ -36865,7 +37227,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14709"
+		(property "LCSC" "C76891"
 			(at 106.68 430.53 0)
 			(effects
 				(font
@@ -37216,7 +37578,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C138002"
+		(property "LCSC" "C25105"
 			(at 80.01 535.94 0)
 			(effects
 				(font
@@ -37636,7 +37998,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14709"
+		(property "LCSC" "C76891"
 			(at 101.6 430.53 0)
 			(effects
 				(font
@@ -38103,7 +38465,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 133.35 185.42 0)
 			(effects
 				(font
@@ -38283,7 +38645,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "LCSC" "C52923"
 			(at 144.78 222.25 0)
 			(effects
 				(font
@@ -38360,7 +38722,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 140.97 69.85 0)
 			(effects
 				(font
@@ -38650,7 +39012,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "LCSC" "C52923"
 			(at 237.49 218.44 0)
 			(effects
 				(font
@@ -38965,7 +39327,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C86295"
+		(property "LCSC" "C29277"
 			(at 138.43 468.63 0)
 			(effects
 				(font
@@ -39139,7 +39501,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 78.74 248.92 0)
 			(effects
 				(font
@@ -39703,7 +40065,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "LCSC" "C52923"
 			(at 55.88 468.63 0)
 			(effects
 				(font
@@ -40212,7 +40574,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SON:Texas_X2SON-4_1x1mm_P0.65mm"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
 			(at 237.49 242.57 0)
 			(effects
 				(font
@@ -40362,7 +40724,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C114762"
+		(property "LCSC" "C25879"
 			(at 57.15 297.18 0)
 			(effects
 				(font
@@ -40458,7 +40820,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C60490"
+		(property "LCSC" "C25744"
 			(at 209.55 326.39 0)
 			(effects
 				(font
@@ -40891,7 +41253,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14709"
+		(property "LCSC" "C76891"
 			(at 224.79 201.93 0)
 			(effects
 				(font
@@ -40968,7 +41330,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 51.435 544.83 0)
 			(effects
 				(font
@@ -41065,7 +41427,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 55.88 455.93 0)
 			(effects
 				(font
@@ -41404,7 +41766,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C138002"
+		(property "LCSC" "C25105"
 			(at 58.42 523.24 0)
 			(effects
 				(font
@@ -41729,7 +42091,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14709"
+		(property "LCSC" "C76891"
 			(at 151.13 510.54 0)
 			(effects
 				(font
@@ -41825,7 +42187,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1623"
+		(property "LCSC" "C47339"
 			(at 177.8 513.08 0)
 			(effects
 				(font
@@ -41903,7 +42265,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 284.48 161.29 0)
 			(effects
 				(font
@@ -42094,7 +42456,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C41405954"
+		(property "LCSC" "C7423322"
 			(at 88.9 370.84 90)
 			(effects
 				(font
@@ -42103,7 +42465,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "YJYCOIN"
+		(property "Manufacturer" "cijang"
 			(at 88.9 370.84 90)
 			(effects
 				(font
@@ -42112,7 +42474,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "YSMC0320H-6R8MB"
+		(property "Manufacturer_No" "FTC303020D6R8MBCA"
 			(at 88.9 370.84 90)
 			(effects
 				(font
@@ -42191,7 +42553,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C106235"
+		(property "LCSC" "C11702"
 			(at 247.65 111.76 0)
 			(effects
 				(font
@@ -42560,6 +42922,102 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 191.77 256.54 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cde1b01a-7a33-4ab7-b2fd-6c1d56c66e11")
+		(property "Reference" "C58"
+			(at 183.9468 255.3716 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 183.9468 257.683 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 191.77 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 191.77 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 191.77 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 191.77 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
+			(at 191.77 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 191.77 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c6f30333-fb6f-4b93-967b-caa9d90446fb")
+		)
+		(pin "2"
+			(uuid "9df02931-40b6-437f-817f-47900dffc2a1")
+		)
+		(instances
+			(project "nref-ports-one"
+				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
+					(reference "C58")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
 		(at 215.9 245.11 0)
 		(unit 1)
@@ -42697,7 +43155,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "LCSC" "C52923"
 			(at 351.79 393.7 0)
 			(effects
 				(font
@@ -42988,7 +43446,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C60490"
+		(property "LCSC" "C25744"
 			(at 267.97 204.47 0)
 			(effects
 				(font
@@ -43715,7 +44173,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C95177"
+		(property "LCSC" "C21189"
 			(at 294.64 190.5 0)
 			(effects
 				(font
@@ -43906,7 +44364,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 163.83 52.07 0)
 			(effects
 				(font
@@ -44135,6 +44593,102 @@
 			(project "nref-ports-one"
 				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
 					(reference "C14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 194.31 264.16 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e1651c89-0f02-4d1b-b3b9-a82cd6d260e1")
+		(property "Reference" "C59"
+			(at 196.6468 262.9916 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 196.6468 265.303 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 194.31 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 194.31 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 194.31 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 194.31 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_No" "CL05B104KO5NNNC"
+			(at 194.31 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1525"
+			(at 194.31 264.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "59e0bf3f-2dd4-4bcd-a16b-ee5d745e4857")
+		)
+		(pin "2"
+			(uuid "91609ec8-149d-45cb-ac4c-e2a5edc34518")
+		)
+		(instances
+			(project "nref-ports-one"
+				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
+					(reference "C59")
 					(unit 1)
 				)
 			)
@@ -44391,7 +44945,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C106235"
+		(property "LCSC" "C11702"
 			(at 229.87 111.76 0)
 			(effects
 				(font
@@ -44505,7 +45059,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C106205"
+		(property "LCSC" "C1523"
 			(at 322.58 114.3 0)
 			(effects
 				(font
@@ -44584,7 +45138,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C60491"
+		(property "LCSC" "C25741"
 			(at 304.8 377.19 0)
 			(effects
 				(font
@@ -45099,7 +45653,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C242160"
+		(property "LCSC" "C17168"
 			(at 293.37 254 0)
 			(effects
 				(font
@@ -45414,7 +45968,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C138002"
+		(property "LCSC" "C25105"
 			(at 68.58 530.86 0)
 			(effects
 				(font
@@ -46268,7 +46822,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14709"
+		(property "LCSC" "C76891"
 			(at 138.43 515.62 0)
 			(effects
 				(font
