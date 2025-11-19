@@ -205,15 +205,37 @@ void handle_commands(char chr, battery_info_s* battery_info)
                 mA = -mA;
                 mA_sign = '-';
               }
+
+              // clip cell voltages
+              int v_rep[8];
+              v_rep[0] = (int)(packs[0].cells_v[0]/100);
+              v_rep[1] = (int)(packs[0].cells_v[1]/100);
+              v_rep[2] = (int)(packs[0].cells_v[2]/100);
+              v_rep[3] = (int)(packs[0].cells_v[3]/100);
+              v_rep[4] = (int)(packs[1].cells_v[0]/100);
+              v_rep[5] = (int)(packs[1].cells_v[1]/100);
+              v_rep[6] = (int)(packs[1].cells_v[2]/100);
+              v_rep[7] = (int)(packs[1].cells_v[3]/100);
+              for (int i=0; i<8; i++) {
+                if (v_rep[i] < 0 || v_rep[i] >= 50) v_rep[i] = 0;
+              }
+
+              // clip sys voltage
+              if (mV < 0.0) mV = 0.0;
+
+              // clip gauge
+              if (gauge_percent < 0.0) gauge_percent = 0.0;
+              if (gauge_percent > 100.0) gauge_percent = 100.0;
+
               sprintf(uart_buffer,"%02d %02d %02d %02d %02d %02d %02d %02d mA%c%04dmV%05d %3d%% P%d\r\n",
-                      (int)(packs[0].cells_v[0]/100),
-                      (int)(packs[0].cells_v[1]/100),
-                      (int)(packs[0].cells_v[2]/100),
-                      (int)(packs[0].cells_v[3]/100),
-                      (int)(packs[1].cells_v[0]/100),
-                      (int)(packs[1].cells_v[1]/100),
-                      (int)(packs[1].cells_v[2]/100),
-                      (int)(packs[1].cells_v[3]/100),
+                      v_rep[0],
+                      v_rep[1],
+                      v_rep[2],
+                      v_rep[3],
+                      v_rep[4],
+                      v_rep[5],
+                      v_rep[6],
+                      v_rep[7],
                       mA_sign,
                       mA,
                       (int)mV,

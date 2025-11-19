@@ -56,8 +56,9 @@ int bq76922_read_mem_u8(i2c_inst_t* i2c, uint16_t reg_addr, uint8_t* reg_data) {
 
   bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
   bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
-  sleep_ms(10);
 
+  // FIXME: really 10ms needed?
+  busy_wait_us(10*1000);
   *reg_data = bq76922_read_byte(i2c, 0x40);
 
   //int len = bq76922_read_byte(i2c, 0x61);
@@ -90,8 +91,9 @@ void bq76922_write_mem_u8(i2c_inst_t* i2c, uint16_t reg_addr, uint8_t reg_data) 
 int bq76922_read_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t* reg_data) {
   bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
   bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
-  sleep_ms(10);
 
+  // FIXME
+  busy_wait_us(10*1000);
   *reg_data = bq76922_read_u16(i2c, 0x40);
 
   //int len = bq76922_read_byte(i2c, 0x61);
@@ -147,7 +149,8 @@ int monitor_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int l
       success = 1;
       break;
     }
-    sleep_ms(10);
+    // FIXME
+    busy_wait_us(10*1000);
   }
   if (!success) {
     return 0;

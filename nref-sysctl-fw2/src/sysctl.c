@@ -71,15 +71,19 @@ void turn_som_power_on() {
   set_boot_magic();
 
   gpio_ext_enable(GPIO_EXT_3V3_EN);
-  sleep_ms(10);
   gpio_ext_enable(GPIO_EXT_5V_EN);
 
   battery_info.som_is_powered = true;
 }
 
+/*
+  this function can be called from a timer interrupt
+  in the spi command handler, no sleep is allowed here.
+  if delays should become necessary, they have to be
+  busy loops.
+*/
 void turn_som_power_off() {
   printf("# [action] turn_som_power_off\n");
-  init_spi_client();
 
   disable_led(PIN_LED_G);
 
@@ -93,7 +97,9 @@ void turn_som_power_off() {
 
 void som_wake()
 {
-  // TODO: toggle gpio!
+  gpio_put(PIN_SOM_WAKE, 1);
+  sleep_ms(5);
+  gpio_put(PIN_SOM_WAKE, 0);
   uart_puts(uart0, "wake\r\n");
 }
 
@@ -185,6 +191,11 @@ void setup()
   gpio_put(PIN_LED_R, 1);
   gpio_put(PIN_LED_G, 1);
   gpio_put(PIN_LED_B, 1);
+
+  // SoM / SoC wake GPIO
+  gpio_init(PIN_SOM_WAKE);
+  gpio_set_dir(PIN_SOM_WAKE, GPIO_OUT);
+  gpio_put(PIN_SOM_WAKE, 0);
 
   init_spi_client();
 
@@ -341,10 +352,9 @@ int main()
 {
   setup();
 
-  sleep_ms(1000);
+  sleep_ms(500);
   printf("# [next_sysctl] sleep before main loop\n");
-  sleep_ms(1000);
-
+  
   ALARM_IRQ = timer_hardware_alarm_get_irq_num(timer_hw, 2);
 
   // call SPI task every 5ms to ensure response time
