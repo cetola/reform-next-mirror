@@ -10081,6 +10081,16 @@
 		)
 		(uuid "1e66160d-2fc0-4fcd-b612-cf19b883b6ab")
 	)
+	(text "TODO: remove, we can't really source 3A"
+		(exclude_from_sim no)
+		(at 226.06 429.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "20d617d2-e84d-4170-ab8b-90715a3be7ca")
+	)
 	(text "USB-C Data Mux 2"
 		(exclude_from_sim no)
 		(at 228.6 330.2 0)
@@ -10092,6 +10102,16 @@
 		)
 		(uuid "234dd99f-1b95-47f4-b574-0e56d516bb0d")
 	)
+	(text "> if the TUSB321 device is configured as a DFP and only ever\nused in DFP mode, the VBUS_DET pin can be left unconnected"
+		(exclude_from_sim no)
+		(at 199.39 280.67 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "24851aa9-e6d5-48bb-ab70-5a00ebaf0039")
+	)
 	(text "- if SEL high"
 		(exclude_from_sim no)
 		(at 201.93 229.87 0)
@@ -10102,15 +10122,25 @@
 		)
 		(uuid "2f00fa1c-b92f-437f-8170-5742de0dd412")
 	)
-	(text "TODO: six layer design, power close to diff pairs is questionable"
+	(text "TODO: swap for TI"
 		(exclude_from_sim no)
-		(at 419.1 132.08 0)
+		(at 307.34 283.21 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
-		(uuid "2f24107b-1afa-4493-9171-00a6267605c4")
+		(uuid "31515cb9-5b43-4c8c-bfe4-9944470dd144")
+	)
+	(text "TODO: pullups missing"
+		(exclude_from_sim no)
+		(at 219.71 288.29 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "31a5e083-aa9c-40f5-bb0e-39db012890f1")
 	)
 	(text "- if SEL high"
 		(exclude_from_sim no)
@@ -10133,6 +10163,16 @@
 		)
 		(uuid "518600ef-0714-41c4-943c-9135e96d4497")
 	)
+	(text "TODO: pullup missing"
+		(exclude_from_sim no)
+		(at 284.48 245.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "599d64e7-4721-4422-87db-476c7364687e")
+	)
 	(text "pol. swapped on purpose!"
 		(exclude_from_sim no)
 		(at 282.575 234.315 0)
@@ -10152,6 +10192,16 @@
 			)
 		)
 		(uuid "6a50fc6e-8aa9-4f33-92b9-c03c20dbd035")
+	)
+	(text "TODO: remove"
+		(exclude_from_sim no)
+		(at 300.99 269.24 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6aa1917e-76f3-4586-bffb-248ddc9ee0fb")
 	)
 	(text "pol. swap!"
 		(exclude_from_sim no)
@@ -10227,6 +10277,16 @@
 		)
 		(uuid "8dc6e51c-68d3-470d-8b57-6459b028ae96")
 	)
+	(text "TODO: remove, we can't really source 3A"
+		(exclude_from_sim no)
+		(at 232.41 269.24 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9092273a-df22-4018-a28f-240032147343")
+	)
 	(text "1A"
 		(exclude_from_sim no)
 		(at 515.62 271.78 0)
@@ -10247,6 +10307,16 @@
 			)
 		)
 		(uuid "980e1016-20ae-47b0-8a07-e34a3165b587")
+	)
+	(text "TODO: remove"
+		(exclude_from_sim no)
+		(at 297.18 429.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9e7b9589-1e51-44de-b9e4-2ac5dfc31385")
 	)
 	(text "TODO: control reset via sysctl"
 		(exclude_from_sim no)
@@ -10277,6 +10347,16 @@
 			)
 		)
 		(uuid "a6c32d74-1fe3-4e56-807d-f4e76e5a964f")
+	)
+	(text "TODO: caps missing!"
+		(exclude_from_sim no)
+		(at 276.86 83.82 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ac229808-193b-4b2a-869c-35a9258f6fd8")
 	)
 	(text "USB to camera"
 		(exclude_from_sim no)
@@ -10318,6 +10398,16 @@
 		)
 		(uuid "ccd12af6-4e7e-4145-9f1f-1883358e99a2")
 	)
+	(text "TODO: pullups missing"
+		(exclude_from_sim no)
+		(at 219.71 445.77 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d06bf649-f0ed-4c42-a5f4-b0ba72d956a1")
+	)
 	(text "1A"
 		(exclude_from_sim no)
 		(at 515.62 323.85 0)
@@ -10349,16 +10439,6 @@
 			)
 		)
 		(uuid "e250e6d4-b79b-4830-89b6-5708ce73195f")
-	)
-	(text "TODO: caps check?"
-		(exclude_from_sim no)
-		(at 392.43 185.42 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "e2a77d0c-8b31-4be0-89b4-f0e919134f07")
 	)
 	(text "USB-C port 2"
 		(exclude_from_sim no)
@@ -10393,7 +10473,7 @@
 		)
 		(uuid "e3dc7c6f-88cf-41ba-9a01-f62a3e068564")
 	)
-	(text "TODO: capacitor calc"
+	(text "TODO: capacitor calc. at least 120uF?!"
 		(exclude_from_sim no)
 		(at 118.11 189.23 0)
 		(effects
@@ -10412,6 +10492,16 @@
 			)
 		)
 		(uuid "f1417a69-a9db-4cf9-8e97-e689b1e5ca32")
+	)
+	(text "TODO: pullup missing"
+		(exclude_from_sim no)
+		(at 284.48 400.05 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "f347e6f4-ca40-4cb7-9041-6c6d7ae03c34")
 	)
 	(text "TODO: capacitor calc"
 		(exclude_from_sim no)
