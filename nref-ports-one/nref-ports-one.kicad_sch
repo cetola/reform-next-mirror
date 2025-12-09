@@ -14761,6 +14761,16 @@
 		)
 		(uuid "0010c42d-3991-453f-8473-d2b07260f2f6")
 	)
+	(text "required to start\nthe mechanism"
+		(exclude_from_sim no)
+		(at 256.54 204.47 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "00195e98-6715-49ca-83c4-4b2a662caa4f")
+	)
 	(text "A2"
 		(exclude_from_sim no)
 		(at 24.13 233.68 0)
@@ -14780,6 +14790,16 @@
 			)
 		)
 		(uuid "0205a0ef-2002-43fc-be10-fe73e1a80291")
+	)
+	(text "TODO: not 3v3 on 66021!\n(3v3 on 66020)"
+		(exclude_from_sim no)
+		(at 265.43 180.34 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "028fd63a-7a67-491b-910b-93ad16df8431")
 	)
 	(text "Power from USB-C PD"
 		(exclude_from_sim no)
@@ -14865,6 +14885,16 @@
 		)
 		(uuid "254337df-b096-4809-9d56-ee3eb9612493")
 	)
+	(text "TODO: remove, internal pulldown"
+		(exclude_from_sim no)
+		(at 292.1 223.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "2eb881da-7c1d-4982-ae31-00e36050b07b")
+	)
 	(text "USB-C port 1 with PD charging"
 		(exclude_from_sim no)
 		(at 71.755 38.1 0)
@@ -14897,15 +14927,15 @@
 		)
 		(uuid "37924df8-425f-45ff-852b-15e15b175c30")
 	)
-	(text "TODO: possibly 0R"
+	(text "TODO: remove!!"
 		(exclude_from_sim no)
-		(at 212.0566 171.437 0)
+		(at 293.37 260.35 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
-		(uuid "45227847-8969-46be-b394-ac0b97d696b1")
+		(uuid "41772c6f-251a-44f1-996a-34361e61f417")
 	)
 	(text "B11"
 		(exclude_from_sim no)
@@ -15042,6 +15072,16 @@
 		)
 		(uuid "76bc5ece-bff7-43c8-bdf9-4f091c49666f")
 	)
+	(text "TODO: P0 is open drain! swap SRC and SINK EN!"
+		(exclude_from_sim no)
+		(at 130.81 288.29 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "7759a6fe-0f07-41a9-a18e-2c1625ba71fd")
+	)
 	(text "currently not connected"
 		(exclude_from_sim no)
 		(at 205.105 73.66 0)
@@ -15176,6 +15216,16 @@
 			(justify left bottom)
 		)
 		(uuid "af563474-0c0a-499f-a10a-f3afbd0f7fde")
+	)
+	(text "TODO: wrong pinout/footprint"
+		(exclude_from_sim no)
+		(at 109.22 273.05 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b1de9cc0-31d4-48e8-ac63-2d666b5319b5")
 	)
 	(text "I2C control bus"
 		(exclude_from_sim no)
