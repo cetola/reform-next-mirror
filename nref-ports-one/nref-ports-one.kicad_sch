@@ -7323,7 +7323,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Interface_Expansion:PCA9557PW"
+		(symbol "Interface_Expansion:PCA9557BS"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -7336,7 +7336,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "PCA9557PW"
+			(property "Value" "PCA9557BS"
 				(at 2.54 11.43 0)
 				(effects
 					(font
@@ -7345,7 +7345,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
+			(property "Footprint" "Package_DFN_QFN:HVQFN-16-1EP_3x3mm_P0.5mm_EP1.5x1.5mm"
 				(at 24.13 -13.97 0)
 				(effects
 					(font
@@ -7363,7 +7363,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "8-bit I2C-bus and SMBus I/O port with reset, TSSOP-16"
+			(property "Description" "8-bit I2C-bus and SMBus I/O port with reset, HVQFN-16"
 				(at 0 0 0)
 				(effects
 					(font
@@ -7381,7 +7381,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "TSSOP*4.4x5mm*P0.65mm*"
+			(property "ki_fp_filters" "HVQFN*1EP*3x3mm*P0.5mm*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -7390,7 +7390,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "PCA9557PW_0_1"
+			(symbol "PCA9557BS_0_1"
 				(rectangle
 					(start -7.62 -12.7)
 					(end 7.62 10.16)
@@ -7403,7 +7403,7 @@
 					)
 				)
 			)
-			(symbol "PCA9557PW_1_1"
+			(symbol "PCA9557BS_1_1"
 				(pin input line
 					(at -10.16 7.62 0)
 					(length 2.54)
@@ -7414,7 +7414,7 @@
 							)
 						)
 					)
-					(number "1"
+					(number "15"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7432,7 +7432,7 @@
 							)
 						)
 					)
-					(number "2"
+					(number "16"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7450,7 +7450,7 @@
 							)
 						)
 					)
-					(number "15"
+					(number "13"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7468,7 +7468,7 @@
 							)
 						)
 					)
-					(number "3"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7486,7 +7486,7 @@
 							)
 						)
 					)
-					(number "4"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7504,7 +7504,7 @@
 							)
 						)
 					)
-					(number "5"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7522,7 +7522,7 @@
 							)
 						)
 					)
-					(number "16"
+					(number "14"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7540,7 +7540,7 @@
 							)
 						)
 					)
-					(number "8"
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7558,7 +7558,7 @@
 							)
 						)
 					)
-					(number "6"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7576,7 +7576,7 @@
 							)
 						)
 					)
-					(number "7"
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7594,7 +7594,7 @@
 							)
 						)
 					)
-					(number "9"
+					(number "7"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7612,7 +7612,7 @@
 							)
 						)
 					)
-					(number "10"
+					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7630,7 +7630,7 @@
 							)
 						)
 					)
-					(number "11"
+					(number "9"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7648,7 +7648,7 @@
 							)
 						)
 					)
-					(number "12"
+					(number "10"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7666,7 +7666,7 @@
 							)
 						)
 					)
-					(number "13"
+					(number "11"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7684,7 +7684,7 @@
 							)
 						)
 					)
-					(number "14"
+					(number "12"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -14791,9 +14791,9 @@
 		)
 		(uuid "0205a0ef-2002-43fc-be10-fe73e1a80291")
 	)
-	(text "TODO: not 3v3 on 66021!\n(3v3 on 66020)"
+	(text "TODO: 5v on 66021!\n(3v3 on 66020)"
 		(exclude_from_sim no)
-		(at 265.43 180.34 0)
+		(at 265.43 185.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -14885,16 +14885,6 @@
 		)
 		(uuid "254337df-b096-4809-9d56-ee3eb9612493")
 	)
-	(text "TODO: remove, internal pulldown"
-		(exclude_from_sim no)
-		(at 292.1 223.52 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "2eb881da-7c1d-4982-ae31-00e36050b07b")
-	)
 	(text "USB-C port 1 with PD charging"
 		(exclude_from_sim no)
 		(at 71.755 38.1 0)
@@ -14926,16 +14916,6 @@
 			(justify left bottom)
 		)
 		(uuid "37924df8-425f-45ff-852b-15e15b175c30")
-	)
-	(text "TODO: remove!!"
-		(exclude_from_sim no)
-		(at 293.37 260.35 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "41772c6f-251a-44f1-996a-34361e61f417")
 	)
 	(text "B11"
 		(exclude_from_sim no)
@@ -15030,6 +15010,16 @@
 		)
 		(uuid "63a12988-f4e0-4e3f-8b9e-c96160b65f0f")
 	)
+	(text "P0 is open drain"
+		(exclude_from_sim no)
+		(at 135.89 293.37 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "66adf160-2833-4957-86e7-e25788452d30")
+	)
 	(text "USB-C Data Mux"
 		(exclude_from_sim no)
 		(at 48.26 175.26 0)
@@ -15072,9 +15062,9 @@
 		)
 		(uuid "76bc5ece-bff7-43c8-bdf9-4f091c49666f")
 	)
-	(text "TODO: P0 is open drain! swap SRC and SINK EN!"
+	(text "fixed: swapped SRC and SINK EN"
 		(exclude_from_sim no)
-		(at 130.81 288.29 0)
+		(at 132.08 322.58 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15217,7 +15207,7 @@
 		)
 		(uuid "af563474-0c0a-499f-a10a-f3afbd0f7fde")
 	)
-	(text "TODO: wrong pinout/footprint"
+	(text "fixed: wrong pinout/footprint (tssop vs qfn)"
 		(exclude_from_sim no)
 		(at 109.22 273.05 0)
 		(effects
@@ -16260,12 +16250,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ef683b74-9f76-4393-9273-3adbe3b4b96a")
-	)
-	(junction
-		(at 289.56 212.09)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f0104779-acae-4de9-9a44-80f781bdab76")
 	)
 	(junction
 		(at 325.12 439.42)
@@ -18669,16 +18653,6 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 220.98) (xy 289.56 224.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5256a215-573e-42b3-a25c-31654efafaf4")
-	)
-	(wire
-		(pts
 			(xy 179.07 67.31) (xy 187.96 67.31)
 		)
 		(stroke
@@ -18686,16 +18660,6 @@
 			(type default)
 		)
 		(uuid "52c38875-366f-4945-b317-cab483ba3be9")
-	)
-	(wire
-		(pts
-			(xy 289.56 212.09) (xy 289.56 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5393712a-6161-426f-943e-da83ecb5a432")
 	)
 	(wire
 		(pts
@@ -19229,16 +19193,6 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 212.09) (xy 327.66 212.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "68007abd-89b4-4510-9f0f-a0198586aeff")
-	)
-	(wire
-		(pts
 			(xy 109.22 483.87) (xy 109.22 464.82)
 		)
 		(stroke
@@ -19426,16 +19380,6 @@
 			(type default)
 		)
 		(uuid "6e7c6887-a60d-4e64-8f24-2007a55b5636")
-	)
-	(wire
-		(pts
-			(xy 295.91 254) (xy 299.72 254)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6f52c684-d824-4cdb-b17b-7d29683743eb")
 	)
 	(wire
 		(pts
@@ -19906,16 +19850,6 @@
 			(type default)
 		)
 		(uuid "83fb4e3d-1ce8-4c39-a88d-8ed665f8cb22")
-	)
-	(wire
-		(pts
-			(xy 288.29 254) (xy 290.83 254)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "84a93c11-6539-4326-943b-75e6c9169961")
 	)
 	(wire
 		(pts
@@ -22519,7 +22453,7 @@
 	)
 	(wire
 		(pts
-			(xy 285.75 212.09) (xy 289.56 212.09)
+			(xy 285.75 212.09) (xy 327.66 212.09)
 		)
 		(stroke
 			(width 0)
@@ -24486,28 +24420,6 @@
 			)
 		)
 	)
-	(global_label "STANDBY_3V3"
-		(shape input)
-		(at 288.29 254 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "3720d8ef-e40b-4cd2-987d-85c24a756eb9")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 272.6048 254 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "SBU_N"
 		(shape input)
 		(at 169.545 135.255 0)
@@ -24661,7 +24573,7 @@
 			)
 		)
 	)
-	(global_label "LDO_3V3"
+	(global_label "LDO_5V"
 		(shape output)
 		(at 311.15 245.11 180)
 		(fields_autoplaced yes)
@@ -24673,7 +24585,7 @@
 		)
 		(uuid "3cf6e4b7-bb31-401d-b089-4515965d08c9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 300.061 245.11 0)
+			(at 301.2705 245.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25299,7 +25211,7 @@
 			)
 		)
 	)
-	(global_label "LDO_3V3"
+	(global_label "LDO_5V"
 		(shape output)
 		(at 267.97 198.12 90)
 		(fields_autoplaced yes)
@@ -25311,29 +25223,7 @@
 		)
 		(uuid "67788ebe-6740-442b-857c-2193258107c0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 267.97 187.031 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "LDO_3V3"
-		(shape input)
-		(at 299.72 254 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "67c3eeec-2fd3-4ed5-bcae-082b67823a32")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 310.809 254 0)
+			(at 267.97 188.2405 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26981,7 +26871,7 @@
 	)
 	(global_label "USB_SRC_EN"
 		(shape output)
-		(at 119.38 295.91 0)
+		(at 119.38 298.45 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -26991,7 +26881,7 @@
 		)
 		(uuid "eedea628-2d15-453f-b75b-cdfadfd5b831")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 134.3394 295.91 0)
+			(at 134.3394 298.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27201,7 +27091,7 @@
 	)
 	(global_label "USB_SINK_EN"
 		(shape output)
-		(at 119.38 298.45 0)
+		(at 119.38 295.91 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -27211,7 +27101,7 @@
 		)
 		(uuid "fdcc6e65-50c3-4d11-aa7f-343eec1b26d6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 135.0047 298.45 0)
+			(at 135.0047 295.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29495,100 +29385,6 @@
 			(project "nref-ports-one"
 				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
 					(reference "C32")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 289.56 218.44 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "18b817d4-30e3-43fe-b395-27f564da3121")
-		(property "Reference" "R23"
-			(at 294.5384 218.44 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 292.227 218.44 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 289.56 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 289.56 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 289.56 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Yageo"
-			(at 289.56 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "RC0402FR-7D10KL"
-			(at 289.56 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C25744"
-			(at 289.56 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7ae53669-cd57-4936-858a-0a487f342f83")
-		)
-		(pin "2"
-			(uuid "d2f8e92f-1624-4bfc-994a-43b6391bc086")
-		)
-		(instances
-			(project "nref-ports-one"
-				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
-					(reference "R23")
 					(unit 1)
 				)
 			)
@@ -32045,7 +31841,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Interface_Expansion:PCA9557PW")
+		(lib_id "Interface_Expansion:PCA9557BS")
 		(at 105.41 303.53 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -32090,7 +31886,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "8-bit I2C-bus and SMBus I/O port with reset, TSSOP-16"
+		(property "Description" "8-bit I2C-bus I/O port with reset, QFN-16"
 			(at 105.41 303.53 0)
 			(effects
 				(font
@@ -41387,72 +41183,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 289.56 224.79 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b368fe65-90ec-44b6-8a46-abecd62dbf51")
-		(property "Reference" "#PWR054"
-			(at 289.56 231.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 289.56 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 289.56 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 289.56 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 289.56 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "298f7d23-e512-45ba-8a6c-fda2d2e809fc")
-		)
-		(instances
-			(project "nref-ports-one"
-				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
-					(reference "#PWR054")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Regulator_Linear:LP5907MFX-1.2")
 		(at 237.49 251.46 0)
 		(unit 1)
@@ -46498,102 +46228,6 @@
 			(project "nref-ports-one"
 				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
 					(reference "#PWR026")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 293.37 254 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp yes)
-		(uuid "f0993f62-1e6b-45b7-bd62-491de1059e1d")
-		(property "Reference" "R29"
-			(at 292.1 252.095 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0"
-			(at 294.64 252.095 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 293.37 254 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 293.37 254 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 293.37 254 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17168"
-			(at 293.37 254 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Panasonic"
-			(at 293.37 254 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_No" "ERJ2GE0R00X"
-			(at 293.37 254 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "25c61fa9-dc88-45b4-864e-4acb65ce8ba8")
-		)
-		(pin "2"
-			(uuid "203fa4c8-b9fd-4be0-8699-b2e2c636a6ab")
-		)
-		(instances
-			(project "nref-ports-one"
-				(path "/4ae9ee8d-7b53-4c03-beae-9a29a1b49953"
-					(reference "R29")
 					(unit 1)
 				)
 			)
