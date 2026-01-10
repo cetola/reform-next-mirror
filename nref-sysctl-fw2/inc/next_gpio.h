@@ -1,3 +1,6 @@
+#ifndef _NEXT_GPIO_H
+#define _NEXT_GPIO_H
+
 /* GPIO extender on USB-C PD port board of MNT Reform Next */
 
 #include <stdint.h>
@@ -10,3 +13,14 @@
 void gpio_ext_setup();
 void gpio_ext_enable(uint8_t bit);
 void gpio_ext_disable(uint8_t bit);
+void gpio_ext_pd_setup();
+void gpio_ext_pd_enable(uint8_t bit);
+
+void gpio_ext_pd_disable(uint8_t bit);
+void gpio_ext_pd_poweroff_defaults();
+void gpio_ext_pd_poweron_defaults();
+void gpio_ext_pd_usb_5v_src_set(uint8_t enable);
+void gpio_ext_pd_set_red_led(uint8_t enable);
+void gpio_ext_pd_set_blue_led(uint8_t enable);
+
+#endif

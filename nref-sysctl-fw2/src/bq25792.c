@@ -186,6 +186,12 @@ void charger_set_input_current(int ma) {
   bq25792_write_word(0x06, charger_input_current_ma / 10);
 }
 
+void charger_shutdown() {
+  // charger_control_0
+  bq25792_write_byte(0x0f, 0b00000000);
+  // ADC control: 0x2e (default: 0x30)
+  bq25792_write_byte(0x2e, (0<<7) | (0b00 << 4)); // (7=ADC_EN, 5:4=ADC_SAMPLE)
+}
 
 // returns VBUS measurement
 int charger_status(struct BatteryPack* packs) {

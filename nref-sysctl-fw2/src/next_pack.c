@@ -46,7 +46,8 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   }
 
   // FIXME
-  mon_sleep_off(i2c);
+  mon_sleep_on(i2c);
+  //mon_sleep_off(i2c);
 
   //printf("[pack %d] reading...\n", pack->id);
   uint16_t cell1_mv_lo = bq76922_read_byte(i2c, 0x14);
@@ -222,7 +223,23 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   bq76922_read_mem_u16(i2c, 0x0083, &bal_active_cells);
   bq76922_read_mem_u16(i2c, 0x0085, &bal_status1);
 
+  uint8_t undervolt_threshold = 0;
+  bq76922_read_mem_u8(i2c, 0x9275, &undervolt_threshold);
+  uint16_t undervolt_calib = 0;
+  bq76922_read_mem_u16(i2c, 0x91d4, &undervolt_calib);
+  uint8_t en_protections_a = 0;
+  uint8_t en_protections_b = 0;
+  uint8_t en_protections_c = 0;
+  bq76922_read_mem_u8(i2c, 0x9261, &en_protections_a);
+  bq76922_read_mem_u8(i2c, 0x9262, &en_protections_b);
+  bq76922_read_mem_u8(i2c, 0x9263, &en_protections_c);
+
   if (pack->debug) {
+    printf("[bq76] UV thresh: %d\n", undervolt_threshold);
+    printf("[bq76] UV calib: %x\n", undervolt_calib);
+    printf("[bq76] en_protections_a: %x\n", en_protections_a);
+    printf("[bq76] en_protections_b: %x\n", en_protections_b);
+    printf("[bq76] en_protections_c: %x\n", en_protections_c);
     printf("[bq76] c1 mV: %f\n", cell1_mv);
     printf("[bq76] c2 mV: %f\n", cell2_mv);
     //printf("[bq76] c3 mV: %f\n", cell3_mv);
@@ -363,9 +380,55 @@ void monitor_config_update(i2c_inst_t* i2c) {
   // TODO: read back and check these values
 
   // set CUV (undervolt threshold)
-  bq76922_write_mem_u8(i2c, 0x91d4, 2400/50.6);
+  //bq76922_write_mem_u8(i2c, 0x91d4, 2400/50.6);
   // overvoltage threshold
-  bq76922_write_mem_u8(i2c, 0x91d6, 4200/50.6);
+  //bq76922_write_mem_u8(i2c, 0x91d6, 4200/50.6);
+
+  // set CUV (undervolt threshold)
+  //bq76922_write_mem_u16(i2c, 0x91d4, 0xffff);
+  // overvoltage threshold
+  //bq76922_write_mem_u16(i2c, 0x91d6, 0xffff);
+
+  // defaults:
+  // 7: Short Circuit in Discharge Protection
+  // 3: Cell Overvoltage Protection
+  // not enabled by default:
+  // 2: Cell Undervoltage Protection
+  bq76922_write_mem_u8(i2c, 0x9261, (1<<7) | (1<<3) | (1<<2));
+
+  // power config
+  // default: 0x2982
+  //  13 DPSLP_OT
+  //  12 SHUT_TS2
+  //  11 DPSLP_PD
+  //  10 DPSLP_LDO
+  //  9 DPSLP_LFO
+  //  8 SLEEP
+  //  7 OTSD
+  //  6 FASTADC
+  //  5–4 CB_LOOP_SLOW_1-CB_LOOP_SLOW_0
+  //  3–2 LOOP_SLOW_1-LOOP_SLOW_0
+  //  1-0 WK_SPD_1–WK_SPD_0
+  bq76922_write_mem_u16(i2c, 0x9234,
+                        (1<<13) |
+                        (1<<12) | // SHUTDOWN mode replaced by low-power state waiting for rising edge on LD pin
+                        (1<<11) |
+                        (0<<10) |
+                        (0<<9) |
+                        (1<<8) |
+                        (1<<7) |
+                        (0<<6) |
+                        (0<<5) |
+                        (0<<4) |
+                        (0<<3) |
+                        (0<<2) |
+                        (1<<1) |
+                        (0<<0));
+
+  // shutdown cell voltage, unit mV
+  bq76922_write_mem_i16(i2c, 0x923f, 3000);
+  // shutdown stack voltage, unit 10mV
+  bq76922_write_mem_i16(i2c, 0x9241, (2400*4)/10);
 
   // configure protections (A)
   // 7 = SCD

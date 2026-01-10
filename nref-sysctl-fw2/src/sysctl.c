@@ -27,8 +27,9 @@
 #include "bq25792.h"
 #include "bq76922.h"
 
-
 // FIXME
+static alarm_pool_t* battery_alarm_pool;
+static int charge_ma = 500;
 battery_info_s battery_info = {0};
 static int ALARM_IRQ = 0;
 
@@ -66,7 +67,8 @@ void turn_som_power_on() {
   printf("# [action] turn_som_power_on\n");
   init_spi_client();
 
-  enable_led(PIN_LED_G);
+  enable_led(PIN_LED_B);
+  gpio_ext_pd_poweron_defaults();
 
   set_boot_magic();
 
@@ -85,7 +87,8 @@ void turn_som_power_on() {
 void turn_som_power_off() {
   printf("# [action] turn_som_power_off\n");
 
-  disable_led(PIN_LED_G);
+  disable_led(PIN_LED_B);
+  gpio_ext_pd_poweroff_defaults();
 
   clear_boot_magic();
 
@@ -127,13 +130,14 @@ void i2c_scan(i2c_inst_t* i2c) {
 
 void setup()
 {
+  // used for stdio and reset interface
   tusb_init();
   reform_stdio_usb_init();
 
   // reset if main loop is stuck for 10 seconds
   watchdog_enable(10000, 1);
 
-  // FIXME: gone with rp2350
+  // FIXME: gone/moved with rp2350
   //printf("# [reset] cause: %#.8x\n", vreg_and_chip_reset_hw->chip_reset);
   //printf("# [reset] magic: %#.8lx%.8lx\n",
   //       watchdog_hw->scratch[2], watchdog_hw->scratch[3]);
@@ -170,8 +174,10 @@ void setup()
   battery_info.packs[1].id = 1;
   battery_info.packs[1].i2c = i2c1;
 
-  // motherboard external GPIOS
+  // motherboard external GPIOs
   gpio_ext_setup();
+  // left port board (PD) GPIOs
+  gpio_ext_pd_setup();
 
   /*while (true) {
     printf(".");
@@ -199,12 +205,6 @@ void setup()
 
   init_spi_client();
 
-  // FIXME this is now on (usb-c) gpio extender
-  // USB charger-port power rail
-  //gpio_init(PIN_USB_SRC_ENABLE);
-  //gpio_set_dir(PIN_USB_SRC_ENABLE, 1);
-  //gpio_put(PIN_USB_SRC_ENABLE, 0);
-
   // if this is a warm boot, then we need to avoid latching the PWR and display
   // pins.
   if (syscon_warm_boot())
@@ -222,8 +222,6 @@ void setup()
   pd_init();
   charger_init();
 }
-
-static int charge_ma = 500;
 
 void handle_usb_commands()
 {
@@ -265,11 +263,14 @@ void handle_usb_commands()
     else if (usb_c == 'c') {
       monitor_setup(i2c0);
     }
+    else if (usb_c == 'C') {
+      monitor_setup(i2c1);
+    }
     else if (usb_c == 'f') {
-      mon_fet_test(i2c0);
+      //mon_fet_test(i2c0);
     }
     else if (usb_c == 'F') {
-      mon_toggle_fet_en(i2c0);
+      //mon_toggle_fet_en(i2c0);
     }
     else if (usb_c == '+') {
       charge_ma += 100;
@@ -281,15 +282,39 @@ void handle_usb_commands()
       if (charge_ma < 50) charge_ma = 50;
       charger_set_charge_current(charge_ma);
     }
+    else if (usb_c == 's') {
+      printf("turning on USB PD 5V source...\n");
+      gpio_ext_pd_usb_5v_src_set(1);
+    }
+    else if (usb_c == 'S') {
+      printf("turning off USB PD 5V source...\n");
+      gpio_ext_pd_usb_5v_src_set(0);
+    }
+    else if (usb_c == '5') {
+      printf("turning on USB PD AUX 5V...\n");
+      gpio_ext_pd_enable(7);
+    }
+    else if (usb_c == '%') {
+      printf("turning off USB PD AUX 5V...\n");
+      gpio_ext_pd_disable(7);
+    }
+    else if (usb_c == 'm') {
+      printf("setting USB-C mux dir to 0...\n");
+      gpio_ext_pd_disable(2);
+    }
+    else if (usb_c == 'M') {
+      printf("setting USB-C mux dir to 1...\n");
+      gpio_ext_pd_enable(2);
+    }
   }
 }
 
 void usb_host_5v_enable() {
-  // TODO
+  gpio_ext_pd_usb_5v_src_set(1);
 }
 
 void usb_host_5v_disable() {
-  // TODO
+  gpio_ext_pd_usb_5v_src_set(0);
 }
 
 #define BATTERY_TIMER_MS 2000
@@ -364,9 +389,9 @@ int main()
   // call configure task every few seconds
   // but at a lower priority than i.e. USB
   // via https://github.com/raspberrypi/pico-sdk/issues/751#issuecomment-1062078338
-  __unused alarm_pool_t* alarm_pool = alarm_pool_create(2, 16); // create an alarm pool, use hardware alarm #2
+  battery_alarm_pool = alarm_pool_create(2, 16); // create an alarm pool, use hardware alarm #2
   irq_set_priority(ALARM_IRQ, 0xc0); // larger number is lower priority
-  alarm_pool_add_alarm_in_ms(alarm_pool, BATTERY_TIMER_MS, battery_task, NULL, false);
+  alarm_pool_add_alarm_in_ms(battery_alarm_pool, BATTERY_TIMER_MS, battery_task, NULL, false);
 
   printf("# [next_sysctl] entering main loop\n");
 
