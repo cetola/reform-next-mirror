@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
 include(lib/pico_sdk_import.cmake)
-include(lib/pico_extras_import.cmake)
 
 set(SHARED_FW_INC "${CMAKE_CURRENT_LIST_DIR}/../pocket-reform-shared-fw/inc")
 set(SHARED_FW_SRC "${CMAKE_CURRENT_LIST_DIR}/../pocket-reform-shared-fw/src")
@@ -40,8 +39,6 @@ target_link_libraries(${PROJECT}
 	hardware_i2c
 	hardware_spi
 	hardware_pwm
-	hardware_rosc
-	pico_aon_timer
 	pico_stdio
 	pico_time
 	pico_unique_id
