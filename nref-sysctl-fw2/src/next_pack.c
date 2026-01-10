@@ -411,7 +411,7 @@ void monitor_config_update(i2c_inst_t* i2c) {
   //  1-0 WK_SPD_1–WK_SPD_0
   bq76922_write_mem_u16(i2c, 0x9234,
                         (1<<13) |
-                        (1<<12) | // SHUTDOWN mode replaced by low-power state waiting for rising edge on LD pin
+                        (0<<12) | // SHUTDOWN mode replaced by low-power state waiting for rising edge on LD pin
                         (1<<11) |
                         (0<<10) |
                         (0<<9) |
@@ -426,7 +426,7 @@ void monitor_config_update(i2c_inst_t* i2c) {
                         (0<<0));
 
   // shutdown cell voltage, unit mV
-  bq76922_write_mem_i16(i2c, 0x923f, 3000);
+  bq76922_write_mem_i16(i2c, 0x923f, 2400);
   // shutdown stack voltage, unit 10mV
   bq76922_write_mem_i16(i2c, 0x9241, (2400*4)/10);
 
