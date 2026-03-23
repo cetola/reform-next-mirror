@@ -21638,6 +21638,16 @@
 		)
 		(uuid "16edb607-9e69-46c9-83b5-a5000b79e6d6")
 	)
+	(text "TODO: add ship fet"
+		(exclude_from_sim no)
+		(at 464.82 365.76 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "1ba63917-33a0-43fb-a6c2-ed6675402e0d")
+	)
 	(text "going into clock buffer\non module"
 		(exclude_from_sim no)
 		(at 974.09 156.21 0)
@@ -21658,6 +21668,16 @@
 			)
 		)
 		(uuid "20e09dcd-2080-418b-9a43-448a63033109")
+	)
+	(text "TODO: change VDD to 3V3!"
+		(exclude_from_sim no)
+		(at 1041.4 590.55 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "27ab88ee-bd2e-41c6-a9e5-7e570a1fc578")
 	)
 	(text "PERp2"
 		(exclude_from_sim no)
@@ -21733,6 +21753,16 @@
 			(justify left bottom)
 		)
 		(uuid "3a7e122e-efa4-46bc-a4b0-753a02645b5e")
+	)
+	(text "TODO: wire QON to shdn button"
+		(exclude_from_sim no)
+		(at 464.82 369.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "3aaee147-3916-4dcb-9426-db8e48ec4d25")
 	)
 	(text "Main/Charge Buck Boost"
 		(exclude_from_sim no)
@@ -21871,6 +21901,16 @@
 		)
 		(uuid "4eaafe8a-41e0-4b1e-8355-b37c55954461")
 	)
+	(text "TODO: change to 3V3!"
+		(exclude_from_sim no)
+		(at 270.51 330.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "50982437-25c3-4381-9e70-ea0b4ac803db")
+	)
 	(text "SDA"
 		(exclude_from_sim no)
 		(at 218.186 361.95 0)
@@ -21890,16 +21930,6 @@
 			)
 		)
 		(uuid "52363aa9-d7dc-496c-9953-38167d24068a")
-	)
-	(text "NOTE: these pulldowns were not strong enough,\n10k works in practice"
-		(exclude_from_sim no)
-		(at 414.02 170.18 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "547df211-6f13-41f4-9282-3f280bb05391")
 	)
 	(text "new in D-2:\nHDMI DDC vs DP AUX mux"
 		(exclude_from_sim no)
@@ -22485,6 +22515,16 @@
 		)
 		(uuid "b449779f-d557-4947-90c6-b919de11f95c")
 	)
+	(text "TODO: think about EDL\non this USB port!"
+		(exclude_from_sim no)
+		(at 735.33 556.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b5a92083-6a46-4089-80dd-90ba281ff485")
+	)
 	(text "4.5-24V"
 		(exclude_from_sim no)
 		(at 448.31 91.44 0)
@@ -22495,6 +22535,16 @@
 			(justify left bottom)
 		)
 		(uuid "b5c6e1d7-fd46-48dc-bee4-081ab8143c42")
+	)
+	(text "TODO: calculate resistor value"
+		(exclude_from_sim no)
+		(at 440.69 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b5dc19da-5954-4644-a901-5b9086bcd901")
 	)
 	(text "SoM Interface"
 		(exclude_from_sim no)
@@ -22706,6 +22756,16 @@
 		)
 		(uuid "e6f82b35-a27d-48b8-ad65-5e36e67247d3")
 	)
+	(text "TODO: one LED is enough, because real status LEDs are on port board"
+		(exclude_from_sim no)
+		(at 891.54 393.7 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e8793d06-e4fe-43ed-be7a-a4bea9d43311")
+	)
 	(text "New PCIe Lane!\n\nUnused pins on prev.\nMNT Reform modules"
 		(exclude_from_sim no)
 		(at 194.31 185.42 0)
@@ -22792,6 +22852,16 @@
 			(justify left)
 		)
 		(uuid "fbd427cb-0cf9-40e9-805e-92d751e39e68")
+	)
+	(text "TODO: also OR BAT1_V+ so we can turn off mp2650"
+		(exclude_from_sim no)
+		(at 378.46 72.39 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "fc113d16-0586-4844-a3a7-957d762fe183")
 	)
 	(text "PETn1"
 		(exclude_from_sim no)
