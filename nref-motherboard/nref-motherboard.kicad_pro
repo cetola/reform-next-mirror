@@ -662,7 +662,7 @@
       "plot": "nref-motherboard-gbr-d3",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "nref-motherboard-d4.step",
+      "step": "nref-motherboard.brep",
       "svg": "",
       "vrml": ""
     },
