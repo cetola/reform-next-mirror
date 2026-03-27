@@ -52287,182 +52287,6 @@
 	)
 	(footprint "footprints:WA-SMSI-M2"
 		(layer "F.Cu")
-		(uuid "f4922d15-0c66-43de-9292-685389164cef")
-		(at 127.4 148.25)
-		(property "Reference" "H8"
-			(at 0.05 -3.3 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(uuid "3075b42f-f646-4347-bebe-59cad989a3c6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "NGFF-Mount"
-			(at 0 3.2 0)
-			(layer "F.Fab")
-			(uuid "414891d8-1b3f-4651-9716-5be33022f855")
-			(effects
-				(font
-					(size 0.3 0.3)
-					(thickness 0.05)
-				)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 0 0 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "740713d9-70aa-43eb-a9fc-7971dfa801cc")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 0 0 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "923e7568-bdaf-4018-88c0-3cb622517c3b")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "DNP" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "3244604d-fcc9-4018-b229-855e7b0c268f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Manufacturer" "Würth"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "20ed0d9c-a9d8-4348-b549-40994fa3045c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Manufacturer_No" "9774020243R"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "811f4724-c33f-4e9f-8d50-d38509216747")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "35d82281-5a1a-4165-8b04-ca4e3f3dd6a7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property ki_fp_filters "MountingHole*Pad*")
-		(path "/e6e71b0f-7ead-47c3-a00b-bff95f2d20b1")
-		(sheetname "/")
-		(sheetfile "nref-motherboard.kicad_sch")
-		(attr through_hole)
-		(fp_arc
-			(start -1.900342 -0.600104)
-			(mid -1.411908 -1.411844)
-			(end -0.6 -1.9)
-			(stroke
-				(width 0.9)
-				(type solid)
-			)
-			(layer "F.Paste")
-			(uuid "b0533a6d-e2a8-41d8-ab77-006ba8d71ba6")
-		)
-		(fp_arc
-			(start -0.600104 1.900342)
-			(mid -1.411844 1.411908)
-			(end -1.9 0.6)
-			(stroke
-				(width 0.9)
-				(type solid)
-			)
-			(layer "F.Paste")
-			(uuid "a9f829a5-01f9-424c-acb6-d94e6e61842b")
-		)
-		(fp_arc
-			(start 0.600104 -1.900342)
-			(mid 1.411844 -1.411908)
-			(end 1.9 -0.6)
-			(stroke
-				(width 0.9)
-				(type solid)
-			)
-			(layer "F.Paste")
-			(uuid "6c780ce7-a23a-4f7a-97fd-65a68f2544e4")
-		)
-		(fp_arc
-			(start 1.900342 0.600104)
-			(mid 1.411908 1.411844)
-			(end 0.6 1.9)
-			(stroke
-				(width 0.9)
-				(type solid)
-			)
-			(layer "F.Paste")
-			(uuid "10937caf-d08b-4889-a820-9fdaf0b02842")
-		)
-		(pad "1" thru_hole circle
-			(at 0 0)
-			(size 5 5)
-			(drill 3)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 2 "GND")
-			(pinfunction "1")
-			(pintype "input")
-			(uuid "2b0fca58-0170-49f4-953d-a2f0fa6a2634")
-		)
-		(embedded_fonts no)
-		(model "${KIPRJMOD}/3d-models/9774010243R.stp"
-			(offset
-				(xyz 0 0 -1.4)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-	)
-	(footprint "footprints:WA-SMSI-M2"
-		(layer "F.Cu")
 		(uuid "f4965efc-4bc8-40b3-a1b9-812859a033ca")
 		(at 56.8 133)
 		(property "Reference" "H1"
@@ -59178,7 +59002,7 @@
 				(xyz -90 0 0)
 			)
 		)
-		(model "${KIPRJMOD}/3d-models/SSD-2280-D2-M-B.STEP_"
+		(model "${KIPRJMOD}/3d-models/SSD-2280-D2-M-B.STEP"
 			(offset
 				(xyz 11 2 2)
 			)
@@ -73922,6 +73746,190 @@
 			)
 			(rotate
 				(xyz -90 0 0)
+			)
+		)
+	)
+	(footprint "footprints:WA-SMSI-M2"
+		(layer "B.Cu")
+		(uuid "f4922d15-0c66-43de-9292-685389164cef")
+		(at 127.4 148.25)
+		(property "Reference" "H8"
+			(at 0.05 3.3 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(uuid "3075b42f-f646-4347-bebe-59cad989a3c6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Value" "NGFF-Mount"
+			(at 0 -3.2 180)
+			(layer "B.Fab")
+			(uuid "414891d8-1b3f-4651-9716-5be33022f855")
+			(effects
+				(font
+					(size 0.3 0.3)
+					(thickness 0.05)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 0 0 180)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "740713d9-70aa-43eb-a9fc-7971dfa801cc")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 180)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "923e7568-bdaf-4018-88c0-3cb622517c3b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "DNP" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "3244604d-fcc9-4018-b229-855e7b0c268f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer" "Würth"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "20ed0d9c-a9d8-4348-b549-40994fa3045c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Manufacturer_No" "9774020243R"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "811f4724-c33f-4e9f-8d50-d38509216747")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "35d82281-5a1a-4165-8b04-ca4e3f3dd6a7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property ki_fp_filters "MountingHole*Pad*")
+		(path "/e6e71b0f-7ead-47c3-a00b-bff95f2d20b1")
+		(sheetname "/")
+		(sheetfile "nref-motherboard.kicad_sch")
+		(attr through_hole)
+		(fp_arc
+			(start -1.9 -0.6)
+			(mid -1.411844 -1.411908)
+			(end -0.600104 -1.900342)
+			(stroke
+				(width 0.9)
+				(type solid)
+			)
+			(layer "B.Paste")
+			(uuid "a9f829a5-01f9-424c-acb6-d94e6e61842b")
+		)
+		(fp_arc
+			(start -0.6 1.9)
+			(mid -1.411908 1.411844)
+			(end -1.900342 0.600104)
+			(stroke
+				(width 0.9)
+				(type solid)
+			)
+			(layer "B.Paste")
+			(uuid "b0533a6d-e2a8-41d8-ab77-006ba8d71ba6")
+		)
+		(fp_arc
+			(start 0.6 -1.9)
+			(mid 1.411908 -1.411844)
+			(end 1.900342 -0.600104)
+			(stroke
+				(width 0.9)
+				(type solid)
+			)
+			(layer "B.Paste")
+			(uuid "10937caf-d08b-4889-a820-9fdaf0b02842")
+		)
+		(fp_arc
+			(start 1.9 0.6)
+			(mid 1.411844 1.411908)
+			(end 0.600104 1.900342)
+			(stroke
+				(width 0.9)
+				(type solid)
+			)
+			(layer "B.Paste")
+			(uuid "6c780ce7-a23a-4f7a-97fd-65a68f2544e4")
+		)
+		(pad "1" thru_hole circle
+			(at 0 0)
+			(size 5 5)
+			(drill 3)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 2 "GND")
+			(pinfunction "1")
+			(pintype "input")
+			(uuid "2b0fca58-0170-49f4-953d-a2f0fa6a2634")
+		)
+		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d-models/9774010243R.stp"
+			(offset
+				(xyz 0 0 -1.4)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
 			)
 		)
 	)
@@ -119313,6 +119321,35 @@
 				(xy 101.14048 149.924087) (xy 101.065913 149.84952) (xy 100.735913 149.51952) (xy 100.67073 149.481886)
 				(xy 100.622516 149.431319) (xy 100.609294 149.362712) (xy 100.635262 149.297848) (xy 100.692177 149.25732)
 				(xy 100.732732 149.2505) (xy 101.5755 149.2505)
+			)
+		)
+		(filled_polygon
+			(layer "F.Cu")
+			(pts
+				(xy 89.83086 130.486585) (xy 89.851502 130.503219) (xy 91.496781 132.148498) (xy 91.530266 132.209821)
+				(xy 91.5331 132.236179) (xy 91.5331 139.313821) (xy 91.513415 139.38086) (xy 91.496781 139.401502)
+				(xy 90.301502 140.596781) (xy 90.240179 140.630266) (xy 90.213821 140.6331) (xy 82.736179 140.6331)
+				(xy 82.66914 140.613415) (xy 82.648498 140.596781) (xy 80.336484 138.284766) (xy 80.329736 138.28087)
+				(xy 80.248987 138.234248) (xy 80.248986 138.234247) (xy 80.248985 138.234247) (xy 80.246191 138.233499)
+				(xy 80.208314 138.22335) (xy 80.172405 138.213728) (xy 80.112745 138.177362) (xy 80.082216 138.114515)
+				(xy 80.080499 138.093953) (xy 80.080499 138.062545) (xy 80.080499 138.062543) (xy 80.077741 138.033121)
+				(xy 80.034381 137.909206) (xy 80.004067 137.868132) (xy 79.980097 137.802503) (xy 79.995413 137.734333)
+				(xy 80.045153 137.685265) (xy 80.103835 137.670499) (xy 80.347456 137.670499) (xy 80.376879 137.667741)
+				(xy 80.500794 137.624381) (xy 80.606423 137.546423) (xy 80.66363 137.46891) (xy 80.679449 137.456899)
+				(xy 80.691776 137.441322) (xy 80.713222 137.431257) (xy 80.719276 137.426661) (xy 80.723195 137.425244)
+				(xy 80.727206 137.423868) (xy 80.788104 137.407552) (xy 80.807519 137.396342) (xy 80.818896 137.392443)
+				(xy 80.842261 137.3914) (xy 80.864996 137.385884) (xy 80.876518 137.389871) (xy 80.888696 137.389328)
+				(xy 80.908918 137.401084) (xy 80.931023 137.408734) (xy 80.938558 137.418315) (xy 80.9491 137.424444)
+				(xy 80.959756 137.445269) (xy 80.974216 137.463654) (xy 80.977268 137.479489) (xy 80.980929 137.486643)
+				(xy 80.980157 137.494477) (xy 80.9831 137.509744) (xy 80.9831 138.176399) (xy 80.991528 138.207853)
+				(xy 81.000304 138.240606) (xy 81.000304 138.240608) (xy 81.009246 138.273985) (xy 81.059765 138.361483)
+				(xy 82.012103 139.313821) (xy 82.938519 140.240237) (xy 83.026013 140.290752) (xy 83.123601 140.3169)
+				(xy 83.123603 140.3169) (xy 88.676397 140.3169) (xy 88.676399 140.3169) (xy 88.773987 140.290752)
+				(xy 88.861481 140.240236) (xy 88.93292 140.168797) (xy 91.190236 137.911481) (xy 91.240752 137.823987)
+				(xy 91.2669 137.726399) (xy 91.2669 137.625369) (xy 91.2669 132.497108) (xy 91.240752 132.39952)
+				(xy 91.235496 132.390417) (xy 91.190237 132.312026) (xy 90.392307 131.514096) (xy 89.587975 130.709764)
+				(xy 89.568095 130.698286) (xy 89.51988 130.647719) (xy 89.506658 130.579111) (xy 89.532626 130.514247)
+				(xy 89.589541 130.473719) (xy 89.630096 130.4669) (xy 89.763821 130.4669)
 			)
 		)
 		(filled_polygon

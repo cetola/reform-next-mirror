@@ -4038,6 +4038,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "4mA"
+		(exclude_from_sim no)
+		(at 1.27 146.05 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0ba2066b-cb7e-4af6-8c6c-4685cec0aa3b")
+	)
 	(text "TODO: wrong, RST_SHUT\nis active high!"
 		(exclude_from_sim no)
 		(at 215.9 97.79 0)
@@ -4068,6 +4078,26 @@
 			)
 		)
 		(uuid "33f8d249-81e7-48ab-adb2-a167ae2e9c6e")
+	)
+	(text "TODO: remove TH2 for full shutdown ability"
+		(exclude_from_sim no)
+		(at 165.1 158.75 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "54312db5-9e2a-48b8-8813-2c2329d89e1d")
+	)
+	(text "4mA"
+		(exclude_from_sim no)
+		(at 5.08 62.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5f17a205-4cfe-4454-b625-055e26d4cf2a")
 	)
 	(text "was: NTCGS163JX103DT7"
 		(exclude_from_sim no)
@@ -16747,6 +16777,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C24890359"
+			(at 181.61 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y-replace?"
+			(at 181.61 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "49e04624-4398-4fd0-adf2-61456a9f87bd")
 		)
@@ -16854,6 +16902,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C134385"
+			(at 48.26 110.49 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 48.26 110.49 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b0947330-c318-4f3f-85eb-4d956f3fd8b7")
 		)
@@ -16916,6 +16982,24 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
+			(at 240.03 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 240.03 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 240.03 118.11 0)
 			(effects
 				(font
@@ -16998,6 +17082,24 @@
 			)
 		)
 		(property "Manufacturer" "Yageo"
+			(at 48.26 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 48.26 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 48.26 125.73 0)
 			(effects
 				(font
@@ -17162,6 +17264,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C15127"
+			(at 201.93 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n"
+			(at 201.93 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "4068ea83-e7c8-4352-9487-3c8b082be7a3")
 		)
@@ -17252,6 +17372,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 88.9 152.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 88.9 152.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "41ae3c97-5224-45fe-9eb8-357e170417ad")
 		)
@@ -17333,6 +17471,24 @@
 		)
 		(property "Manufacturer" "LCSC"
 			(at 45.72 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C130719"
+			(at 45.72 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n"
+			(at 45.72 118.11 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17495,6 +17651,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C12766"
+			(at 71.12 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n (clone)"
+			(at 71.12 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "6ce5b7fa-78e2-4348-84de-db79d9896836")
 		)
@@ -17577,6 +17751,24 @@
 		)
 		(property "Manufacturer" "Rohm"
 			(at 238.76 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2086089"
+			(at 238.76 31.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y-replace?"
+			(at 238.76 31.75 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17756,6 +17948,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C391400"
+			(at 78.74 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 78.74 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2c38961c-4cd4-476c-8168-c8a3ee367c2d")
 		)
@@ -17909,6 +18119,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 32.512 56.642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 32.512 56.642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f72af343-0473-4fb9-9496-e3f63df74666")
 		)
@@ -17987,6 +18215,24 @@
 			)
 		)
 		(property "Manufacturer" "Yageo"
+			(at 219.71 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 219.71 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 219.71 36.83 0)
 			(effects
 				(font
@@ -18076,6 +18322,24 @@
 			)
 		)
 		(property "Manufacturer" "onsemi"
+			(at 71.12 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C12766"
+			(at 71.12 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n (clone)"
 			(at 71.12 99.06 0)
 			(effects
 				(font
@@ -18175,6 +18439,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 90.17 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 90.17 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "28da808c-6b5c-4a31-be1e-557e2dceef89")
 		)
@@ -18255,6 +18537,24 @@
 		)
 		(property "Manufacturer" "Yageo"
 			(at 88.9 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 88.9 129.54 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 88.9 129.54 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18343,6 +18643,24 @@
 			)
 		)
 		(property "Manufacturer" "TDK"
+			(at 151.384 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C24890359"
+			(at 151.384 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y-replace?"
 			(at 151.384 139.7 0)
 			(effects
 				(font
@@ -18440,6 +18758,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 138.43 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 138.43 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "4307de40-d56e-4420-9232-5bc4c14cbee0")
 		)
@@ -18521,6 +18857,24 @@
 			)
 		)
 		(property "Manufacturer" "Murata"
+			(at 201.93 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 201.93 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 201.93 105.41 0)
 			(effects
 				(font
@@ -18616,6 +18970,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 88.9 83.82 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 88.9 83.82 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "027991cb-3e75-48d8-a51d-a81b1c80ec64")
 		)
@@ -18694,6 +19066,24 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
+			(at 158.75 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C33651534"
+			(at 158.75 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y, global sourcing"
 			(at 158.75 77.47 0)
 			(effects
 				(font
@@ -19014,6 +19404,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 88.9 143.51 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 88.9 143.51 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f5acb7cf-f627-4c3e-bdd0-a56f92ef9ef6")
 		)
@@ -19103,6 +19511,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C4059300"
+			(at 68.58 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y-replace?"
+			(at 68.58 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "02338005-c66b-4a04-8bd7-c5b32d9406d0")
 		)
@@ -19184,6 +19610,24 @@
 			)
 		)
 		(property "Manufacturer" "TE Connextivity"
+			(at 68.58 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C4059300"
+			(at 68.58 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y-replace?"
 			(at 68.58 90.17 0)
 			(effects
 				(font
@@ -19288,6 +19732,24 @@
 				(justify right)
 			)
 		)
+		(property "LCSC" "C20349383"
+			(at 65.786 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y-replace?"
+			(at 65.786 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "9a1a5e91-7d34-4d0b-94ff-7fae815051f2")
 		)
@@ -19363,7 +19825,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "S174146R"
+		(property "MPN" "2036-3-57-15-00-00-03-0"
 			(at 35.306 106.68 0)
 			(effects
 				(font
@@ -19372,7 +19834,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Harwin"
+		(property "Manufacturer" "Mill-Max"
+			(at 35.306 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C20777560"
+			(at 35.306 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
 			(at 35.306 106.68 0)
 			(effects
 				(font
@@ -19459,6 +19939,24 @@
 			)
 		)
 		(property "Manufacturer" "Murata"
+			(at 93.98 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 93.98 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 93.98 67.31 0)
 			(effects
 				(font
@@ -19622,6 +20120,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C4059300"
+			(at 68.58 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y-replace?"
+			(at 68.58 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6d0965ce-45f7-40f9-a47a-3fd00cf87694")
 		)
@@ -19702,6 +20218,24 @@
 		)
 		(property "Manufacturer" "Yageo"
 			(at 82.55 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 82.55 46.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 82.55 46.99 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19865,6 +20399,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C12766"
+			(at 71.12 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n (clone)"
+			(at 71.12 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "8824311c-5075-4fda-8080-6fdb92c0e82f")
 		)
@@ -19974,6 +20526,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C134385"
+			(at 48.26 87.63 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 48.26 87.63 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "64dec48b-032d-4505-91c2-8eb222185eea")
 		)
@@ -20055,6 +20625,24 @@
 			)
 		)
 		(property "Manufacturer" "Royalohm"
+			(at 220.472 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2765609"
+			(at 220.472 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "replace with basic"
 			(at 220.472 78.74 0)
 			(effects
 				(font
@@ -20152,6 +20740,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C2765609"
+			(at 214.122 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "replace with basic"
+			(at 214.122 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6452deb5-b6ad-4d77-81e4-31d58816d1bf")
 		)
@@ -20233,6 +20839,24 @@
 			)
 		)
 		(property "Manufacturer" "Murata"
+			(at 97.028 134.366 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 97.028 134.366 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 97.028 134.366 0)
 			(effects
 				(font
@@ -20329,6 +20953,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C130719"
+			(at 45.72 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n"
+			(at 45.72 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "38755e13-6889-4606-b848-c5d49e118819")
 		)
@@ -20418,7 +21060,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "5d404db4-4aaa-43a5-8073-dd29b03b38c0")
 		(property "Reference" "TH2"
@@ -20477,6 +21119,24 @@
 			)
 		)
 		(property "Manufacturer" "TDK"
+			(at 175.26 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C24890359"
+			(at 175.26 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y-replace?"
 			(at 175.26 139.7 0)
 			(effects
 				(font
@@ -20566,6 +21226,24 @@
 			)
 		)
 		(property "Manufacturer" "onsemi"
+			(at 71.12 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C12766"
+			(at 71.12 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n (clone)"
 			(at 71.12 143.51 0)
 			(effects
 				(font
@@ -20664,6 +21342,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C95171"
+			(at 74.93 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n"
+			(at 74.93 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ce1978b7-228c-4c54-9b55-772b4c2970a4")
 		)
@@ -20741,6 +21437,24 @@
 			)
 		)
 		(property "Manufacturer" "JST"
+			(at 25.4 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C160402"
+			(at 25.4 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n"
 			(at 25.4 107.95 0)
 			(effects
 				(font
@@ -20838,6 +21552,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 210.82 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 210.82 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f2130555-d7fd-4154-9fe9-7e6cb2c3a65d")
 		)
@@ -20926,6 +21658,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 93.98 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 93.98 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "1b2ec930-be3d-4999-805d-d0ea3a54aaab")
 		)
@@ -21005,6 +21755,24 @@
 		)
 		(property "Manufacturer" "Yageo"
 			(at 182.88 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 182.88 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 182.88 90.17 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21100,6 +21868,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 48.26 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 48.26 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ffc491f8-9bc8-4c69-aada-f075eab1f537")
 		)
@@ -21181,6 +21967,24 @@
 			)
 		)
 		(property "Manufacturer" "Yageo"
+			(at 259.08 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 259.08 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 259.08 74.93 0)
 			(effects
 				(font
@@ -21295,6 +22099,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C134385"
+			(at 48.26 133.35 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 48.26 133.35 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "905c2894-740d-4a7a-aa6c-cd8092c52f4c")
 		)
@@ -21384,6 +22206,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 237.49 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 237.49 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "02ed7b45-ba2d-483d-9ca6-c57fdc594c7a")
 		)
@@ -21464,6 +22304,24 @@
 			)
 		)
 		(property "Manufacturer" "Yageo"
+			(at 45.72 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 45.72 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 45.72 80.01 0)
 			(effects
 				(font
@@ -21561,6 +22419,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 201.93 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 201.93 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "829ceb84-938a-4fb1-936d-3f057736552c")
 		)
@@ -21640,6 +22516,24 @@
 			)
 		)
 		(property "Manufacturer" "Harwin"
+			(at 35.306 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 35.306 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "TODO"
 			(at 35.306 102.87 0)
 			(effects
 				(font
@@ -21816,6 +22710,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C134385"
+			(at 50.8 140.97 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 50.8 140.97 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "55af5321-2488-4097-a350-bea372cd7a56")
 		)
@@ -21903,6 +22815,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 25.4 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "TODO"
+			(at 25.4 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "273ccd18-30e1-40a5-b565-b4a6308226f7")
 		)
@@ -21979,6 +22909,24 @@
 		)
 		(property "Manufacturer" "Yageo"
 			(at 186.69 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 186.69 85.09 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 186.69 85.09 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22092,6 +23040,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C134385"
+			(at 49.53 73.66 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 49.53 73.66 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3b5b05b7-efa6-47a7-a8af-fe88602f8aad")
 		)
@@ -22196,6 +23162,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C134385"
+			(at 51.054 67.056 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 51.054 67.056 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2cd4c541-e281-493c-a404-da4f3e1fda81")
 		)
@@ -22275,6 +23259,24 @@
 		)
 		(property "Manufacturer" "Yageo"
 			(at 54.61 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 54.61 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 54.61 144.78 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22388,6 +23390,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C391400"
+			(at 78.74 80.01 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 78.74 80.01 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "223c3014-0489-4b88-86f8-c8b6a0185a4c")
 		)
@@ -22476,6 +23496,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C130719"
+			(at 43.18 73.66 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n"
+			(at 43.18 73.66 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "9f084da7-02c3-4220-adac-0214beda5774")
 		)
@@ -22557,6 +23595,24 @@
 			)
 		)
 		(property "Manufacturer" "Murata"
+			(at 93.98 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 93.98 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 93.98 90.17 0)
 			(effects
 				(font
@@ -22672,6 +23728,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C134385"
+			(at 50.8 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 50.8 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c381b3d5-a1bb-448c-ba77-cca25e6188de")
 		)
@@ -22740,7 +23814,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "S174146R"
+		(property "MPN" "2036-3-57-15-00-00-03-0"
 			(at 25.4 62.23 0)
 			(effects
 				(font
@@ -22749,7 +23823,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Harwin"
+		(property "Manufacturer" "Mill-Max"
+			(at 25.4 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C20777560"
+			(at 25.4 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
 			(at 25.4 62.23 0)
 			(effects
 				(font
@@ -22844,6 +23936,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C24890359"
+			(at 145.796 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y-replace?"
+			(at 145.796 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2069c519-8fc4-4feb-ac3f-284b6aa4803c")
 		)
@@ -22923,6 +24033,24 @@
 		)
 		(property "Manufacturer" "Yageo"
 			(at 85.09 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 85.09 163.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 85.09 163.83 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23011,6 +24139,24 @@
 		)
 		(property "Manufacturer" "Texas Instruments"
 			(at 220.472 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2841784"
+			(at 220.472 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y, global sourcing"
+			(at 220.472 63.5 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23129,6 +24275,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 139.065 77.47 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 139.065 77.47 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "9e1979e5-bc3b-4fb8-9423-b4bf01b5c86f")
 		)
@@ -23209,6 +24373,24 @@
 			)
 		)
 		(property "Manufacturer" "DNP"
+			(at 25.4 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 25.4 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 25.4 151.13 0)
 			(effects
 				(font
@@ -23320,6 +24502,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C391400"
+			(at 78.74 102.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 78.74 102.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "06898e89-1830-4a2d-882f-be55f8c7c86e")
 		)
@@ -23401,6 +24601,24 @@
 		)
 		(property "Manufacturer" "LCSC"
 			(at 45.72 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C130719"
+			(at 45.72 140.97 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n"
+			(at 45.72 140.97 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23562,6 +24780,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 116.332 175.768 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 116.332 175.768 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "80ab8329-cae4-4e7d-9a92-1f66d3f9588a")
 		)
@@ -23642,6 +24878,24 @@
 		)
 		(property "Manufacturer" "Yageo"
 			(at 88.9 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 88.9 106.68 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 88.9 106.68 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23870,6 +25124,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C160393"
+			(at 252.222 148.844 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n"
+			(at 252.222 148.844 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c856ed42-3057-43c2-9483-9016815fe409")
 		)
@@ -23991,6 +25263,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C391400"
+			(at 78.74 125.73 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 78.74 125.73 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1677053e-bcc3-49e7-8b32-de804ee4ac45")
 		)
@@ -24072,6 +25362,24 @@
 			)
 		)
 		(property "Manufacturer" "Royalohm"
+			(at 201.93 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2765609"
+			(at 201.93 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "replace with basic"
 			(at 201.93 44.45 0)
 			(effects
 				(font
@@ -24168,6 +25476,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 24.13 162.56 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 24.13 162.56 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "14cab4d2-53a8-4d76-8bd1-5935317f233f")
 		)
@@ -24249,6 +25575,24 @@
 			)
 		)
 		(property "Manufacturer" "Yageo"
+			(at 262.89 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 262.89 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 262.89 74.93 0)
 			(effects
 				(font
@@ -24339,6 +25683,24 @@
 		)
 		(property "Manufacturer" "Alpha & Omega"
 			(at 228.6 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C15127"
+			(at 228.6 34.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "n"
+			(at 228.6 34.29 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24438,6 +25800,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 196.85 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 196.85 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "040f6627-f739-4dce-8df3-a18945fd62cf")
 		)
@@ -24524,6 +25904,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 191.77 87.63 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 191.77 87.63 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "af24a9ca-8756-43bb-ab8d-aa0eb7858b47")
 		)
@@ -24603,6 +26001,24 @@
 			)
 		)
 		(property "Manufacturer" "DNP"
+			(at 60.706 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 60.706 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 60.706 62.23 0)
 			(effects
 				(font
@@ -24764,6 +26180,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 59.182 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 59.182 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "83a111a6-664c-46d9-880e-36797409574a")
 		)
@@ -24853,6 +26287,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 97.028 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 97.028 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "77cc7f8e-b344-4c78-bcba-881d9dd25eb2")
 		)
@@ -24933,6 +26385,24 @@
 		)
 		(property "Manufacturer" "Yageo"
 			(at 88.9 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 88.9 76.2 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 88.9 76.2 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25029,6 +26499,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 93.98 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 93.98 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0d27b56b-7425-4789-9568-a1d5aca61503")
 		)
@@ -25109,6 +26597,24 @@
 		)
 		(property "Manufacturer" "Yageo"
 			(at 88.9 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 88.9 99.06 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 88.9 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25197,6 +26703,24 @@
 			)
 		)
 		(property "Manufacturer" "Royalohm"
+			(at 228.6 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2765609"
+			(at 228.6 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "replace with basic"
 			(at 228.6 44.45 0)
 			(effects
 				(font
@@ -25294,6 +26818,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 91.44 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 91.44 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "560e5b03-ec90-4083-92c8-e8d494ab6144")
 		)
@@ -25373,6 +26915,24 @@
 			)
 		)
 		(property "Manufacturer" "DNP"
+			(at 44.958 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 44.958 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 44.958 106.68 0)
 			(effects
 				(font
@@ -25461,6 +27021,24 @@
 			)
 		)
 		(property "Manufacturer" "Murata"
+			(at 120.396 175.768 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 120.396 175.768 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
 			(at 120.396 175.768 0)
 			(effects
 				(font
@@ -25622,6 +27200,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 88.9 121.92 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 88.9 121.92 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "23d07604-8488-4ba6-b7a2-2e4a8fdfd7c5")
 		)
@@ -25718,6 +27314,24 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(property "LCSC" "C4059300"
+			(at 68.58 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y-replace?"
+			(at 68.58 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -25892,6 +27506,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C134385"
+			(at 50.8 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" "y"
+			(at 50.8 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d1c65b19-c97f-4cc2-b0c1-897a7ffac43b")
 		)
@@ -25981,6 +27613,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 95.25 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 95.25 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "7cd84f05-4f96-46a8-a6a5-962c57c04113")
 		)
@@ -26060,6 +27710,24 @@
 		)
 		(property "Manufacturer" "Yageo"
 			(at 85.09 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 85.09 171.45 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Preorder" ""
+			(at 85.09 171.45 90)
 			(effects
 				(font
 					(size 1.27 1.27)
