@@ -62451,7 +62451,7 @@
 				)
 			)
 		)
-		(property "Value" "TS4148 RBG"
+		(property "Value" "CD0603-B0240R"
 			(at 407.67 293.37 0)
 			(effects
 				(font
@@ -62486,7 +62486,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Taiwan Semi"
+		(property "Manufacturer" "Bourns"
 			(at 407.67 297.18 0)
 			(effects
 				(font
@@ -62495,7 +62495,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "TS4148 RBG"
+		(property "Manufacturer_No" "CD0603-B0240R"
 			(at 407.67 297.18 0)
 			(effects
 				(font
@@ -62504,7 +62504,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C3312579"
+		(property "LCSC" "C3312582"
 			(at 407.67 297.18 0)
 			(effects
 				(font
@@ -63789,7 +63789,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C278795"
+		(property "LCSC" "C160408"
 			(at 127 604.52 0)
 			(effects
 				(font
@@ -66696,7 +66696,7 @@
 				)
 			)
 		)
-		(property "Value" "TS4148 RBG"
+		(property "Value" "CD0603-B0240R"
 			(at 407.67 280.67 0)
 			(effects
 				(font
@@ -66731,7 +66731,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Taiwan Semi"
+		(property "Manufacturer" "Bourns"
 			(at 407.67 284.48 0)
 			(effects
 				(font
@@ -66740,7 +66740,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "TS4148 RBG"
+		(property "Manufacturer_No" "CD0603-B0240R"
 			(at 407.67 284.48 0)
 			(effects
 				(font
@@ -66749,7 +66749,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C3312579"
+		(property "LCSC" "C3312582"
 			(at 407.67 284.48 0)
 			(effects
 				(font
@@ -68145,7 +68145,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "TS-1185EC-C-D-B"
+		(property "Manufacturer_No" "TS-1185EC-B-D-B"
 			(at 773.43 245.11 0)
 			(effects
 				(font
@@ -68154,7 +68154,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C318893"
+		(property "LCSC" "C2689696"
 			(at 773.43 245.11 0)
 			(effects
 				(font
@@ -70584,7 +70584,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C52923"
 			(at 448.31 246.38 0)
 			(effects
 				(font
@@ -70602,7 +70602,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL05A105KO5NNNC"
+		(property "Manufacturer_No" "CL05A105KA5NQNC"
 			(at 448.31 246.38 0)
 			(effects
 				(font
@@ -95743,7 +95743,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1589"
+		(property "LCSC" "C52923"
 			(at 448.31 180.34 0)
 			(effects
 				(font
@@ -95761,7 +95761,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CL05A105KO5NNNC"
+		(property "Manufacturer_No" "CL05A105KA5NQNC"
 			(at 448.31 180.34 0)
 			(effects
 				(font
@@ -97326,7 +97326,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "FH"
+		(property "Manufacturer" "Samsung"
 			(at 627.38 389.89 0)
 			(effects
 				(font
@@ -97335,7 +97335,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "0402CG150J500NT"
+		(property "Manufacturer_No" "CL10C150JB8NNNC"
 			(at 627.38 389.89 0)
 			(effects
 				(font
@@ -97344,7 +97344,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1548"
+		(property "LCSC" "C1644"
 			(at 627.38 389.89 0)
 			(effects
 				(font
@@ -97946,7 +97946,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "FH"
+		(property "Manufacturer" "Samsung"
 			(at 643.89 389.89 0)
 			(effects
 				(font
@@ -97955,7 +97955,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "0402CG150J500NT"
+		(property "Manufacturer_No" "CL10C150JB8NNNC"
 			(at 643.89 389.89 0)
 			(effects
 				(font
@@ -97964,7 +97964,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1548"
+		(property "LCSC" "C1644"
 			(at 643.89 389.89 0)
 			(effects
 				(font
