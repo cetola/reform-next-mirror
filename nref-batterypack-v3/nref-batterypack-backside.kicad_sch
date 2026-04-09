@@ -522,7 +522,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprints:S70332002045R"
+		(property "Footprint" "footprints:MYOUNG_MY-FJ-115"
 			(at 106.68 96.52 0)
 			(effects
 				(font
@@ -605,7 +605,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprints:S70332002045R"
+		(property "Footprint" "footprints:MYOUNG_MY-FJ-115"
 			(at 106.68 74.93 0)
 			(effects
 				(font
@@ -855,7 +855,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprints:S174146R"
+		(property "Footprint" "footprints:Mill-Max_2036-X-57"
 			(at 106.68 85.09 0)
 			(effects
 				(font
@@ -938,7 +938,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprints:S174146R"
+		(property "Footprint" "footprints:Mill-Max_2036-X-57"
 			(at 106.68 109.22 0)
 			(effects
 				(font
