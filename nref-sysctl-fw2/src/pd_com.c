@@ -207,8 +207,15 @@ static bool pd_comm_pd(battery_info_s* battery_info) {
     // other side wants to swap data role.
     if (pd_datarole == PD_DATAROLE_DFP) {
       // we cannot switch away from DFP role. reject the message
-      printf("# [pd] rejecting data-role swap\n");
-      tx.hdr = PD_MSGTYPE_REJECT | pd_datarole | (pd_powerrole << PD_HDR_POWERROLE_SHIFT);
+      //printf("# [pd] rejecting data-role swap\n");
+      //tx.hdr = PD_MSGTYPE_REJECT | pd_datarole | (pd_powerrole << PD_HDR_POWERROLE_SHIFT);
+      //fusb_send_message(&tx);
+
+      printf("# [pd] accepting data-role switch to UFP\n");
+      // TODO pd_powerrole = PD_POWERROLE_SINK; ??
+      pd_datarole = PD_DATAROLE_UFP;
+      pd_datarole_changed = true;
+      tx.hdr = PD_MSGTYPE_ACCEPT | pd_datarole | (pd_powerrole << PD_HDR_POWERROLE_SHIFT);
       fusb_send_message(&tx);
     } else {
       // we started as UFP. Partner wants to become UFP.
@@ -387,6 +394,7 @@ bool pd_tick(battery_info_s* battery_info) {
       if (pd_state == PD_STATE_UNATTACHED_SNK) {
         pd_powerrole = PD_POWERROLE_SINK;
         pd_datarole = PD_DATAROLE_UFP;  // default for powerrole SINK
+        usb_host_5v_disable();
       } else {
         pd_powerrole = PD_POWERROLE_SOURCE;
         pd_datarole = PD_DATAROLE_DFP;  // default for powerrole SOURCE

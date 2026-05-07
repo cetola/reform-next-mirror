@@ -231,7 +231,7 @@ void handle_usb_commands()
     printf("# [acm_command] '%c'\n", usb_c);
     if (usb_c == '1')
     {
-      turn_som_power_on(true);
+      turn_som_power_on();
     }
     else if (usb_c == '0')
     {
@@ -322,7 +322,7 @@ void usb_host_5v_disable() {
 int64_t battery_task(__unused alarm_id_t id, __unused void *user_data) {
   pack_configure(&battery_info.packs[0], (float)BATTERY_TIMER_MS);
   pack_configure(&battery_info.packs[1], (float)BATTERY_TIMER_MS);
-  charger_configure(battery_info.packs);
+  charger_configure();
   charger_status(battery_info.packs);
 
   return BATTERY_TIMER_MS*1000;
