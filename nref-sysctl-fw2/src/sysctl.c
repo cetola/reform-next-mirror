@@ -32,6 +32,7 @@ static alarm_pool_t* battery_alarm_pool;
 static int charge_ma = 500;
 battery_info_s battery_info = {0};
 static int ALARM_IRQ = 0;
+static int console_forward_mode = 0;
 
 // The Pico boot rom uses watchdog scratch registers 0, 1, 4, 5, 6, and 7.
 // That leaves 2 and 3 for our "system is on" magic.
@@ -72,8 +73,8 @@ void turn_som_power_on() {
 
   set_boot_magic();
 
-  gpio_ext_enable(GPIO_EXT_3V3_EN);
-  gpio_ext_enable(GPIO_EXT_5V_EN);
+  gpio_mb_enable(GPIO_EXT_3V3_EN);
+  gpio_mb_enable(GPIO_EXT_5V_EN);
 
   battery_info.som_is_powered = true;
 }
@@ -92,8 +93,8 @@ void turn_som_power_off() {
 
   clear_boot_magic();
 
-  gpio_ext_disable(GPIO_EXT_5V_EN);
-  gpio_ext_disable(GPIO_EXT_3V3_EN);
+  gpio_mb_disable(GPIO_EXT_5V_EN);
+  gpio_mb_disable(GPIO_EXT_3V3_EN);
 
   battery_info.som_is_powered = false;
 }
@@ -155,7 +156,10 @@ void setup()
   uart_set_format(uart0, DATA_BITS, STOP_BITS, PARITY);
   uart_set_hw_flow(uart0, false, false);
   uart_set_fifo_enabled(uart0, true);
-  gpio_set_function(PIN_SOM_UART_TX, GPIO_FUNC_UART);
+  //gpio_set_function(PIN_SOM_UART_TX, GPIO_FUNC_UART);
+  // only listen by default, don't disturb usb-uart TX
+  gpio_init(PIN_SOM_UART_TX);
+  gpio_set_dir(PIN_SOM_UART_TX, 0);
   gpio_set_function(PIN_SOM_UART_RX, GPIO_FUNC_UART);
 
   // I2C0
@@ -175,7 +179,7 @@ void setup()
   battery_info.packs[1].i2c = i2c1;
 
   // motherboard external GPIOs
-  gpio_ext_setup();
+  gpio_mb_setup();
   // left port board (PD) GPIOs
   gpio_ext_pd_setup();
 
@@ -306,6 +310,54 @@ void handle_usb_commands()
       printf("setting USB-C mux dir to 1...\n");
       gpio_ext_pd_enable(2);
     }
+    else if (usb_c == '4') {
+      // configuration for USB-UART (SoC console), and EDL providing USB hub upstream
+      // sysctl reachable via SoC USB
+      printf("setting USWITCH_1 to 1...\n");
+      gpio_mb_enable(4);
+      printf("setting USWITCH_2 to 1...\n");
+      gpio_mb_enable(5);
+      printf("setting USWITCH_3 to 1...\n");
+      gpio_mb_enable(6);
+
+      // turn off sending to SoC UART
+      gpio_init(PIN_SOM_UART_TX);
+      gpio_set_dir(PIN_SOM_UART_TX, 0);
+    }
+    else if (usb_c == '5') {
+      // configuration for SysCtl flashing (default)
+      printf("setting USWITCH_1 to 0...\n");
+      gpio_mb_disable(4);
+      printf("setting USWITCH_2 to 0...\n");
+      gpio_mb_disable(5);
+      printf("setting USWITCH_3 to 0...\n");
+      gpio_mb_disable(6);
+    }
+    else if (usb_c == '6') {
+      // configuration for EDL port on USB-C
+      // no going back from this via USB, sysctl unreachable except for SPI
+      printf("setting USWITCH_1 to 1...\n");
+      gpio_mb_enable(4);
+      printf("setting USWITCH_2 to 0...\n");
+      gpio_mb_disable(5);
+      printf("setting USWITCH_3 to 0...\n");
+      gpio_mb_disable(6);
+    }
+    else if (usb_c == '7') {
+      // configuration for normal USB-C and SysCtl as USB device of SoC
+      // sysctl reachable via SoC USB
+      printf("setting USWITCH_1 to 1...\n");
+      gpio_mb_enable(4);
+      printf("setting USWITCH_2 to 0...\n");
+      gpio_mb_disable(5);
+      printf("setting USWITCH_3 to 1...\n");
+      gpio_mb_enable(6);
+    }
+    else if (usb_c == '/') {
+      console_forward_mode = 1;
+      gpio_set_function(PIN_SOM_UART_TX, GPIO_FUNC_UART);
+      printf("\n--- entered console forward mode ---\n");
+    }
   }
 }
 
@@ -335,6 +387,28 @@ bool spi_commands_task(__unused struct repeating_timer *t) {
   return true;
 }
 
+void forward_soc_uart() {
+  // prevent endless loop
+  int uart_max = 64;
+  while (uart_is_readable(uart0) && uart_max > 0) {
+    printf("%c", uart_getc(uart0));
+    uart_max--;
+  }
+  int usb_c = getchar_timeout_us(0);
+  if (usb_c != PICO_ERROR_TIMEOUT) {
+    if (usb_c == 16) {
+      // "data link escape", ctrl+p
+      console_forward_mode = 0;
+      printf("\n--- exited console forward mode ---\n");
+      // turn off sending to SoC UART
+      gpio_init(PIN_SOM_UART_TX);
+      gpio_set_dir(PIN_SOM_UART_TX, 0);
+    } else {
+      uart_putc(uart0, usb_c);
+    }
+  }
+}
+
 void loop()
 {
   bool can_sleep = true;
@@ -347,7 +421,11 @@ void loop()
 
 #ifdef ACM_ENABLED
   // handle commands over usb serial
-  handle_usb_commands();
+  if (console_forward_mode) {
+    forward_soc_uart();
+  } else {
+    handle_usb_commands();
+  }
 #endif
 
   irq_set_enabled(ALARM_IRQ, false);
@@ -355,14 +433,7 @@ void loop()
     can_sleep = false;
   }
   irq_set_enabled(ALARM_IRQ, true);
-
   battery_info.ticks++;
-
-  // every 5000ms: report to serial
-  if (battery_info.ticks % 5000 == 0)
-  {
-    printf("5000 ticks...\n");
-  }
 
   if (can_sleep) {
     sleep_us(100); // one tick is 0.1ms

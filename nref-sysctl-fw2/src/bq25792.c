@@ -230,17 +230,23 @@ int charger_status(struct BatteryPack* packs) {
   if (!packs[0].active && !packs[1].active) {
     // disable charging
     // FIXME: we can't get discharged packs online like this
-    printf("# [bq25] disable/trickle charging (no packs connected).\n");
+	if (pack_debug) {
+      printf("# [bq25] disable/trickle charging (no packs connected).\n");
+	}
     bq25792_write_byte(0x0f, 0b10000000);
     disable_led(PIN_LED_R);
   } else if (!charging_allowed) {
     // disable charging
-    printf("# [bq25] disable charging (overvoltage/fully charged).\n");
+	if (pack_debug) {
+      printf("# [bq25] disable charging (overvoltage/fully charged).\n");
+	}
     bq25792_write_byte(0x0f, 0b10000000);
     disable_led(PIN_LED_R);
   } else {
     // enable charging
-    printf("# [bq25] enable charging.\n");
+	if (pack_debug) {
+      printf("# [bq25] enable charging.\n");
+	}
     bq25792_write_byte(0x0f, 0b10100000);
     enable_led(PIN_LED_R);
   }
@@ -275,7 +281,7 @@ int charger_status(struct BatteryPack* packs) {
   //}
 
   if (pack_debug) {
-    printf("[bq25] charger_status_0: %08b\n", charger_status_0);
+    printf("# [bq25] charger_status_0: %08b\n", charger_status_0);
     if (charger_status_0 & 0b1) printf("[bq25] `-- VBUS present\n");
     if (charger_status_0 & 0b10) printf("[bq25] `-- VAC1 present\n");
     if (charger_status_0 & 0b100) printf("[bq25] `-- VAC2 present\n");
@@ -341,17 +347,19 @@ int charger_status(struct BatteryPack* packs) {
 
   //printf("[bq25] charger_status_2: %08b\n", charger_status_2);
 
-  printf("[bq25] ICHG: %d mA\n", ichg);
-  printf("[bq25] VREG: %d mV\n", vreg);
+  if (pack_debug) {
+	  printf("[bq25] ICHG: %d mA\n", ichg);
+	  printf("[bq25] VREG: %d mV\n", vreg);
 
-  printf("[bq25] vbus: %d mV\n", vbus_adc);
-  printf("[bq25] vac1: %d mV\n", vac1_adc);
-  printf("[bq25] vbat: %d mV\n", vbat_adc);
-  printf("[bq25] ibus: %d mA\n", ibus_adc);
-  printf("[bq25] ibat: %d mA\n", ibat_adc);
-  printf("[bq25] ilim: %d mA\n", ilim);
-  printf("[bq25] tdie: %f C\n",  tdie_adc);
-  printf("---------------------------\n");
+	  printf("[bq25] vbus: %d mV\n", vbus_adc);
+	  printf("[bq25] vac1: %d mV\n", vac1_adc);
+	  printf("[bq25] vbat: %d mV\n", vbat_adc);
+	  printf("[bq25] ibus: %d mA\n", ibus_adc);
+	  printf("[bq25] ibat: %d mA\n", ibat_adc);
+	  printf("[bq25] ilim: %d mA\n", ilim);
+	  printf("[bq25] tdie: %f C\n",  tdie_adc);
+	  printf("---------------------------\n");
+  }
 
   return vbus_adc;
 }
