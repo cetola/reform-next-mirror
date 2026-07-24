@@ -30,7 +30,7 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   int detected = bq76922_detect(i2c);
 
   if (detected != 1) {
-    printf("[pack %d] not detected: %d\n", pack->id, detected);
+    //printf("[pack %d] not detected: %d\n", pack->id, detected);
     // pack not connected
     pack->cells_v[0] = 0;
     pack->cells_v[1] = 0;
@@ -138,10 +138,10 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   }
 
   if (pack->undervolt) {
-    printf("[bq76:%d] undervoltage, turning discharge off.\n", pack->id);
+    printf("# [bq76:%d] undervoltage, turning discharge off.\n", pack->id);
     mon_discharge_fets_off(i2c);
   } else if (pack->overvolt) {
-    printf("[bq76:%d] overvoltage, turning charge off.\n", pack->id);
+    printf("# [bq76:%d] overvoltage, turning charge off.\n", pack->id);
     mon_charge_fets_off(i2c);
   } else {
     mon_all_fets_on(i2c);
@@ -304,18 +304,20 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
     bq76922_write_mem_u16(i2c, 0x0083, 0);
   }*/
 
-  printf("\n[PACK %d] ===================================\n", pack->id);
-  printf("cells: %.2fV %.2fV %.2fV %.2fV\n",
-         pack->cells_v[0],
-         pack->cells_v[1],
-         pack->cells_v[2],
-         pack->cells_v[3]);
-  printf("current: %.2fA voltage: %.2fV\n", pack->ampere, pack->volt);
-  printf("balancing: %016b\n", pack->bal_active_cells);
-  printf("coulomb_cur/max: %.2f / %.2f\n", pack->coulomb_cur, pack->coulomb_max);
-  printf("gauge_percent: %.2f\n", pack->gauge_percent);
-  printf("fully_charged: %d\n", pack->fully_charged);
-  printf("============================================\n\n");
+  if (pack->debug) {
+	  printf("\n[PACK %d] ===================================\n", pack->id);
+	  printf("cells: %.2fV %.2fV %.2fV %.2fV\n",
+			 pack->cells_v[0],
+			 pack->cells_v[1],
+			 pack->cells_v[2],
+			 pack->cells_v[3]);
+	  printf("current: %.2fA voltage: %.2fV\n", pack->ampere, pack->volt);
+	  printf("balancing: %016b\n", pack->bal_active_cells);
+	  printf("coulomb_cur/max: %.2f / %.2f\n", pack->coulomb_cur, pack->coulomb_max);
+	  printf("gauge_percent: %.2f\n", pack->gauge_percent);
+	  printf("fully_charged: %d\n", pack->fully_charged);
+	  printf("============================================\n\n");
+  }
 
   return 1;
 }
@@ -334,13 +336,13 @@ void monitor_config_update(i2c_inst_t* i2c) {
   for (int i=0; i<10; i++) {
     battery_status = bq76922_read_u16(i2c, 0x12);
     cfgupd = !!(battery_status & (1<<0));
-    printf("[bq76] `-- CFGUPD (expect 1) (try %d): %d\n", i, cfgupd);
+    //printf("# [bq76] `-- CFGUPD (expect 1) (try %d): %d\n", i, cfgupd);
     if (cfgupd) break;
     busy_wait_us(10*1000);
   }
 
   if (!cfgupd) {
-    printf("[bq76] `-- failed to perform CFGUPD!\n");
+    printf("# [bq76] `-- failed to perform CFGUPD!\n");
     return;
   }
 
@@ -484,7 +486,7 @@ void monitor_config_update(i2c_inst_t* i2c) {
   bq76922_write_byte(i2c, 0x3f, 0x00);
 
   battery_status = bq76922_read_u16(i2c, 0x12);
-  printf("[bq76] `-- CFGUPD (expect 0): %d\n", !!(battery_status & (1<<0)));
+  //printf("[bq76] `-- CFGUPD (expect 0): %d\n", !!(battery_status & (1<<0)));
 }
 
 void monitor_setup(i2c_inst_t* i2c) {

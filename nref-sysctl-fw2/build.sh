@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PICO_SDK_PATH=../../pico-sdk
+export PICO_SDK_PATH=../../../../pico-sdk
 if [ -z "$MNTRE_FIRMWARE_VERSION" ]; then
     export MNTRE_FIRMWARE_VERSION=$(date +%Y%m%d)
 fi

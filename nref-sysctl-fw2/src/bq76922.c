@@ -84,7 +84,7 @@ void bq76922_write_mem_u8(i2c_inst_t* i2c, uint16_t reg_addr, uint8_t reg_data) 
   bq76922_read_mem_u8(i2c, reg_addr, &buf);
 
   if (buf != reg_data) {
-    printf("[bq76] WARN: reg 0x%04x wrote: %02x read: %02x\n", reg_addr, reg_data, buf);
+    printf("# [bq76] WARN: reg 0x%04x wrote: %02x read: %02x\n", reg_addr, reg_data, buf);
   }
 }
 
@@ -227,7 +227,7 @@ void mon_sleep_off(i2c_inst_t* i2c) {
 }
 
 void mon_sleep_on(i2c_inst_t* i2c) {
-  printf("[bq76] turning sleep on...\n");
+  //printf("[bq76] turning sleep on...\n");
   bq76922_write_byte(i2c, 0x3e, 0x99);
   bq76922_write_byte(i2c, 0x3f, 0x00);
 }
