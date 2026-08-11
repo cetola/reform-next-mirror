@@ -26,6 +26,15 @@ void init_spi_client()
   printf("# [spi] init_spi_client done\n");
 }
 
+static uint8_t lpc_calc_checksum(uint8_t *buffer, int len)
+{
+  uint8_t sum = 0;
+  for (int i=0; i<len-1; i++) {
+    sum = sum ^ buffer[i];
+  }
+  return sum;
+}
+
 static int spi_debug_enabled = 0;
 
 void handle_spi_commands(battery_info_s *battery_info)
@@ -163,8 +172,10 @@ void handle_spi_commands(battery_info_s *battery_info)
     // TODO: display brightness
   }
 
+  spi_buf[SPI_BUF_LEN-1] = lpc_calc_checksum(spi_buf, SPI_BUF_LEN);
+
   /* send response to host (8 bytes) and discard response */
   if (battery_info->som_is_powered) {
-    spi_write_blocking(spi1, (const uint8_t*)spi_buf, 8);
+    spi_write_blocking(spi1, (const uint8_t*)spi_buf, SPI_BUF_LEN);
   }
 }

@@ -36,9 +36,9 @@
 #define PIN_HSTX_D1P 18
 #define PIN_HSTX_D1N 19
 
-#define PIN_LED_B 20
-#define PIN_LED_R 21
-#define PIN_LED_G 22
+#define PIN_LED_STATUS 20
+#define PIN_UNUSED_1 21
+#define PIN_HSTX_HPD 22
 
 #define PIN_CHRG_CFG 23
 #define PIN_CHRG_ALERT 24

@@ -230,25 +230,25 @@ int charger_status(struct BatteryPack* packs) {
   if (!packs[0].active && !packs[1].active) {
     // disable charging
     // FIXME: we can't get discharged packs online like this
-	if (pack_debug) {
+    if (pack_debug) {
       printf("# [bq25] disable/trickle charging (no packs connected).\n");
-	}
+    }
     bq25792_write_byte(0x0f, 0b10000000);
-    disable_led(PIN_LED_R);
+    disable_led(PIN_LED_STATUS);
   } else if (!charging_allowed) {
     // disable charging
-	if (pack_debug) {
+    if (pack_debug) {
       printf("# [bq25] disable charging (overvoltage/fully charged).\n");
-	}
+    }
     bq25792_write_byte(0x0f, 0b10000000);
-    disable_led(PIN_LED_R);
+    disable_led(PIN_LED_STATUS);
   } else {
     // enable charging
-	if (pack_debug) {
+    if (pack_debug) {
       printf("# [bq25] enable charging.\n");
-	}
+    }
     bq25792_write_byte(0x0f, 0b10100000);
-    enable_led(PIN_LED_R);
+    enable_led(PIN_LED_STATUS);
   }
 
   uint8_t charger_status_0 = bq25792_read_byte(0x1b);
