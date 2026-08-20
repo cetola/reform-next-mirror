@@ -13,7 +13,7 @@
 #define GPIO_EXT_USWITCH_2 5
 #define GPIO_EXT_USWITCH_3 6
 
-void gpio_mb_setup();
+void gpio_mb_setup(int warm);
 void gpio_mb_enable(uint8_t bit);
 void gpio_mb_disable(uint8_t bit);
 

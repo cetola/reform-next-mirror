@@ -81,10 +81,8 @@ void gpio_mb_dev_disable(uint8_t bit) {
   pca9536_write_byte(1, gpio_mb_state);
 }
 
-
-
 /* release mainboards (R-1+) */
-void gpio_mb_setup() {
+void gpio_mb_setup(int warm) {
   /*
     IO7: unused
     IO6: USWITCH_3
@@ -96,7 +94,11 @@ void gpio_mb_setup() {
     IO0: 5V_ENABLE
   */
 
-  gpio_mb_state = 0b01000000;
+  if (warm) {
+    gpio_mb_state = 0b01000011;
+  } else {
+    gpio_mb_state = 0b01000000;
+  }
 
   // output port:
   tca6408_write_byte(1, gpio_mb_state);
@@ -115,10 +117,6 @@ void gpio_mb_disable(uint8_t bit) {
   gpio_mb_state &= ~(1<<bit);
   tca6408_write_byte(1, gpio_mb_state);
 }
-
-
-
-
 
 void gpio_ext_pd_setup() {
   /*
@@ -170,7 +168,9 @@ void gpio_ext_pd_poweron_defaults() {
   gpio_ext_pd_disable(BIT_USB_SRC_EN);
   gpio_ext_pd_disable(BIT_NOT_USB_MUX_OE);
   gpio_ext_pd_enable(BIT_5V_AUX_EN);
-  gpio_ext_pd_set_blue_led(1);
+  gpio_ext_pd_set_blue_led(0);
+  // FIXME: too bright. (pwm?)
+  //gpio_ext_pd_set_blue_led(1);
 }
 
 void gpio_ext_pd_usb_5v_src_set(uint8_t enable) {

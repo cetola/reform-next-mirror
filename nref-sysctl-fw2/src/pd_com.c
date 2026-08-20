@@ -201,6 +201,7 @@ static bool pd_comm_pd(battery_info_s* battery_info) {
     printf("# [pd] power supply ready.\n");
 
     charger_set_input_current(requested_current * 10);
+    gpio_ext_pd_set_red_led(1);
 
     return true;
   } else if (msgrole == PD_POWERROLE_SOURCE && msgtype == PD_MSGTYPE_DR_SWAP) {

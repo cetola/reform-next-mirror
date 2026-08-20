@@ -68,14 +68,14 @@ void turn_som_power_on() {
   printf("# [action] turn_som_power_on\n");
   init_spi_client();
 
-  enable_led(PIN_LED_B);
   gpio_ext_pd_poweron_defaults();
 
   set_boot_magic();
 
   gpio_mb_enable(GPIO_EXT_3V3_EN);
   gpio_mb_enable(GPIO_EXT_5V_EN);
-
+  gpio_put(PIN_BACKLIGHT_EN, 1);
+  
   battery_info.som_is_powered = true;
 }
 
@@ -88,13 +88,13 @@ void turn_som_power_on() {
 void turn_som_power_off() {
   printf("# [action] turn_som_power_off\n");
 
-  disable_led(PIN_LED_B);
   gpio_ext_pd_poweroff_defaults();
 
   clear_boot_magic();
 
   gpio_mb_disable(GPIO_EXT_5V_EN);
   gpio_mb_disable(GPIO_EXT_3V3_EN);
+  gpio_put(PIN_BACKLIGHT_EN, 0);
 
   battery_info.som_is_powered = false;
 }
@@ -138,11 +138,6 @@ void setup()
   // reset if main loop is stuck for 10 seconds
   watchdog_enable(10000, 1);
 
-  // FIXME: gone/moved with rp2350
-  //printf("# [reset] cause: %#.8x\n", vreg_and_chip_reset_hw->chip_reset);
-  //printf("# [reset] magic: %#.8lx%.8lx\n",
-  //       watchdog_hw->scratch[2], watchdog_hw->scratch[3]);
-
   // UART to keyboard
   uart_init(UART_ID, BAUD_RATE);
   uart_set_format(UART_ID, DATA_BITS, STOP_BITS, PARITY);
@@ -179,7 +174,7 @@ void setup()
   battery_info.packs[1].i2c = i2c1;
 
   // motherboard external GPIOs
-  gpio_mb_setup();
+  gpio_mb_setup(syscon_warm_boot());
   // left port board (PD) GPIOs
   gpio_ext_pd_setup();
 
@@ -189,24 +184,22 @@ void setup()
     i2c_scan(i2c1);
     }*/
 
-  // RGB LED
-  gpio_init(PIN_LED_R);
-  gpio_init(PIN_LED_G);
-  gpio_init(PIN_LED_B);
-  gpio_set_dir(PIN_LED_R, 1);
-  gpio_set_dir(PIN_LED_G, 1);
-  gpio_set_dir(PIN_LED_B, 1);
-
-  // Turn off RGB LED
-  gpio_put(PIN_LED_R, 1);
-  gpio_put(PIN_LED_G, 1);
-  gpio_put(PIN_LED_B, 1);
+  // LED
+  gpio_init(PIN_LED_STATUS);
+  gpio_set_dir(PIN_LED_STATUS, 1);
+  disable_led(PIN_LED_STATUS);
 
   // SoM / SoC wake GPIO
   gpio_init(PIN_SOM_WAKE);
   gpio_set_dir(PIN_SOM_WAKE, GPIO_OUT);
   gpio_put(PIN_SOM_WAKE, 0);
 
+  // backlight control
+  // TODO: experimental
+  gpio_init(PIN_BACKLIGHT_EN);
+  gpio_set_dir(PIN_BACKLIGHT_EN, GPIO_OUT);
+  gpio_put(PIN_BACKLIGHT_EN, 0);
+  
   init_spi_client();
 
   // if this is a warm boot, then we need to avoid latching the PWR and display
