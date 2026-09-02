@@ -10653,16 +10653,6 @@
 		)
 		(uuid "518600ef-0714-41c4-943c-9135e96d4497")
 	)
-	(text "pol. flipped"
-		(exclude_from_sim no)
-		(at 420.37 283.21 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "51cb86c0-25c0-41f8-b0ed-397d73b2ca07")
-	)
 	(text "pol. swapped on purpose!"
 		(exclude_from_sim no)
 		(at 282.575 234.315 0)
@@ -10692,6 +10682,16 @@
 			)
 		)
 		(uuid "6a50fc6e-8aa9-4f33-92b9-c03c20dbd035")
+	)
+	(text "NOTE: R-1 had polarity of USB2 flipped here"
+		(exclude_from_sim no)
+		(at 419.1 276.86 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6edc116e-af36-4742-b6ed-cab0451104a1")
 	)
 	(text "pol. swap!"
 		(exclude_from_sim no)
@@ -10953,7 +10953,7 @@
 		)
 		(uuid "eb4f4e05-0367-4eba-83c5-33af14838e66")
 	)
-	(text "TODO: well, can't flip usb2 polarity!!"
+	(text ""
 		(exclude_from_sim no)
 		(at 416.56 278.13 0)
 		(effects
