@@ -6796,6 +6796,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C5875723"
+			(at 256.54 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "fbc88425-ac88-4fc9-b90e-64b4394c525f")
 		)
@@ -6863,7 +6872,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 50.8 116.84 0)
 			(effects
 				(font
@@ -6872,7 +6881,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603JR-070RL"
+		(property "Manufacturer_No" "0603WAF0000T5E"
 			(at 50.8 116.84 0)
 			(effects
 				(font
@@ -6904,6 +6913,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C21189"
+			(at 50.8 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -7017,6 +7035,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C5163551"
+			(at 199.39 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -7284,7 +7311,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 105.41 36.83 0)
 			(effects
 				(font
@@ -7293,7 +7320,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-0710KL"
+		(property "Manufacturer_No" "0603WAF1002T5E"
 			(at 105.41 36.83 0)
 			(effects
 				(font
@@ -7325,6 +7352,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 105.41 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -7440,6 +7476,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C85980"
+			(at 36.83 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9b5b5cd5-90b3-49db-8cf5-8f869ff773f5")
 		)
@@ -7510,7 +7555,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 251.46 66.04 0)
 			(effects
 				(font
@@ -7519,7 +7564,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603JR-070RL"
+		(property "Manufacturer_No" "0603WAF0000T5E"
 			(at 251.46 66.04 0)
 			(effects
 				(font
@@ -7551,6 +7596,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C21189"
+			(at 251.46 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -7623,7 +7677,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 261.62 97.79 0)
 			(effects
 				(font
@@ -7632,7 +7686,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-072KL"
+		(property "Manufacturer_No" "0603WAF2001T5E"
 			(at 261.62 97.79 0)
 			(effects
 				(font
@@ -7664,6 +7718,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C22975"
+			(at 261.62 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -7846,6 +7909,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C84494"
+			(at 119.38 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "dd00e5e6-4d9f-4eb4-83cf-d72db6d78857")
 		)
@@ -7959,6 +8031,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C77058"
+			(at 114.3 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "170fe019-4793-4ce7-83d6-cafa38c711c0")
 		)
@@ -8070,6 +8151,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C18438"
+			(at 92.71 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8209,7 +8299,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 261.62 66.04 0)
 			(effects
 				(font
@@ -8218,7 +8308,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-0710KL"
+		(property "Manufacturer_No" "0603WAF1002T5E"
 			(at 261.62 66.04 0)
 			(effects
 				(font
@@ -8250,6 +8340,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 261.62 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -8322,7 +8421,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 147.32 111.76 0)
 			(effects
 				(font
@@ -8331,7 +8430,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-0710KL"
+		(property "Manufacturer_No" "0603WAF1002T5E"
 			(at 147.32 111.76 0)
 			(effects
 				(font
@@ -8363,6 +8462,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 147.32 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -8503,7 +8611,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 101.6 154.94 0)
 			(effects
 				(font
@@ -8512,7 +8620,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603JR-070RL"
+		(property "Manufacturer_No" "0603WAF0000T5E"
 			(at 101.6 154.94 0)
 			(effects
 				(font
@@ -8544,6 +8652,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C21189"
+			(at 101.6 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8579,7 +8696,7 @@
 				)
 			)
 		)
-		(property "Value" "220nH XAL4020-221MEB"
+		(property "Value" "220nH 10A"
 			(at 83.82 111.76 90)
 			(effects
 				(font
@@ -8587,7 +8704,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_Coilcraft_XAL4020-XXX"
+		(property "Footprint" "EasyEDA:IND-SMD_L3.0-W3.0_FTC303020D"
 			(at 83.82 114.3 0)
 			(effects
 				(font
@@ -8614,7 +8731,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Coilcraft"
+		(property "Manufacturer" "cjiang"
 			(at 83.82 114.3 0)
 			(effects
 				(font
@@ -8623,7 +8740,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "XAL4020-221MEB"
+		(property "Manufacturer_No" "FTC303018DR22MBCA"
 			(at 83.82 114.3 0)
 			(effects
 				(font
@@ -8655,6 +8772,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C5832405"
+			(at 83.82 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8724,7 +8850,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Vishay Dale"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 107.95 120.65 0)
 			(effects
 				(font
@@ -8733,7 +8859,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "CRCW0603453KFKEA"
+		(property "Manufacturer_No" "0603WAF4533T5E"
 			(at 107.95 120.65 0)
 			(effects
 				(font
@@ -8765,6 +8891,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C25818"
+			(at 107.95 120.65 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -8876,6 +9011,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C5875723"
+			(at 270.51 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -9228,6 +9372,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C22431324"
+			(at 157.48 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "61d54e01-b561-473e-823a-55724393404b")
 		)
@@ -9357,7 +9510,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 77.47 132.08 0)
 			(effects
 				(font
@@ -9366,7 +9519,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-07499KL"
+		(property "Manufacturer_No" "0603WAF4993T5E"
 			(at 77.47 132.08 0)
 			(effects
 				(font
@@ -9398,6 +9551,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C26751"
+			(at 77.47 132.08 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -9536,7 +9698,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 276.86 97.79 0)
 			(effects
 				(font
@@ -9545,7 +9707,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-072KL"
+		(property "Manufacturer_No" "0603WAF2001T5E"
 			(at 276.86 97.79 0)
 			(effects
 				(font
@@ -9577,6 +9739,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C22975"
+			(at 276.86 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -9934,7 +10105,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 105.41 58.42 0)
 			(effects
 				(font
@@ -9943,7 +10114,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-0710KL"
+		(property "Manufacturer_No" "0603WAF1002T5E"
 			(at 105.41 58.42 0)
 			(effects
 				(font
@@ -9975,6 +10146,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 105.41 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -10174,7 +10354,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 107.95 133.35 0)
 			(effects
 				(font
@@ -10183,7 +10363,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-07100KL"
+		(property "Manufacturer_No" "0603WAF1003T5E"
 			(at 107.95 133.35 0)
 			(effects
 				(font
@@ -10215,6 +10395,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C25803"
+			(at 107.95 133.35 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -10287,7 +10476,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 120.65 58.42 0)
 			(effects
 				(font
@@ -10296,7 +10485,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-0710KL"
+		(property "Manufacturer_No" "0603WAF1002T5E"
 			(at 120.65 58.42 0)
 			(effects
 				(font
@@ -10328,6 +10517,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 120.65 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -10838,6 +11036,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C84494"
+			(at 129.54 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "2945f718-329d-4b01-b0c1-4274785dae99")
 		)
@@ -10906,7 +11113,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "ECS"
+		(property "Manufacturer" "SCTF"
 			(at 101.6 171.45 0)
 			(effects
 				(font
@@ -10915,7 +11122,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "ECS-327MVATX-2-CN-TR3"
+		(property "Manufacturer_No" "SX2M32.768KM20F30TNN"
 			(at 101.6 171.45 0)
 			(effects
 				(font
@@ -10947,6 +11154,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C2901603"
+			(at 101.6 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "4"
@@ -11507,6 +11723,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C41447443"
+			(at 63.5 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "c310100b-fcd5-406d-b540-1192813842b5")
 		)
@@ -11699,7 +11924,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 113.03 58.42 0)
 			(effects
 				(font
@@ -11708,7 +11933,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "RC0603FR-0710KL"
+		(property "Manufacturer_No" "0603WAF1002T5E"
 			(at 113.03 58.42 0)
 			(effects
 				(font
@@ -11740,6 +11965,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 113.03 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -11818,7 +12052,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C596730"
 			(at 27.94 62.23 0)
 			(effects
 				(font
@@ -11985,7 +12219,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata"
+		(property "Manufacturer" "Samsung"
 			(at 25.4 120.65 0)
 			(effects
 				(font
@@ -11994,7 +12228,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_No" "GRM32EC72A106KE05L"
+		(property "Manufacturer_No" "CL32B106KAJNNNE"
 			(at 25.4 120.65 0)
 			(effects
 				(font
@@ -12026,6 +12260,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C39232"
+			(at 25.4 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"

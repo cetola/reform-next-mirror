@@ -152,7 +152,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "nref-ports-two-gerbers-d1")
+			(outputdirectory "nref-ports-two-gerbers-r2")
 		)
 	)
 	(footprint "footprints:FPC-SMD_AFC07-S20ECC-00"
