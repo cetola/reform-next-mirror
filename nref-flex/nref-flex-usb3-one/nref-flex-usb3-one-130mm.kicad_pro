@@ -107,6 +107,7 @@
         "solder_mask_bridge": "error",
         "starved_thermal": "error",
         "text_height": "warning",
+        "text_on_edge_cuts": "error",
         "text_thickness": "warning",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
@@ -462,7 +463,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "nref-flex-usb3-one.kicad_pro",
+    "filename": "nref-flex-usb3-one-130mm.kicad_pro",
     "version": 3
   },
   "net_settings": {
