@@ -1,0 +1,14 @@
+fp-info-cache
+fp-lib-table
+sym-lib-table
+*.bak
+*.kicad_prl
+production
+pico-extras
+pico-sdk
+*gerbers*
+*backups
+*.zip
+*.FCStd1
+*.lck
+*.gcode
