@@ -16,16 +16,17 @@
 #include "hardware/watchdog.h"
 #include "hardware/structs/watchdog.h"
 
-#include "sysctl.h"
 #include "pico/divider.h"
 #include "tusb.h"
 #include "reform_stdio_usb.h"
-#include "pd_com.h"
-#include "uart_com.h"
-#include "spi_com.h"
-#include "machine.h"
+#include "cli.h"
 #include "cli_usb.h"
 #include "forward_uart.h"
+#include "machine.h"
+#include "pd_com.h"
+#include "spi_com.h"
+#include "sysctl.h"
+#include "uart_com.h"
 
 static alarm_pool_t* task_alarm_pool;
 static int ALARM_IRQ = 0;
@@ -41,6 +42,12 @@ void setup() {
 
   // init platform specific IOs
   machine_init(&mach);
+
+  // init CLI
+  cli_init_env();
+  hwapi_init(&mach);
+  uart_com_init();
+  cli_usb_init();
 
   // init SPI client for SoC OS driver (mnt-sc)
   init_spi_client();

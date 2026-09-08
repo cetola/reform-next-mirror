@@ -7,6 +7,7 @@
 #ifndef _CLI_USB_H
 #define _CLI_USB_H
 
+void cli_usb_init();
 void handle_usb_commands();
 
 #endif

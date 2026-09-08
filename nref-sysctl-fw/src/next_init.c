@@ -13,6 +13,7 @@
 #include "next_gpio.h"
 #include "next_led.h"
 #include "next_init.h"
+#include "next_mux.h"
 #include "sysctl.h"
 
 void machine_init(struct machine* mach) {
@@ -71,4 +72,7 @@ void machine_init(struct machine* mach) {
   gpio_init(PIN_BACKLIGHT_EN);
   gpio_set_dir(PIN_BACKLIGHT_EN, GPIO_OUT);
   gpio_put(PIN_BACKLIGHT_EN, 0);
+
+  // by default, allow sysctl flashing from the outside
+  mux_set_usb_mode(0, 0);
 }

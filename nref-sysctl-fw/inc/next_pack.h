@@ -11,7 +11,8 @@
 #define MAX_CAPACITY (2.0 * 3600.0)
 #define MV_OVERVOLT 3800
 #define MV_UNDERVOLT 2450
-#define MV_FULL 3500 // some cells don't hold voltage > 3.5
+// some cells don't hold voltage > 3.5
+#define MV_FULL 3500
 #define MV_BALANCE_ABOVE 3600
 #define MV_HYST 200
 

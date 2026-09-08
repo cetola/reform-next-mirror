@@ -80,6 +80,7 @@ struct machine {
 #include "next_led.h"
 #include "next_rail.h"
 #include "next_charger.h"
+#include "next_command.h"
 #include "hardware/irq.h"
 
 int64_t machine_task(alarm_id_t id, void *user_data);

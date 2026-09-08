@@ -68,29 +68,29 @@ uint64_t hwapi_legacy_c() {
 }
 
 char* hwapi_legacy_kbd_s() {
-  return (char*)"MNT Reform Next SC" MNTRE_FIRMWARE_VERSION "\r\n";
+  return (char*)"MNT Reform Next SC  " MNTRE_FIRMWARE_VERSION "\r\n";
 }
 
 char* hwapi_legacy_kbd_c() {
-  int ma = (int)(mach->battery_amps * 1000.0);
+  int ma = (int)((mach->packs[0].ampere + mach->packs[1].ampere) * 1000.0);
   char ma_sign = ' ';
   if (ma < 0) {
     ma = -ma;
     ma_sign = '-';
   }
-  int mv = (int)(mach->battery_volts * 1000.0);
+  int mv = (int)(((mach->packs[0].volt + mach->packs[1].volt) / 2) * 1000.0);
   snprintf(legacy_buf, 128,
            "%02d %02d %02d %02d %02d %02d %02d %02d mA%c%04dmV%05d %3d%% P%d\r\n",
-           (int)(mach->packs[0].cells_v[0] * 10),
-           (int)(mach->packs[0].cells_v[1] * 10),
-           (int)(mach->packs[0].cells_v[2] * 10),
-           (int)(mach->packs[0].cells_v[3] * 10),
-           (int)(mach->packs[1].cells_v[0] * 10),
-           (int)(mach->packs[1].cells_v[1] * 10),
-           (int)(mach->packs[1].cells_v[2] * 10),
-           (int)(mach->packs[1].cells_v[3] * 10),
+           (int)(mach->packs[0].cells_v[0] / 100),
+           (int)(mach->packs[0].cells_v[1] / 100),
+           (int)(mach->packs[0].cells_v[2] / 100),
+           (int)(mach->packs[0].cells_v[3] / 100),
+           (int)(mach->packs[1].cells_v[0] / 100),
+           (int)(mach->packs[1].cells_v[1] / 100),
+           (int)(mach->packs[1].cells_v[2] / 100),
+           (int)(mach->packs[1].cells_v[3] / 100),
 	   ma_sign, ma, mv,
-           mach->charge_percentage,
+           (int)((mach->packs[0].gauge_percent + mach->packs[1].gauge_percent) / 2),
            mach->som_is_powered ? 1 : 0);
 
   legacy_buf[127] = 0;

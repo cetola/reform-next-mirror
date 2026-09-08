@@ -59,6 +59,10 @@ void cli_usb_line_restore() {
   }
 }
 
+void cli_usb_init() {
+  cli_init(&cli_ctx_usb);
+}
+
 void handle_usb_commands() {
   int usb_c = getchar_timeout_us(0);
   if (usb_c != PICO_ERROR_TIMEOUT) {
