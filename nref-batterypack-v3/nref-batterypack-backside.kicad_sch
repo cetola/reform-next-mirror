@@ -3,7 +3,15 @@
 	(generator "eeschema")
 	(generator_version "10.0")
 	(uuid "992fdb00-2079-4fab-820a-500481d674d7")
-	(paper "A4")
+	(paper "A4" portrait)
+	(title_block
+		(title "MNT Reform Next Battery Pack, Back Side")
+		(date "2026-06-01")
+		(rev "R-1")
+		(company "MNT Research GmbH, Copyright 2026")
+		(comment 1 "Engineer: Lucie Hartmann")
+		(comment 2 "https://mntre.com")
+	)
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_01x01"
 			(pin_names
@@ -392,21 +400,42 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "2-pin JST-SH cable to\nfront side of pack"
+		(exclude_from_sim no)
+		(at 95.25 127 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3d351fc0-7245-4e7b-8a33-b407aecd9059")
+	)
+	(text "MNT Reform Next Battery Pack\n(Back Side)"
+		(exclude_from_sim no)
+		(at 102.87 13.97 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+		)
+		(uuid "f3334d66-67b8-4bdf-a760-2383d8fe6d84")
+	)
 	(junction
-		(at 120.65 101.6)
+		(at 130.81 132.08)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6be7cfb1-e2de-4beb-a8eb-b5a2fb0c8bda")
 	)
 	(junction
-		(at 120.65 85.09)
+		(at 130.81 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ebd9b18b-dcad-414b-8fc4-9c82e4c845bb")
 	)
 	(wire
 		(pts
-			(xy 111.76 96.52) (xy 120.65 96.52)
+			(xy 121.92 127) (xy 130.81 127)
 		)
 		(stroke
 			(width 0)
@@ -416,7 +445,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 109.22) (xy 120.65 109.22)
+			(xy 121.92 139.7) (xy 130.81 139.7)
 		)
 		(stroke
 			(width 0)
@@ -426,7 +455,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 74.93) (xy 120.65 85.09)
+			(xy 130.81 105.41) (xy 130.81 115.57)
 		)
 		(stroke
 			(width 0)
@@ -436,7 +465,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 101.6) (xy 93.98 97.79)
+			(xy 104.14 132.08) (xy 104.14 128.27)
 		)
 		(stroke
 			(width 0)
@@ -446,7 +475,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 85.09) (xy 120.65 91.44)
+			(xy 130.81 115.57) (xy 130.81 121.92)
 		)
 		(stroke
 			(width 0)
@@ -456,7 +485,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 85.09) (xy 120.65 85.09)
+			(xy 121.92 115.57) (xy 130.81 115.57)
 		)
 		(stroke
 			(width 0)
@@ -466,7 +495,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 95.25) (xy 93.98 91.44)
+			(xy 104.14 125.73) (xy 104.14 121.92)
 		)
 		(stroke
 			(width 0)
@@ -476,7 +505,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 74.93) (xy 120.65 74.93)
+			(xy 121.92 105.41) (xy 130.81 105.41)
 		)
 		(stroke
 			(width 0)
@@ -486,7 +515,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 109.22) (xy 120.65 101.6)
+			(xy 130.81 139.7) (xy 130.81 132.08)
 		)
 		(stroke
 			(width 0)
@@ -496,7 +525,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 96.52) (xy 120.65 101.6)
+			(xy 130.81 127) (xy 130.81 132.08)
 		)
 		(stroke
 			(width 0)
@@ -506,7 +535,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 91.44) (xy 120.65 91.44)
+			(xy 104.14 121.92) (xy 130.81 121.92)
 		)
 		(stroke
 			(width 0)
@@ -516,7 +545,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 101.6) (xy 120.65 101.6)
+			(xy 104.14 132.08) (xy 130.81 132.08)
 		)
 		(stroke
 			(width 0)
@@ -525,7 +554,7 @@
 		(uuid "f4118def-08b0-4da8-a703-7ff4e96efb3a")
 	)
 	(label "C3+"
-		(at 95.25 91.44 0)
+		(at 105.41 121.92 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -535,7 +564,7 @@
 		(uuid "51d4f93f-bad7-4754-bdbf-b4122ddefdcb")
 	)
 	(label "C1+"
-		(at 95.25 101.6 0)
+		(at 105.41 132.08 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -546,7 +575,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x01")
-		(at 106.68 96.52 0)
+		(at 116.84 127 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -557,7 +586,7 @@
 		(dnp no)
 		(uuid "0e8003f9-731c-4ffe-9730-7b0142ca0e9c")
 		(property "Reference" "J2"
-			(at 102.362 95.25 0)
+			(at 112.522 125.73 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -567,7 +596,7 @@
 			)
 		)
 		(property "Value" "C2-"
-			(at 102.362 97.79 0)
+			(at 112.522 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -577,7 +606,7 @@
 			)
 		)
 		(property "Footprint" "footprints:MYOUNG_MY-FJ-115"
-			(at 106.68 96.52 0)
+			(at 116.84 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -588,7 +617,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 96.52 0)
+			(at 116.84 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -599,7 +628,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 106.68 96.52 0)
+			(at 116.84 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -610,7 +639,7 @@
 			)
 		)
 		(property "MPN" "MY-FJ-115II-R"
-			(at 106.68 96.52 0)
+			(at 116.84 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -621,7 +650,7 @@
 			)
 		)
 		(property "Manufacturer" "MYOUNG"
-			(at 106.68 96.52 0)
+			(at 116.84 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -632,7 +661,7 @@
 			)
 		)
 		(property "LCSC" "C5457098"
-			(at 106.68 96.52 0)
+			(at 116.84 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -656,7 +685,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x01")
-		(at 106.68 74.93 0)
+		(at 116.84 105.41 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -667,7 +696,7 @@
 		(dnp no)
 		(uuid "4cc43e39-f501-430b-b9f8-6b56fca102d5")
 		(property "Reference" "J4"
-			(at 102.235 73.025 0)
+			(at 112.395 103.505 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -677,7 +706,7 @@
 			)
 		)
 		(property "Value" "C4-"
-			(at 102.235 75.565 0)
+			(at 112.395 106.045 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -687,7 +716,7 @@
 			)
 		)
 		(property "Footprint" "footprints:MYOUNG_MY-FJ-115"
-			(at 106.68 74.93 0)
+			(at 116.84 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -698,7 +727,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 74.93 0)
+			(at 116.84 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -709,7 +738,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 106.68 74.93 0)
+			(at 116.84 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -720,7 +749,7 @@
 			)
 		)
 		(property "MPN" "MY-FJ-115II-R"
-			(at 106.68 74.93 0)
+			(at 116.84 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -731,7 +760,7 @@
 			)
 		)
 		(property "Manufacturer" "MYOUNG"
-			(at 106.68 74.93 0)
+			(at 116.84 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -742,7 +771,7 @@
 			)
 		)
 		(property "LCSC" "C5457098"
-			(at 106.68 74.93 0)
+			(at 116.84 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -766,7 +795,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 97.79 134.62 0)
+		(at 115.57 163.83 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim yes)
@@ -777,7 +806,7 @@
 		(fields_autoplaced yes)
 		(uuid "7fc59fd7-0ccf-4515-9b48-3b8facbd1f80")
 		(property "Reference" "H3"
-			(at 100.33 133.3499 0)
+			(at 118.11 162.5599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -788,7 +817,7 @@
 			)
 		)
 		(property "Value" "BADGE"
-			(at 100.33 135.8899 0)
+			(at 118.11 165.0999 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -799,7 +828,7 @@
 			)
 		)
 		(property "Footprint" "footprints:nref-battback-badge"
-			(at 97.79 134.62 0)
+			(at 115.57 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -810,7 +839,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 97.79 134.62 0)
+			(at 115.57 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -821,7 +850,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 97.79 134.62 0)
+			(at 115.57 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -832,7 +861,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 97.79 134.62 0)
+			(at 115.57 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -843,7 +872,7 @@
 			)
 		)
 		(property "Manufacturer" ""
-			(at 97.79 134.62 0)
+			(at 115.57 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -864,7 +893,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 88.9 97.79 180)
+		(at 99.06 128.27 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -874,7 +903,7 @@
 		(dnp no)
 		(uuid "8412bcce-ed8b-4d5e-8c42-be7794dbabaa")
 		(property "Reference" "J5"
-			(at 88.9 88.9 0)
+			(at 99.06 119.38 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -884,7 +913,7 @@
 			)
 		)
 		(property "Value" "FRONT_CONN"
-			(at 87.63 91.44 0)
+			(at 97.79 121.92 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -894,7 +923,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal"
-			(at 88.9 97.79 0)
+			(at 99.06 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -905,7 +934,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 97.79 0)
+			(at 99.06 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -916,7 +945,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 88.9 97.79 0)
+			(at 99.06 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -927,7 +956,7 @@
 			)
 		)
 		(property "MPN" "SM02B-SRSS-TB"
-			(at 88.9 97.79 0)
+			(at 99.06 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -938,7 +967,7 @@
 			)
 		)
 		(property "Manufacturer" "JST"
-			(at 88.9 97.79 0)
+			(at 99.06 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -949,7 +978,7 @@
 			)
 		)
 		(property "LCSC" "C160402"
-			(at 88.9 97.79 0)
+			(at 99.06 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -976,7 +1005,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x01")
-		(at 106.68 85.09 0)
+		(at 116.84 115.57 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -987,7 +1016,7 @@
 		(dnp no)
 		(uuid "8ea770da-2c4a-4354-a5d1-cddbc97cd2fe")
 		(property "Reference" "J3"
-			(at 102.235 83.82 0)
+			(at 112.395 114.3 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -997,7 +1026,7 @@
 			)
 		)
 		(property "Value" "C3+"
-			(at 102.235 86.36 0)
+			(at 112.395 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1007,7 +1036,7 @@
 			)
 		)
 		(property "Footprint" "footprints:Mill-Max_2036-X-57"
-			(at 106.68 85.09 0)
+			(at 116.84 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1018,7 +1047,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 85.09 0)
+			(at 116.84 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1029,7 +1058,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 106.68 85.09 0)
+			(at 116.84 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1040,7 +1069,7 @@
 			)
 		)
 		(property "MPN" "2036-3-57-15-00-00-03-0"
-			(at 106.68 85.09 0)
+			(at 116.84 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1051,7 +1080,7 @@
 			)
 		)
 		(property "Manufacturer" "Mill-Max"
-			(at 106.68 85.09 0)
+			(at 116.84 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1062,7 +1091,7 @@
 			)
 		)
 		(property "LCSC" "C20777560"
-			(at 106.68 85.09 0)
+			(at 116.84 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1086,7 +1115,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x01")
-		(at 106.68 109.22 0)
+		(at 116.84 139.7 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -1097,7 +1126,7 @@
 		(dnp no)
 		(uuid "c6cd55ed-a325-43bb-bf04-73fc22bf88ef")
 		(property "Reference" "J1"
-			(at 102.235 107.95 0)
+			(at 112.395 138.43 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1107,7 +1136,7 @@
 			)
 		)
 		(property "Value" "C1+"
-			(at 102.235 110.49 0)
+			(at 112.395 140.97 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1117,7 +1146,7 @@
 			)
 		)
 		(property "Footprint" "footprints:Mill-Max_2036-X-57"
-			(at 106.68 109.22 0)
+			(at 116.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1128,7 +1157,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 109.22 0)
+			(at 116.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1139,7 +1168,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 106.68 109.22 0)
+			(at 116.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1150,7 +1179,7 @@
 			)
 		)
 		(property "MPN" "2036-3-57-15-00-00-03-0"
-			(at 106.68 109.22 0)
+			(at 116.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1161,7 +1190,7 @@
 			)
 		)
 		(property "Manufacturer" "Mill-Max"
-			(at 106.68 109.22 0)
+			(at 116.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1172,7 +1201,7 @@
 			)
 		)
 		(property "LCSC" "C20777560"
-			(at 106.68 109.22 0)
+			(at 116.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1196,7 +1225,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 97.79 120.65 0)
+		(at 115.57 151.13 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim yes)
@@ -1207,7 +1236,7 @@
 		(fields_autoplaced yes)
 		(uuid "f6ca06aa-ea9f-4304-abb8-0ec714f5b1b0")
 		(property "Reference" "H1"
-			(at 100.33 119.3799 0)
+			(at 118.11 149.8599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1218,7 +1247,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 100.33 121.9199 0)
+			(at 118.11 152.3999 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1229,7 +1258,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2"
-			(at 97.79 120.65 0)
+			(at 115.57 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1240,7 +1269,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 97.79 120.65 0)
+			(at 115.57 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1251,7 +1280,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 97.79 120.65 0)
+			(at 115.57 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1262,7 +1291,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 97.79 120.65 0)
+			(at 115.57 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1273,7 +1302,7 @@
 			)
 		)
 		(property "Manufacturer" ""
-			(at 97.79 120.65 0)
+			(at 115.57 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1298,4 +1327,22 @@
 		)
 	)
 	(embedded_fonts no)
+	(embedded_files
+		(file
+			(name "kicad-drawing-sheet.kicad_wks")
+			(type worksheet)
+			(data |KLUv/WB+Be0QAKZYUCEQ0zb8Pw7ua8DXJxdI6mS43TffYHWLJFFONeWIAACv4AZGAEEASgDmHcHH
+				uDhhlapa8yH2OInFCaNqewif//EfAABSyXk/K6qqFKQ4dFAsaZv5r+mkZ6as1mrZyjaZ8Wl6ZwCQ
+				zo0HDO8FbwYBnEjQCP+roP0ff8vTzSWLlnbx8bdrvkOSk83btJ/0ccwX27ZD0i+rq1r7zfsnpe3j
+				Jf/i5pj/s6XMr8lgs6pN4kyu8QKEUSDk+u9oZkybXt5OsnVaF8JeKGZLP5kxl+Uom6Tjkiyj3ajU
+				1YeqQiKcJ9kooEJLcA2RAKOwA1VoQ9ZnLulo+zQFuE08L9IkTQWLHSxrXfZg1YKtrPpBtgeIvOWY
+				E5WtQLTuEUkYGJ/WfdvG8LLMoq6HBtkc3AIvLli8j9tDGCAZqKpujo/7xMefrSHu916gAUHGEInJ
+				KEiSwnBQhIihI9uFBQAIjvL6QumBAeQhNzljhdpjEYoIxSIUCYXgSq+mzB0SBvSB+x6S0rE1pNsV
+				e8g0F/0hSxMLe6ayt+bhOFuwA4R3Ot/M1IQpg2Vh4bCEHIKKG4EllR71FB66/IxoLIYgWoJJi0Nl
+				sKfiwVm3uWQhLPfSXoC2LtoIlK1zOADJoxgTAWJhu7zPULI/om97ZtSJAQATgLg9OKgC9FRd2F0t
+				ogi6XQgybLYAxKH1LlzoGC7rE7BIoYn4i/++6xFxOJAWQHlAqAI=|
+			)
+			(checksum "36418C289B14872AC68DDA12F3916484")
+		)
+	)
 )

@@ -10800,26 +10800,6 @@
 		)
 		(uuid "c3dec87c-5369-4865-9acd-401c4e61889c")
 	)
-	(text "In this economy?"
-		(exclude_from_sim no)
-		(at 58.42 447.04 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "c65a1499-650b-4835-a466-70a2dd225b5c")
-	)
-	(text "TODO: fuses / current limit"
-		(exclude_from_sim no)
-		(at 97.79 327.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "cb0248f2-bc2d-4622-839a-9ea3dd978507")
-	)
 	(text "NOTE: experimentally fit\n10k @ R37 to boost to 1.2V"
 		(exclude_from_sim no)
 		(at 240.03 189.23 0)
@@ -10895,16 +10875,6 @@
 			(justify left bottom)
 		)
 		(uuid "e3dc7c6f-88cf-41ba-9a01-f62a3e068564")
-	)
-	(text "TODO: capacitor calc. at least 120uF?!"
-		(exclude_from_sim no)
-		(at 97.79 330.835 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "e9fffa18-94da-4596-8ec3-fd753fdfd305")
 	)
 	(text ""
 		(exclude_from_sim no)

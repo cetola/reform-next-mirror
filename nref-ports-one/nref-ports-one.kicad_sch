@@ -15567,18 +15567,7 @@
 		)
 		(uuid "01a568ef-a8bd-457e-bfa7-bbfb0a7a28f0")
 	)
-	(text "\"In single-lane mode, only the differential pairs \nclosest to the CC pin are used for data transmission\""
-		(exclude_from_sim no)
-		(at 13.97 143.51 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0205a0ef-2002-43fc-be10-fe73e1a80291")
-	)
-	(text "TODO: 5v on 66021!\n(3v3 on 66020)"
+	(text "NOTE: 5v on 66021!\n(3v3 on 66020)"
 		(exclude_from_sim no)
 		(at 300.99 205.74 0)
 		(effects
@@ -16000,7 +15989,7 @@
 	)
 	(text "To charger on motherboard (SINK)"
 		(exclude_from_sim no)
-		(at 308.61 191.135 0)
+		(at 312.42 191.77 0)
 		(effects
 			(font
 				(size 1.27 1.27)
