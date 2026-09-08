@@ -135,7 +135,7 @@ void bq76922_write_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t reg_data
   bq76922_read_mem_u16(i2c, reg_addr, &buf);
 }
 
-int monitor_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int len) {
+int mon_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int len) {
   int tries = 0;
   int success = 0;
 

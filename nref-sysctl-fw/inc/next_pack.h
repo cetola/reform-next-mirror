@@ -7,6 +7,7 @@
 
 // battery information
 // 2.0A x 3600 seconds/hour (pack capacity)
+// TODO calculate from mach->cell_max_mah
 #define MAX_CAPACITY (2.0 * 3600.0)
 #define MV_OVERVOLT 3800
 #define MV_UNDERVOLT 2450
@@ -14,7 +15,7 @@
 #define MV_BALANCE_ABOVE 3600
 #define MV_HYST 200
 
-struct BatteryPack {
+struct battery_pack {
   int id;
   i2c_inst_t* i2c;
   bool active;
@@ -34,8 +35,7 @@ struct BatteryPack {
   int bal_active_cells;
 };
 
-int pack_configure(struct BatteryPack* pack, float ms_elapsed);
-void monitor_config_update(i2c_inst_t* i2c);
-void monitor_setup(i2c_inst_t* i2c);
+int battery_pack_task(struct battery_pack* pack, float ms_elapsed);
+void battery_pack_setup(i2c_inst_t* i2c);
 
 #endif

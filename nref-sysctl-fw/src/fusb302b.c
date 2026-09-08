@@ -18,8 +18,8 @@
 #include <stdio.h>
 
 #include "fusb302b.h"
-
-#include <sysctl.h>
+#include "hardware/i2c.h"
+#include "machine.h"
 
 #include <pd.h>
 

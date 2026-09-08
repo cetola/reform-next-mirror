@@ -1,16 +1,20 @@
-/* MNT Reform Next Battery Pack */
+/*
+  SPDX-License-Identifier: GPL-3.0-or-later
+  MNT Reform Next System Controller Firmware for RP2350
+  Copyright 2023-2026 MNT Research GmbH
+
+  MNT Reform Next Battery Pack
+ */
 
 #include <next_pack.h>
 #include <stdio.h>
 
-
 // BQ76922 monitor on battery boards
 #define BQ76922_ADDR 0x08
 #define I2C_TIMEOUT (1000*500)
-
 #include <bq76922.h>
 
-int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
+int battery_pack_task(struct battery_pack* pack, float ms_elapsed) {
   // FIXME: this function itself shouldn't printf
   // as we're in an IRQ callback
 
@@ -191,13 +195,13 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
 
   // --------------------------------------------
 
-  //printf("[pack %d] monitor_read_subcommand...\n", pack->id);
+  //printf("[pack %d] mon_read_subcommand...\n", pack->id);
 
   uint8_t manufacturing_status = 0;
-  monitor_read_subcommand(i2c, 0x57, &manufacturing_status, 1);
+  mon_read_subcommand(i2c, 0x57, &manufacturing_status, 1);
   if (!(manufacturing_status & (1<<4))) {
     // FETs not enabled, setup the chip
-    monitor_setup(i2c);
+    battery_pack_setup(i2c);
   }
 
   uint8_t control_status = bq76922_read_byte(i2c, 0x00);
@@ -489,15 +493,15 @@ void monitor_config_update(i2c_inst_t* i2c) {
   //printf("[bq76] `-- CFGUPD (expect 0): %d\n", !!(battery_status & (1<<0)));
 }
 
-void monitor_setup(i2c_inst_t* i2c) {
+void battery_pack_setup(i2c_inst_t* i2c) {
   int id = 0;
   if (i2c == i2c1) id = 1;
 
-  printf("[bq76:%d] monitor_setup begin\n", id);
+  printf("[bq76:%d] battery_pack_setup begin\n", id);
 
   monitor_config_update(i2c);
   mon_sleep_off(i2c);
   mon_toggle_fet_en(i2c);
 
-  printf("[bq76:%d] monitor_setup done\n", id);
+  printf("[bq76:%d] battery_pack_setup done\n", id);
 }
