@@ -47,6 +47,10 @@ void turn_som_power_on(struct machine* mach) {
   gpio_put(PIN_BACKLIGHT_EN, 1);
   
   mach->som_is_powered = true;
+
+  // present usb-uart on charging port by default,
+  // and activate internal usb hub
+  mux_set_usb_mode(1);
 }
 
 /*
@@ -67,6 +71,9 @@ void turn_som_power_off(struct machine* mach) {
   gpio_put(PIN_BACKLIGHT_EN, 0);
 
   mach->som_is_powered = false;
+
+  // present sysctl usb on charging port
+  mux_set_usb_mode(0);
 }
 
 void som_wake() {
