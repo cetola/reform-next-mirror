@@ -27,16 +27,20 @@ struct battery_pack {
   int overvolt;
   int undervolt;
   int fully_charged;
+  float ms_at_rest;
   // 1 coulomb = 1 amp * second
-  float coulomb_max;
-  float coulomb_cur;
+  float coulomb_max; // the design capacity (upper end)
+  float coulomb_cur; // the current estimate
+  float coulomb_zero; // the point where we actually hit low voltage (0%)
   float gauge_percent;
   float temp_int_k;
   float temp_ext_k;
   int bal_active_cells;
 };
 
-int battery_pack_task(struct battery_pack* pack, float ms_elapsed);
+struct machine;
+
+int battery_pack_task(struct machine *mach, struct battery_pack *pack, float ms_elapsed);
 void battery_pack_setup(i2c_inst_t* i2c);
 
 #endif

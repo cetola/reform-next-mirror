@@ -17,8 +17,8 @@ int64_t machine_task(__unused alarm_id_t id, void *user_data) {
 
   struct machine* mach = (struct machine*)user_data;
 
-  battery_pack_task(&mach->packs[0], (float)MACHINE_TIMER_MS);
-  battery_pack_task(&mach->packs[1], (float)MACHINE_TIMER_MS);
+  battery_pack_task(mach, &mach->packs[0], (float)MACHINE_TIMER_MS);
+  battery_pack_task(mach, &mach->packs[1], (float)MACHINE_TIMER_MS);
   charger_task(mach);
   charger_status(mach);
 

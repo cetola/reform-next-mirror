@@ -6,6 +6,7 @@
   MNT Reform Next Battery Pack
  */
 
+#include "machine_next.h"
 #include <next_pack.h>
 #include <stdio.h>
 
@@ -14,7 +15,7 @@
 #define I2C_TIMEOUT (1000*500)
 #include <bq76922.h>
 
-int battery_pack_task(struct battery_pack* pack, float ms_elapsed) {
+int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack *pack, float ms_elapsed) {
   // FIXME: this function itself shouldn't printf
   // as we're in an IRQ callback
 
@@ -43,10 +44,15 @@ int battery_pack_task(struct battery_pack* pack, float ms_elapsed) {
     pack->undervolt = 0;
     pack->overvolt = 0;
     pack->active = false;
-    // TODO reset coulomb counter?
+    pack->coulomb_zero = 0;
+    pack->coulomb_cur = 0;
+    pack->coulomb_max = 0;
+    pack->gauge_percent = 0;
+    pack->ms_at_rest = 0;
     return 0;
   } else {
     pack->active = true;
+    pack->coulomb_max = MAX_CAPACITY;
   }
 
   // FIXME
@@ -79,7 +85,7 @@ int battery_pack_task(struct battery_pack* pack, float ms_elapsed) {
   //float cell3_mv = cell3_mv_lo|(cell3_mv_hi<<8);
   float cell4_mv = cell4_mv_lo|(cell4_mv_hi<<8);
   float cell5_mv = cell5_mv_lo|(cell5_mv_hi<<8);
-  float stack_mv = (int16_t)(stack_userv_lo|(stack_userv_hi<<8));
+  float stack_cv = (int16_t)(stack_userv_lo|(stack_userv_hi<<8));
   float pack_mv = (int16_t)(pack_userv_lo|(pack_userv_hi<<8));
   float ld_mv = (int16_t)(ld_userv_lo|(ld_userv_hi<<8));
   float cc2_ma = -((int16_t)(cc2_usera_lo|(cc2_usera_hi<<8)));
@@ -93,16 +99,6 @@ int battery_pack_task(struct battery_pack* pack, float ms_elapsed) {
       cell2_mv >= MV_FULL &&
       cell4_mv >= MV_FULL &&
       cell5_mv >= MV_FULL) {
-    if (!pack->fully_charged) {
-      // arrived at top end. if we never fully discharged,
-      // we don't know the actual capacity. if the capacity
-      // seems unrealistically low, reset to default capacity
-      if (pack->coulomb_max < MAX_CAPACITY * 0.4) {
-        // FIXME experiment with these numbers
-        pack->coulomb_cur = MAX_CAPACITY * 0.9;
-        pack->coulomb_max = MAX_CAPACITY * 0.9;
-      }
-    }
     pack->fully_charged = 1;
   } else {
     if (cell1_mv <= (MV_FULL-MV_HYST) &&
@@ -151,7 +147,7 @@ int battery_pack_task(struct battery_pack* pack, float ms_elapsed) {
     mon_all_fets_on(i2c);
   }
 
-  pack->volt = stack_mv/100.0; // default unit is centivolts
+  pack->volt = stack_cv/100.0; // default unit is centivolts
   pack->ampere = cc2_ma/1000.0; // default unit is mA
 
   // coulomb counting (gauge) -------------------
@@ -163,34 +159,58 @@ int battery_pack_task(struct battery_pack* pack, float ms_elapsed) {
     if (pack->undervolt) {
       // if we've hit the low voltage end and coulomb_cur > 0,
       // we've overestimated the capacity by coulomb_cur.
-      if (pack->coulomb_cur > 0) {
-        pack->coulomb_max -= pack->coulomb_cur;
+      if (pack->coulomb_cur >= 0) {
+        pack->coulomb_zero = pack->coulomb_cur;
       }
-      pack->coulomb_cur = 0;
-    } else if (pack->overvolt) {
-      // FIXME how to count balancing current?
+    } else if (pack->fully_charged) {
+      // TODO how to count balancing current?
       // - we could stop counting during balancing.
-      pack->coulomb_max = pack->coulomb_cur;
+      // right now, just snap to the top end.
+      pack->coulomb_cur = pack->coulomb_max;
     } else {
+      // in a normal situation, just account.
       pack->coulomb_cur -= coulomb;
     }
 
-    if (pack->coulomb_max > MAX_CAPACITY) {
-      pack->coulomb_max = MAX_CAPACITY;
+    // if pack is at rest, snap to voltage based estimation
+    // TODO this can be improved with a linear regression based formula
+    float volt = pack->volt;
+    if (pack->ampere > -0.1 && pack->ampere < 0.1) {
+      // snap to voltage after 5+ seconds at rest
+      if (pack->ms_at_rest >= 5000) {
+	// between 3.0 - 3.4V per cell: 10% - 100%
+	if (volt > 4 * 3.4) {
+	  pack->coulomb_cur = pack->coulomb_max;
+	} else if (volt >= 4 * 3.0) {
+          pack->coulomb_cur = pack->coulomb_max * (0.9 * ((volt - 4 * 3.0) / (4 * 0.4)));
+	} else if (volt >= 4 * 2.5) {
+          // between 2.5 - 3.0V per cell: 0% - 10%
+	  pack->coulomb_cur = pack->coulomb_max * (0.1 * ((volt - 4 * 2.5) / (4 * 0.5)));
+        }
+      }
+      pack->ms_at_rest += ms_elapsed;
+      // track max 90 days
+      if (pack->ms_at_rest > 3600.0 * 1000 * 24 * 90) {
+	pack->ms_at_rest = 0;
+      }
+    } else {
+      pack->ms_at_rest = 0;
     }
 
-    if (pack->coulomb_cur > pack->coulomb_max) pack->coulomb_max = pack->coulomb_cur;
+    // clip at 100%
+    if (pack->coulomb_cur > pack->coulomb_max) {
+      pack->coulomb_cur = pack->coulomb_max;
+    }
+
+    // clip at 0%
     if (pack->coulomb_cur < 0) {
-      // there's more in the pack than expected, add to _max
-      pack->coulomb_max -= pack->coulomb_cur;
+      // there's more in the pack than design capacity.
+      // TODO: handle this in a more sophisticated revision.
       pack->coulomb_cur = 0;
     }
 
-    if (pack->coulomb_max <= 0) {
-      pack->gauge_percent = 0;
-    } else {
-      pack->gauge_percent = (pack->coulomb_cur / pack->coulomb_max) * 100.0;
-    }
+    // convert to percentage
+    pack->gauge_percent = (pack->coulomb_cur / pack->coulomb_max) * 100.0;
   }
 
   // --------------------------------------------
@@ -494,14 +514,7 @@ void monitor_config_update(i2c_inst_t* i2c) {
 }
 
 void battery_pack_setup(i2c_inst_t* i2c) {
-  int id = 0;
-  if (i2c == i2c1) id = 1;
-
-  printf("[bq76:%d] battery_pack_setup begin\n", id);
-
   monitor_config_update(i2c);
   mon_sleep_off(i2c);
   mon_toggle_fet_en(i2c);
-
-  printf("[bq76:%d] battery_pack_setup done\n", id);
 }
