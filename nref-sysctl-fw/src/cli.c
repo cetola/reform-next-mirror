@@ -61,13 +61,25 @@ char* eightcc_to_str(uint64_t word, char buf[static 9]) {
   return buf;
 }
 
+/*
+  returns the number of characters that were output,
+  except if there was an overflow, then it returns
+  the negated number of characters that didn't fit
+*/
 int cli_out_str(struct cli_context* ctx, char *str) {
-  uint32_t len = snprintf(cli_out_ptr(ctx), cli_out_available(ctx), "%s", str);
-  if (len < strlen(str)) {
-    return 0;
+  int avail = cli_out_available(ctx);
+  int len = snprintf(cli_out_ptr(ctx), avail, "%s", str);
+  int overflow = 0;
+  if (len > avail) {
+    overflow = len - avail;
+    len = avail;
   }
   ctx->cli_out_pos += len;
-  return len;
+  if (overflow) {
+    return -overflow;
+  } else {
+    return len;
+  }
 }
 
 uint64_t cli_get_err(struct cli_context* ctx) {

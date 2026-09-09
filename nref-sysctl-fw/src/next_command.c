@@ -9,8 +9,6 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
-#include "hardware/timer.h"
 #include "hardware/watchdog.h"
 #include "cli.h"
 #include "machine.h"
@@ -43,7 +41,7 @@ uint64_t hwapi_legacy_q() {
 uint64_t hwapi_legacy_v() {
   // TODO: this isn't very useful?
   // get cell voltage
-  memset(legacy_buf, 0, LEGACY_SPI_SZ);
+  memset(legacy_spi_buf, 0, LEGACY_SPI_SZ);
   // pack 0
   struct battery_pack *pack = &mach->packs[0];
   int mv = pack->cells_v[0] * 1000;
@@ -54,7 +52,7 @@ uint64_t hwapi_legacy_v() {
 
 uint64_t hwapi_legacy_c() {
   // get calculated capacity (emulated)
-  memset(legacy_buf, 0, LEGACY_SPI_SZ);
+  memset(legacy_spi_buf, 0, LEGACY_SPI_SZ);
   uint16_t cap_accu = (uint16_t)charger_get_total_capacity_mah(mach) * (((float)mach->charge_percentage) / 100.0);
   uint16_t cap_min = (uint16_t)0;
   uint16_t cap_max = (uint16_t)charger_get_total_capacity_mah(mach);
@@ -242,7 +240,7 @@ uint64_t hwapi_get_sys_ma([[maybe_unused]] struct cli_context* ctx) {
 }
 
 uint64_t hwapi_get_wdog_scratch([[maybe_unused]] struct cli_context* ctx, uint64_t idx) {
-  if (idx > 8) {
+  if (idx > 7) {
     return 0;
   }
   return (uint64_t)watchdog_hw->scratch[idx];
@@ -322,14 +320,14 @@ void hwapi_init(struct machine *mach_) {
   cli_add_func("usb-uart", hwapi_set_usb_ports_uart, 0, CLI_TYPE_UINT64);
   cli_add_func("set-lite", hwapi_set_backlight, 1, CLI_TYPE_UINT64);
   cli_add_func("set-lfrq", hwapi_set_backlight_freq, 1, CLI_TYPE_UINT64);
-  cli_add_func("set-cma\0", hwapi_set_charge_current, 1, CLI_TYPE_UINT64);
+  cli_add_func("set-cma\0", hwapi_set_charge_current, 1, CLI_TYPE_VOID);
   cli_add_func("cell-mv\0", hwapi_get_cell_mv, 1, CLI_TYPE_UINT64);
   cli_add_func("cell-mah", hwapi_get_cell_max_mah, 1, CLI_TYPE_UINT64);
   cli_add_func("pack-mv\0", hwapi_get_pack_mv, 1, CLI_TYPE_UINT64);
   cli_add_func("pack-ma\0", hwapi_get_pack_ma, 1, CLI_TYPE_UINT64);
   cli_add_func("pack-crg", hwapi_get_pack_charge, 1, CLI_TYPE_UINT64);
   cli_add_func("pack-dbg", hwapi_set_pack_debug, 1, CLI_TYPE_UINT64);
-  cli_add_func("pack-init", hwapi_pack_init, 1, CLI_TYPE_UINT64);
+  cli_add_func("pack-init", hwapi_pack_init, 1, CLI_TYPE_VOID);
   cli_add_func("sys-mv\0\0", hwapi_get_sys_mv, 0, CLI_TYPE_UINT64);
   cli_add_func("sys-ma\0\0", hwapi_get_sys_ma, 0, CLI_TYPE_UINT64);
   cli_add_func("soc-wake", hwapi_soc_wake, 0, CLI_TYPE_UINT64);
