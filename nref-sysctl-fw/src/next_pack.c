@@ -179,10 +179,10 @@ int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack
       // snap to voltage after 5+ seconds at rest
       if (pack->ms_at_rest >= 5000) {
 	// between 3.0 - 3.4V per cell: 10% - 100%
-	if (volt > 4 * 3.4) {
+	if (volt >= 4 * 3.4 || pack->fully_charged) {
 	  pack->coulomb_cur = pack->coulomb_max;
 	} else if (volt >= 4 * 3.0) {
-          pack->coulomb_cur = pack->coulomb_max * (0.9 * ((volt - 4 * 3.0) / (4 * 0.4)));
+          pack->coulomb_cur = pack->coulomb_max * (0.1 + 0.9 * ((volt - 4 * 3.0) / (4 * 0.4)));
 	} else if (volt >= 4 * 2.5) {
           // between 2.5 - 3.0V per cell: 0% - 10%
 	  pack->coulomb_cur = pack->coulomb_max * (0.1 * ((volt - 4 * 2.5) / (4 * 0.5)));
