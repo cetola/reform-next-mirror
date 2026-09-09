@@ -10,6 +10,7 @@
 #include "hardware/uart.h"
 #include "next_rail.h"
 #include "next_gpio.h"
+#include "next_mux.h"
 #include "spi_com.h"
 #include "machine_next.h"
 #include "sysctl.h"
@@ -50,7 +51,7 @@ void turn_som_power_on(struct machine* mach) {
 
   // present usb-uart on charging port by default,
   // and activate internal usb hub
-  mux_set_usb_mode(1);
+  mux_set_usb_mode(0, 1);
 }
 
 /*
@@ -73,7 +74,7 @@ void turn_som_power_off(struct machine* mach) {
   mach->som_is_powered = false;
 
   // present sysctl usb on charging port
-  mux_set_usb_mode(0);
+  mux_set_usb_mode(0, 0);
 }
 
 void som_wake() {
