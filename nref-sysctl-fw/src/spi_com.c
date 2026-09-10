@@ -56,13 +56,11 @@ void handle_spi_commands(struct machine *machine) {
   memset(rx_buf, 0, MAX_TXN_SZ+1);
 
   int j = 0;
-  int raw_c = 0;
   int valid_c = 0;
   while (spi_is_readable(spi1)) {
     j++;
     if (j >= MAX_TXN_SZ) break;
     uint8_t rx = (uint8_t)spi_get_hw(spi1)->dr;
-    raw_c++;
     spi_get_hw(spi1)->dr = 0xff;
 
     // 0xb5 is a legacy command header, TBD if we should still support it

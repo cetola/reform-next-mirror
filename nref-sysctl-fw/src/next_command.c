@@ -14,6 +14,7 @@
 #include "machine.h"
 #include "machine_next.h"
 #include "next_mux.h"
+#include "next_command.h"
 #include "forward_uart.h"
 
 #define LEGACY_BUF_SZ 128

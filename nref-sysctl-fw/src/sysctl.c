@@ -10,6 +10,7 @@
 
 #include "hardware/irq.h"
 #include "hardware/watchdog.h"
+#include "hardware/gpio.h"
 #include "hardware/structs/watchdog.h"
 
 #include "pico/divider.h"
@@ -62,11 +63,31 @@ void setup() {
   charger_init(&mach);
 }
 
-bool spi_commands_task(__unused struct repeating_timer *t) {
+bool spi_commands_task_old(__unused struct repeating_timer *t) {
   // handle commands from SoM via SPI
   handle_spi_commands(&mach);
   // timer should continue calling us
   return true;
+}
+
+void sysctl_disable_irqs() {
+  irq_set_enabled(IO_IRQ_BANK0, false);
+}
+
+void sysctl_enable_irqs() {
+  irq_set_enabled(IO_IRQ_BANK0, true);
+}
+
+// from pico-sdk docs:
+// https://www.raspberrypi.com/documentation/pico-sdk/hardware.html#function-documentation-10
+// IRQ handlers set up with gpio_set_irq... are acknowledged automatically.
+void spi_commands_task([[maybe_unused]] unsigned int gpio, [[maybe_unused]] long unsigned int event) {
+  // handle commands from SoM
+  // TODO: pass cli state/handle
+  if (gpio != PIN_SOM_SS0) return;
+  sysctl_disable_irqs();
+  handle_spi_commands(&mach);
+  sysctl_enable_irqs();
 }
 
 void loop() {
@@ -111,8 +132,9 @@ int main() {
   ALARM_IRQ = timer_hardware_alarm_get_irq_num(timer_hw, 2);
 
   // call SPI task every 5ms to ensure response time
-  struct repeating_timer spi_timer;
-  add_repeating_timer_ms(-5, spi_commands_task, NULL, &spi_timer);
+  // struct repeating_timer spi_timer;
+  // add_repeating_timer_ms(-5, spi_commands_task, NULL, &spi_timer);
+  gpio_set_irq_enabled_with_callback(PIN_SOM_SS0, GPIO_IRQ_EDGE_FALL|GPIO_IRQ_EDGE_RISE, true, &spi_commands_task);
 
   // call configure task every few seconds
   // but at a lower priority than i.e. USB

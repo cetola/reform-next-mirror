@@ -1,8 +1,6 @@
 #ifndef _MNT_SYSCTL_H
 #define _MNT_SYSCTL_H
 
-#include <ctype.h>
-
 #define MACHINE_TIMER_MS 2000
 #define WATCHDOG_MS 10000
 
@@ -16,5 +14,8 @@
 #define BOOT_MAGIC_2 0xAA55F0F0
 #define BOOT_MAGIC_3 0x0F0F55AA
 #define BOOT_MAGIC_OFF (io_rw_32)(-1)
+
+void sysctl_disable_irqs();
+void sysctl_enable_irqs();
 
 #endif
