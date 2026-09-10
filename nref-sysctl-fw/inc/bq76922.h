@@ -18,8 +18,7 @@ int bq76922_read_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t* reg_data)
 void bq76922_write_mem_i16(i2c_inst_t* i2c, uint16_t reg_addr, int16_t reg_data);
 void bq76922_write_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t reg_data);
 
-void monitor_setup(i2c_inst_t* i2c);
-int monitor_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int len);
+int mon_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int len);
 void mon_all_fets_off(i2c_inst_t* i2c);
 void mon_discharge_fets_off(i2c_inst_t* i2c);
 void mon_charge_fets_off(i2c_inst_t* i2c);

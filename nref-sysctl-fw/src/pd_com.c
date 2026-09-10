@@ -2,13 +2,14 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include "bq25792.h"
 #include "fusb302b.h"
 #include "pd.h"
 #include "pd_com.h"
-// FIXME: do not include the kitchen sink here
-#include "sysctl.h"
+
+// TODO make generic
+#include "next_charger.h"
 #include "next_gpio.h"
+#include "sysctl.h"
 
 void print_src_fixed_pdo(int number, uint32_t pdo)
 {
@@ -77,6 +78,7 @@ void print_src_fixed_pdo(int number, uint32_t pdo)
 
 static unsigned int t = 0;
 
+// TODO move to machine
 static unsigned int pd_state;
 static bool pd_sent_soft_reset;
 uint16_t pd_datarole = PD_DATAROLE_UFP;
@@ -129,7 +131,7 @@ static void pd_set_fusb_switches() {
 }
 
 // Returns if state was "changed" in some form and we expect to maybe be called again.
-static bool pd_comm_pd(battery_info_s* battery_info) {
+static bool pd_comm_pd(struct machine* mach) {
   if (pd_datarole_changed) {
     pd_set_fusb_switches();
     pd_datarole_changed = false;
@@ -200,8 +202,8 @@ static bool pd_comm_pd(battery_info_s* battery_info) {
     // power supply is ready
     printf("# [pd] power supply ready.\n");
 
-    charger_set_input_current(requested_current * 10);
-    gpio_ext_pd_set_red_led(1);
+    charger_set_input_current(mach, requested_current * 10);
+    led_indication_charging(true);
 
     return true;
   } else if (msgrole == PD_POWERROLE_SOURCE && msgtype == PD_MSGTYPE_DR_SWAP) {
@@ -220,7 +222,7 @@ static bool pd_comm_pd(battery_info_s* battery_info) {
       fusb_send_message(&tx);
     } else {
       // we started as UFP. Partner wants to become UFP.
-      if (!battery_info->som_is_powered) {
+      if (!mach->som_is_powered) {
         // SOM is not powered, so it will not act as a host. Tell partner to try later.
         printf("# [pd] replying with wait to data-role swap request\n");
         tx.hdr = PD_MSGTYPE_WAIT | pd_datarole | (pd_powerrole << PD_HDR_POWERROLE_SHIFT);
@@ -247,7 +249,7 @@ static bool pd_comm_pd(battery_info_s* battery_info) {
   }
 }
 
-bool pd_tick(battery_info_s* battery_info) {
+bool pd_tick(struct machine* mach) {
   if (pd_state != pd_last_state) {
     printf("# [pd] STATE %d -> %d\n", pd_last_state, pd_state);
     pd_last_state = pd_state;
@@ -255,9 +257,9 @@ bool pd_tick(battery_info_s* battery_info) {
 
   if (pd_state == PD_STATE_SETUP) {
     // setup/timeout state
-    charger_set_input_current(LOW_CURRENT_MA);
+    charger_set_input_current(mach, LOW_CURRENT_MA);
     request_sent = 0;
-    gpio_ext_pd_set_red_led(0);
+    led_indication_charging(false);
 
     printf("# [pd] PD_STATE_SETUP\n");
     // probe FUSB302BMPX
@@ -267,20 +269,22 @@ bool pd_tick(battery_info_s* battery_info) {
       // SW_RES: Reset the FUSB302B including the I2C registers to their default values
       fusb_write_byte(FUSB_RESET, FUSB_RESET_SW_RES);
 
+      // FIXME busy wait?
       sleep_us(100);
 
       // enable toggle and DRP mode
       int mode;
-      if (battery_info->som_is_powered) {
+      if (mach->som_is_powered) {
         // enable 5V for host mode
+	// TODO FIXME
         //usb_host_5v_enable();
         mode = 1 << FUSB_CONTROL2_MODE_SHIFT;  // DRP
       } else {
-        usb_host_5v_disable();
+        usb_host_5v_set(false);
         mode = 0b10 << FUSB_CONTROL2_MODE_SHIFT;  // SNK only
       }
 
-      charger_set_input_current(LOW_CURRENT_MA);
+      charger_set_input_current(mach, LOW_CURRENT_MA);
 
       fusb_write_byte(FUSB_CONTROL2, FUSB_CONTROL2_TOGGLE | mode);
 
@@ -395,11 +399,11 @@ bool pd_tick(battery_info_s* battery_info) {
       if (pd_state == PD_STATE_UNATTACHED_SNK) {
         pd_powerrole = PD_POWERROLE_SINK;
         pd_datarole = PD_DATAROLE_UFP;  // default for powerrole SINK
-        usb_host_5v_disable();
+        usb_host_5v_set(false);
       } else {
         pd_powerrole = PD_POWERROLE_SOURCE;
         pd_datarole = PD_DATAROLE_DFP;  // default for powerrole SOURCE
-        usb_host_5v_enable();
+        usb_host_5v_set(true);
       }
 
       // Enable all FUSB blocks, including PD BMC and measure block.
@@ -459,7 +463,7 @@ bool pd_tick(battery_info_s* battery_info) {
       pd_state = PD_STATE_SETUP;
       goto out;
     } else {
-      if (pd_comm_pd(battery_info)) {
+      if (pd_comm_pd(mach)) {
         t = 0;
       } else if (t>10000) {
         /* FIXME see PREF code, checks for charging active or not */

@@ -3,19 +3,24 @@
 #include "next_gpio.h"
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
+#include "sysctl.h"
 
 // PCA9536DP GPIO extender (on motherboard, i2c1), before rev R-1
 #define PCA9536_ADDR 0x41
 
 void pca9536_write_byte(uint8_t addr, uint8_t val) {
+  sysctl_disable_irqs();
   uint8_t buf[2] = {addr, val};
   i2c_write_blocking(i2c1, PCA9536_ADDR, buf, 2, false);
+  sysctl_enable_irqs();
 }
 
 uint8_t pca9536_read_byte(uint8_t addr) {
+  sysctl_disable_irqs();
   uint8_t buf;
   i2c_write_blocking(i2c1, PCA9536_ADDR, &addr, 1, true);
   i2c_read_blocking(i2c1, PCA9536_ADDR, &buf, 1, false);
+  sysctl_enable_irqs();
   return buf;
 }
 
@@ -23,14 +28,18 @@ uint8_t pca9536_read_byte(uint8_t addr) {
 #define TCA6408_ADDR 0x20
 
 void tca6408_write_byte(uint8_t addr, uint8_t val) {
+  sysctl_disable_irqs();
   uint8_t buf[2] = {addr, val};
   i2c_write_blocking(i2c1, TCA6408_ADDR, buf, 2, false);
+  sysctl_enable_irqs();
 }
 
 uint8_t tca6408_read_byte(uint8_t addr) {
+  sysctl_disable_irqs();
   uint8_t buf;
   i2c_write_blocking(i2c1, TCA6408_ADDR, &addr, 1, true);
   i2c_read_blocking(i2c1, TCA6408_ADDR, &buf, 1, false);
+  sysctl_enable_irqs();
   return buf;
 }
 
@@ -41,18 +50,20 @@ static uint8_t gpio_mb_state;
 static uint8_t gpio_ext_pd_state;
 
 void pca9557_write_byte(uint8_t addr, uint8_t val) {
+  sysctl_disable_irqs();
   uint8_t buf[2] = {addr, val};
   i2c_write_blocking(i2c0, PCA9557_ADDR, buf, 2, false);
+  sysctl_disable_irqs();
 }
 
 uint8_t pca9557_read_byte(uint8_t addr) {
+  sysctl_disable_irqs();
   uint8_t buf;
   i2c_write_blocking(i2c0, PCA9557_ADDR, &addr, 1, true);
   i2c_read_blocking(i2c0, PCA9557_ADDR, &buf, 1, false);
+  sysctl_enable_irqs();
   return buf;
 }
-
-
 
 /* prerelease mainboards (pre R-1) */
 void gpio_mb_dev_setup() {

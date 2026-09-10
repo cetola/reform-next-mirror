@@ -18,39 +18,48 @@
 #include <stdio.h>
 
 #include "fusb302b.h"
-
-#include <sysctl.h>
+#include "hardware/i2c.h"
+#include "machine.h"
+#include "sysctl.h"
 
 #include <pd.h>
 
 uint8_t fusb_read_byte(uint8_t addr)
 {
+  sysctl_disable_irqs();
   uint8_t buf;
   i2c_write_blocking(i2c0, FUSB_ADDR, &addr, 1, true);
   i2c_read_blocking(i2c0, FUSB_ADDR, &buf, 1, false);
+  sysctl_enable_irqs();
   return buf;
 }
 
 void fusb_read_buf(uint8_t addr, uint8_t size, uint8_t *buf)
 {
+  sysctl_disable_irqs();
   i2c_write_blocking(i2c0, FUSB_ADDR, &addr, 1, true);
   i2c_read_blocking(i2c0, FUSB_ADDR, buf, size, false);
+  sysctl_enable_irqs();
 }
 
 void fusb_write_byte(uint8_t addr, uint8_t byte)
 {
+  sysctl_disable_irqs();
   uint8_t buf[2] = {addr, byte};
   i2c_write_blocking(i2c0, FUSB_ADDR, buf, 2, false);
+  sysctl_enable_irqs();
 }
 
 void fusb_write_buf(uint8_t addr, uint8_t size, const uint8_t *buf)
 {
+  sysctl_disable_irqs();
   uint8_t txbuf[size + 1];
   txbuf[0] = addr;
   for (int i = 0; i < size; i++) {
     txbuf[i + 1] = buf[i];
   }
   i2c_write_blocking(i2c0, FUSB_ADDR, txbuf, size + 1, false);
+  sysctl_enable_irqs();
 }
 
 void fusb_send_message(const union pd_msg *msg)
