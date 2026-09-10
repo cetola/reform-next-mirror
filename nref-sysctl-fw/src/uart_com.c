@@ -6,7 +6,8 @@
 
 static struct cli_context uart_cli_ctx;
 
-void uart_com_init() {
+void uart_com_init(struct machine *mach) {
+  uart_cli_ctx.mach = mach;
   cli_init(&uart_cli_ctx);
 }
 

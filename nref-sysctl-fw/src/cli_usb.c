@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "pico/stdlib.h"
+#include "machine.h"
 #include "cli.h"
 #include "cli_usb.h"
 
@@ -59,7 +60,8 @@ void cli_usb_line_restore() {
   }
 }
 
-void cli_usb_init() {
+void cli_usb_init(struct machine *mach) {
+  cli_ctx_usb.mach = mach;
   cli_init(&cli_ctx_usb);
 }
 

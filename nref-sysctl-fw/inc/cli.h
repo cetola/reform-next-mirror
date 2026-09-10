@@ -71,6 +71,7 @@ struct cli_context {
   uint64_t cli_list[CLI_MAX_LIST_WORDS]; // current list
   char cli_out[CLI_BUFSZ]; // output buffer
   int cli_out_pos; // position in output buffer (= output data available)
+  void* mach; // implementation dependent machine context
 };
 
 typedef uint64_t (*cli_func_t)(void*, uint64_t, uint64_t, uint64_t, uint64_t);

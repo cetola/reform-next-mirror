@@ -7,12 +7,8 @@
   https://git.clarahobbs.com/pd-buddy/pd-buddy-firmware/src/branch/master/lib/src/fusb302b.c
 */
 #include <stdio.h>
-#include <string.h>
 
-#include "pico/stdlib.h"
-#include "pico/binary_info.h"
 #include "hardware/irq.h"
-#include "hardware/clocks.h"
 #include "hardware/watchdog.h"
 #include "hardware/structs/watchdog.h"
 
@@ -45,12 +41,12 @@ void setup() {
 
   // init CLI
   cli_init_env();
-  hwapi_init(&mach);
-  uart_com_init();
-  cli_usb_init();
+  hwapi_init();
+  uart_com_init(&mach);
+  cli_usb_init(&mach);
 
   // init SPI client for SoC OS driver (mnt-sc)
-  init_spi_client();
+  init_spi_client(&mach);
 
   // if this is a warm boot, then keep power rail state
   if (syscon_warm_boot()) {

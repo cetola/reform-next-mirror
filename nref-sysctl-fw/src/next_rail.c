@@ -37,7 +37,7 @@ void clear_boot_magic() {
 
 void turn_som_power_on(struct machine* mach) {
   printf("# [action] turn_som_power_on\n");
-  init_spi_client();
+  init_spi_client(mach);
 
   gpio_ext_pd_poweron_defaults();
 

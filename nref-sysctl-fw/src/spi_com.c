@@ -15,7 +15,9 @@
 
 static struct cli_context spi_cli_ctx;
 
-void init_spi_client() {
+void init_spi_client(struct machine *mach) {
+  spi_cli_ctx.mach = mach;
+
   gpio_set_function(PIN_SOM_MOSI, GPIO_FUNC_SPI);
   gpio_set_function(PIN_SOM_MISO, GPIO_FUNC_SPI);
   gpio_set_function(PIN_SOM_SS0, GPIO_FUNC_SPI);
@@ -127,7 +129,7 @@ void handle_spi_commands(struct machine *machine) {
     // this is a workaround for confusion with
     // software spi from BPI-CM4 where we get
     // bit-shifted bytes
-    init_spi_client();
+    init_spi_client(machine);
     printf("\n");
   }
 }
