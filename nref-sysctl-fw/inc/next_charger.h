@@ -3,7 +3,7 @@
 #ifndef _NEXT_CHARGER_H
 #define _NEXT_CHARGER_H
 
-#include "machine.h"
+#include "machine_next.h"
 
 void charger_init(struct machine* mach);
 void charger_task(struct machine* mach);

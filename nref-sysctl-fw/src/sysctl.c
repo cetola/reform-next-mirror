@@ -37,12 +37,11 @@ void setup() {
   // reset if main loop is stuck for 10 seconds
   watchdog_enable(WATCHDOG_MS, 1);
 
-  // init platform specific IOs
-  machine_init(&mach);
-
   // init CLI
+  // init platform specific IOs
   cli_init_env();
-  hwapi_init();
+  // machine_init calls hwapi_init() and charger_init() at the end
+  machine_init(&mach);
   uart_com_init(&mach);
   cli_usb_init(&mach);
 
@@ -60,7 +59,6 @@ void setup() {
   }
 
   pd_init();
-  charger_init(&mach);
 }
 
 bool spi_commands_task_old(__unused struct repeating_timer *t) {

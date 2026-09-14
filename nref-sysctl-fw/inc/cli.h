@@ -86,7 +86,8 @@ char* cli_get_out(struct cli_context* ctx);
 int cli_get_out_pos(struct cli_context* ctx);
 uint64_t cli_get_err(struct cli_context* ctx);
 void cli_eval(struct cli_context* ctx);
-int cli_out_str(struct cli_context* ctx, char *str);
+int cli_out_str(struct cli_context *ctx, char *str);
+char* fourcc_to_str(uint32_t word, char buf[static 5]);
 
 // these modify the global/shared CLI environment by design
 // TODO change to funcptr1-4 for arities with type checking

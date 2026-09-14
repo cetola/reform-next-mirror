@@ -26,7 +26,6 @@ add_executable(${PROJECT}
 	src/next_charger.c
 	src/next_command.c
 	src/next_gpio.c
-	src/next_init.c
 	src/next_mux.c
 	src/next_pack.c
 	src/next_rail.c

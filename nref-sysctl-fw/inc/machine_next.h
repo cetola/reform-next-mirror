@@ -1,6 +1,7 @@
 #ifndef _MACHINE_NEXT_H
 #define _MACHINE_NEXT_H
 
+#include <sys/_intsup.h>
 #define FW_STRING1 "NREF1SYS"
 #define FW_STRING2 "R1"
 
@@ -61,27 +62,35 @@ struct machine {
   bool som_is_powered;
   struct battery_pack packs[2];
 
-  float battery_volts;
-  float battery_amps;
-  float input_volts;
-  int charge_percentage;
+  // averaged/summed pack readings
+  float battery_volts; // averaged from packs
+  float battery_amps; // summed from packs
+  float charge_percentage; // averaged from packs
+  int active_packs;
+
+  // data reported by charger ic
+  int charger_battery_mv;
+  int charger_battery_ma;
+  int charger_input_mv;
+  int charger_input_ma;
+  int charger_charge_ma;
+  int charger_charge_mv;
+  int charger_input_limit_ma;
+  int charger_sys_mv;
+  int charger_temperature_c;
 
   // settings
   int charger_charge_current_ma;
   int charger_input_current_ma;
-  int cell_max_mah;
+  int cell_max_mah; // i.e. 2000mAh single cell capacity
 
   // metadata
-  bool print_pack_info;
+  bool print_pack_info; // debug
   uint16_t ticks;
 };
 
-#include "next_init.h"
 #include "next_led.h"
 #include "next_rail.h"
-#include "next_charger.h"
-#include "next_command.h"
-#include "hardware/irq.h"
 
 int64_t machine_task(alarm_id_t id, void *user_data);
 

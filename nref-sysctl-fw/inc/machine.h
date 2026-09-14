@@ -5,4 +5,6 @@
 
 #include "machine_next.h"
 
+void machine_init(struct machine* mach);
+
 #endif

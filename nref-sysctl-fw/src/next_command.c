@@ -9,12 +9,12 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include "hardware/watchdog.h"
+#include "hardware/structs/watchdog.h"
 #include "cli.h"
-#include "machine.h"
 #include "machine_next.h"
 #include "next_mux.h"
 #include "next_command.h"
+#include "next_charger.h"
 #include "forward_uart.h"
 
 #define LEGACY_BUF_SZ 128
@@ -45,17 +45,42 @@ uint64_t hwapi_legacy_q([[maybe_unused]] struct cli_context* ctx) {
   return eightcc(legacy_spi_buf);
 }
 
-uint64_t hwapi_legacy_v([[maybe_unused]] struct cli_context* ctx) {
-  // TODO: this isn't very useful?
-  // get cell voltage
+uint64_t hwapi_legacy_0v([[maybe_unused]] struct cli_context* ctx) {
+  // get cell voltages of first pack
   struct machine* mach = get_mach(ctx);
   memset(legacy_spi_buf, 0, LEGACY_SPI_SZ);
-  // pack 0
   struct battery_pack *pack = &mach->packs[0];
-  int mv = pack->cells_v[0] * 1000;
-  legacy_spi_buf[0] = (uint8_t)mv;
-  legacy_spi_buf[1] = (uint8_t)(mv >> 8);
+  for (uint8_t c = 0; c < 4; c++) {
+    int mv = pack->cells_v[c] * 1000.0;
+    legacy_spi_buf[c*2] = (uint8_t)mv;
+    legacy_spi_buf[(c*2)+1] = (uint8_t)(mv >> 8);
+  }
   return eightcc(legacy_spi_buf);
+}
+
+uint64_t hwapi_legacy_1v([[maybe_unused]] struct cli_context* ctx) {
+  // get cell voltages of second pack
+  struct machine* mach = get_mach(ctx);
+  memset(legacy_spi_buf, 0, LEGACY_SPI_SZ);
+  struct battery_pack *pack = &mach->packs[1];
+  for (uint8_t c = 0; c < 4; c++) {
+    int mv = pack->cells_v[c] * 1000.0;
+    legacy_spi_buf[c*2] = (uint8_t)mv;
+    legacy_spi_buf[(c*2)+1] = (uint8_t)(mv >> 8);
+  }
+  return eightcc(legacy_spi_buf);
+}
+
+uint64_t hwapi_legacy_0f([[maybe_unused]] struct cli_context *ctx) {
+  return eightcc("MNT RNSC");
+}
+
+uint64_t hwapi_legacy_1f([[maybe_unused]] struct cli_context *ctx) {
+  return eightcc(MNTRE_FIRMWARE_VERSION);
+}
+
+uint64_t hwapi_legacy_2f([[maybe_unused]] struct cli_context *ctx) {
+  return eightcc(MNTRE_FIRMWARE_VERSION);
 }
 
 uint64_t hwapi_legacy_c([[maybe_unused]] struct cli_context* ctx) {
@@ -89,13 +114,13 @@ char* hwapi_legacy_kbd_s([[maybe_unused]] struct cli_context* ctx) {
 char *hwapi_legacy_kbd_c([[maybe_unused]] struct cli_context *ctx) {
   // traditional format for the keyboard's Battery Status screen
   struct machine* mach = get_mach(ctx);
-  int ma = (int)((mach->packs[0].ampere + mach->packs[1].ampere) * 1000.0);
+  int ma = (int)(mach->battery_amps * 1000.0);
   char ma_sign = ' ';
   if (ma < 0) {
     ma = -ma;
     ma_sign = '-';
   }
-  int mv = (int)(((mach->packs[0].volt + mach->packs[1].volt) / 2) * 1000.0);
+  int mv = (int)(mach->battery_volts * 1000.0);
   snprintf(legacy_buf, 128,
            "%02d %02d %02d %02d %02d %02d %02d %02d mA%c%04dmV%05d %3d%% P%d\r\n",
            (int)(mach->packs[0].cells_v[0] / 100),
@@ -107,7 +132,7 @@ char *hwapi_legacy_kbd_c([[maybe_unused]] struct cli_context *ctx) {
            (int)(mach->packs[1].cells_v[2] / 100),
            (int)(mach->packs[1].cells_v[3] / 100),
 	   ma_sign, ma, mv,
-           (int)((mach->packs[0].gauge_percent + mach->packs[1].gauge_percent) / 2),
+           (int)mach->charge_percentage,
            mach->som_is_powered ? 1 : 0);
 
   legacy_buf[127] = 0;
@@ -221,52 +246,79 @@ uint64_t hwapi_soc_post_suspend([[maybe_unused]] struct cli_context* ctx) {
   return 1;
 }
 
-uint64_t hwapi_get_cell_mv([[maybe_unused]] struct cli_context* ctx, uint64_t cell_id) {
+uint64_t hwapi_get_cell_mv(struct cli_context* ctx, uint64_t cell_id) {
   struct machine* mach = get_mach(ctx);
   if (cell_id > 7) return 0;
   
   struct battery_pack *pack = &mach->packs[0];
   if (cell_id >= 4) pack = &mach->packs[1];
-  int mv = pack->cells_v[cell_id % 4] * 1000;
+  int mv = pack->cells_v[cell_id % 4];
   return mv;
 }
 
-uint64_t hwapi_get_pack_mv([[maybe_unused]] struct cli_context* ctx /*uint64_t pack_id*/) {
-  struct machine* mach = get_mach(ctx);
-  // TODO what about pack_volts?
-  return mach->battery_volts * 1000;
+uint64_t hwapi_get_pack_mv(struct cli_context* ctx, uint64_t pack_id) {
+  struct machine *mach = get_mach(ctx);
+  if (pack_id > 1)
+    return 0;
+  return mach->packs[pack_id].volt * 1000;
 }
 
-uint64_t hwapi_get_pack_ma([[maybe_unused]] struct cli_context* ctx /*uint64_t pack_id*/) {
+uint64_t hwapi_get_pack_ma(struct cli_context* ctx, uint64_t pack_id) {
   struct machine* mach = get_mach(ctx);
-  return mach->battery_amps * 1000;
+  if (pack_id > 1)
+    return 0;
+  return mach->packs[pack_id].ampere * 1000;
 }
 
-uint64_t hwapi_get_pack_charge([[maybe_unused]] struct cli_context* ctx /*uint64_t pack_id*/) {
+uint64_t hwapi_get_pack_charge(struct cli_context* ctx, uint64_t pack_id) {
   struct machine* mach = get_mach(ctx);
-  return mach->charge_percentage;
+  if (pack_id > 1)
+    return 0;
+  return mach->packs[pack_id].gauge_percent;
 }
 
-uint64_t hwapi_get_cell_max_mah([[maybe_unused]] struct cli_context* ctx, [[maybe_unused]] uint64_t cell_id) {
+uint64_t hwapi_get_battery_mv(struct cli_context* ctx) {
+  struct machine* mach = get_mach(ctx);
+  return mach->charger_battery_mv;
+}
+
+uint64_t hwapi_get_battery_ma(struct cli_context* ctx) {
+  struct machine* mach = get_mach(ctx);
+  return mach->charger_battery_ma;
+}
+
+uint64_t hwapi_get_cell_max_mah(struct cli_context* ctx, [[maybe_unused]] uint64_t cell_id) {
   struct machine* mach = get_mach(ctx);
   return mach->cell_max_mah;
 }
 
-uint64_t hwapi_get_sys_mv([[maybe_unused]] struct cli_context* ctx) {
+uint64_t hwapi_get_sys_mv(struct cli_context* ctx) {
   struct machine* mach = get_mach(ctx);
-  // TODO
-  return mach->input_volts;
+  return mach->charger_sys_mv;
 }
 
-uint64_t hwapi_get_sys_ma([[maybe_unused]] struct cli_context* ctx) {
-  // TODO
-  // also: input amps?
-  return 0;
+uint64_t hwapi_get_input_mv(struct cli_context* ctx) {
+  struct machine* mach = get_mach(ctx);
+  return mach->charger_input_mv;
+}
+
+uint64_t hwapi_get_input_ma(struct cli_context* ctx) {
+  struct machine* mach = get_mach(ctx);
+  return mach->charger_input_ma;
+}
+
+uint64_t hwapi_get_charger_temp(struct cli_context* ctx) {
+  struct machine *mach = get_mach(ctx);
+  // FIXME sign?
+  return (uint64_t)mach->charger_temperature_c * 1000.0;
 }
 
 uint64_t hwapi_get_wdog_scratch([[maybe_unused]] struct cli_context* ctx, uint64_t idx) {
-  if (idx > 7) {
+  if (idx > 8) {
     return 0;
+  }
+  if (idx == 8) {
+    return (uint64_t)watchdog_hw->reason;
   }
   return (uint64_t)watchdog_hw->scratch[idx];
 }
@@ -353,8 +405,11 @@ void hwapi_init() {
   cli_add_func("pack-crg", hwapi_get_pack_charge, 1, CLI_TYPE_UINT64);
   cli_add_func("pack-dbg", hwapi_set_pack_debug, 1, CLI_TYPE_UINT64);
   cli_add_func("pack-init", hwapi_pack_init, 1, CLI_TYPE_VOID);
+  cli_add_func("bat-mv\0\0", hwapi_get_battery_mv, 0, CLI_TYPE_UINT64);
+  cli_add_func("bat-ma\0\0", hwapi_get_battery_ma, 0, CLI_TYPE_UINT64);
   cli_add_func("sys-mv\0\0", hwapi_get_sys_mv, 0, CLI_TYPE_UINT64);
-  cli_add_func("sys-ma\0\0", hwapi_get_sys_ma, 0, CLI_TYPE_UINT64);
+  cli_add_func("inp-ma\0\0", hwapi_get_input_ma, 0, CLI_TYPE_UINT64);
+  cli_add_func("inp-mv\0\0", hwapi_get_input_mv, 0, CLI_TYPE_UINT64);
   cli_add_func("soc-wake", hwapi_soc_wake, 0, CLI_TYPE_UINT64);
   cli_add_func("soc-susp", hwapi_soc_pre_suspend, 0, CLI_TYPE_UINT64);
   cli_add_func("soc-psus", hwapi_soc_post_suspend, 0, CLI_TYPE_UINT64);
@@ -370,10 +425,7 @@ void hwapi_init() {
   cli_add_func("pddrswap\0\0", hwapi_pd_dr_swap, 0, CLI_TYPE_VOID);
   cli_add_func("wdog-scr\0\0", hwapi_get_wdog_scratch, 2, CLI_TYPE_UINT64);
 
-  // TODO?
-  // gpio_set_dir(PIN_USB_LOADER_SW, GPIO_OUT);
-  // gpio_put(PIN_USB_LOADER_SW, 1);
-  // serial forwarding (next)
+  // TODO? PIN_USB_LOADER_SW
 
   /* register constants */
   cli_add_word("mb-ver\0\0", 1);
@@ -384,12 +436,13 @@ void hwapi_init() {
   cli_add_func("0p\0\0\0\0\0\0", hwapi_legacy_turn_off, 0, CLI_TYPE_VOID);
   cli_add_func("1p\0\0\0\0\0\0", hwapi_legacy_turn_on, 0, CLI_TYPE_VOID);
   cli_add_func("0q\0\0\0\0\0\0\0", hwapi_legacy_q, 0, CLI_TYPE_UINT64);
-  cli_add_func("0v\0\0\0\0\0\0\0", hwapi_legacy_v, 0, CLI_TYPE_UINT64);
+  cli_add_func("0v\0\0\0\0\0\0\0", hwapi_legacy_0v, 0, CLI_TYPE_UINT64);
+  cli_add_func("1v\0\0\0\0\0\0\0", hwapi_legacy_1v, 0, CLI_TYPE_UINT64);
   cli_add_func("0c\0\0\0\0\0\0\0", hwapi_legacy_c, 0, CLI_TYPE_UINT64);
   cli_add_func("1w\0\0\0\0\0\0\0", som_wake, 0, CLI_TYPE_VOID);
-  cli_add_word("0f\0\0\0\0\0\0\0", eightcc("MNT RNSC"));
-  cli_add_word("1f\0\0\0\0\0\0\0", eightcc("20260908"));
-  cli_add_word("2f\0\0\0\0\0\0\0", eightcc("00000000"));
+  cli_add_func("0f\0\0\0\0\0\0\0", hwapi_legacy_0f, 0, CLI_TYPE_UINT64);
+  cli_add_func("1f\0\0\0\0\0\0\0", hwapi_legacy_1f, 0, CLI_TYPE_UINT64);
+  cli_add_func("2f\0\0\0\0\0\0\0", hwapi_legacy_2f, 0, CLI_TYPE_UINT64);
   cli_add_func("s\0\0\0\0\0\0\0", hwapi_legacy_kbd_s, 0, CLI_TYPE_STR128);
   cli_add_func("c\0\0\0\0\0\0\0", hwapi_legacy_kbd_c, 0, CLI_TYPE_STR128);
 }

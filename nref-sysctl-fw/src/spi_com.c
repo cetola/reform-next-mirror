@@ -34,14 +34,6 @@ void init_spi_client(struct machine *mach) {
   printf("# [spi] init_spi_client done\n");
 }
 
-/*static uint8_t lpc_calc_checksum(uint8_t *buffer, int len) {
-  uint8_t sum = 0;
-  for (int i=0; i<len-1; i++) {
-    sum = sum ^ buffer[i];
-  }
-  return sum;
-}*/
-
 #define SPI_DEBUG_ENABLED 0
 #define MAX_TXN_SZ 8*4
 
@@ -57,6 +49,9 @@ void handle_spi_commands(struct machine *machine) {
 
   int j = 0;
   int valid_c = 0;
+#if SPI_DEBUG_ENABLED
+  int raw_c = 0;
+#endif
   while (spi_is_readable(spi1)) {
     j++;
     if (j >= MAX_TXN_SZ) break;
@@ -74,21 +69,25 @@ void handle_spi_commands(struct machine *machine) {
     cli_char(&spi_cli_ctx, rx_buf[j]);
     int resp_len = cli_get_out_pos(&spi_cli_ctx);
     if (resp_len > 0) {
+      // send the response
+      int delayed_tot = 0;
+      int delayed = 0;
       const char *cli_out_buf = cli_get_out(&spi_cli_ctx);
       for (int i = 0; i < resp_len; i++) {
-        int delayed = 0;
+        delayed = 0;
         while (!spi_is_writable(spi1)) {
-          // wait up to 1ms for other side to receive
+          // wait up to 2ms for other side to receive
           busy_wait_us(100);
           delayed++;
-          if (delayed > 10) break;
+          if (delayed > 20) break;
         }
         spi_get_hw(spi1)->dr = (uint32_t)cli_out_buf[i];
         // discard read
         [[maybe_unused]] uint8_t rx = (uint8_t)spi_get_hw(spi1)->dr;
+        delayed_tot += delayed;
       }
 #if SPI_DEBUG_ENABLED
-      printf("# [spi<] %s\n", cli_out_buf);
+      printf("# [spitx] %s d: %d\n", cli_out_buf, delayed_tot);
 #endif
       cli_err = cli_get_err(&spi_cli_ctx);
       cli_reset_out(&spi_cli_ctx);
@@ -96,10 +95,15 @@ void handle_spi_commands(struct machine *machine) {
   }
 
 #if SPI_DEBUG_ENABLED
-  if (valid_c > 0) {
+  if (raw_c > 0) {
     printf("# [spirx] ");
     for (int i = 0; i < raw_c; i++) {
-      printf("%02x ", rx_buf[i]);
+      printf("%02x", rx_buf[i]);
+      if (i >= valid_c) {
+        printf("|");
+      } else {
+        printf(" ");
+      }
       if (i % 8 == 7) printf("  ");
     }
     for (int i = 0; i < raw_c; i++) {
@@ -114,7 +118,8 @@ void handle_spi_commands(struct machine *machine) {
 #endif
 
   if (cli_err) {
-    printf("# cli err %llu\n", cli_err);
+    char buf[5];
+    printf("# cli err %llu %s\n", cli_err, fourcc_to_str(cli_err, buf));
     cli_reset(&spi_cli_ctx);
     cli_reset_out(&spi_cli_ctx);
 

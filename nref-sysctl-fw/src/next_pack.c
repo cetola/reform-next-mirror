@@ -324,23 +324,23 @@ int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack
   bq76922_write_mem_u16(i2c, 0x0084, MV_BALANCE_ABOVE);
   /*if (cell4_mv > 3400) {
     bq76922_write_mem_u16(i2c, 0x0083, 8);
-  } else if (cell4_mv <= 3300) {
+    } else if (cell4_mv <= 3300) {
     bq76922_write_mem_u16(i2c, 0x0083, 0);
-  }*/
+    }*/
 
   if (pack->debug) {
-	  printf("\n[PACK %d] ===================================\n", pack->id);
-	  printf("cells: %.2fV %.2fV %.2fV %.2fV\n",
-			 pack->cells_v[0],
-			 pack->cells_v[1],
-			 pack->cells_v[2],
-			 pack->cells_v[3]);
-	  printf("current: %.2fA voltage: %.2fV\n", pack->ampere, pack->volt);
-	  printf("balancing: %016b\n", pack->bal_active_cells);
-	  printf("coulomb_cur/max: %.2f / %.2f\n", pack->coulomb_cur, pack->coulomb_max);
-	  printf("gauge_percent: %.2f\n", pack->gauge_percent);
-	  printf("fully_charged: %d\n", pack->fully_charged);
-	  printf("============================================\n\n");
+    printf("\n[PACK %d] ===================================\n", pack->id);
+    printf("cells: %.2fV %.2fV %.2fV %.2fV\n",
+	   pack->cells_v[0],
+	   pack->cells_v[1],
+	   pack->cells_v[2],
+	   pack->cells_v[3]);
+    printf("current: %.2fA voltage: %.2fV\n", pack->ampere, pack->volt);
+    printf("balancing: %016b\n", pack->bal_active_cells);
+    printf("coulomb_cur/max: %.2f / %.2f\n", pack->coulomb_cur, pack->coulomb_max);
+    printf("gauge_percent: %.2f\n", pack->gauge_percent);
+    printf("fully_charged: %d\n", pack->fully_charged);
+    printf("============================================\n\n");
   }
 
   return 1;

@@ -141,7 +141,7 @@ void gpio_ext_pd_setup() {
     IO0: USB_SINK_EN (open drain output!)
   */
 
-  gpio_ext_pd_state = 0b00001101;
+  gpio_ext_pd_state = 0b01101101;
 
   // output port:
   pca9557_write_byte(1, gpio_ext_pd_state);

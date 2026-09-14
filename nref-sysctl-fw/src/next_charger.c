@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "machine_next.h"
+#include "next_charger.h"
 #include "bq25792.h"
 
 void charger_task(struct machine* mach) {
@@ -220,7 +221,7 @@ int charger_status(struct machine *mach) {
   //uint16_t vac2_adc = bq25792_read_word(0x39); // 1mV resolution
   uint16_t vbat_adc = bq25792_read_word(0x3b); // 1mV resolution
   // FIXME unused
-  //uint16_t vsys_adc = bq25792_read_word(0x3d); // 1mV resolution
+  uint16_t vsys_adc = bq25792_read_word(0x3d); // 1mV resolution
   float tdie_adc = (float)bq25792_read_word_signed(0x41) * 0.5; // 0.5 celsius resolution
 
   // FIXME not here
@@ -291,8 +292,18 @@ int charger_status(struct machine *mach) {
     printf("[bq25] fault_flag_1  : %08b\n", fault_flag_1);
   }
 
-  uint16_t vreg = bq25792_read_word(0x01)*10; // 10mV resolution
-  uint16_t ichg = bq25792_read_word(0x03)*10; // 10mA resolution
+  uint16_t vreg = bq25792_read_word(0x01) * 10; // 10mV resolution
+  uint16_t ichg = bq25792_read_word(0x03) * 10; // 10mA resolution
+
+  mach->charger_battery_ma = ibat_adc;
+  mach->charger_battery_mv = vbat_adc;
+  mach->charger_charge_ma = ichg;
+  mach->charger_charge_mv = vreg;
+  mach->charger_temperature_c = tdie_adc;
+  mach->charger_input_mv = vac1_adc;
+  mach->charger_input_ma = ibus_adc;
+  mach->charger_input_limit_ma = ilim;
+  mach->charger_sys_mv = vsys_adc;
 
   //printf("[bq25] charger_status_2: %08b\n", charger_status_2);
 
