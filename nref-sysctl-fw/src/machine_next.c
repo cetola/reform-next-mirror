@@ -84,10 +84,24 @@ void machine_init(struct machine* mach) {
   charger_init(mach);
 }
 
-void power_calculations(struct machine* mach) {
-  mach->charge_percentage = ((mach->packs[0].gauge_percent + mach->packs[1].gauge_percent) / 2.0);
-  mach->battery_amps = mach->packs[0].ampere + mach->packs[1].ampere;
-  mach->battery_volts = (mach->packs[0].volt + mach->packs[1].volt) / 2.0;
+void power_calculations(struct machine *mach) {
+  mach->charge_percentage = 0;
+  mach->battery_amps = 0;
+  mach->battery_volts = 0;
+  float num = 0;
+  for (int i = 0; i < 2; i++) {
+    if (mach->packs[i].active) {
+      mach->charge_percentage += mach->packs[i].gauge_percent;
+      mach->battery_volts += mach->packs[i].volt;
+      mach->battery_amps += mach->packs[i].ampere;
+      num++;
+    }
+  }
+  // average paralleled pack voltages, gauge
+  if (num >= 1.0) {
+    mach->charge_percentage /= num;
+    mach->battery_volts /= num;
+  }
 }
 
 int64_t machine_task(__unused alarm_id_t id, void *user_data) {
