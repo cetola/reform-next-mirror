@@ -1,9 +1,9 @@
 /* GPIO extender on USB-C PD port board of MNT Reform Next */
 
 #include "next_gpio.h"
-#include "pico/stdlib.h"
 #include "hardware/i2c.h"
 #include "sysctl.h"
+#include <stdio.h>
 
 // PCA9536DP GPIO extender (on motherboard, i2c1), before rev R-1
 #define PCA9536_ADDR 0x41
@@ -51,6 +51,7 @@ static uint8_t gpio_ext_pd_state;
 
 void pca9557_write_byte(uint8_t addr, uint8_t val) {
   sysctl_disable_irqs();
+  printf("# pca9557_write_byte: %d %08b\n", addr, val);
   uint8_t buf[2] = {addr, val};
   i2c_write_blocking(i2c0, PCA9557_ADDR, buf, 2, false);
   sysctl_disable_irqs();

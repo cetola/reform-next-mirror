@@ -87,9 +87,13 @@ uint64_t hwapi_legacy_c([[maybe_unused]] struct cli_context* ctx) {
   // get calculated capacity (emulated)
   struct machine* mach = get_mach(ctx);
   memset(legacy_spi_buf, 0, LEGACY_SPI_SZ);
-  uint16_t cap_accu = (uint16_t)charger_get_total_capacity_mah(mach) * (((float)mach->charge_percentage) / 100.0);
+  float total_mah = charger_get_total_capacity_mah(mach);
+  // divide by the number of cells in a pack, because we give the pack voltage
+  // to the system, not a single cell voltage
+  total_mah /= 4.0;
+  uint16_t cap_accu = (uint16_t)(total_mah * (((float)mach->charge_percentage) / 100.0));
   uint16_t cap_min = (uint16_t)0;
-  uint16_t cap_max = (uint16_t)charger_get_total_capacity_mah(mach);
+  uint16_t cap_max = (uint16_t)total_mah;
   legacy_spi_buf[0] = (uint8_t)cap_accu;
   legacy_spi_buf[1] = (uint8_t)(cap_accu >> 8);
   legacy_spi_buf[2] = (uint8_t)cap_min;
@@ -313,6 +317,12 @@ uint64_t hwapi_get_charger_temp(struct cli_context* ctx) {
   return (uint64_t)mach->charger_temperature_c * 1000.0;
 }
 
+uint64_t hwapi_get_charge_current(struct cli_context* ctx) {
+  struct machine *mach = get_mach(ctx);
+  // FIXME sign?
+  return (uint64_t)mach->charger_charge_current_ma;
+}
+
 uint64_t hwapi_get_wdog_scratch([[maybe_unused]] struct cli_context* ctx, uint64_t idx) {
   if (idx > 8) {
     return 0;
@@ -366,11 +376,20 @@ void hwapi_pd_set_force_sink([[maybe_unused]] struct cli_context* ctx, [[maybe_u
   //pd_set_force_sink(!!force);
 }
 
-void hwapi_set_charge_current([[maybe_unused]] struct cli_context* ctx, uint64_t charge_ma) {
+uint64_t hwapi_set_charge_current([[maybe_unused]] struct cli_context* ctx, uint64_t charge_ma) {
   struct machine* mach = get_mach(ctx);
   if (charge_ma < 50) charge_ma = 50;
   if (charge_ma > 2000) charge_ma = 2000;
   charger_set_charge_current(mach, charge_ma);
+  return mach->charger_charge_current_ma;
+}
+
+// set capacity of a single cell (in mAh)
+uint64_t hwapi_set_cell_max_mah([[maybe_unused]] struct cli_context* ctx, uint64_t cell_mah) {
+  struct machine* mach = get_mach(ctx);
+  if (cell_mah < 1000 || cell_mah >= 5000) return 0;
+  mach->cell_max_mah = cell_mah;
+  return mach->cell_max_mah;
 }
 
 void hwapi_pack_init([[maybe_unused]] struct cli_context* ctx, uint64_t pack_id) {
@@ -397,7 +416,9 @@ void hwapi_init() {
   cli_add_func("usb-uart", hwapi_set_usb_ports_uart, 0, CLI_TYPE_UINT64);
   cli_add_func("set-lite", hwapi_set_backlight, 1, CLI_TYPE_UINT64);
   cli_add_func("set-lfrq", hwapi_set_backlight_freq, 1, CLI_TYPE_UINT64);
-  cli_add_func("set-cma\0", hwapi_set_charge_current, 1, CLI_TYPE_VOID);
+  cli_add_func("set-cmax", hwapi_set_charge_current, 1, CLI_TYPE_UINT64);
+  cli_add_func("crg-max\0", hwapi_get_charge_current, 1, CLI_TYPE_UINT64);
+  cli_add_func("set-cmah", hwapi_set_cell_max_mah, 1, CLI_TYPE_UINT64);
   cli_add_func("cell-mv\0", hwapi_get_cell_mv, 1, CLI_TYPE_UINT64);
   cli_add_func("cell-mah", hwapi_get_cell_max_mah, 1, CLI_TYPE_UINT64);
   cli_add_func("pack-mv\0", hwapi_get_pack_mv, 1, CLI_TYPE_UINT64);

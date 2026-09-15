@@ -33,8 +33,7 @@ void charger_task(struct machine* mach) {
 }
 
 int charger_get_total_capacity_mah(struct machine* mach) {
-  // TODO calc. according to number of detected packs
-  return 2 * 4 * mach->cell_max_mah;
+  return mach->active_packs * 4 * mach->cell_max_mah;
 }
 
 void charger_init(struct machine* mach) {
@@ -47,8 +46,15 @@ void charger_init(struct machine* mach) {
   if (!mach->charger_input_current_ma) {
     mach->charger_input_current_ma = 500;
   }
-  // TODO make configurable
-  mach->cell_max_mah = 2000;
+
+  // count active packs
+  int act_packs = 0;
+  if (mach->packs[0].active) act_packs++;
+  if (mach->packs[1].active) act_packs++;
+  mach->active_packs = act_packs;
+  if (mach->cell_max_mah < 1000 || mach->cell_max_mah >= 5000) {
+    mach->cell_max_mah = 2000;
+  }
 
   //printf("[charger_init] ~~~~~~~~~~~~~~~~~~\n");
 
@@ -184,21 +190,18 @@ int charger_status(struct machine *mach) {
       printf("# [bq25] disable/trickle charging (no packs connected).\n");
     }
     bq25792_write_byte(0x0f, 0b10000000);
-    led_indication_charging(false);
   } else if (!charging_allowed) {
     // disable charging
     if (pack_debug) {
       printf("# [bq25] disable charging (overvoltage/fully charged).\n");
     }
     bq25792_write_byte(0x0f, 0b10000000);
-    led_indication_charging(false);
   } else {
     // enable charging
     if (pack_debug) {
       printf("# [bq25] enable charging.\n");
     }
     bq25792_write_byte(0x0f, 0b10100000);
-    led_indication_charging(true);
   }
 
   uint8_t charger_status_0 = bq25792_read_byte(0x1b);

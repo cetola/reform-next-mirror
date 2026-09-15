@@ -6,9 +6,6 @@
 #include "hardware/i2c.h"
 
 // battery information
-// 2.0A x 3600 seconds/hour (pack capacity)
-// TODO calculate from mach->cell_max_mah
-#define MAX_CAPACITY (2.0 * 3600.0)
 #define MV_OVERVOLT 3800
 #define MV_UNDERVOLT 2450
 // some cells don't hold voltage > 3.5

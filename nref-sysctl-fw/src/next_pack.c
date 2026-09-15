@@ -15,7 +15,9 @@
 #define I2C_TIMEOUT (1000*500)
 #include <bq76922.h>
 
-int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack *pack, float ms_elapsed) {
+static float time_last_ms = 0;
+
+int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack *pack, [[maybe_unused]] float ms_elapsed) {
   // FIXME: this function itself shouldn't printf
   // as we're in an IRQ callback
 
@@ -28,6 +30,12 @@ int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack
   // don't read checksum and length at the same time (auto-increment stuff)
 
   // later, we can write defaults to OTP memory
+
+  float time_real_ms = to_ms_since_boot(get_absolute_time());
+  float elapsed_real_ms = time_real_ms - time_last_ms;
+  if (elapsed_real_ms < 1) elapsed_real_ms = 1; // protection against div by zero
+  if (elapsed_real_ms > 10000) elapsed_real_ms = 10000; // clip
+  time_last_ms = time_real_ms;
 
   i2c_inst_t* i2c = pack->i2c;
 
@@ -52,7 +60,8 @@ int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack
     return 0;
   } else {
     pack->active = true;
-    pack->coulomb_max = MAX_CAPACITY;
+    // 2.0A x 3600 seconds/hour (pack capacity)
+    pack->coulomb_max = 3600.0 * ((float)mach->cell_max_mah) / 1000.0;
   }
 
   // FIXME
@@ -151,11 +160,17 @@ int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack
   pack->ampere = cc2_ma/1000.0; // default unit is mA
 
   // coulomb counting (gauge) -------------------
+  // 1C = 1A x 1s
 
-  float coulomb = pack->ampere * (ms_elapsed / 1000.0);
-  //printf("~~ coloumb: %.2f ~~ elapsed: %f ms\n", coulomb, ms_elapsed);
+  float coulomb = pack->ampere * (elapsed_real_ms / 1000.0);
+  if (pack->debug) {
+    float remain = pack->coulomb_cur / (coulomb / (elapsed_real_ms / 1000.0));
+    int remain_min = remain/60.0;
+    int remain_sec = ((int)remain) % 60;
+    printf("# ~~ A: %.2f C: -%.2f (%.2f/%.2f) ~~ elapsed: %.2f ~~ remain: %02d:%02d\n", pack->ampere, coulomb, pack->coulomb_cur, pack->coulomb_max, elapsed_real_ms, remain_min, remain_sec);
+  }
 
-  if (ms_elapsed > 0) {
+  if (elapsed_real_ms > 0) {
     if (pack->undervolt) {
       // if we've hit the low voltage end and coulomb_cur > 0,
       // we've overestimated the capacity by coulomb_cur.
@@ -175,26 +190,51 @@ int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack
     // if pack is at rest, snap to voltage based estimation
     // TODO this can be improved with a linear regression based formula
     float volt = pack->volt;
-    if (pack->ampere > -0.1 && pack->ampere < 0.1) {
+    bool gauge_very_low = (pack->coulomb_cur < (pack->coulomb_max * 0.1));
+    bool pack_discharging = (pack->ampere >= 0.1);
+    bool pack_at_rest = (pack->ampere > -0.05 && pack->ampere < 0.05);
+    float cells = 4;
+    float low_start = cells * 2.5;
+    float mid_start = cells * 3.1;
+    float high_start = cells * 3.4;
+    float low_range = mid_start - low_start;
+    float mid_range = high_start - mid_start;
+    bool voltage_low = (volt >= low_start && volt < mid_start);
+    bool voltage_mid = (volt >= mid_start && volt < high_start);
+    bool voltage_high = (volt >= high_start);
+    float gauge_range_low = 0.2; // 20%
+    float gauge_range_mid = 0.79; // 99%
+
+    float snap_to_coulomb = pack->coulomb_cur;
+    if (voltage_high || pack->fully_charged) {
+      // always snap at the top
+      snap_to_coulomb = pack->coulomb_max;
+    } else if (gauge_very_low && voltage_mid) {
+      // snap in this area only if the gauge has been reset/is very off,
+      // as this part of the discharge curve is very flat
+      snap_to_coulomb = pack->coulomb_max * (gauge_range_low + gauge_range_mid * ((volt - mid_start) / mid_range));
+    } else if (voltage_low) {
+      // always snap at the bottom
+      snap_to_coulomb = pack->coulomb_max * (gauge_range_low * ((volt - low_start) / low_range));
+    }
+
+    if (pack_at_rest) {
       // snap to voltage after 5+ seconds at rest
       if (pack->ms_at_rest >= 5000) {
-	// between 3.0 - 3.4V per cell: 10% - 100%
-	if (volt >= 4 * 3.4 || pack->fully_charged) {
-	  pack->coulomb_cur = pack->coulomb_max;
-	} else if (volt >= 4 * 3.0) {
-          pack->coulomb_cur = pack->coulomb_max * (0.1 + 0.9 * ((volt - 4 * 3.0) / (4 * 0.4)));
-	} else if (volt >= 4 * 2.5) {
-          // between 2.5 - 3.0V per cell: 0% - 10%
-	  pack->coulomb_cur = pack->coulomb_max * (0.1 * ((volt - 4 * 2.5) / (4 * 0.5)));
-        }
+        pack->coulomb_cur = snap_to_coulomb;
       }
-      pack->ms_at_rest += ms_elapsed;
+      pack->ms_at_rest += elapsed_real_ms;
       // track max 90 days
       if (pack->ms_at_rest > 3600.0 * 1000 * 24 * 90) {
 	pack->ms_at_rest = 0;
       }
     } else {
       pack->ms_at_rest = 0;
+      if (pack_discharging) {
+	if (gauge_very_low || voltage_low) {
+          pack->coulomb_cur = snap_to_coulomb;
+        }
+      }
     }
 
     // clip at 100%
