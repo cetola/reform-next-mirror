@@ -1,16 +1,21 @@
-/* MNT Reform Next Battery Pack */
+/*
+  SPDX-License-Identifier: GPL-3.0-or-later
+  MNT Reform Next System Controller Firmware for RP2350
+  Copyright 2023-2026 MNT Research GmbH
 
+  MNT Reform Next Battery Pack
+ */
+
+#include "machine_next.h"
 #include <next_pack.h>
 #include <stdio.h>
-
 
 // BQ76922 monitor on battery boards
 #define BQ76922_ADDR 0x08
 #define I2C_TIMEOUT (1000*500)
-
 #include <bq76922.h>
 
-int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
+int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack *pack, [[maybe_unused]] float ms_elapsed) {
   // FIXME: this function itself shouldn't printf
   // as we're in an IRQ callback
 
@@ -23,6 +28,12 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   // don't read checksum and length at the same time (auto-increment stuff)
 
   // later, we can write defaults to OTP memory
+
+  float time_real_ms = to_ms_since_boot(get_absolute_time());
+  float elapsed_real_ms = time_real_ms - pack->time_last_ms;
+  if (elapsed_real_ms < 1) elapsed_real_ms = 1; // protection against div by zero
+  if (elapsed_real_ms > 10000) elapsed_real_ms = 10000; // clip
+  pack->time_last_ms = time_real_ms;
 
   i2c_inst_t* i2c = pack->i2c;
 
@@ -39,10 +50,16 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
     pack->undervolt = 0;
     pack->overvolt = 0;
     pack->active = false;
-    // TODO reset coulomb counter?
+    pack->coulomb_zero = 0;
+    pack->coulomb_cur = 0;
+    pack->coulomb_max = 0;
+    pack->gauge_percent = 0;
+    pack->ms_at_rest = 0;
     return 0;
   } else {
     pack->active = true;
+    // 2.0A x 3600 seconds/hour (pack capacity)
+    pack->coulomb_max = 3600.0 * ((float)mach->cell_max_mah) / 1000.0;
   }
 
   // FIXME
@@ -75,7 +92,7 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   //float cell3_mv = cell3_mv_lo|(cell3_mv_hi<<8);
   float cell4_mv = cell4_mv_lo|(cell4_mv_hi<<8);
   float cell5_mv = cell5_mv_lo|(cell5_mv_hi<<8);
-  float stack_mv = (int16_t)(stack_userv_lo|(stack_userv_hi<<8));
+  float stack_cv = (int16_t)(stack_userv_lo|(stack_userv_hi<<8));
   float pack_mv = (int16_t)(pack_userv_lo|(pack_userv_hi<<8));
   float ld_mv = (int16_t)(ld_userv_lo|(ld_userv_hi<<8));
   float cc2_ma = -((int16_t)(cc2_usera_lo|(cc2_usera_hi<<8)));
@@ -89,16 +106,6 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
       cell2_mv >= MV_FULL &&
       cell4_mv >= MV_FULL &&
       cell5_mv >= MV_FULL) {
-    if (!pack->fully_charged) {
-      // arrived at top end. if we never fully discharged,
-      // we don't know the actual capacity. if the capacity
-      // seems unrealistically low, reset to default capacity
-      if (pack->coulomb_max < MAX_CAPACITY * 0.4) {
-        // FIXME experiment with these numbers
-        pack->coulomb_cur = MAX_CAPACITY * 0.9;
-        pack->coulomb_max = MAX_CAPACITY * 0.9;
-      }
-    }
     pack->fully_charged = 1;
   } else {
     if (cell1_mv <= (MV_FULL-MV_HYST) &&
@@ -147,57 +154,113 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
     mon_all_fets_on(i2c);
   }
 
-  pack->volt = stack_mv/100.0; // default unit is centivolts
+  pack->volt = stack_cv/100.0; // default unit is centivolts
   pack->ampere = cc2_ma/1000.0; // default unit is mA
 
   // coulomb counting (gauge) -------------------
+  // 1C = 1A x 1s
 
-  float coulomb = pack->ampere * (ms_elapsed / 1000.0);
-  //printf("~~ coloumb: %.2f ~~ elapsed: %f ms\n", coulomb, ms_elapsed);
+  float coulomb = pack->ampere * (elapsed_real_ms / 1000.0);
+  if (pack->debug) {
+    float remain;
+    if (coulomb < 0) {
+      // charging, estimate time to full
+      remain = (pack->coulomb_cur - pack->coulomb_max) / (coulomb / (elapsed_real_ms / 1000.0));
+    } else {
+      remain = pack->coulomb_cur / (coulomb / (elapsed_real_ms / 1000.0));
+    }
+    int remain_min = remain/60.0;
+    int remain_sec = ((int)remain) % 60;
+    printf("# ~~ A: %.2f C: %.2f (%.2f/%.2f) ~~ elapsed: %.2f ~~ remain: %02d:%02d\n", pack->ampere, coulomb, pack->coulomb_cur, pack->coulomb_max, elapsed_real_ms, remain_min, remain_sec);
+  }
 
-  if (ms_elapsed > 0) {
+  if (elapsed_real_ms > 0) {
+    // count coulombs
     if (pack->undervolt) {
       // if we've hit the low voltage end and coulomb_cur > 0,
       // we've overestimated the capacity by coulomb_cur.
-      if (pack->coulomb_cur > 0) {
-        pack->coulomb_max -= pack->coulomb_cur;
+      if (pack->coulomb_cur >= 0) {
+        pack->coulomb_zero = pack->coulomb_cur;
       }
-      pack->coulomb_cur = 0;
-    } else if (pack->overvolt) {
-      // FIXME how to count balancing current?
-      // - we could stop counting during balancing.
-      pack->coulomb_max = pack->coulomb_cur;
     } else {
       pack->coulomb_cur -= coulomb;
     }
 
-    if (pack->coulomb_max > MAX_CAPACITY) {
-      pack->coulomb_max = MAX_CAPACITY;
+    // if pack is at rest, snap to voltage based estimation
+    // TODO this can be improved with a smoother curve formula
+    float volt = pack->volt;
+    bool gauge_very_low = (pack->coulomb_cur < (pack->coulomb_max * 0.1));
+    bool gauge_not_full = (pack->coulomb_cur <= (pack->coulomb_max * 0.95));
+    bool pack_discharging = (pack->ampere >= 0.1);
+    bool pack_at_rest = (pack->ampere > -0.05 && pack->ampere < 0.05);
+    float cells = 4;
+    float low_start = cells * 2.5;
+    float mid_start = cells * 3.1;
+    float high_start = cells * 3.3;
+    float low_range = mid_start - low_start;
+    float mid_range = high_start - mid_start;
+    bool voltage_low = (volt >= low_start && volt < mid_start);
+    bool voltage_mid = (volt >= mid_start && volt < high_start);
+    float gauge_range_low = 0.1; // 10%
+    float gauge_range_mid = 0.3;
+
+    float snap_to_coulomb = pack->coulomb_cur;
+    if (gauge_not_full && pack->fully_charged) {
+      // snap to 100% at the top
+      snap_to_coulomb = pack->coulomb_max;
+    } else if (gauge_very_low && voltage_mid) {
+      // snap in this area only if the gauge has been reset/is very off,
+      // as this part of the discharge curve is very flat
+      snap_to_coulomb = pack->coulomb_max * (gauge_range_low + gauge_range_mid * ((volt - mid_start) / mid_range));
+    } else if (voltage_low) {
+      // always snap at the bottom
+      snap_to_coulomb = pack->coulomb_max * (gauge_range_low * ((volt - low_start) / low_range));
     }
 
-    if (pack->coulomb_cur > pack->coulomb_max) pack->coulomb_max = pack->coulomb_cur;
+    if (pack_at_rest) {
+      // snap to voltage after 5+ seconds at rest
+      if (pack->ms_at_rest >= 5000 && snap_to_coulomb != pack->coulomb_cur) {
+        pack->coulomb_cur = snap_to_coulomb;
+      }
+      pack->ms_at_rest += elapsed_real_ms;
+      // track max 90 days
+      if (pack->ms_at_rest > 3600.0 * 1000 * 24 * 90) {
+	pack->ms_at_rest = 0;
+      }
+    } else {
+      pack->ms_at_rest = 0;
+      if (pack_discharging) {
+	if (gauge_very_low || voltage_low) {
+          pack->coulomb_cur = snap_to_coulomb;
+        }
+      }
+    }
+
+    // clip at 100%
+    if (pack->coulomb_cur > pack->coulomb_max) {
+      pack->coulomb_cur = pack->coulomb_max;
+    }
+
+    // clip at 0%
     if (pack->coulomb_cur < 0) {
-      // there's more in the pack than expected, add to _max
-      pack->coulomb_max -= pack->coulomb_cur;
+      // there's more in the pack than design capacity.
+      // TODO: handle this in a more sophisticated revision.
       pack->coulomb_cur = 0;
     }
 
-    if (pack->coulomb_max <= 0) {
-      pack->gauge_percent = 0;
-    } else {
-      pack->gauge_percent = (pack->coulomb_cur / pack->coulomb_max) * 100.0;
-    }
+    // convert to percentage
+    pack->gauge_percent = (pack->coulomb_cur / pack->coulomb_max) * 100.0;
   }
 
   // --------------------------------------------
 
-  //printf("[pack %d] monitor_read_subcommand...\n", pack->id);
+  //printf("[pack %d] mon_read_subcommand...\n", pack->id);
 
   uint8_t manufacturing_status = 0;
-  monitor_read_subcommand(i2c, 0x57, &manufacturing_status, 1);
+  mon_read_subcommand(i2c, 0x57, &manufacturing_status, 1);
   if (!(manufacturing_status & (1<<4))) {
     // FETs not enabled, setup the chip
-    monitor_setup(i2c);
+    battery_pack_setup(i2c);
   }
 
   uint8_t control_status = bq76922_read_byte(i2c, 0x00);
@@ -300,23 +363,23 @@ int pack_configure(struct BatteryPack* pack, float ms_elapsed) {
   bq76922_write_mem_u16(i2c, 0x0084, MV_BALANCE_ABOVE);
   /*if (cell4_mv > 3400) {
     bq76922_write_mem_u16(i2c, 0x0083, 8);
-  } else if (cell4_mv <= 3300) {
+    } else if (cell4_mv <= 3300) {
     bq76922_write_mem_u16(i2c, 0x0083, 0);
-  }*/
+    }*/
 
   if (pack->debug) {
-	  printf("\n[PACK %d] ===================================\n", pack->id);
-	  printf("cells: %.2fV %.2fV %.2fV %.2fV\n",
-			 pack->cells_v[0],
-			 pack->cells_v[1],
-			 pack->cells_v[2],
-			 pack->cells_v[3]);
-	  printf("current: %.2fA voltage: %.2fV\n", pack->ampere, pack->volt);
-	  printf("balancing: %016b\n", pack->bal_active_cells);
-	  printf("coulomb_cur/max: %.2f / %.2f\n", pack->coulomb_cur, pack->coulomb_max);
-	  printf("gauge_percent: %.2f\n", pack->gauge_percent);
-	  printf("fully_charged: %d\n", pack->fully_charged);
-	  printf("============================================\n\n");
+    printf("\n[PACK %d] ===================================\n", pack->id);
+    printf("cells: %.2fV %.2fV %.2fV %.2fV\n",
+	   pack->cells_v[0],
+	   pack->cells_v[1],
+	   pack->cells_v[2],
+	   pack->cells_v[3]);
+    printf("current: %.2fA voltage: %.2fV\n", pack->ampere, pack->volt);
+    printf("balancing: %016b\n", pack->bal_active_cells);
+    printf("coulomb_cur/max: %.2f / %.2f\n", pack->coulomb_cur, pack->coulomb_max);
+    printf("gauge_percent: %.2f\n", pack->gauge_percent);
+    printf("fully_charged: %d\n", pack->fully_charged);
+    printf("============================================\n\n");
   }
 
   return 1;
@@ -489,15 +552,8 @@ void monitor_config_update(i2c_inst_t* i2c) {
   //printf("[bq76] `-- CFGUPD (expect 0): %d\n", !!(battery_status & (1<<0)));
 }
 
-void monitor_setup(i2c_inst_t* i2c) {
-  int id = 0;
-  if (i2c == i2c1) id = 1;
-
-  printf("[bq76:%d] monitor_setup begin\n", id);
-
+void battery_pack_setup(i2c_inst_t* i2c) {
   monitor_config_update(i2c);
   mon_sleep_off(i2c);
   mon_toggle_fet_en(i2c);
-
-  printf("[bq76:%d] monitor_setup done\n", id);
 }

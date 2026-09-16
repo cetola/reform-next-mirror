@@ -6,54 +6,66 @@
 #include <string.h>
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
+#include "sysctl.h"
 
 #define BQ76922_ADDR 0x08
 
 int bq76922_detect(i2c_inst_t* i2c) {
+  sysctl_disable_irqs();
   uint8_t addr = 0x00;
   uint8_t buf = 0x00;
   int res = i2c_write_blocking(i2c, BQ76922_ADDR, &addr, 1, true);
   if (res == PICO_ERROR_GENERIC) return res;
   res = i2c_read_blocking(i2c, BQ76922_ADDR, &buf, 1, false);
+  sysctl_enable_irqs();
   return res;
 }
 
 uint8_t bq76922_read_byte(i2c_inst_t* i2c, uint8_t addr)
 {
+  sysctl_disable_irqs();
   uint8_t buf;
   i2c_write_blocking(i2c, BQ76922_ADDR, &addr, 1, true);
   i2c_read_blocking(i2c, BQ76922_ADDR, &buf, 1, false);
+  sysctl_enable_irqs();
   return buf;
 }
 
 uint16_t bq76922_read_u16(i2c_inst_t* i2c, uint8_t addr)
 {
+  sysctl_disable_irqs();
   uint8_t buf[2] = {0,0};
   i2c_write_blocking(i2c, BQ76922_ADDR, &addr, 1, true);
   i2c_read_blocking(i2c, BQ76922_ADDR, buf, 2, false);
+  sysctl_enable_irqs();
   return (uint16_t)((buf[0]) | buf[1]<<8);
 }
 
 void bq76922_write_byte(i2c_inst_t* i2c, uint8_t addr, uint8_t byte)
 {
+  sysctl_disable_irqs();
   uint8_t buf[2] = {addr, byte};
   i2c_write_blocking(i2c, BQ76922_ADDR, buf, 2, false);
+  sysctl_enable_irqs();
 }
 
 void bq76922_write_i16(i2c_inst_t* i2c, uint8_t addr, int16_t word)
 {
+  sysctl_disable_irqs();
   uint8_t buf[3] = {addr, word&0xff, word>>8};
   i2c_write_blocking(i2c, BQ76922_ADDR, buf, 3, false);
+  sysctl_enable_irqs();
 }
 
 void bq76922_write_u16(i2c_inst_t* i2c, uint8_t addr, uint16_t word)
 {
+  sysctl_disable_irqs();
   uint8_t buf[3] = {addr, word&0xff, word>>8};
   i2c_write_blocking(i2c, BQ76922_ADDR, buf, 3, false);
+  sysctl_enable_irqs();
 }
 
 int bq76922_read_mem_u8(i2c_inst_t* i2c, uint16_t reg_addr, uint8_t* reg_data) {
-
   bq76922_write_byte(i2c, 0x3e, reg_addr & 0xff);
   bq76922_write_byte(i2c, 0x3f, reg_addr >> 8);
 
@@ -135,7 +147,7 @@ void bq76922_write_mem_u16(i2c_inst_t* i2c, uint16_t reg_addr, uint16_t reg_data
   bq76922_read_mem_u16(i2c, reg_addr, &buf);
 }
 
-int monitor_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int len) {
+int mon_read_subcommand(i2c_inst_t* i2c, uint8_t subcmd, uint8_t* buf, int len) {
   int tries = 0;
   int success = 0;
 

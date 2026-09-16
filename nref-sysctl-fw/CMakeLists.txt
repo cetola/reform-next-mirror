@@ -15,13 +15,22 @@ pico_sdk_init()
 add_executable(${PROJECT}
 	src/sysctl.c
 	src/fusb302b.c
-	src/next_gpio.c
-	src/next_pack.c
 	src/bq25792.c
 	src/bq76922.c
 	src/spi_com.c
 	src/uart_com.c
 	src/pd_com.c
+	src/cli.c
+	src/cli_usb.c
+	src/machine_next.c
+	src/next_charger.c
+	src/next_command.c
+	src/next_gpio.c
+	src/next_mux.c
+	src/next_pack.c
+	src/next_rail.c
+	src/next_led.c
+	src/forward_uart.c
 	src/usb_descriptors.c
 	"${CMAKE_CURRENT_BINARY_DIR}/inc-generated/ds20-descriptor.h"
 	"${SHARED_FW_SRC}/reset_interface.c"
