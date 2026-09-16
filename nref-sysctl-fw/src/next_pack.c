@@ -15,8 +15,6 @@
 #define I2C_TIMEOUT (1000*500)
 #include <bq76922.h>
 
-static float time_last_ms = 0;
-
 int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack *pack, [[maybe_unused]] float ms_elapsed) {
   // FIXME: this function itself shouldn't printf
   // as we're in an IRQ callback
@@ -32,10 +30,10 @@ int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack
   // later, we can write defaults to OTP memory
 
   float time_real_ms = to_ms_since_boot(get_absolute_time());
-  float elapsed_real_ms = time_real_ms - time_last_ms;
+  float elapsed_real_ms = time_real_ms - pack->time_last_ms;
   if (elapsed_real_ms < 1) elapsed_real_ms = 1; // protection against div by zero
   if (elapsed_real_ms > 10000) elapsed_real_ms = 10000; // clip
-  time_last_ms = time_real_ms;
+  pack->time_last_ms = time_real_ms;
 
   i2c_inst_t* i2c = pack->i2c;
 
@@ -164,50 +162,51 @@ int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack
 
   float coulomb = pack->ampere * (elapsed_real_ms / 1000.0);
   if (pack->debug) {
-    float remain = pack->coulomb_cur / (coulomb / (elapsed_real_ms / 1000.0));
+    float remain;
+    if (coulomb < 0) {
+      // charging, estimate time to full
+      remain = (pack->coulomb_cur - pack->coulomb_max) / (coulomb / (elapsed_real_ms / 1000.0));
+    } else {
+      remain = pack->coulomb_cur / (coulomb / (elapsed_real_ms / 1000.0));
+    }
     int remain_min = remain/60.0;
     int remain_sec = ((int)remain) % 60;
-    printf("# ~~ A: %.2f C: -%.2f (%.2f/%.2f) ~~ elapsed: %.2f ~~ remain: %02d:%02d\n", pack->ampere, coulomb, pack->coulomb_cur, pack->coulomb_max, elapsed_real_ms, remain_min, remain_sec);
+    printf("# ~~ A: %.2f C: %.2f (%.2f/%.2f) ~~ elapsed: %.2f ~~ remain: %02d:%02d\n", pack->ampere, coulomb, pack->coulomb_cur, pack->coulomb_max, elapsed_real_ms, remain_min, remain_sec);
   }
 
   if (elapsed_real_ms > 0) {
+    // count coulombs
     if (pack->undervolt) {
       // if we've hit the low voltage end and coulomb_cur > 0,
       // we've overestimated the capacity by coulomb_cur.
       if (pack->coulomb_cur >= 0) {
         pack->coulomb_zero = pack->coulomb_cur;
       }
-    } else if (pack->fully_charged) {
-      // TODO how to count balancing current?
-      // - we could stop counting during balancing.
-      // right now, just snap to the top end.
-      pack->coulomb_cur = pack->coulomb_max;
     } else {
-      // in a normal situation, just account.
       pack->coulomb_cur -= coulomb;
     }
 
     // if pack is at rest, snap to voltage based estimation
-    // TODO this can be improved with a linear regression based formula
+    // TODO this can be improved with a smoother curve formula
     float volt = pack->volt;
     bool gauge_very_low = (pack->coulomb_cur < (pack->coulomb_max * 0.1));
+    bool gauge_not_full = (pack->coulomb_cur <= (pack->coulomb_max * 0.95));
     bool pack_discharging = (pack->ampere >= 0.1);
     bool pack_at_rest = (pack->ampere > -0.05 && pack->ampere < 0.05);
     float cells = 4;
     float low_start = cells * 2.5;
     float mid_start = cells * 3.1;
-    float high_start = cells * 3.4;
+    float high_start = cells * 3.3;
     float low_range = mid_start - low_start;
     float mid_range = high_start - mid_start;
     bool voltage_low = (volt >= low_start && volt < mid_start);
     bool voltage_mid = (volt >= mid_start && volt < high_start);
-    bool voltage_high = (volt >= high_start);
-    float gauge_range_low = 0.2; // 20%
-    float gauge_range_mid = 0.79; // 99%
+    float gauge_range_low = 0.1; // 10%
+    float gauge_range_mid = 0.3;
 
     float snap_to_coulomb = pack->coulomb_cur;
-    if (voltage_high || pack->fully_charged) {
-      // always snap at the top
+    if (gauge_not_full && pack->fully_charged) {
+      // snap to 100% at the top
       snap_to_coulomb = pack->coulomb_max;
     } else if (gauge_very_low && voltage_mid) {
       // snap in this area only if the gauge has been reset/is very off,
@@ -220,7 +219,7 @@ int battery_pack_task([[maybe_unused]] struct machine* mach, struct battery_pack
 
     if (pack_at_rest) {
       // snap to voltage after 5+ seconds at rest
-      if (pack->ms_at_rest >= 5000) {
+      if (pack->ms_at_rest >= 5000 && snap_to_coulomb != pack->coulomb_cur) {
         pack->coulomb_cur = snap_to_coulomb;
       }
       pack->ms_at_rest += elapsed_real_ms;

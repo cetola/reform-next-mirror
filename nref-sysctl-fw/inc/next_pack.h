@@ -25,6 +25,7 @@ struct battery_pack {
   int undervolt;
   int fully_charged;
   float ms_at_rest;
+  float time_last_ms;
   // 1 coulomb = 1 amp * second
   float coulomb_max; // the design capacity (upper end)
   float coulomb_cur; // the current estimate
