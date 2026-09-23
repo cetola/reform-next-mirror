@@ -40,5 +40,6 @@ struct machine;
 
 int battery_pack_task(struct machine *mach, struct battery_pack *pack, float ms_elapsed);
 void battery_pack_setup(i2c_inst_t* i2c);
+void battery_packs_enter_ship_mode(struct machine *mach);
 
 #endif

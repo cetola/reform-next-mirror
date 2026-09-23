@@ -557,3 +557,11 @@ void battery_pack_setup(i2c_inst_t* i2c) {
   mon_sleep_off(i2c);
   mon_toggle_fet_en(i2c);
 }
+
+void battery_packs_enter_ship_mode(struct machine* mach) {
+  mon_sleep_on(mach->packs[0].i2c);
+  mon_sleep_on(mach->packs[1].i2c);
+  mon_discharge_fets_off(mach->packs[0].i2c);
+  mon_discharge_fets_off(mach->packs[1].i2c);
+  // at this point we should lose power (except if connected to AC)
+}

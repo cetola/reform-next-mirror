@@ -15,6 +15,7 @@
 #include "next_mux.h"
 #include "next_command.h"
 #include "next_charger.h"
+#include "next_pack.h"
 #include "forward_uart.h"
 
 #define LEGACY_BUF_SZ 128
@@ -250,6 +251,10 @@ uint64_t hwapi_soc_post_suspend([[maybe_unused]] struct cli_context* ctx) {
   return 1;
 }
 
+void hwapi_enter_ship_mode(struct cli_context* ctx) {
+  battery_packs_enter_ship_mode(ctx->mach);
+}
+
 uint64_t hwapi_get_cell_mv(struct cli_context* ctx, uint64_t cell_id) {
   struct machine* mach = get_mach(ctx);
   if (cell_id > 7) return 0;
@@ -436,6 +441,7 @@ void hwapi_init() {
   cli_add_func("soc-psus", hwapi_soc_post_suspend, 0, CLI_TYPE_UINT64);
   cli_add_func("uart-fwd", hwapi_set_uart_forwarding, 1, CLI_TYPE_VOID);
   cli_add_func("pwrsave\0", enter_powersave, 0, CLI_TYPE_VOID);
+  cli_add_func("shipmode", hwapi_enter_ship_mode, 0, CLI_TYPE_VOID);
   cli_add_func("vdm\0\0\0\0\0", hwapi_vdm, 2, CLI_TYPE_VOID);
   cli_add_func("vdm2\0\0\0\0", hwapi_vdm2, 2, CLI_TYPE_VOID);
   cli_add_func("pdcap\0\0\0", hwapi_pd_cap, 0, CLI_TYPE_VOID);

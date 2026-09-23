@@ -73,7 +73,7 @@ void next_rail_pd_aux_5v_disable() {
   gpio_ext_pd_disable(7);
 }
 
-// TODO implement
+// TODO implement deep sleep
 void enter_powersave() {
   // nop
 }
